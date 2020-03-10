@@ -9,7 +9,7 @@ $subpages = array();
 
 $bcs = array();
 		
-$gpd = array_merge ($site, array(
+$gdp = array_merge ($site, array(
 	"extra_js_scripts" => array(),
 	"extra_css_scripts" => array(),
 	"extra_onload" => "",
@@ -264,7 +264,7 @@ function writePage ($name, $d, $tnav=true)
 	else
 		{$pd["topNavbar"] = buildTopNav ($d["bcs"][0]);
 		 $pd["breadcrumbs"] = buildBreadcrumbs ($d["bcs"]);}
-
+	
 	$home = parseFootNotes ($d["content"], $d["footnotes"], 1);
 				
 	$pd["grid"] = array(
@@ -311,7 +311,7 @@ END;
 			"class" => "col-12 col-lg-12",	
 			"content" => '<table width="100%">'.$crows.'</table></br>'));						
 		}
-						
+					
 	$pd["body"] = buildSimpleBSGrid ($pd["grid"]);
 	$html = buildBootStrapNGPage ($pd);
 	$myfile = fopen("../docs/${use}.html", "w");
