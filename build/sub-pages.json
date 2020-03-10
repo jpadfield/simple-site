@@ -1,0 +1,23 @@
+{
+	"example-subpage-01": {
+		"parent": "about",
+		"title": "More detail might be needed in some areas",
+		"content": "<p>Sub pages can be set up to provide additional content without adding to the list of tabs at the top of the page. These are nested using a simple parent child relationship.</p>",
+		"footnotes": [],
+	"content right": "<img style=\"position:relative;width:100%;\" src=\"graphics/example_knowledge_graph.png\"/>"
+		},
+	"example-subpage-02": {
+		"parent": "about",
+		"title": "Another example of the same type of information",
+		"content": "<p>Lots of really great but simple text.</p>",
+		"footnotes": [],
+	"content right": ""
+		},
+	"example-sub-subpage-01": {
+		"parent": "example-subpage-01",
+		"title": "Probably not needed - more nesting",
+		"content": "<p>As the relationships work on a simple parent child structure more and more pages can be nested as required.</p>",
+		"footnotes": [],
+	"content right": ""
+		}
+}
