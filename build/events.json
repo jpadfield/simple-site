@@ -1,0 +1,32 @@
+{
+	"g1": {
+		"title": "Objects, Production Events, Creators and Further Events",
+		"models": ["object", "production", "artist", "event"],
+		"comment": "<p>Within this presentation, in the most generic sense an <b>object</b> is any physical or conceptual thing that needs to be discussed, examined or described. This can include complete cultural heritage objects such as paintings, sculptures, books & manuscripts, shards of pot, or even whole buildings. A specific <b>object</b> can also be a fragment, section or part of a complete cultural heritage object, such as a painting stretcher, scraps of paper, pieces of broken sculpture, and flakes of glaze/paint, or even analytical samples that have been deliberately removed. Actual museum objects, like paintings, are composed of several different sub-objects, such as paint layers, canvas, nail, etc. All of these different sub-objects can be described individually, if required.</p><p>Within this presentation, in the most generic sense a <b>creator/actor</b> is any person, groups or organisation involved with or responsible for the activities in a given event. This can include artists, authors and even conservation scientists who might take a sample from an object or carry out analytical work.</p><p><b>Further events</b> in an object’s life can cover a wide range of activities, including the commissioning of the work, its movement, any alterations or conservation treatments, additional changes of ownership, etc. Describing, in detail, the full range of these <b>further events</b> goes beyond the scope of this presentation, but the generic relationships common to most of them have been described.</p><p>Providing a full list of all the possible types of objects and creators that may be considered within conservation documentation goes well beyond the scope of this presentation. Where appropriate reference to and use of existing vocabularies xviii will be used within this work-package to define or identify these types.</p>"
+		},
+	"g2": {
+		"title": "Taking Samples",
+		"models": ["sampling"],
+		"comment": "<p>In the process of taking a sample from a heritage object a new object, the sample, is created. The main documentation issues to consider during a sampling procedure are to capture details and the location of the sample site and to record the reason and description of the actual part removal event, additional textual statements may also be needed and can be added as required.</p>"
+		},
+	"g3": {
+		"title": "Simple Image based Examinations",
+		"models": ["imageexam"],
+		"comment": "<p>Images are routinely taken to document cultural heritage objects and samples. These images can be captured using a wide range of imaging devices and procedures, from simple visible images to X-radiographs. This example is intended to describe the generic relationships, rather than any more specific details, methods or procedures of each process. Also, the schematic listed here is intended to cover the creation of an analogue film and it relationship to the image it carries, the additional digitisation event has not been specifically modelled, but it would closely follow the relationships included in the description of other events listed <a href=\"g1.html\">here</a>. When more detailed interpretations are required from individual pixel intensities or related spectral information, images need to be considered more as array of data points, with each pixel being described as an individual analytical measurement, which is considered further in the models listed <a href=\"g5.html\">here</a>.</p>"
+		},
+	"g4": {
+		"title": "Defining Areas of Interest and Image Annotation",
+		"models": ["areaofinterest"],
+		"comment": "<p>A large part of conservation documentation is related to describing or examining specific parts of an object, <b>Areas of Interest</b>. These <b>Areas</b> are commonly described as free text but is often helpful to mark them down by directly annotating appropriate images. Image annotation involves the identification of each specific <b>area of interest</b> on an image and capturing its specific location, size, and shape. The annotation can then be linked to a simple description or more complex further documentation, as required, in some form of presentation. This example shows the common relationships shared between defining “Areas of Interest” and annotating images.</p>"
+		},
+	"g5": {
+		"title": "Describing Measurements and Analytical Examinations",
+		"models": ["analysis", "number", "data", "versions"],
+		"comment": "<p>Conservation or Heritage science makes use of a wide range of analytical processes to examine, measure, and identify objects and the materials that they are composed of. The data gathered can range from a simple number to a complex multi-dimensional data array or images and spectra. In this section the generic relationships and events involved in all these processes have been broken down into stages, represented by a few specific examples. For more complex forms of analysis several of these stages would need to be joined together and, in some cases, this would need to be done several times. In the schematic diagrams shown in this section the term <b>Dimension</b> has been used to cover all types of single or groups of measured values, from simple widths and heights to more complex spectra and 3D data cubes. In addition, to allow the definition of further relationships the CIDOC CRM term <b>Information Object</b> has also been used to represent <b>data sets</b> as a whole.</p>"
+		},
+	"g6": {
+		"title": "Full knowledge graph",
+		"models": ["all"],
+		"comment": "<p>This example includes a combination of all of the other examples models provided here, showing how they connect together to form a larger knowledge network based on shared objects, people and events. This model is quite large and can be a bit harder to interpret.</p>"
+		}
+}

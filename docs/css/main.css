@@ -1,0 +1,10 @@
+.div-wrapper {
+    display: block;
+    max-height: 2000px;
+    overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+.jumbotron {
+	margin-top: 80px;
+	}
