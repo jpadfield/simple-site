@@ -489,7 +489,7 @@ END;
     <link rel="icon" href="$pageDetails[metaFavIcon]">
     <title>$pageDetails[metaTitle]</title>
     $cssScripts
-    <style type="text/css">
+    <style>
     $pageDetails[extra_css]
     </style>
   </head>
@@ -510,7 +510,7 @@ END;
     </div><!--/.container-->
     
     $jsScripts
-    <script type="text/javascript">
+    <script>
 			$pageDetails[extra_js]
 			$fn onLoad() {
 				$pageDetails[extra_onload]
