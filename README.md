@@ -1,6 +1,6 @@
 # simple-site
 
-This is a very simple set processes for creating a standard set of webpages based on a simple json file.
+This is a very simple set processes for creating a standard set of webpages based on a simple json file. 
 
 An example set of pages can be seen at: [simple-site](https://jpadfield.github.io/simple-site/)
 
