@@ -6,7 +6,10 @@ name: Build GH Pages
 # events but only for the master branch
 on:
   push:
-    branches: [ master ]
+    branches: 
+      - 'master'
+    paths: 
+      - 'docs/*.json'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -23,15 +26,11 @@ jobs:
     # Runs commands using the runners shell
     - name: Run the build php script
       run: |
-        echo $PWD
         cd build
         php build.php
-        ls -la ./
         cd ../
-        ls -la ./docs
     - name: Commit files  # transfer the new html files back into the repository
       run: |
-        echo $PWD
         git config --local user.name "jpadfield"
         git add ./docs
         git commit -m "Updating the repository GitHub html pages in the docs folder"
