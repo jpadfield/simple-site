@@ -25,11 +25,11 @@ jobs:
       run: |
         cd build
         php build.php
-#    - name: Commit files  # transfer the new html files back into the repository
-#      run: |
-#        git config --local user.email "joseph.padfield@ng-london.org.uk"
-#        git config --local user.name "jpadfield"
-#        git commit -m "Add changes" -a
+    - name: Commit files  # transfer the new html files back into the repository
+      run: |
+        git config --local user.email "joseph.padfield@ng-london.org.uk"
+        git config --local user.name "jpadfield"
+        git commit -m "Add changes" -a
 #    - name: Push changes  # push the output folder to your repo
 #      uses: ad-m/github-push-action@master
 #      with:
