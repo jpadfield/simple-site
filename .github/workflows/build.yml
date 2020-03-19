@@ -25,7 +25,7 @@ jobs:
     - name: Run the build php script
       run: |
         cd build
-        php build.php
+        php build.php  # This file reads a few json files and then creates a set of html files in the doc folder
         cd ../
     - name: Commit files  # transfer the new html files back into the repository
       run: |
