@@ -19,5 +19,11 @@
 	"content": "<p>This system was set up to allow a series of github repositories to have similar sets of supporting webpages with minimal effort for each one.</p>",
 	"footnotes": [],
 	"content right": ""		
+	},
+"test": {
+	"title": "National Gallery - Simple Site Example",
+	"content": "<p>Simply testing the system.</p>",
+	"footnotes": [],
+	"content right": ""		
 	}
 }
