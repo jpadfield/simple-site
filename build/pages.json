@@ -19,5 +19,11 @@
 	"content": "<p>This system was set up to allow a series of github repositories to have similar sets of supporting webpages with minimal effort for each one.</p>",
 	"footnotes": [],
 	"content right": ""		
+	},
+"more": {
+	"title": "National Gallery - Simple Site Example",
+	"content": "<p>New html pages are created when any of the json files are edited.</p>",
+	"footnotes": [],
+	"content right": ""		
 	}
 }
