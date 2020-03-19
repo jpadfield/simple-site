@@ -23,11 +23,15 @@ jobs:
     # Runs commands using the runners shell
     - name: Run the build php script
       run: |
+        echo $PWD
         cd build
         php build.php
+        ls -la ./
         cd ../
+        ls -la ./docs
     - name: Commit files  # transfer the new html files back into the repository
       run: |
+        echo $PWD
         git config --local user.name "jpadfield"
         git add ./docs
         git commit -m "Updating the repository GitHub html pages in the docs folder"
