@@ -7,8 +7,8 @@ name: Build GH Pages
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+#  pull_request:
+#    branches: [ master ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -27,3 +27,17 @@ jobs:
       run: |
         cd build
         php build.php
+        cd ../
+    - name: Commit files  # transfer the new html files back into the repository
+      run: |
+        git config --local user.email "joseph.padfield@ng-london.org.uk"
+        git config --local user.name "jpadfield"
+        git add ./docs/*.html
+        git commit -m "Automatic update of new html files"
+    - name: Push changes    # push the output folder to your repo
+       uses: ad-m/github-push-action@master
+       with:
+         branch: master   #ignore if your branch is master
+         github_token: ${{ secrets.GITHUB_TOKEN }}
+         force: true
+    
