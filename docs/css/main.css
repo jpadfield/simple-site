@@ -8,3 +8,64 @@
 .jumbotron {
 	margin-top: 80px;
 	}
+
+.licence {
+	white-space: nowrap;
+	color:gray;
+	}
+
+.footnote {
+	font-size:smaller;
+	}
+
+img.logo {
+	height:32px;
+	}
+
+/*
+*
+* ==========================================
+* CUSTOM UTIL CLASSES
+* ==========================================
+*
+*/
+
+.top-item {
+	background-color: #e9ecef !important;
+	}
+
+.top-item:hover {
+	background-color: #b9bcbf !important;
+	color: white !important;
+	}
+
+.dropdown-item:active {
+	background-color: #343a40!important;
+	}
+	
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu>a:after {
+  content: "\f0da";
+  float: none;
+  vertical-align: 0em;
+  border: none;
+  font-family: 'FontAwesome';
+}
+
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: 0px;
+  margin-left: 0px;
+}
+
+@media (min-width: 991px) {
+  .dropdown-menu {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* ******************************************* */

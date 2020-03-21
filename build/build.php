@@ -1,20 +1,53 @@
 <?php
 
-//require_once '../../d3-process-map/common.php';
-
 $site = getRemoteJsonDetails("site.json", false, true);
+if (!is_array($site) or count($site) < 1)
+	{exit("\nERROR: Sorry your site.json file has not been opened correctly please check you json formatting and try vaildating it using a web-site similar to https://jsonlint.com/\n\n");}
 $pages = getRemoteJsonDetails("pages.json", false, true);
+if (!is_array($pages) or count($pages) < 1)
+	{exit("\nERROR: Sorry your pages.json file has not been opened correctly please check you json formatting and try vaildating it using a web-site similar to https://jsonlint.com/\n\n");}
 $raw_subpages = getRemoteJsonDetails("sub-pages.json", false, true);
-$subpages = array();
+if (!is_array($raw_subpages) or count($raw_subpages) < 1)
+	{exit("\nERROR: Sorry your sub-pages.json file has not been opened correctly please check you json formatting and try vaildating it using a web-site similar to https://jsonlint.com/\n\n");}
 
+$menuList = array();
+$subpages = array();
 $bcs = array();
-		
-$gdp = array_merge ($site, array(
-	"extra_js_scripts" => array(),
+
+$defaults = array(
+	"metaDescription" => "The National Gallery, London, ".
+		"Scientific Department, is involved with research within a wide ".
+		"range of fields, this page presents an example of some of the ".
+		"work carried out.",
+	"metaKeywords" => "The National Gallery, London, ".
+		"National Gallery London, Scientific, Research, Heritage, Culture",
+	"metaAuthor" => "Joseph Padfield| joseph.padfield@ng-london.org.uk |".
+			"National Gallery | London UK | website@ng-london.org.uk |".
+			" www.nationalgallery.org.uk",
+	"metaTitle" => "NG Test Page",
+	"metaFavIcon" => "https://www.nationalgallery.org.uk/custom/ng/img/icons/favicon.ico",
+	"extra_js_scripts" => array(), 
 	"extra_css_scripts" => array(),
+	"extra_css" => "",
+	"extra_js" => "",
+	"logo_link" => "",
+	"logo_path" => "graphics/ng-logo-white-100x40.png",
+	"logo_style" => "",
 	"extra_onload" => "",
-	"extra_js" => ""
-	));   
+	"topNavbar" => "",
+	"body" => "",
+	"fluid" => false,
+	"offcanvas" => false,
+	"footer" => "&copy; The National Gallery 2020</p>",
+	"footer2" => false,
+	"licence" => false,
+	"extra_logos" => array(),
+	"breadcrumbs" => false
+	);
+				
+$gdp = array_merge ($defaults, $site);   
+
+$html_path = "../docs/";
 		
 buildExamplePages ();	
 	
@@ -25,14 +58,14 @@ function prg($exit=false, $alt=false, $noecho=false)
 	else {$out = $alt;}
 	
 	ob_start();
-	echo "<pre class=\"wrap\">";
+	//echo "<pre class=\"wrap\">";
 	if (is_object($out))
 		{var_dump($out);}
 	else
 		{print_r ($out);}
-	echo "</pre>";
+	echo "\n";//</pre>";
 	$out = ob_get_contents();
-  ob_end_clean(); // Don't send output to client
+	ob_end_clean(); // Don't send output to client
   
 	if (!$noecho) {echo $out;}
 		
@@ -70,7 +103,7 @@ function parseFootNotes ($text, $footnotes, $sno=1)
 	$fcount = $sno;
 	
 	$text = preg_replace_callback('/\[[@][@]\]/', 'countFootNotes', $text);
-	$text = $text . "<div style=\"font-size:smaller;\"><ul>";
+	$text = $text . "<div class=\"foonote\"><ul>";
 	foreach ($footnotes as $j => $str)
 		{$k = $j + 1;
 		 $str = preg_replace_callback('/http[^\s]+/', 'addLinks', $str);
@@ -117,68 +150,75 @@ function buildSimpleBSGrid ($bdDetails = array())
 		return($html);
 		}
 
-function grouppage ($gds)//title, $comment, $group)
+function loopMenus ($str, $key, $arr, $no)
 	{
-	global $raw;
-	
-	$rows = array( 0 => 
-			array (
-				"class" => "col-12 col-lg-12",
-				"content" => $gds["comment"]));
+	global $pages, $raw_subpages;
 
-		$crows = "";
-		
-		foreach ($gds["models"] as $nm)// => $a)
-			{
-			$count = $raw[$nm]["count"];
-			$tag = $raw[$nm]["comment"];
-			
-			ob_start();			
-			echo <<<END
-				<tr>
-					<td><h4>$tag ($count - triples)</h4></td>
-					<td style="text-align:right;white-space: nowrap;">
-						<div class="btn-group" role="group" aria-label="Basic example">
-						<a class="btn btn-outline-primary" href="models/d3_${nm}.html" role="button">D3 Model</a>
-						<a class="btn btn-outline-success" href="models/mermaid_${nm}.html" role="button">Mermaid Model</a>
-						</div
-					</td>
-				</tr>
-END;
-			$crows .= ob_get_contents();
-			ob_end_clean(); // Don't send output to client			
-			}	
-			
-		$rows[] = array (
-				"class" => "col-12 col-lg-12",	
-				"content" => '<table width="100%">'.$crows.'</table></br>');
-					
-		$grid = array(
-			"topjumbotron" => "<h2>$gds[title]</h2>",
-			"bottomjumbotron" => "",//<h1>Goodbye, world!</h1> <p>We hoped you liked this great page.</p>",
-			"rows" => array($rows));
-			
-	return ($grid);
+	$str .= //'<li class="dropdown-divider"></li>'.
+		'<!-- Dropdown Loop '.$no.' -->';
+            
+	$str .= '<li class="dropdown-submenu">
+   <a id="dropdownMenu'.$no.'" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">'.ucfirst($key).'</a>
+		<ul aria-labelledby="dropdownMenu'.$no.'" class="dropdown-menu border-0 shadow">'.
+		'<li><a href="'.$key.'.html" class="dropdown-item  top-item">'.ucfirst($key).'</a></li>'.
+		'<li class="dropdown-divider"></li>';
+
+	foreach ($arr as $k => $a)
+		{
+		if (!$a)
+			{$str .= '<li><a href="'.$k.'.html" class="dropdown-item">'.
+				ucfirst($k).'</a></li>';}
+		else
+			{$str = loopMenus ($str, $k, $a, false, $no+1);}
+		}
+
+	$str .= '</ul></li><!-- End Loop '.$no.' -->'; 
+
+	return ($str);
 	}
-
-function buildTopNav ($name)
+	
+function buildTopNav ($name, $bcs=false)
 	{
-	global $pages;
+	global $pages, $menuList;
 	
 	$pnames = array_keys($pages);
 	$active = array("active", '<span class="sr-only">(current)</span>');
-	$html = "<div class=\"collapse navbar-collapse\" id=\"navbarsExampleDefault\"><ul class=\"navbar-nav\">";
+	$html = "<div class=\"collapse navbar-collapse\" id=\"navbarsExampleDefault\"><ul class=\"navbar-nav\">
+";
+
+	$no = 1;	
 	
 	foreach ($pnames as $pname)
 		{if ($pname == "home") {$puse= "index";}
 		 else {$puse = $pname;}
 			 
 		 if ($pname == $name) {$a = $active;}
-			 else {$a = array("", "");}
-			 $html .= '<li class="nav-item '.$a[0].'"><a class="nav-link" href="'.
-				$puse.'.html">'.ucfirst($pname).$a[1].'</a></li>';}
+		 else {$a = array("", "");}
+		 
+		 if (isset($menuList[$pname]))
+			{
+			$html .= '<!-- Dropdown Loop '.$no.' --><li class="nav-item dropdown '.$a[0].'">'.
+				'<a id="dropdownMenu'.$no.'" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">'.ucfirst($pname).$a[1].'</a>';
+			$html .= '<ul aria-labelledby="dropdownMenu'.$no.
+				'" class="dropdown-menu border-0 shadow">'.'<li><a href="'.
+				$puse.'.html" class="dropdown-item top-item">'.ucfirst($pname).'</a></li>'.
+				'<li class="dropdown-divider"></li>';
+			foreach ($menuList[$pname] as $k => $a)
+				{
+				if (!$a)
+					{$html .= '<li><a href="'.$k.'.html" class="dropdown-item">'.ucfirst($k).'</a></li>';}
+				else
+					{$html = loopMenus ($html, $k, $a, $no+1);}
+				}
+
+			$html .= '</ul></li><!-- End Loop '.$no.' -->'; 	
+			}
+		 else
+			{$html .= '<li class="nav-item '.$a[0].'"><a class="nav-link" href="'.
+			$puse.'.html">'.ucfirst($pname).$a[1].'</a></li>';}}
 	
-	$html .= "</ul></div>";		
+	$html .= "</ul></div>";
+	
 	return($html);
 	}
 	
@@ -188,26 +228,43 @@ function loopBreadcrumbs ($name, $arr=array())
 	
 	$arr[] = $name;
 	
-	if (!isset($pages[$name]))
-		{$arr = loopBreadcrumbs ($raw_subpages[$name]["parent"], $arr);}
-		
+	if ($name and !isset($pages[$name]) and isset($raw_subpages[$name]))
+		{$arr = loopBreadcrumbs ($raw_subpages[$name]["parent"], $arr);}	
+	
 	return ($arr);
+	}
+
+function buildMenuList ($a)
+	{
+	global $menuList;
+	foreach ($raw_subpages as $k => $a)
+		{}
+	
 	}
 	
 function buildExamplePages ()
 	{
-	global $gdp, $pages, $site, $raw_subpages, $subpages, $bcs;
+	global $gdp, $pages, $site, $raw_subpages, $subpages, $bcs,
+		$html_path, $menuList;
 	
-	$files = glob("../docs/*.html");
+	$files = glob($html_path."*.html");
 	
 	foreach ($files as $file)
 		{unlink ($file);}
-	
-	//foreach ($pages as $name => $d) {$bsc[$name] = array();}
-	
+
+	// add a timestamp page to mark most recent update and to force github
+	// to commit at least one new file as thus not return an error.
+	writeTSPage ();
+
+	//foreach ($pages as $name => $d)
+	//	{$menuList[$name] = array();}
+
 	foreach ($raw_subpages as $k => $a)
-		{$a["name"] = $k;
+		{$a["name"] = $k;		 
 		 $a["bcs"] = array_reverse(loopBreadcrumbs ($k));
+		 $tml = implode ("']['", $a["bcs"]);
+		 $tml = "\$menuList['".$tml."'] = array();";
+		 eval($tml);	 
 		 $raw_subpages[$k] = $a;
 		 $subpages[$a["parent"]][]= $a;}
 	
@@ -248,10 +305,21 @@ END;
 	
 	return($html);
 	}
+
+function writeTSPage ()
+	{
+	global $html_path;
+	
+	$ds = date("Y-m-d H:i:s");
+	$myfile = fopen($html_path."${ds}.html", "w");
+	$html = "<h2>Last updated on: $ds</h2>";
+	fwrite($myfile, $html);
+	fclose($myfile);
+	}
 	
 function writePage ($name, $d, $tnav=true)
 	{
-	global $subpages, $gdp;
+	global $subpages, $gdp, $menuList;
 	
 	$pd = $gdp;
 		
@@ -288,8 +356,9 @@ function writePage ($name, $d, $tnav=true)
 				array (
 					"class" => "col-6 col-lg-6",
 					"content" => $d["content right"]);}
-						
-	if (isset($subpages[$name]))
+
+	// Button links replaced with nested dropdown in nav bar				
+	/*if (isset($subpages[$name]))
 		{
 		$crows = "";
 			
@@ -298,7 +367,7 @@ function writePage ($name, $d, $tnav=true)
 			ob_start();			
 			echo <<<END
 			<tr>
-				<td style="text-align:right;">
+				<td>
 					<a class="btn btn-outline-dark btn-block" href="$a[name].html" role="button">$a[title]</a>
 				</td>
 			</tr>
@@ -310,7 +379,7 @@ END;
 		$pd["grid"]["rows"][] = array(array (
 			"class" => "col-12 col-lg-12",	
 			"content" => '<table width="100%">'.$crows.'</table></br>'));						
-		}
+		}*/
 					
 	$pd["body"] = buildSimpleBSGrid ($pd["grid"]);
 	$html = buildBootStrapNGPage ($pd);
@@ -318,19 +387,45 @@ END;
 	fwrite($myfile, $html);
 	fclose($myfile);
 	}
+
+function formatSubPages ($arr)
+	{
+	$items = "";
+	foreach ($arr as $g => $a)
+		{$items .= "<a class=\"dropdown-item\" href=\"$a[name].html\">".
+			"$a[title]</a>";}
+		
+	ob_start();			
+	echo <<<END
+<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Sub Pages
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">          
+          $items
+        </div>
+      </li>
+END;
+	$subpages = ob_get_contents();
+	ob_end_clean(); // Don't send output to client
+
+	return ($subpages);
+	}
 	
 function buildBootStrapNGPage ($pageDetails=array())
 	{	
 	$default_scripts = array(
 	"js-scripts" => array (
-		"jquery" => "js/jquery-3.2.1.min.js",
+		"jquery" => "js/jquery-3.4.1.min.js",
 		"tether" => "js/tether.min.js",
 		"bootstrap" => "js/bootstrap.min.js"),
 	"css-scripts" => array(
+		"fontawesome" => "http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css",
 		"main" => "css/main.css",
 		"bootstrap" => "css/bootstrap.min.css"));
 
-	$defaults = array(
+	/* Added before
+	 $defaults = array(
 		"metaDescription" => "The National Gallery, London, ".
 			"Scientific Department, is involved with research within a wide ".
 			"range of fields, this page presents an example of some of the ".
@@ -348,9 +443,8 @@ function buildBootStrapNGPage ($pageDetails=array())
 		"extra_js" => "",
 		"logo_link" => "",
 		"logo_path" => "graphics/ng-logo-white-100x40.png",
-		"logo_style" => "",//"height='32px';",
+		"logo_style" => "",
 		"extra_onload" => "",
-		//"extra_resize" => "", // probably will not need this any more 
 		"topNavbar" => "",
 		"body" => "",
 		"fluid" => false,
@@ -362,7 +456,33 @@ function buildBootStrapNGPage ($pageDetails=array())
 		"breadcrumbs" => false
 		);
 	 
-	$pageDetails = array_merge($defaults, $pageDetails);
+	$pageDetails = array_merge($defaults, $pageDetails);//*/
+
+	ob_start();			
+	echo <<<END
+$(function() {
+  // ------------------------------------------------------- //
+  // Multi Level dropdowns
+  // ------------------------------------------------------ //
+  $("ul.dropdown-menu [data-toggle='dropdown']").on("click", function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    $(this).siblings().toggleClass("show");
+
+
+    if (!$(this).next().hasClass('show')) {
+      $(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
+    }
+    $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) {
+      $('.dropdown-submenu .show').removeClass("show");
+    });
+
+  });
+});
+END;
+	$pageDetails["extra_onload"] .= ob_get_contents();
+	ob_end_clean(); // Don't send output to client
 
 	$pageDetails["css_scripts"] = array_merge(
 		$default_scripts["css-scripts"], $pageDetails["extra_css_scripts"]);
@@ -382,7 +502,7 @@ function buildBootStrapNGPage ($pageDetails=array())
 	<script src=\"$path\"></script>";}
 
 	if ($pageDetails["licence"])
-			{$tofu = '<div style="white-space: nowrap;color:gray;">'.$pageDetails["licence"].'</div>';}
+			{$tofu = '<div class="licence">'.$pageDetails["licence"].'</div>';}
 	else
 			{$tofu = '<div>This site was developed and is maintained by: 
 				<a href="mailto:joseph.padfield@ng-london.org.uk" 
@@ -396,7 +516,7 @@ function buildBootStrapNGPage ($pageDetails=array())
 		ob_start();			
 		echo <<<END
 			<a href="$lds[link]/">
-				<img id="ex-logo${exlno}" class="logo" style="height:32px;" title="$k" src="$lds[logo]" 
+				<img id="ex-logo${exlno}" class="logo" title="$k" src="$lds[logo]" 
 				style="$pageDetails[logo_style]" alt="$lds[alt]"/>
 		  </a>
 END;
