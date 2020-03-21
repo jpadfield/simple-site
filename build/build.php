@@ -420,7 +420,7 @@ function buildBootStrapNGPage ($pageDetails=array())
 		"tether" => "js/tether.min.js",
 		"bootstrap" => "js/bootstrap.min.js"),
 	"css-scripts" => array(
-		"fontawesome" => "http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css",
+		"fontawesome" => "https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css",
 		"main" => "css/main.css",
 		"bootstrap" => "css/bootstrap.min.css"));
 
