@@ -158,9 +158,9 @@ function loopMenus ($str, $key, $arr, $no)
 		'<!-- Dropdown Loop '.$no.' -->';
             
 	$str .= '<li class="dropdown-submenu">
-   <a id="dropdownMenu'.$no.'" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">'.ucfirst($key).'</a>
+   <a id="dropdownMenu'.$no.'" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle"title="Click to open the '.ucfirst($key).' menu">'.ucfirst($key).'</a>
 		<ul aria-labelledby="dropdownMenu'.$no.'" class="dropdown-menu border-0 shadow">'.
-		'<li><a href="'.$key.'.html" class="dropdown-item  top-item">'.ucfirst($key).'</a></li>'.
+		'<li><a href="'.$key.'.html" class="dropdown-item  top-item"> title="Click to open the '.ucfirst($key).' page"'.ucfirst($key).'</a></li>'.
 		'<li class="dropdown-divider"></li>';
 
 	foreach ($arr as $k => $a)
