@@ -4,11 +4,11 @@ This is a very simple set processes for creating a standard set of webpages base
 
 An example set of pages can be seen at: [simple-site](https://jpadfield.github.io/simple-site/)
 
-The content of the pages are controlled with three [json](https://en.wikipedia.org/wiki/JSON) files stored in the build folder, further details are supplied with in the build directory [ReadMe](./build/README.md) file:
+The content of the pages are controlled with three [json](https://en.wikipedia.org/wiki/JSON) files stored in the build folder, further details are supplied within the build directory [ReadMe](./build/README.md) file:
 
 * Various site wide details are defined within the [site.json](./build/site.json) file.
 * The content for the various main pages, which will be listed as tabs, are defined within the [pages.json](./build/pages.json) file.
-* Any required sub-pages can then also be defined within the [sub-pages.json](./build/sub-pages.json) file. These sub-pages, or even sub-sub-pages etc, will not be given main tabs, but will be listed as buttons beneath the appropriate main page.
+* Any required sub-pages can then also be defined within the [sub-pages.json](./build/sub-pages.json) file. These sub-pages, or even sub-sub-pages etc, will not be given main tabs, but will be listed within dropdown menus from the related main page tab.
 
 # Screenshots 
 <img src="./docs/graphics/example screenshot 01.png" width="50%" alt="Example Screenshot"><img src="./docs/graphics/example screenshot 02.png" width="50%" alt="Example Screenshot">
