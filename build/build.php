@@ -154,7 +154,7 @@ function loopMenus ($str, $key, $arr, $no)
 	{
 	global $pages, $raw_subpages;
 
-	$str .= //'<li class="dropdown-divider"></li>'.
+	$str .=
 		'<!-- Dropdown Loop '.$no.' -->';
             
 	$str .= '<li class="dropdown-submenu">
