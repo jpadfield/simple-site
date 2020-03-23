@@ -198,10 +198,10 @@ function buildTopNav ($name, $bcs=false)
 		 if (isset($menuList[$pname]))
 			{
 			$html .= '<!-- Dropdown Loop '.$no.' --><li class="nav-item dropdown '.$a[0].'">'.
-				'<a id="dropdownMenu'.$no.'" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">'.ucfirst($pname).$a[1].'</a>';
+				'<a id="dropdownMenu'.$no.'" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" title="Click to open the '.ucfirst($pname).' menu" >'.ucfirst($pname).$a[1].'</a>';
 			$html .= '<ul aria-labelledby="dropdownMenu'.$no.
 				'" class="dropdown-menu border-0 shadow">'.'<li><a href="'.
-				$puse.'.html" class="dropdown-item top-item">'.ucfirst($pname).'</a></li>'.
+				$puse.'.html" class="dropdown-item top-item" title="Click to open the '.ucfirst($pname).' page">'.ucfirst($pname).'</a></li>'.
 				'<li class="dropdown-divider"></li>';
 			foreach ($menuList[$pname] as $k => $a)
 				{
