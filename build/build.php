@@ -1,5 +1,6 @@
 <?php
 
+
 $site = getRemoteJsonDetails("site.json", false, true);
 if (!is_array($site) or count($site) < 1)
 	{exit("\nERROR: Sorry your site.json file has not been opened correctly please check you json formatting and try vaildating it using a web-site similar to https://jsonlint.com/\n\n");}
