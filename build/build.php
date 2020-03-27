@@ -663,12 +663,12 @@ function buildSpecialContent ($name, $d, $pd)
 		{
 		if (!isset($d["file"])) {$d["file"] = "NOTFOUND";}
 
-		$dets = '[]';
+		$mans = '[]';
 		$wo = '[]';
 		
 		if (file_exists($d["file"]))
 			{$dets = getRemoteJsonDetails($d["file"], false, true);
-			 $dets = json_encode($dets["manifests"]);			 
+			 $mans = json_encode($dets["manifests"]);			 
 			 
 			 if (isset($dets["windows"]))
 				{$wo = json_encode($dets["windows"]);}}
@@ -683,7 +683,7 @@ function buildSpecialContent ($name, $d, $pd)
          id: "viewer",
          layout: "1x1",
          buildPath: "tools/mirador/",
-         data: '.$dets.',
+         data: '.$mans.',
          windowObjects: '.$wo.',
          annotationEndpoint: {
            name:"Local Storage",
