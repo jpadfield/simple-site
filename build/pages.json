@@ -20,9 +20,9 @@
 	"footnotes": [],
 	"content right": ""		
 	},
-"more": {
-	"title": "National Gallery - Simple Site Example",
-	"content": "<p>New html pages are created when any of the json files are edited, and more.</p>",
+"timeline": {
+	"title": "National Gallery - Simple Site Example Timeline",
+	"content": "timeline.json",
 	"footnotes": [],
 	"content right": ""		
 	}
