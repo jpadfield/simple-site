@@ -665,9 +665,9 @@ function buildSpecialContent ($name, $d, $pd)
 		
 			
 		if (!file_exists($d["file"]))
-			{$dets = array();}
+			{$dets = '[]';}
 		else
-			{$dets = getRemoteJsonDetails($d["file"], false, true);}
+			{$dets = getRemoteJsonDetails($d["file"], false, false);}
 
 		$pd["extra_css_scripts"][] =
 			"tools/mirador/css/mirador-combined.css";
@@ -679,9 +679,7 @@ function buildSpecialContent ($name, $d, $pd)
          id: "viewer",
          layout: "1x1",
          buildPath: "tools/mirador/",
-         data: [
-           { manifestUri: "http://media.nga.gov/public/manifests/nga_highlights.json", location: "National Gallery of Art"}
-         ],
+         data: '.$dets.',
          windowObjects: [],
          annotationEndpoint: {
            name:"Local Storage",
@@ -690,10 +688,11 @@ function buildSpecialContent ($name, $d, $pd)
      });';
 			//use to hide the label used for the first line which is just in place to provide a margin/padding on the left.
 			$pd["extra_css"] .= "
-#viewer {
-       width: 100%;
-       height: 100%;
-       position: fixed;
+#viewer {       
+      display: block;
+      width: 100%;
+      height: 600px;
+      position: relative;
      }";
 
     $content .= '<div id="viewer"></div>';
