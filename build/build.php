@@ -336,8 +336,8 @@ function writePage ($name, $d, $tnav=true)
 		{$pd["topNavbar"] = buildTopNav ($d["bcs"][0]);
 		 $pd["breadcrumbs"] = buildBreadcrumbs ($d["bcs"]);}
 
-	if (in_array($name, $specialPages))
-		{$ta = buildSpecialContent($name, $d["content"], $pd);
+	if (isset($d["class"]) and in_array($d["class"], $specialPages))
+		{$ta = buildSpecialContent($name, $d, $pd);
 		 $content = $ta[0];
 		 $pd = $ta[1];}
 	else
@@ -655,20 +655,26 @@ END;
 
 // visualise with: https://mermaidjs.github.io/mermaid-live-editor test
 
-function buildSpecialContent ($name, $content, $pd)
+function buildSpecialContent ($name, $d, $pd)
 	{
-			
-	if ($name == "timeline")
+	$content = parseFootNotes ($d["content"], $d["footnotes"], 1);
+		
+	if ($d["class"] == "mirador")
 		{
-		$file = $content;
-		if (!file_exists($file))
-			{die("ERROR: $file missing\n");}
+
+		}
+	else if ($d["class"] == "timeline")
+		{
+		if (!isset($d["file"])) {$d["file"] = "NOTFOUND";}
+			
+		if (!file_exists($d["file"]))
+			{die("ERROR: $d[file] missing\n");}
 		else
 			{
-			$dets = getRemoteJsonDetails($file, false, true);
+			$dets = getRemoteJsonDetails($d["file"], false, true);
 
 			if (!isset($dets["start date"]))
-				{die("ERROR: $file format problems - 'start date' not found\n");}
+				{die("ERROR: $d[file] format problems - 'start date' not found\n");}
 		
 			$start = $dets["start date"];
 	
@@ -697,7 +703,7 @@ function buildSpecialContent ($name, $content, $pd)
 
 			$pd["extra_css_scripts"][] =
 				"https://mermaidjs.github.io/mermaid-live-editor/src.96cd87af.css";
-		/*	$pd["extra_js_scripts"][] =
+			$pd["extra_js_scripts"][] =
 				"https://cdn.jsdelivr.net/npm/mermaid@8.4.0/dist/mermaid.min.js";
 			$pd["extra_onload"] .= "
 	mermaid.ganttConfig = {
@@ -707,10 +713,10 @@ function buildSpecialContent ($name, $content, $pd)
     topPadding:50,
     sidePadding:50
 		}
-console.log(mermaid.render);
+//console.log(mermaid.render);
   mermaid.initialize({startOnLoad:true, flowchart: { 
     curve: 'basis' 
-  }});";*/
+  }});";
 			//use to hide the label used for the first line which is just in place to provide a margin/padding on the left.
 			$pd["extra_css"] .= "
 g a {color:inherit;}
@@ -724,25 +730,12 @@ gantt
        title $dets[project]	
        $str
 	</div>
-	  <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.0/dist/mermaid.min.js"></script>
-  <script>
-  mermaid.ganttConfig = {
-    titleTopMargin:25,
-    barHeight:20,
-    barGap:4,
-    topPadding:50,
-    sidePadding:50
-		}
-console.log(mermaid.render);
-  mermaid.initialize({startOnLoad:true, flowchart: { 
-    curve: 'basis' 
-  }});</script>
 END;
-			$html = ob_get_contents();
+			$content .= ob_get_contents();
 			ob_end_clean(); // Don't send output to client
 			}	
 		}
-	return (array($html, $pd));
+	return (array($content, $pd));
 	}
 	
 function dA ($v)

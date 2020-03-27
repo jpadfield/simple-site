@@ -20,9 +20,19 @@
 	"footnotes": [],
 	"content right": ""		
 	},
-"timeline": {
+"plan": {
+	"class": "timeline",
+	"file": "timeline.json",
+	"title": "Simple Site Example Timeline",
+	"content": "<p>We should be able to have some comments here too</p>",
+	"footnotes": [],
+	"content right": ""		
+	},
+"images": {
+	"class": "mirador",
+	"file": "mirador.json",
 	"title": "National Gallery - Simple Site Example Timeline",
-	"content": "timeline.json",
+	"content": "My own personal collection of images",
 	"footnotes": [],
 	"content right": ""		
 	}
