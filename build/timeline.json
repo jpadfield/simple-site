@@ -15,7 +15,7 @@
 			"title": "Workshops",
 			"stages": [
 				["Organise Workshop 1", "", 2, "5,20"],
-				["Workshop 1 - The Beginning", "5,20", "5,21"],
+				["Workshop 1 - The Beginning", "crit", "5,20", "5,21"],
 				["Organise Workshop 2",	"", 6, 9],
 				["Workshop 2 - The Middle", "crit, active", 9, 10],
 				["Organise Workshop 3 – Document available resources and development ideas", "", 10, 18],
