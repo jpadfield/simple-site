@@ -663,11 +663,11 @@ function buildSpecialContent ($name, $d, $pd)
 		{
 		if (!isset($d["file"])) {$d["file"] = "NOTFOUND";}
 		
-			
 		if (!file_exists($d["file"]))
 			{$dets = '[]';}
 		else
-			{$dets = getRemoteJsonDetails($d["file"], false, false);}
+			{$dets = getRemoteJsonDetails($d["file"], false, true);
+			 $dets = json_encode($dets["manifests"]);}
 
 		$pd["extra_css_scripts"][] =
 			"tools/mirador/css/mirador-combined.css";
