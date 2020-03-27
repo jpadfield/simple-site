@@ -35,7 +35,7 @@ g a {color:inherit;}
    <a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the Example-subpage-01 menu">Example-subpage-01</a>
 		<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow"><li><a href="example-subpage-01.html" class="dropdown-item  top-item" title="Click to open the Example-subpage-01 page">Example-subpage-01</a></li><li class="dropdown-divider"></li><!-- Dropdown Loop  --><li class="dropdown-submenu">
    <a id="dropdownMenu" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the Example-sub-subpage-01 menu">Example-sub-subpage-01</a>
-		<ul aria-labelledby="dropdownMenu" class="dropdown-menu border-0 shadow"><li><a href="example-sub-subpage-01.html" class="dropdown-item  top-item" title="Click to open the Example-sub-subpage-01 page">Example-sub-subpage-01</a></li><li class="dropdown-divider"></li><li><a href="example-sub-sub-subpage-01.html" class="dropdown-item">Example-sub-sub-subpage-01</a></li></ul></li><!-- End Loop  --></ul></li><!-- End Loop 2 --><li><a href="example-subpage-02.html" class="dropdown-item">Example-subpage-02</a></li></ul></li><!-- End Loop 1 --><li class="nav-item active"><a class="nav-link" href="timeline.html">Timeline<span class="sr-only">(current)</span></a></li></ul></div>
+		<ul aria-labelledby="dropdownMenu" class="dropdown-menu border-0 shadow"><li><a href="example-sub-subpage-01.html" class="dropdown-item  top-item" title="Click to open the Example-sub-subpage-01 page">Example-sub-subpage-01</a></li><li class="dropdown-divider"></li><li><a href="example-sub-sub-subpage-01.html" class="dropdown-item">Example-sub-sub-subpage-01</a></li></ul></li><!-- End Loop  --></ul></li><!-- End Loop 2 --><li><a href="example-subpage-02.html" class="dropdown-item">Example-subpage-02</a></li></ul></li><!-- End Loop 1 --><li class="nav-item active"><a class="nav-link" href="plan.html">Plan<span class="sr-only">(current)</span></a></li><li class="nav-item "><a class="nav-link" href="images.html">Images</a></li></ul></div>
 			
     <span class="navbar-text">
       			<a href="https://github.com/jpadfield/simple-site/">
@@ -47,7 +47,7 @@ g a {color:inherit;}
 			<div class="row ">				
 			 <div class="col-12 col-md-12">          
 				
-				<div class="jumbotron"><h2>National Gallery - Simple Site Example Timeline</h2></div><div class="row"><div class="col-12 col-lg-12"></div><!--/span--></div><!--/row-->    <div class="row"><div class="col-12 col-lg-12">	<div class="mermaid">
+				<div class="jumbotron"><h2>Simple Site Example Timeline</h2></div><div class="row"><div class="col-12 col-lg-12"></div><!--/span--></div><!--/row-->    <div class="row"><div class="col-12 col-lg-12"><p>We should be able to have some comments here too</p><div class="foonote"><ul></ul></div>	<div class="mermaid">
 gantt
        dateFormat  YYYY-MM-DD
        title Simple Site Time Line Example	
@@ -78,20 +78,7 @@ gantt
 	section Reporting
 		Complete and Deliver Final Rreport :crit, active, rp0, 2021-11-27, 2021-12-27
 
-	</div>
-	  <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.0/dist/mermaid.min.js"></script>
-  <script>
-  mermaid.ganttConfig = {
-    titleTopMargin:25,
-    barHeight:20,
-    barGap:4,
-    topPadding:50,
-    sidePadding:50
-		}
-console.log(mermaid.render);
-  mermaid.initialize({startOnLoad:true, flowchart: { 
-    curve: 'basis' 
-  }});</script></div><!--/span--></div><!--/row-->    <br/>
+	</div></div><!--/span--></div><!--/row-->    <br/>
 			</div><!--/span-->
 			
 			
@@ -112,10 +99,22 @@ console.log(mermaid.render);
 	<script src="js/jquery-3.4.1.min.js"></script>
 	<script src="js/tether.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.0/dist/mermaid.min.js"></script>
     <script>
 			
 			function onLoad() {
-				$(function() {
+				
+	mermaid.ganttConfig = {
+    titleTopMargin:25,
+    barHeight:20,
+    barGap:4,
+    topPadding:50,
+    sidePadding:50
+		}
+//console.log(mermaid.render);
+  mermaid.initialize({startOnLoad:true, flowchart: { 
+    curve: 'basis' 
+  }});$(function() {
   // ------------------------------------------------------- //
   // Multi Level dropdowns
   // ------------------------------------------------------ //
