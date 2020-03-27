@@ -678,7 +678,7 @@ function buildSpecialContent ($name, $d, $pd)
        myMiradorInstance = Mirador({
          id: "viewer",
          layout: "1x1",
-         buildPath: "mirador/",
+         buildPath: "tools/mirador/",
          data: [
            { manifestUri: "http://media.nga.gov/public/manifests/nga_highlights.json", location: "National Gallery of Art"}
          ],
