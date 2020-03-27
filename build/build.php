@@ -662,12 +662,16 @@ function buildSpecialContent ($name, $d, $pd)
 	if ($d["class"] == "mirador")
 		{
 		if (!isset($d["file"])) {$d["file"] = "NOTFOUND";}
+
+		$dets = '[]';
+		$wo = '[]';
 		
-		if (!file_exists($d["file"]))
-			{$dets = '[]';}
-		else
+		if (file_exists($d["file"]))
 			{$dets = getRemoteJsonDetails($d["file"], false, true);
-			 $dets = json_encode($dets["manifests"]);}
+			 $dets = json_encode($dets["manifests"]);			 
+			 
+			 if (isset($dets["windows"]))
+				{$wo = json_encode($dets["windows"]);}}
 
 		$pd["extra_css_scripts"][] =
 			"tools/mirador/css/mirador-combined.css";
@@ -680,7 +684,7 @@ function buildSpecialContent ($name, $d, $pd)
          layout: "1x1",
          buildPath: "tools/mirador/",
          data: '.$dets.',
-         windowObjects: [],
+         windowObjects: '.$wo.',
          annotationEndpoint: {
            name:"Local Storage",
            module: "LocalStorageEndpoint" }
