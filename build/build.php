@@ -11,7 +11,7 @@ $raw_subpages = getRemoteJsonDetails("sub-pages.json", false, true);
 if (!is_array($raw_subpages) or count($raw_subpages) < 1)
 	{exit("\nERROR: Sorry your sub-pages.json file has not been opened correctly please check you json formatting and try vaildating it using a web-site similar to https://jsonlint.com/\n\n");}
 
-$specialPages = array("timeline");
+$specialPages = array("timeline", "mirador");
 
 $menuList = array();
 $subpages = array();
@@ -661,7 +661,42 @@ function buildSpecialContent ($name, $d, $pd)
 		
 	if ($d["class"] == "mirador")
 		{
+		if (!isset($d["file"])) {$d["file"] = "NOTFOUND";}
+		
+			
+		if (!file_exists($d["file"]))
+			{$dets = array();}
+		else
+			{$dets = getRemoteJsonDetails($d["file"], false, true);}
 
+		$pd["extra_css_scripts"][] =
+			"tools/mirador/css/mirador-combined.css";
+		$pd["extra_js_scripts"][] =
+			"tools/mirador/mirador.min.js";
+		$pd["extra_js"] .= '
+	$(function() {
+       myMiradorInstance = Mirador({
+         id: "viewer",
+         layout: "1x1",
+         buildPath: "mirador/",
+         data: [
+           { manifestUri: "http://media.nga.gov/public/manifests/nga_highlights.json", location: "National Gallery of Art"}
+         ],
+         windowObjects: [],
+         annotationEndpoint: {
+           name:"Local Storage",
+           module: "LocalStorageEndpoint" }
+       });
+     });';
+			//use to hide the label used for the first line which is just in place to provide a margin/padding on the left.
+			$pd["extra_css"] .= "
+#viewer {
+       width: 100%;
+       height: 100%;
+       position: fixed;
+     }";
+
+    $content .= '<div id="viewer"></div>';
 		}
 	else if ($d["class"] == "timeline")
 		{
