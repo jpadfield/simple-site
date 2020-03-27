@@ -697,7 +697,7 @@ function buildSpecialContent ($name, $content, $pd)
 
 			$pd["extra_css_scripts"][] =
 				"https://mermaidjs.github.io/mermaid-live-editor/src.96cd87af.css";
-			$pd["extra_js_scripts"][] =
+		/*	$pd["extra_js_scripts"][] =
 				"https://cdn.jsdelivr.net/npm/mermaid@8.4.0/dist/mermaid.min.js";
 			$pd["extra_onload"] .= "
 	mermaid.ganttConfig = {
@@ -710,7 +710,7 @@ function buildSpecialContent ($name, $content, $pd)
 console.log(mermaid.render);
   mermaid.initialize({startOnLoad:true, flowchart: { 
     curve: 'basis' 
-  }});";
+  }});";*/
 			//use to hide the label used for the first line which is just in place to provide a margin/padding on the left.
 			$pd["extra_css"] .= "
 g a {color:inherit;}
@@ -724,6 +724,19 @@ gantt
        title $dets[project]	
        $str
 	</div>
+	  <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.0/dist/mermaid.min.js"></script>
+  <script>
+  mermaid.ganttConfig = {
+    titleTopMargin:25,
+    barHeight:20,
+    barGap:4,
+    topPadding:50,
+    sidePadding:50
+		}
+console.log(mermaid.render);
+  mermaid.initialize({startOnLoad:true, flowchart: { 
+    curve: 'basis' 
+  }});</script>
 END;
 			$html = ob_get_contents();
 			ob_end_clean(); // Don't send output to client

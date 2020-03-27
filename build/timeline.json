@@ -44,7 +44,7 @@
 		"rp": {
 			"title": "Reporting",
 			"stages": [
-				["Complete and Deliver final report",	"crit, active", 20, 21] 
+				["Complete and Deliver Final Rreport",	"crit, active", 20, 21] 
 			]}
 		}
 	}
