@@ -76,9 +76,22 @@ gantt
 		Evaluation of demonstration deliverables :crit, active, pd0, 2021-10-27, 2021-11-27
 		Presentation of demonstration deliverables :crit, active, pd1, 2021-11-27, 2021-12-27
 	section Reporting
-		Complete and Deliver final report :crit, active, rp0, 2021-11-27, 2021-12-27
+		Complete and Deliver Final Rreport :crit, active, rp0, 2021-11-27, 2021-12-27
 
-	</div></div><!--/span--></div><!--/row-->    <br/>
+	</div>
+	  <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.0/dist/mermaid.min.js"></script>
+  <script>
+  mermaid.ganttConfig = {
+    titleTopMargin:25,
+    barHeight:20,
+    barGap:4,
+    topPadding:50,
+    sidePadding:50
+		}
+console.log(mermaid.render);
+  mermaid.initialize({startOnLoad:true, flowchart: { 
+    curve: 'basis' 
+  }});</script></div><!--/span--></div><!--/row-->    <br/>
 			</div><!--/span-->
 			
 			
@@ -99,22 +112,10 @@ gantt
 	<script src="js/jquery-3.4.1.min.js"></script>
 	<script src="js/tether.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.0/dist/mermaid.min.js"></script>
     <script>
 			
 			function onLoad() {
-				
-	mermaid.ganttConfig = {
-    titleTopMargin:25,
-    barHeight:20,
-    barGap:4,
-    topPadding:50,
-    sidePadding:50
-		}
-console.log(mermaid.render);
-  mermaid.initialize({startOnLoad:true, flowchart: { 
-    curve: 'basis' 
-  }});$(function() {
+				$(function() {
   // ------------------------------------------------------- //
   // Multi Level dropdowns
   // ------------------------------------------------------ //
