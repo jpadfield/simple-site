@@ -684,7 +684,7 @@ function buildSpecialContent ($name, $d, $pd)
          layout: "1x1",
          buildPath: "tools/mirador/",
          data: '.$mans.',
-         windowObjects: '.$wo.',
+         "windowObjects": '.$wo.',
          annotationEndpoint: {
            name:"Local Storage",
            module: "LocalStorageEndpoint" }
