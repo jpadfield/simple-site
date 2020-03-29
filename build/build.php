@@ -674,9 +674,9 @@ function buildSpecialContent ($name, $d, $pd)
 				{$wo = json_encode($dets["windows"]);}}
 
 		$pd["extra_css_scripts"][] =
-			"tools/mirador/css/mirador-combined.css";
+			"https://tanc-ahrc.github.io/mirador/mirador/css/mirador-combined.css";
 		$pd["extra_js_scripts"][] =
-			"tools/mirador/mirador.min.js";
+			"https://tanc-ahrc.github.io/mirador/mirador/mirador.min.js";
 		$pd["extra_js"] .= '
 	$(function() {
        myMiradorInstance = Mirador({
