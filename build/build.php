@@ -682,7 +682,7 @@ function buildSpecialContent ($name, $d, $pd)
        myMiradorInstance = Mirador({
          id: "viewer",
          layout: "1x1",
-         buildPath: "tools/mirador/",
+         buildPath: "mirador/",
          data: '.$mans.',
          "windowObjects": '.$wo.',
          annotationEndpoint: {
