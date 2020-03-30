@@ -433,40 +433,6 @@ function buildBootStrapNGPage ($pageDetails=array())
 		"main" => "css/main.css"
 		));
 
-	/* Added before
-	 $defaults = array(
-		"metaDescription" => "The National Gallery, London, ".
-			"Scientific Department, is involved with research within a wide ".
-			"range of fields, this page presents an example of some of the ".
-			"work carried out.",
-		"metaKeywords" => "The National Gallery, London, ".
-			"National Gallery London, Scientific, Research, Heritage, Culture",
-		"metaAuthor" => "Joseph Padfield| joseph.padfield@ng-london.org.uk |".
-			"National Gallery | London UK | website@ng-london.org.uk |".
-			" www.nationalgallery.org.uk",
-		"metaTitle" => "NG Test Page",
-		"metaFavIcon" => "https://www.nationalgallery.org.uk/custom/ng/img/icons/favicon.ico",
-		"extra_js_scripts" => array(), 
-		"extra_css_scripts" => array(),
-		"extra_css" => "",
-		"extra_js" => "",
-		"logo_link" => "",
-		"logo_path" => "graphics/ng-logo-white-100x40.png",
-		"logo_style" => "",
-		"extra_onload" => "",
-		"topNavbar" => "",
-		"body" => "",
-		"fluid" => false,
-		"offcanvas" => false,
-		"footer" => "&copy; The National Gallery 2020</p>",
-		"footer2" => false,
-		"licence" => false,
-		"extra_logos" => array(),
-		"breadcrumbs" => false
-		);
-	 
-	$pageDetails = array_merge($defaults, $pageDetails);//*/
-
 	ob_start();			
 	echo <<<END
 $(function() {
@@ -674,6 +640,9 @@ function buildSpecialContent ($name, $d, $pd)
 			 if (isset($dets["windows"]))
 				{$wo = json_encode($dets["windows"]);}}
 
+		// The mirador files could also be pulled from https://unpkg.com
+		// But version 2.7.2 did not seem to work, will try again once V3 is
+		// fully released. - jpadfield 30/03/20
 		$pd["extra_css_scripts"][] =
 			"https://tanc-ahrc.github.io/mirador/mirador/css/mirador-combined.css";
 		$pd["extra_js_scripts"][] =
@@ -683,7 +652,7 @@ function buildSpecialContent ($name, $d, $pd)
        myMiradorInstance = Mirador({
          id: "viewer",
          layout: "1x1",
-         buildPath: "mirador/",
+         buildPath: "https://tanc-ahrc.github.io/mirador/mirador/",
          data: '.$mans.',
          "windowObjects": '.$wo.',
          annotationEndpoint: {
