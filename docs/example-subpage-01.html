@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="The National Gallery, London, Scientific Department, is involved with research within a wide range of fields, this page presents an example of some of the work carried out." />
-		<meta name="keywords" content="The National Gallery, London, National Gallery London, Scientific, Research, Heritage, Culture, PHP, Javascript, Github Pages" />
+    <meta name="description" content="Simple system for creating a set of web-pages to support your GitHub repository from a few simple json files." />
+		<meta name="keywords" content="The National Gallery, London, National Gallery London, Scientific, Research, Heritage, Culture, JSON, PHP, Javascript, Github Pages, Dissemination, VRE, IIIF, Mermaid, Timeline, Mirador " />
     <meta name="author" content="Joseph Padfield| joseph.padfield@ng-london.org.uk |National Gallery | London UK | website@ng-london.org.uk |www.nationalgallery.org.uk" />
     <link rel="icon" href="https://www.nationalgallery.org.uk/custom/ng/img/icons/favicon.ico">
-    <title>NG SImple Site</title>
+    <title>NG Simple Site</title>
     
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<link href="https://unpkg.com/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -28,11 +28,11 @@
 				style="" alt="The National Gallery"/>
 		  </a>
 			<div class="collapse navbar-collapse" id="navbarsExampleDefault"><ul class="navbar-nav">
-<li class="nav-item "><a class="nav-link" href="index.html">Home</a></li><li class="nav-item "><a class="nav-link" href="github.html">Github</a></li><li class="nav-item "><a class="nav-link" href="json.html">Json</a></li><!-- Dropdown Loop 1 --><li class="nav-item dropdown "><a id="dropdownMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" title="Click to open the Special menu" >Special</a><ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow"><li><a href="special.html" class="dropdown-item top-item" title="Click to open the Special page">Special</a></li><li class="dropdown-divider"></li><li><a href="timeline.html" class="dropdown-item">Timeline</a></li><li><a href="iiif viewer.html" class="dropdown-item">Iiif viewer</a></li></ul></li><!-- End Loop 1 --><!-- Dropdown Loop 1 --><li class="nav-item dropdown active"><a id="dropdownMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" title="Click to open the About menu" >About<span class="sr-only">(current)</span></a><ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow"><li><a href="about.html" class="dropdown-item top-item" title="Click to open the About page">About</a></li><li class="dropdown-divider"></li><!-- Dropdown Loop 2 --><li class="dropdown-submenu">
+<li class="nav-item "><a class="nav-link" href="index.html">Home</a></li><li class="nav-item "><a class="nav-link" href="github.html">Github</a></li><li class="nav-item "><a class="nav-link" href="json.html">Json</a></li><!-- Dropdown Loop 1 --><li class="nav-item dropdown "><a id="dropdownMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" title="Click to open the Special menu" >Special</a><ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow"><li><a href="special.html" class="dropdown-item top-item" title="Click to open the Special page">Special</a></li><li class="dropdown-divider"></li><li><a href="timeline.html" class="dropdown-item">Timeline</a></li><li><a href="iiif viewer.html" class="dropdown-item">Iiif viewer</a></li></ul></li><!-- End Loop 1 --><!-- Dropdown Loop 1 --><li class="nav-item dropdown active"><a id="dropdownMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" title="Click to open the Example menu" >Example<span class="sr-only">(current)</span></a><ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow"><li><a href="example.html" class="dropdown-item top-item" title="Click to open the Example page">Example</a></li><li class="dropdown-divider"></li><!-- Dropdown Loop 2 --><li class="dropdown-submenu">
    <a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the Example-subpage-01 menu">Example-subpage-01</a>
 		<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow"><li><a href="example-subpage-01.html" class="dropdown-item  top-item" title="Click to open the Example-subpage-01 page">Example-subpage-01</a></li><li class="dropdown-divider"></li><!-- Dropdown Loop  --><li class="dropdown-submenu">
    <a id="dropdownMenu" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the Example-sub-subpage-01 menu">Example-sub-subpage-01</a>
-		<ul aria-labelledby="dropdownMenu" class="dropdown-menu border-0 shadow"><li><a href="example-sub-subpage-01.html" class="dropdown-item  top-item" title="Click to open the Example-sub-subpage-01 page">Example-sub-subpage-01</a></li><li class="dropdown-divider"></li><li><a href="example-sub-sub-subpage-01.html" class="dropdown-item">Example-sub-sub-subpage-01</a></li></ul></li><!-- End Loop  --></ul></li><!-- End Loop 2 --><li><a href="example-subpage-02.html" class="dropdown-item">Example-subpage-02</a></li></ul></li><!-- End Loop 1 --></ul></div>
+		<ul aria-labelledby="dropdownMenu" class="dropdown-menu border-0 shadow"><li><a href="example-sub-subpage-01.html" class="dropdown-item  top-item" title="Click to open the Example-sub-subpage-01 page">Example-sub-subpage-01</a></li><li class="dropdown-divider"></li><li><a href="example-sub-sub-subpage-01.html" class="dropdown-item">Example-sub-sub-subpage-01</a></li></ul></li><!-- End Loop  --></ul></li><!-- End Loop 2 --><li><a href="example-subpage-02.html" class="dropdown-item">Example-subpage-02</a></li></ul></li><!-- End Loop 1 --><li class="nav-item "><a class="nav-link" href="about.html">About</a></li></ul></div>
 			
     <span class="navbar-text">
       			<a href="https://github.com/jpadfield/simple-site/">
@@ -46,7 +46,7 @@
 				
 				<div class="jumbotron"><h2>More detail might be needed in some areas</h2></div><div class="row"><div class="col-12 col-lg-12">		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
-				<li class="breadcrumb-item"><a href="about.html">About</a></li>
+				<li class="breadcrumb-item"><a href="example.html">Example</a></li>
 			</ol>
 		</nav></div><!--/span--></div><!--/row-->    <div class="row"><div class="col-6 col-lg-6"><p>Sub pages can be set up to provide additional content without adding to the list of tabs at the top of the page. These are nested using a simple parent child relationship.</p><div class="foonote"><ul></ul></div></div><!--/span--><div class="col-6 col-lg-6"><img style="position:relative;width:100%;" src="graphics/example_knowledge_graph.png"/></div><!--/span--></div><!--/row-->    <br/>
 			</div><!--/span-->
