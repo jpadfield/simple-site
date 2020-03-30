@@ -1,4 +1,22 @@
 {
+	"timeline": {
+		"parent": "special",
+		"class": "timeline",
+		"file": "timeline.json",
+		"title": "Simple Site Example Timeline",
+		"content": "<p>We should be able to have some comments here too</p>",
+		"footnotes": [],
+		"content right": ""		
+	},
+	"iiif viewer": {
+		"parent": "special",
+		"class": "mirador",
+		"file": "mirador.json",
+		"title": "Simple Site IIIF Example - Mirador",
+		"content": "My own personal collection of images",
+		"footnotes": [],
+		"content right": ""		
+	},
 	"example-subpage-01": {
 		"parent": "about",
 		"title": "More detail might be needed in some areas",

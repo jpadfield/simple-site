@@ -13,7 +13,7 @@ The content of the pages are controlled with three [json](https://en.wikipedia.o
 # Screenshots 
 <img src="./docs/graphics/example screenshot 01.png" width="50%" alt="Example Screenshot"><img src="./docs/graphics/example screenshot 02.png" width="50%" alt="Example Screenshot">
 
-Once any of the json files are updated, within the GitHub repository, a new set of html pages are automatically generated, by GitHub, using the [build.php](build/build/php) file. Please note that allow the new html pages are generated quite quickly it may take a few minutes before the changes are pushed through to your actual GitHub web pages.
+Once any of the json files are updated, within the GitHub repository, a new set of html pages are automatically generated, by GitHub, using the [build.php](build/build/php) file. Please note that although the new html pages are generated quite quickly it may take a few minutes before the changes are pushed through to your actual GitHub web pages.
 
 # Installation
 
@@ -38,9 +38,11 @@ The automatic process of building the pages is controlled by a **GitHub Action**
 
 # Dependencies
 
-Once built, simple html pages should run without any additional software, all of the basic required [js](https://en.wikipedia.org/wiki/JavaScript) and [css](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) files are already included, but newer versions and all of the appropriate licence information can be found at the relevant main websites:
+Once built, simple html pages should run without any additional software, all of the basic required [js](https://en.wikipedia.org/wiki/JavaScript) and [css](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) files are already included, or externally referenced but more information about the main ones can be found at:
 * [Bootstrap](https://getbootstrap.com/)
 * [Jquery](https://jquery.com/)
+* [Project Mirador](https://projectmirador.org/)
+* [Mermaid](https://mermaid-js.github.io/mermaid)
 
 New sets of html pages are created automatically, within GitHub, when the json files are edited, controlled by a customised [GitHub Action](https://help.github.com/en/actions), called [build.yml](.github/workflows/build.yml). However, if you want to be able to run the build process manually within a downloaded version of the repository you will also need to have **php** installed:
 * [PHP](https://en.wikipedia.org/wiki/PHP)
