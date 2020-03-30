@@ -17,7 +17,9 @@ Once any of the json files are updated, within the GitHub repository, a new set 
 
 # Installation
 
-To make use of this system it is recommended that you either:
+To make use of this system it is recommended that you:
+* [Join GitHub](https://github.com/join)
+and then either:
 * [Copy/Fork](https://help.github.com/en/github/getting-started-with-github/fork-a-repo) the repository, edit the sample json files and begin to build your own project.
 * [Download/Clone](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository) a copy of the repository to your local machine, edit the json files as required and then just copy the required folders and files into you own existing repository.
 
