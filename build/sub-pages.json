@@ -8,7 +8,7 @@
 		"footnotes": [],
 		"content right": ""		
 	},
-	"iiif viewer": {
+	"IIIF viewer": {
 		"parent": "special",
 		"class": "mirador",
 		"file": "mirador.json",
@@ -17,6 +17,28 @@
 		"footnotes": [],
 		"content right": ""		
 	},
+	"site.json": {
+		"parent": "json",
+		"title": "More detail might be needed in some areas",
+		"content": "<p>Sub pages can be set up to provide additional content without adding to the list of tabs at the top of the page. These are nested using a simple parent child relationship.</p>",
+		"footnotes": [],
+	"content right": "<img style=\"position:relative;width:100%;\" src=\"graphics/example_knowledge_graph.png\"/>"
+		},
+	"pages.json": {
+		"parent": "json",
+		"title": "More detail might be needed in some areas",
+		"content": "<p>Sub pages can be set up to provide additional content without adding to the list of tabs at the top of the page. These are nested using a simple parent child relationship.</p>",
+		"footnotes": [],
+	"content right": "<img style=\"position:relative;width:100%;\" src=\"graphics/example_knowledge_graph.png\"/>"
+		},
+	"sub-pages.json": {
+		"parent": "json",
+		"title": "More detail might be needed in some areas",
+		"content": "<p>Sub pages can be set up to provide additional content without adding to the list of tabs at the top of the page. These are nested using a simple parent child relationship.</p>",
+		"footnotes": [],
+	"content right": "<img style=\"position:relative;width:100%;\" src=\"graphics/example_knowledge_graph.png\"/>"
+		},
+	
 	"example-subpage-01": {
 		"parent": "example",
 		"title": "More detail might be needed in some areas",
