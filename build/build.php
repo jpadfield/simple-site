@@ -422,11 +422,6 @@ END;
 	
 function buildBootStrapNGPage ($pageDetails=array())
 	{
-
-		<script src="https://unpkg.com/jquery@3.4.1/dist/jquery.min.js"></script>
-	<script src="https://unpkg.com/tether@1.4.7/dist/js/tether.min.js"></script>
-	<script src="https://unpkg.com/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
-		
 	$default_scripts = array(
 	"js-scripts" => array (
 		"jquery" => "https://unpkg.com/jquery@3.4.1/dist/jquery.min.js",
