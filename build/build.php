@@ -96,16 +96,21 @@ function countFootNotes($matches) {
 }
 
 function addLinks($matches) {
-  $out = "<a href='$matches[0]'>$matches[0]</a>";
+	if (count($matches) > 1)
+		{$out = "<a href='$matches[2]'>$matches[1]</a>";}
+	else
+		{$out = "<a href='$matches[0]'>$matches[0]</a>";}
   return($out);
 }
 
-function parseFootNotes ($text, $footnotes, $sno=1)
+function parseLinks ($text, $footnotes, $sno=1)
 	{
 	global $fcount;
 	$fcount = $sno;
 	
+	$text = preg_replace_callback('/\[([^\]]+)[|]([^\]]+)\]/', 'addLinks', $text);
 	$text = preg_replace_callback('/\[[@][@]\]/', 'countFootNotes', $text);
+	
 	$text = $text . "<div class=\"foonote\"><ul>";
 	foreach ($footnotes as $j => $str)
 		{$k = $j + 1;
@@ -115,7 +120,7 @@ function parseFootNotes ($text, $footnotes, $sno=1)
 	$text = $text . "</ul></div>";
 	
 	return ($text);	
-	}		
+	}	
 
 
 function buildSimpleBSGrid ($bdDetails = array())
@@ -341,7 +346,7 @@ function writePage ($name, $d, $tnav=true)
 		 $content = $ta[0];
 		 $pd = $ta[1];}
 	else
-		{$content = parseFootNotes ($d["content"], $d["footnotes"], 1);}
+		{$content = parseLinks ($d["content"], $d["footnotes"], 1);}
 				
 	$pd["grid"] = array(
 		"topjumbotron" => "<h2>$d[title]</h2>",
@@ -624,7 +629,7 @@ END;
 
 function buildSpecialContent ($name, $d, $pd)
 	{
-	$content = parseFootNotes ($d["content"], $d["footnotes"], 1);
+	$content = parseLinks ($d["content"], $d["footnotes"], 1);
 		
 	if ($d["class"] == "mirador")
 		{
