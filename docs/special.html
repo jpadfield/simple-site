@@ -14,8 +14,6 @@
 	<link href="css/main.css" rel="stylesheet" type="text/css">
     <style>
     
-g a {color:inherit;}
-#int0-text {display:none;}
     </style>
   </head>
 
@@ -30,11 +28,11 @@ g a {color:inherit;}
 				style="" alt="The National Gallery"/>
 		  </a>
 			<div class="collapse navbar-collapse" id="navbarsExampleDefault"><ul class="navbar-nav">
-<li class="nav-item "><a class="nav-link" href="index.html">Home</a></li><li class="nav-item "><a class="nav-link" href="github.html">Github</a></li><!-- Dropdown Loop 1 --><li class="nav-item dropdown "><a id="dropdownMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" title="Click to open the About menu" >About</a><ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow"><li><a href="about.html" class="dropdown-item top-item" title="Click to open the About page">About</a></li><li class="dropdown-divider"></li><!-- Dropdown Loop 2 --><li class="dropdown-submenu">
+<li class="nav-item "><a class="nav-link" href="index.html">Home</a></li><li class="nav-item "><a class="nav-link" href="github.html">Github</a></li><li class="nav-item "><a class="nav-link" href="json.html">Json</a></li><!-- Dropdown Loop 1 --><li class="nav-item dropdown active"><a id="dropdownMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" title="Click to open the Special menu" >Special<span class="sr-only">(current)</span></a><ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow"><li><a href="special.html" class="dropdown-item top-item" title="Click to open the Special page">Special</a></li><li class="dropdown-divider"></li><li><a href="timeline.html" class="dropdown-item">Timeline</a></li><li><a href="iiif viewer.html" class="dropdown-item">Iiif viewer</a></li></ul></li><!-- End Loop 1 --><!-- Dropdown Loop 1 --><li class="nav-item dropdown "><a id="dropdownMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" title="Click to open the About menu" >About</a><ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow"><li><a href="about.html" class="dropdown-item top-item" title="Click to open the About page">About</a></li><li class="dropdown-divider"></li><!-- Dropdown Loop 2 --><li class="dropdown-submenu">
    <a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the Example-subpage-01 menu">Example-subpage-01</a>
 		<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow"><li><a href="example-subpage-01.html" class="dropdown-item  top-item" title="Click to open the Example-subpage-01 page">Example-subpage-01</a></li><li class="dropdown-divider"></li><!-- Dropdown Loop  --><li class="dropdown-submenu">
    <a id="dropdownMenu" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the Example-sub-subpage-01 menu">Example-sub-subpage-01</a>
-		<ul aria-labelledby="dropdownMenu" class="dropdown-menu border-0 shadow"><li><a href="example-sub-subpage-01.html" class="dropdown-item  top-item" title="Click to open the Example-sub-subpage-01 page">Example-sub-subpage-01</a></li><li class="dropdown-divider"></li><li><a href="example-sub-sub-subpage-01.html" class="dropdown-item">Example-sub-sub-subpage-01</a></li></ul></li><!-- End Loop  --></ul></li><!-- End Loop 2 --><li><a href="example-subpage-02.html" class="dropdown-item">Example-subpage-02</a></li></ul></li><!-- End Loop 1 --><li class="nav-item active"><a class="nav-link" href="plan.html">Plan<span class="sr-only">(current)</span></a></li><li class="nav-item "><a class="nav-link" href="images.html">Images</a></li></ul></div>
+		<ul aria-labelledby="dropdownMenu" class="dropdown-menu border-0 shadow"><li><a href="example-sub-subpage-01.html" class="dropdown-item  top-item" title="Click to open the Example-sub-subpage-01 page">Example-sub-subpage-01</a></li><li class="dropdown-divider"></li><li><a href="example-sub-sub-subpage-01.html" class="dropdown-item">Example-sub-sub-subpage-01</a></li></ul></li><!-- End Loop  --></ul></li><!-- End Loop 2 --><li><a href="example-subpage-02.html" class="dropdown-item">Example-subpage-02</a></li></ul></li><!-- End Loop 1 --></ul></div>
 			
     <span class="navbar-text">
       			<a href="https://github.com/jpadfield/simple-site/">
@@ -46,38 +44,7 @@ g a {color:inherit;}
 			<div class="row ">				
 			 <div class="col-12 col-md-12">          
 				
-				<div class="jumbotron"><h2>Simple Site Example Timeline</h2></div><div class="row"><div class="col-12 col-lg-12"></div><!--/span--></div><!--/row-->    <div class="row"><div class="col-12 col-lg-12"><p>We should be able to have some comments here too</p><div class="foonote"><ul></ul></div>	<div class="mermaid">
-gantt
-       dateFormat  YYYY-MM-DD
-       title Simple Site Time Line Example	
-       	section Initial discussion and planning
-		Add as a margin :int0, 2019-12-30, 2019-12-30
-		Literature/website/software review :int1, 2020-05-30, 2020-11-30
-		Establish communications, collaborative environments and links with related interest groups :int2, 2020-03-30, 2020-07-30
-		Recruit Project Researcher :crit, int3, 2020-07-03, 2020-09-30
-		Project Researcher In Post :crit, int4, 2020-09-30, 2021-12-30
-	section Workshops
-		Organise Workshop 1 :ws0, 2020-05-30, 2020-09-19
-		Workshop 1 - The Beginning :crit, ws1, 2020-09-19, 2020-09-20
-		Organise Workshop 2 :ws2, 2020-09-30, 2020-12-30
-		Workshop 2 - The Middle :crit, active, ws3, 2020-12-30, 2021-01-30
-		Organise Workshop 3 – Document available resources and development ideas :ws4, 2021-01-30, 2021-09-30
-		Workshop 3 - The End :crit, active, ws5, 2021-09-30, 2021-10-30
-	section Collaborative Research
-		Assessing the output of Workshop 1 :cr0, 2020-09-20, 2020-10-30
-		Assessing the output of Workshop 2 :cr1, 2021-01-30, 2021-03-30
-		Project Resource survey :cr2, 2020-09-30, 2021-01-30
-		Evaluate selection of identified project Resources :cr3, 2021-01-30, 2021-03-02
-		Assessing the output of Workshop 3 :cr4, 2021-10-30, 2021-11-30
-	section Placements
-		Secondments (some may be virtual) for researcher :pl0, 2020-12-30, 2021-08-30
-	section Public demonstrations
-		Evaluation of demonstration deliverables :crit, active, pd0, 2021-10-30, 2021-11-30
-		Presentation of demonstration deliverables :crit, active, pd1, 2021-11-30, 2021-12-30
-	section Reporting
-		Complete and Deliver Final Rreport :crit, active, rp0, 2021-11-30, 2021-12-30
-
-	</div></div><!--/span--></div><!--/row-->    <br/>
+				<div class="jumbotron"><h2>National Gallery - Simple Site Example</h2></div><div class="row"><div class="col-12 col-lg-12"></div><!--/span--></div><!--/row-->    <div class="row"><div class="col-12 col-lg-12"><p>Further addons etc.</p><div class="foonote"><ul></ul></div></div><!--/span--></div><!--/row-->    <br/>
 			</div><!--/span-->
 			
 			
@@ -98,22 +65,10 @@ gantt
 	<script src="https://unpkg.com/jquery@3.4.1/dist/jquery.min.js"></script>
 	<script src="https://unpkg.com/tether@1.4.7/dist/js/tether.min.js"></script>
 	<script src="https://unpkg.com/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
-	<script src="https://unpkg.com/mermaid@8.4.8/dist/mermaid.min.js"></script>
     <script>
 			
 			function onLoad() {
-				
-	mermaid.ganttConfig = {
-    titleTopMargin:25,
-    barHeight:20,
-    barGap:4,
-    topPadding:50,
-    sidePadding:50
-		}
-//console.log(mermaid.render);
-  mermaid.initialize({startOnLoad:true, flowchart: { 
-    curve: 'basis' 
-  }});$(function() {
+				$(function() {
   // ------------------------------------------------------- //
   // Multi Level dropdowns
   // ------------------------------------------------------ //
