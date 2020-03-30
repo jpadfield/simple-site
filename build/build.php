@@ -421,16 +421,22 @@ END;
 	}
 	
 function buildBootStrapNGPage ($pageDetails=array())
-	{	
+	{
+
+		<script src="https://unpkg.com/jquery@3.4.1/dist/jquery.min.js"></script>
+	<script src="https://unpkg.com/tether@1.4.7/dist/js/tether.min.js"></script>
+	<script src="https://unpkg.com/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
+		
 	$default_scripts = array(
 	"js-scripts" => array (
-		"jquery" => "js/jquery-3.4.1.min.js",
-		"tether" => "js/tether.min.js",
-		"bootstrap" => "js/bootstrap.min.js"),
+		"jquery" => "https://unpkg.com/jquery@3.4.1/dist/jquery.min.js",
+		"tether" => "https://unpkg.com/tether@1.4.7/dist/js/tether.min.js",
+		"bootstrap" => "https://unpkg.com/bootstrap@4.4.1/dist/js/bootstrap.min.js"),
 	"css-scripts" => array(
 		"fontawesome" => "https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css",
-		"main" => "css/main.css",
-		"bootstrap" => "css/bootstrap.min.css"));
+		"bootstrap" => "https://unpkg.com/bootstrap@4.4.1/dist/css/bootstrap.min.css",
+		"main" => "css/main.css"
+		));
 
 	/* Added before
 	 $defaults = array(
@@ -739,10 +745,8 @@ function buildSpecialContent ($name, $d, $pd)
 					}
 				}
 
-			$pd["extra_css_scripts"][] =
-				"https://mermaidjs.github.io/mermaid-live-editor/src.96cd87af.css";
 			$pd["extra_js_scripts"][] =
-				"https://cdn.jsdelivr.net/npm/mermaid@8.4.0/dist/mermaid.min.js";
+				"https://unpkg.com/mermaid@8.4.8/dist/mermaid.min.js";
 			$pd["extra_onload"] .= "
 	mermaid.ganttConfig = {
     titleTopMargin:25,

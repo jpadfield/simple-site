@@ -1,6 +1,6 @@
 # simple-site
 
-This is a very simple set processes for creating a standard set of webpages based on a simple json file. This project is intended to work along side other projects to provide a simple way of creating a set of consistent webpages, which can be delivered as part of your own GitHub project using [GitHub pages](https://pages.github.com/). 
+This is a very simple set of processes for creating a standard set of webpages based on a simple set of json files. This project is intended to work along side other projects to provide a simple way of creating a set of consistent webpages, which can be delivered as part of your own GitHub project using [GitHub pages](https://pages.github.com/). 
 
 An example set of pages can be seen at: [simple-site](https://jpadfield.github.io/simple-site/)
 
@@ -13,7 +13,7 @@ The content of the pages are controlled with three [json](https://en.wikipedia.o
 # Screenshots 
 <img src="./docs/graphics/example screenshot 01.png" width="50%" alt="Example Screenshot"><img src="./docs/graphics/example screenshot 02.png" width="50%" alt="Example Screenshot">
 
-Once the json files are updated, within the GitHub repository, a new set of html pages are automatically generated using the [build.php](build/build/php) file.
+Once any of the json files are updated, within the GitHub repository, a new set of html pages are automatically generated, by GitHub, using the [build.php](build/build/php) file. Please note that allow the new html pages are generated quite quickly it may take a few minutes before the changes are pushed through to your actual GitHub web pages.
 
 # Installation
 
@@ -21,13 +21,13 @@ To make use of this system it is recommended that you either:
 * [Copy/Fork](https://help.github.com/en/github/getting-started-with-github/fork-a-repo) the repository, edit the sample json files and begin to build your own project.
 * [Download/Clone](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository) a copy of the repository to your local machine, edit the json files as required and then just copy the required folders and files into you own existing repository.
 
-For the full system to work, including the automatic rebuild process you will need to ensure your won repository includes:
+For the full system to work, including the automatic rebuild process you will need to ensure your own repository includes:
 * A copy of the **build** folder.
 * A copy of the **docs** folder.
 * A copy of the [build.yml](.github/workflows/build.yml) setup as a GitHub action.
 * A copy of any required licence files.
 
-There is quite a lot of documentation available about setting up a new [GitHub Action](https://help.github.com/en/actions), but the basic steps will require you to:
+The automatic process of building the pages is controlled by a **GitHub Action**, there is quite a lot of documentation available about setting up a new [GitHub Action](https://help.github.com/en/actions), but the basic steps will require you to:
 * Click on the **Actions** option at the top of your repository page.
 * Click on the **New workflow** button.
 * Click on the **Set up a workflow yourself** button.
@@ -38,7 +38,7 @@ There is quite a lot of documentation available about setting up a new [GitHub A
 
 # Dependencies
 
-Once built, simple html pages should run without any additional software, all of the basic required [js](https://en.wikipedia.org/wiki/JavaScript) and [css](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) files are already included, but newer versions and all of the appropriate licence information can be found at the relevant main website.:
+Once built, simple html pages should run without any additional software, all of the basic required [js](https://en.wikipedia.org/wiki/JavaScript) and [css](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) files are already included, but newer versions and all of the appropriate licence information can be found at the relevant main websites:
 * [Bootstrap](https://getbootstrap.com/)
 * [Jquery](https://jquery.com/)
 
