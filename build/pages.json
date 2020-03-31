@@ -29,7 +29,7 @@
 	"footnotes": [
 		"https://www.json.org",
 		"https://github.com/",
-		"Here we can place a lot more detail about this issue."],
+		"<p>Here we can place a lot more detail about this issue and even add in an image if required:</p><center><img src=\"https://media.ng-london.org.uk/iiif/009-01DZ-0000/full/512,/0/default.jpg\"></center>"],
 	"content right": "Additional information easily be added as a second column without the need for more complex html."
 	},
 "about": {
