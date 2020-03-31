@@ -116,7 +116,7 @@ function parseLinks ($text, $footnotes, $sno=1)
 	
 	$text = $text . "<div class=\"foonote\"><ul>";
 	foreach ($use as $j => $str)
-		{$k = $j + 1;
+		{$k = $j + $sno;
 		 $str = preg_replace_callback('/http[^\s]+/', 'addLinks', $str);
 		 $text = $text."<li id=\"section${k}\"><a href=\"#ref${k}\">[${k}]</a> $str</li>";}
 	
@@ -367,9 +367,7 @@ function writePage ($name, $d, $tnav=true)
 				)));
 							
 	if ($d["content right"])
-		{prg(0, $d["content right"]);
-		 $d["content right"] = parseLinks ($d["content right"], $d["footnotes"], $fcount);
-		 prg(0, $d["content right"]);
+		{$d["content right"] = parseLinks ($d["content right"], $d["footnotes"], $fcount);
 		 $pd["grid"]["rows"][1][0]["class"] = "col-6 col-lg-6";
 		 $pd["grid"]["rows"][1][1] = 
 				array (
