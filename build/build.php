@@ -110,9 +110,12 @@ function parseLinks ($text, $footnotes, $sno=1)
 	
 	$text = preg_replace_callback('/\[([^\]]+)[|]([^\]]+)\]/', 'addLinks', $text);
 	$text = preg_replace_callback('/\[[@][@]\]/', 'countFootNotes', $text);
+
+	//Extract the footnotes for this section of the text
+	$use = array_slice($footnotes, ($sno-1), ($fcount-1));
 	
 	$text = $text . "<div class=\"foonote\"><ul>";
-	foreach ($footnotes as $j => $str)
+	foreach ($use as $j => $str)
 		{$k = $j + 1;
 		 $str = preg_replace_callback('/http[^\s]+/', 'addLinks', $str);
 		 $text = $text."<li id=\"section${k}\"><a href=\"#ref${k}\">[${k}]</a> $str</li>";}
@@ -327,7 +330,7 @@ function writeTSPage ()
 	
 function writePage ($name, $d, $tnav=true)
 	{
-	global $subpages, $gdp, $menuList, $specialPages;
+	global $subpages, $gdp, $menuList, $specialPages, $fcount;
 	
 	$pd = $gdp;
 		
@@ -364,7 +367,8 @@ function writePage ($name, $d, $tnav=true)
 				)));
 							
 	if ($d["content right"])
-		{$pd["grid"]["rows"][1][0]["class"] = "col-6 col-lg-6";
+		{$d["content"] = parseLinks ($d["content"], $d["footnotes"], $fcount);
+		 $pd["grid"]["rows"][1][0]["class"] = "col-6 col-lg-6";
 		 $pd["grid"]["rows"][1][1] = 
 				array (
 					"class" => "col-6 col-lg-6",
