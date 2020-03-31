@@ -29,12 +29,12 @@
 	"footnotes": [
 		"https://www.json.org",
 		"https://github.com/",
-		"<p>Here we can place a lot more detail about this issue and even add in an image if required:</p><center><img src=\"https://media.ng-london.org.uk/iiif/009-01DZ-0000/full/512,/0/default.jpg\"></center>"],
-	"content right": "Additional information easily be added as a second column without the need for more complex html."
+		"Here we can place a lot more detail about this issue"],
+	"content right": "<p>Additional information easily be added as a second column without the need for more complex html and even add in an image if required:</p><center><img width=\"400px\" src=\"https://media.ng-london.org.uk/iiif/009-01DZ-0000/full/512,/0/default.jpg\"></center>."
 	},
 "about": {
 	"title": "Simple Site - About",
-	"content": "<p>This system was set up to allow a series of github repositories to have similar sets of supporting webpages with minimal effort for each one.</p>",
+	"content": "<p>This system was set up to allow a series of github repositories to have similar sets of supporting webpages with minimal effort for each one.",
 	"footnotes": [],
 	"content right": ""		
 	}
