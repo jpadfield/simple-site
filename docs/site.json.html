@@ -48,7 +48,56 @@
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><a href="json.html">Json</a></li>
 			</ol>
-		</nav></div><!--/span--></div><!--/row-->    <div class="row"><div class="col-6 col-lg-6"><p>Sub pages can be set up to provide additional content without adding to the list of tabs at the top of the page. These are nested using a simple parent child relationship.</p><div class="foonote"><ul></ul></div></div><!--/span--><div class="col-6 col-lg-6"><img style="position:relative;width:100%;" src="graphics/example_knowledge_graph.png"/><div class="foonote"><ul></ul></div></div><!--/span--></div><!--/row-->    <br/>
+		</nav></div><!--/span--></div><!--/row-->    <div class="row"><div class="col-6 col-lg-6"><p>The <b>site.json</b> file is used to control a few of the more structural aspects of the web pages and relates to all of the pages that will be produced. It's content falls into three main parts: the meta, logos & links, and extras sections. The easiest method of creating your own <b>site.json</b> file is to copy the existing one that is provided with the project code and just edit it as needed. The sections shown below are cropped from a full file and contain descriptions rather than real values, for an example of real code please see this example <a href='https://github.com/jpadfield/simple-site/blob/master/build/site.json'>site.json</a> file.</p>
+
+<h4>The Meta values</h4>
+<p>'Meta elements are tags used in HTML and XHTML documents to provide structured metadata about a Web page'<sup><a id="ref1" href="#section1">[1]</a></sup>. They are used to defined a selection of hidden information which can be used by search engines and web browsers. At this time this project only makes use of 5 of these meta elements, further values could be added if required but this would require making adjustments to the project code rather than just the json file.</p>
+
+<figure>
+		<pre style="overflow: hidden;border: 2px solid black;padding: 10px;">
+<code>  "metaDescription": "Short project description, this can be used and presented by search engines",
+  "metaKeywords": "Used to help tag what your project is related to, this will assist search engines to find your project",
+  "metaAuthor": "Author Name|Author Email Address|Further Institutional Information as required",
+  "metaTitle": "Simple short title For Your website or project, which can be display in browser tabs",
+  "metaFavIcon": "URL for your chosen favicon.ico file (https://en.wikipedia.org/wiki/Favicon)",
+</code></pre>
+</figure>
+
+<h4>Logos & Links</h4>
+<p>As can be seen from the figure below the values in this section are reasonably straight forward and directly relate to the images and links that will appear on every page. These values are all optional and can be left blank, particularly the <b>extra_logos</b> details, but it is recommend that you do add an appropriate main logo and the required licence details.</p>
+
+<figure>	
+<pre style="overflow: hidden;border: 2px solid black;padding: 10px;">
+<code>  "logo_link": "The URL you would like the top left logo to point to a default would be \"./\" which would point to the home page of your project.",
+  "licence": "Clickable links/icons of indicating the relevant licence or re-use restrictions of your project",
+  "logo_path": "The full path or URL to the image you would like to appear in the top left corner",
+  "footer": "Optional copy right statement or link you would like to appear on the bottom left of the page ",
+  "extra_logos": {
+    "1st Logo": {
+      "link": "The clickable link for this specific logo",
+      "logo": "The full path or URL for the required logo image file.",
+      "alt": "Optional first extra logo related to the project"
+    },
+    "2nd Logo": {
+      "link": "The clickable link for this specific logo",
+      "logo": "The full path or URL for the required logo image file.",
+      "alt": "Optional second extra logo related to the project"
+    }
+  },</code></pre>
+</figure>
+
+<center><figure class="figure"><img src="graphics/site-json.png" class="figure-img img-fluid rounded" alt="site.json image"><figcaption class="figure-caption">Annotated image highlighting which sections of the page are connected to each of the Logos & Links values.</figcaption></figure></center>
+
+<h4>Extra JS & CSS Code</h4>
+<p>For most simple projects the last section of values can be simply left blank as they are only required if more advanced users would like to add additional functionality or styling.</p>
+
+<figure>
+<pre style="overflow: hidden;border: 2px solid black;padding: 10px;">
+<code>  "extra_js_scripts": ["A comma separated list of any additional javascript files that need to be included"],
+  "extra_css_scripts": ["A comma separated list of any additional css style sheets that need to be included"],
+  "extra_css": "Any additional css code that you need to be directly added to all of the pages",
+  "extra_js": "Any additional javascript code that you need to be directly added to all of the pages"
+</code></pre><div class="foonote"><ul><li id="section1"><a href="#ref1">[1]</a> For more details see: <a href='https://en.wikipedia.org/wiki/Meta_element'>https://en.wikipedia.org/wiki/Meta_element</a></li></ul></div></div><!--/span--><div class="col-6 col-lg-6"><img style="position:relative;width:100%;" src="graphics/example_knowledge_graph.png"/><div class="foonote"><ul></ul></div></div><!--/span--></div><!--/row-->    <br/>
 			</div><!--/span-->
 			
 			
