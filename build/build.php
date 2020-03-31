@@ -367,9 +367,9 @@ function writePage ($name, $d, $tnav=true)
 				)));
 							
 	if ($d["content right"])
-		{prg(0, $d["content_right"]);
-		 $d["content_right"] = parseLinks ($d["content_right"], $d["footnotes"], $fcount);
-		 prg(0, $d["content_right"]);
+		{prg(0, $d["content right"]);
+		 $d["content right"] = parseLinks ($d["content right"], $d["footnotes"], $fcount);
+		 prg(0, $d["content right"]);
 		 $pd["grid"]["rows"][1][0]["class"] = "col-6 col-lg-6";
 		 $pd["grid"]["rows"][1][1] = 
 				array (
