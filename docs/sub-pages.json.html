@@ -44,11 +44,46 @@
 			<div class="row ">				
 			 <div class="col-12 col-md-12">          
 				
-				<div class="jumbotron"><h2>More detail might be needed in some areas</h2></div><div class="row"><div class="col-12 col-lg-12">		<nav aria-label="breadcrumb">
+				<div class="jumbotron"><h2>Simple Site - The <b>sub-pages.json</b> file</h2></div><div class="row"><div class="col-12 col-lg-12">		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><a href="json.html">Json</a></li>
 			</ol>
-		</nav></div><!--/span--></div><!--/row-->    <div class="row"><div class="col-6 col-lg-6"><p>Sub pages can be set up to provide additional content without adding to the list of tabs at the top of the page. These are nested using a simple parent child relationship.</p><div class="foonote"><ul></ul></div></div><!--/span--><div class="col-6 col-lg-6"><img style="position:relative;width:100%;" src="graphics/example_knowledge_graph.png"/><div class="foonote"><ul></ul></div></div><!--/span--></div><!--/row-->    <br/>
+		</nav></div><!--/span--></div><!--/row-->    <div class="row"><div class="col-12 col-lg-12"><p><b>As noted on the main <a href='json.html'>Json</a> page you will need to ensure that your sub-pages.json file is valid json, please ensure all double quotes <i>in your added text</i> have a <i>&#47;</i> in front, like this <i>&#47;&#34;</i>, also please ensure that you text is all on one line, with no <i>newlines</i>.</b></p>
+<p>The <b>sub-pages.json</b> file is very similar to the <a href='pages.json.html'>pages.json</a> file, so check there for the initial description and documentation. The difference as shown below is that the sub-page template includes an extra <b>parent</b> field, for an example of real code please see this example <a href='https://github.com/jpadfield/simple-site/blob/master/build/pages.json'>sub-pages.json</a> file.</p>
+
+<figure>
+		<pre style="overflow: hidden;border: 2px solid black;padding: 10px;">
+<code>"<b>pageName</b>": {
+  "<b>parent</b>": "The pageName of the page, or sub-page above this one",
+  "<b>title</b>": "Simple text title",
+  "<b>content</b>": "Main page content, this can be added as simple text of can include more complex html as required.",
+  "<b>footnotes</b>": ["Optional comma separated list of footnotes, ordered as they should appear in the content text and followed by any which relate to the <b>content right</b> text below"],
+  "<b>content right</b>": "Optional second column of text if required."
+  }
+</code></pre><figcaption class=\"figure-caption\">Simplified example of a sub-page template, with the variable names highlighted in bold.</figcaption>
+</figure>
+<p>Each of the values within the template can include simple text information or more complex html, however you must ensure that you follow guidelines included of the main <a href='json.html'>Json</a> page.</p>
+
+<p>The <b>parent</b> field allows you to nest pages under other pages, starting with one of the main pages, but you can then nest sub-sub-pages under sub-pages and so on if really required.</p>
+<h4>Breadcrumb Navigation</h4>
+<p>Sub-pages are not given there own tabs, as the main pages are, they are nested in dropdown menus below their parent main page. To make it easier to navigate back up a series of nested sub pages an additional <a href='https://en.wikipedia.org/wiki/Breadcrumb_navigation'>breadcrumb navigation bar</a> is automatically added to all sub-pages, as shown below.</p>
+
+<figure class="figure"><img src="graphics/breadcrumb-example.png" class="figure-img img-fluid rounded" alt="An example of the extra breadcrumb navigation used within sub-pages."><figcaption class="figure-caption">An example of the extra breadcrumb navigation used within sub-pages.</figcaption></figure>
+
+<h4>An Example Sub-page template</h4>
+<p>This page template was used to define the content of the <a href='example-subpage-01.html'>Example-Subpage</a>, one of the actual pages within this demonstration site.</p>
+
+<figure>
+		<pre style="overflow: hidden;border: 2px solid black;padding: 10px;">
+<code>&quot;example-subpage-01&quot;: {
+  &quot;parent&quot;: &quot;example&quot;,
+  &quot;title&quot;: &quot;More detail might be needed in some areas&quot;,
+  &quot;content&quot;: &quot;&lt;p&gt;Sub pages can be set up to provide additional content without adding to the list of tabs at the top of the page. These are nested using a simple parent child relationship.&lt;/p&gt;&quot;,
+  &quot;footnotes&quot;: [],
+  &quot;content right&quot;: &quot;&lt;img style=\&quot;position:relative;width:100%;\&quot; src=\&quot;graphics/example_knowledge_graph.png\&quot;/&gt;&quot;
+  }
+</code></pre>
+</figure><div class="foonote"><ul></ul></div></div><!--/span--></div><!--/row-->    <br/>
 			</div><!--/span-->
 			
 			
