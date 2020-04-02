@@ -333,8 +333,9 @@ function writeTSPage ()
 	
 function writePage ($name, $d, $tnav=true)
 	{
-	global $subpages, $gdp, $menuList, $specialPages, $fcount;
-	
+	global $subpages, $gdp, $menuList, $specialPages, $fcount, $footnotes;
+
+	$footnotes = array();	
 	$pd = $gdp;
 		
 	if ($name == "home") {$use= "index";}
