@@ -17,6 +17,9 @@ $menuList = array();
 $subpages = array();
 $bcs = array();
 
+$fcount = 1;
+$footnotes = array();
+
 $defaults = array(
 	"metaDescription" => "The National Gallery, London, ".
 		"Scientific Department, is involved with research within a wide ".
@@ -86,10 +89,9 @@ function getRemoteJsonDetails ($uri, $format=false, $decode=false)
 		{$output = $fc;}
 	 return ($output);}
 
-$fcount = 1;
-
 function countFootNotes($matches) {
-  global $fcount;
+  global $fcount, $footnotes;
+  $footnotes[] = $matches[1];
   $out = '<sup><a id="ref'.$fcount.'" href="#section'.$fcount.'">['.$fcount.']</a></sup>';
   $fcount++;
   return($out);
@@ -103,13 +105,14 @@ function addLinks($matches) {
   return($out);
 }
 
-function parseLinks ($text, $footnotes, $sno=1)
+function parseLinks ($text, $footnotesOLD, $sno=1)
 	{
-	global $fcount;
+	global $fcount, $footnotes;
 	$fcount = $sno;
 	
 	$text = preg_replace_callback('/\[([^\]]+)[|]([^\]]+)\]/', 'addLinks', $text);
-	$text = preg_replace_callback('/\[[@][@]\]/', 'countFootNotes', $text);
+	//$text = preg_replace_callback('/\[[@][@]\]/', 'countFootNotes', $text);
+	$text = preg_replace_callback('/\[[@][@]([^\]]+)\]/', 'countFootNotes', $text);
 
 	//Extract the footnotes for this section of the text
 	$use = array_slice($footnotes, ($sno-1), ($fcount-1));
