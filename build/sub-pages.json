@@ -43,7 +43,7 @@
   	"content right": ""
 		},
 	"timeline": {
-		"parent": "extension",
+		"parent": "extensions",
 		"class": "timeline",
 		"file": "timeline.json",
 		"title": "Simple Site Example Timeline",
@@ -51,7 +51,7 @@
 		"content right": ""		
 	},
 	"IIIF viewer": {
-		"parent": "extension",
+		"parent": "extensions",
 		"class": "mirador",
 		"file": "mirador.json",
 		"title": "Simple Site IIIF Example - Mirador",
