@@ -11,7 +11,7 @@ $raw_subpages = getRemoteJsonDetails("sub-pages.json", false, true);
 if (!is_array($raw_subpages) or count($raw_subpages) < 1)
 	{exit("\nERROR: Sorry your sub-pages.json file has not been opened correctly please check you json formatting and try vaildating it using a web-site similar to https://jsonlint.com/\n\n");}
 
-$specialPages = array("timeline", "mirador");
+$extentionPages = array("timeline", "mirador");
 
 $menuList = array();
 $subpages = array();
@@ -333,7 +333,7 @@ function writeTSPage ()
 	
 function writePage ($name, $d, $tnav=true)
 	{
-	global $subpages, $gdp, $menuList, $specialPages, $fcount, $footnotes;
+	global $subpages, $gdp, $menuList, $extentionPages, $fcount, $footnotes;
 
 	$footnotes = array();	
 	$pd = $gdp;
@@ -348,8 +348,8 @@ function writePage ($name, $d, $tnav=true)
 		{$pd["topNavbar"] = buildTopNav ($d["bcs"][0]);
 		 $pd["breadcrumbs"] = buildBreadcrumbs ($d["bcs"]);}
 
-	if (isset($d["class"]) and in_array($d["class"], $specialPages))
-		{$ta = buildSpecialContent($name, $d, $pd);
+	if (isset($d["class"]) and in_array($d["class"], $extensionPages))
+		{$ta = buildExtensionContent($name, $d, $pd);
 		 $content = $ta[0];
 		 $pd = $ta[1];}
 	else
@@ -635,7 +635,7 @@ END;
 
 // visualise with: https://mermaidjs.github.io/mermaid-live-editor test
 
-function buildSpecialContent ($name, $d, $pd)
+function buildExtensionContent ($name, $d, $pd)
 	{
 	$content = parseLinks ($d["content"], $d["footnotes"], 1);
 		
