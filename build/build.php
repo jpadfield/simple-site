@@ -332,7 +332,7 @@ function writeTSPage ()
 	}
 	
 function writePage ($name, $d, $tnav=true)
-	{
+	{	
 	global $subpages, $gdp, $menuList, $extensionPages, $fcount, $footnotes;
 
 	$footnotes = array();	
@@ -642,7 +642,6 @@ function buildExtensionContent ($name, $d, $pd)
 	if ($d["class"] == "mirador")
 		{
 		if (!isset($d["file"])) {$d["file"] = "NOTFOUND";}
-
 		$mans = '[]';
 		$wo = '[]';
 		
