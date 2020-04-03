@@ -14,6 +14,8 @@
 	<link href="css/main.css" rel="stylesheet" type="text/css">
     <style>
     
+g a {color:inherit;}
+#int0-text {display:none;}
     </style>
   </head>
 
@@ -48,7 +50,38 @@
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><a href="extensions.html">Extensions</a></li>
 			</ol>
-		</nav></div><!--/span--></div><!--/row-->    <div class="row"><div class="col-12 col-lg-12"><p>We should be able to have some comments here too</p><div class="foonote"><ul></ul></div></div><!--/span--></div><!--/row-->    <br/>
+		</nav></div><!--/span--></div><!--/row-->    <div class="row"><div class="col-12 col-lg-12"><p>We should be able to have some comments here too</p><div class="foonote"><ul></ul></div>	<div class="mermaid">
+gantt
+       dateFormat  YYYY-MM-DD
+       title Simple Site Time Line Example	
+       	section Initial discussion and planning
+		Add as a margin :int0, 2020-01-03, 2020-01-03
+		Literature/website/software review :int1, 2020-06-03, 2020-12-03
+		Establish communications, collaborative environments and links with related interest groups :int2, 2020-04-03, 2020-08-03
+		Recruit Project Researcher :crit, int3, 2020-07-06, 2020-10-03
+		Project Researcher In Post :crit, int4, 2020-10-03, 2022-01-03
+	section Workshops
+		Organise Workshop 1 :ws0, 2020-06-03, 2020-09-23
+		Workshop 1 - The Beginning :crit, ws1, 2020-09-23, 2020-09-24
+		Organise Workshop 2 :ws2, 2020-10-03, 2021-01-03
+		Workshop 2 - The Middle :crit, active, ws3, 2021-01-03, 2021-02-03
+		Organise Workshop 3 – Document available resources and development ideas :ws4, 2021-02-03, 2021-10-03
+		Workshop 3 - The End :crit, active, ws5, 2021-10-03, 2021-11-03
+	section Collaborative Research
+		Assessing the output of Workshop 1 :cr0, 2020-09-24, 2020-11-03
+		Assessing the output of Workshop 2 :cr1, 2021-02-03, 2021-04-03
+		Project Resource survey :cr2, 2020-10-03, 2021-02-03
+		Evaluate selection of identified project Resources :cr3, 2021-02-03, 2021-03-03
+		Assessing the output of Workshop 3 :cr4, 2021-11-03, 2021-12-03
+	section Placements
+		Secondments (some may be virtual) for researcher :pl0, 2021-01-03, 2021-09-03
+	section Public demonstrations
+		Evaluation of demonstration deliverables :crit, active, pd0, 2021-11-03, 2021-12-03
+		Presentation of demonstration deliverables :crit, active, pd1, 2021-12-03, 2022-01-03
+	section Reporting
+		Complete and Deliver Final Rreport :crit, active, rp0, 2021-12-03, 2022-01-03
+
+	</div></div><!--/span--></div><!--/row-->    <br/>
 			</div><!--/span-->
 			
 			
@@ -69,10 +102,22 @@
 	<script src="https://unpkg.com/jquery@3.4.1/dist/jquery.min.js"></script>
 	<script src="https://unpkg.com/tether@1.4.7/dist/js/tether.min.js"></script>
 	<script src="https://unpkg.com/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
+	<script src="https://unpkg.com/mermaid@8.4.8/dist/mermaid.min.js"></script>
     <script>
 			
 			function onLoad() {
-				$(function() {
+				
+	mermaid.ganttConfig = {
+    titleTopMargin:25,
+    barHeight:20,
+    barGap:4,
+    topPadding:50,
+    sidePadding:50
+		}
+//console.log(mermaid.render);
+  mermaid.initialize({startOnLoad:true, flowchart: { 
+    curve: 'basis' 
+  }});$(function() {
   // ------------------------------------------------------- //
   // Multi Level dropdowns
   // ------------------------------------------------------ //

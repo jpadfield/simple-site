@@ -12,8 +12,15 @@
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<link href="https://unpkg.com/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="css/main.css" rel="stylesheet" type="text/css">
+	<link href="https://tanc-ahrc.github.io/mirador/mirador/css/mirador-combined.css" rel="stylesheet" type="text/css">
     <style>
     
+#viewer {       
+      display: block;
+      width: 100%;
+      height: 600px;
+      position: relative;
+     }
     </style>
   </head>
 
@@ -48,7 +55,7 @@
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><a href="extensions.html">Extensions</a></li>
 			</ol>
-		</nav></div><!--/span--></div><!--/row-->    <div class="row"><div class="col-12 col-lg-12">My own personal collection of images<div class="foonote"><ul></ul></div></div><!--/span--></div><!--/row-->    <br/>
+		</nav></div><!--/span--></div><!--/row-->    <div class="row"><div class="col-12 col-lg-12">My own personal collection of images<div class="foonote"><ul></ul></div><div id="viewer"></div></div><!--/span--></div><!--/row-->    <br/>
 			</div><!--/span-->
 			
 			
@@ -69,8 +76,21 @@
 	<script src="https://unpkg.com/jquery@3.4.1/dist/jquery.min.js"></script>
 	<script src="https://unpkg.com/tether@1.4.7/dist/js/tether.min.js"></script>
 	<script src="https://unpkg.com/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
+	<script src="https://tanc-ahrc.github.io/mirador/mirador/mirador.min.js"></script>
     <script>
 			
+	$(function() {
+       myMiradorInstance = Mirador({
+         id: "viewer",
+         layout: "1x1",
+         buildPath: "https://tanc-ahrc.github.io/mirador/mirador/",
+         data: [{"manifestUri":"https:\/\/iiif.harvardartmuseums.org\/manifests\/object\/299843","location":"Harvard University"},{"manifestUri":"https:\/\/media.nga.gov\/public\/manifests\/nga_highlights.json","location":"National Gallery of Art"}],
+         "windowObjects": [{"loadedManifest":"https:\/\/media.nga.gov\/public\/manifests\/nga_highlights.json","slotAddress":"row1","viewType":"ImageView"}],
+         annotationEndpoint: {
+           name:"Local Storage",
+           module: "LocalStorageEndpoint" }
+       });
+     });
 			function onLoad() {
 				$(function() {
   // ------------------------------------------------------- //
