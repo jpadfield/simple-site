@@ -11,7 +11,7 @@ $raw_subpages = getRemoteJsonDetails("sub-pages.json", false, true);
 if (!is_array($raw_subpages) or count($raw_subpages) < 1)
 	{exit("\nERROR: Sorry your sub-pages.json file has not been opened correctly please check you json formatting and try vaildating it using a web-site similar to https://jsonlint.com/\n\n");}
 
-$extentionPages = array("timeline", "mirador");
+$extensionPages = array("timeline", "mirador");
 
 $menuList = array();
 $subpages = array();
@@ -333,7 +333,7 @@ function writeTSPage ()
 	
 function writePage ($name, $d, $tnav=true)
 	{
-	global $subpages, $gdp, $menuList, $extentionPages, $fcount, $footnotes;
+	global $subpages, $gdp, $menuList, $extensionPages, $fcount, $footnotes;
 
 	$footnotes = array();	
 	$pd = $gdp;
