@@ -105,7 +105,7 @@ function addLinks($matches) {
   return($out);
 }
 
-function parseLinks ($text, $footnotesOLD, $sno=1)
+function parseLinks ($text, $sno=1)
 	{
 	global $fcount, $footnotes;
 	$fcount = $sno;
@@ -353,7 +353,7 @@ function writePage ($name, $d, $tnav=true)
 		 $content = $ta[0];
 		 $pd = $ta[1];}
 	else
-		{$content = parseLinks ($d["content"], $d["footnotes"], 1);}
+		{$content = parseLinks ($d["content"], 1);}
 				
 	$pd["grid"] = array(
 		"topjumbotron" => "<h2>$d[title]</h2>",
@@ -371,7 +371,7 @@ function writePage ($name, $d, $tnav=true)
 				)));
 							
 	if ($d["content right"])
-		{$d["content right"] = parseLinks ($d["content right"], $d["footnotes"], $fcount);
+		{$d["content right"] = parseLinks ($d["content right"], $fcount);
 		 $pd["grid"]["rows"][1][0]["class"] = "col-6 col-lg-6";
 		 $pd["grid"]["rows"][1][1] = 
 				array (
@@ -637,7 +637,7 @@ END;
 
 function buildExtensionContent ($name, $d, $pd)
 	{
-	$content = parseLinks ($d["content"], $d["footnotes"], 1);
+	$content = parseLinks ($d["content"], 1);
 		
 	if ($d["class"] == "mirador")
 		{
