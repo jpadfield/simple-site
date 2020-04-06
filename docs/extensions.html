@@ -47,15 +47,15 @@
 				<div class="jumbotron"><h2>Simple Site - <b>Extensions</b></h2></div><div class="row"><div class="col-12 col-lg-12"></div><!--/span--></div><!--/row-->    <div class="row"><div class="col-12 col-lg-12"><h3>Adding further functionality</h3>
 <p>This project will take a small set of JSON files, process them and produce a formatted set of html webpages. So the next question is, what other processing functions can be added to the system to allow ones GitHub project to host additional tools or even turn a project into a simple virtual research environment.</p>
 
-<div class="alert alert-info" role="alert"><h4 class="alert-heading">New Opportunities</h4><p>What jobs could required consistent processing and presentation of simple files of text or numbers and then present formatted results in images viewers, graphs, maps, flow charts, etc?</p><p>There are lots of great pieces of software out there, so this project is intended to make use of open source libraries rather than creating new software.</p><p>The main question here is, <b>how can researchers, who do not have their own web server, or sufficient coding skills gain access to their own data processing and presentation system?</b></p></div>
+<div class="alert alert-info" role="alert"><h4 class="alert-heading">New Opportunities</h4><p>What jobs could require consistent processing of simple files of text, or numbers, and then present formatted results in image viewers, graphs, maps, flow charts, etc?</p><p>There are lots of great pieces of software out there, so this project is intended to make use of open source libraries rather than creating new ones.</p><p>The main question here is, <b>how can researchers, who do not have their own web server, or sufficient coding skills gain access to their own data processing and presentation system?</b></p></div>
 
 <p>Beyond the standard variables that have already been explained the <a href='sub-pages.json.html'>sub-page</a> JSON file includes two additional variables that can be used to indicate the inclusion of a page extension.</h3>
 
 <figure>
 		<pre style="overflow: hidden;border: 2px solid black;padding: 10px;">
 <code>...  
-  "<b>class</b>": ["Optional variable only used for extension sub pages, normally leave blank or omit completely"],
-  "<b>file</b>": ["Optional variable only used for extension sub pages, normally leave blank or omit completely"],
+  "<b>class</b>": ["Indicates which project extension to use"],
+  "<b>file</b>": ["Indicates the file in which any required extra data can be found"],
 ...
 </code></pre><figcaption class=\"figure-caption\">Extension variables included in the <a href='sub-pages.json.html'>sub.pages.json</a> page object.</figcaption>
 </figure>
