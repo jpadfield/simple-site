@@ -46,40 +46,153 @@ g a {color:inherit;}
 			<div class="row ">				
 			 <div class="col-12 col-md-12">          
 				
-				<div class="jumbotron"><h2>Simple Site Example Timeline</h2></div><div class="row"><div class="col-12 col-lg-12">		<nav aria-label="breadcrumb">
+				<div class="jumbotron"><h2>Simple Site - The <b>Timeline Extension</b></h2></div><div class="row"><div class="col-12 col-lg-12">		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><a href="extensions.html">Extensions</a></li>
 			</ol>
-		</nav></div><!--/span--></div><!--/row-->    <div class="row"><div class="col-12 col-lg-12"><p>We should be able to have some comments here too</p><div class="foonote"><ul></ul></div>	<div class="mermaid">
+		</nav></div><!--/span--></div><!--/row-->    <div class="row"><div class="col-12 col-lg-12"><p>This extension uses the <a href='https://mermaid-js.github.io/mermaid/#/'>Mermaid</a> library to produce a customised timeline gantt chart. It is an example of a special sub-page and should be added to the <a href='sub-pages.json.html'>sub-pages.json</a>.</p>
+
+<div class="alert alert-info" role="alert"><h4 class="alert-heading">Extension Variables</h4><p>For this extension to work the <b>class</b> variable needs to be set to <b>timeline</b> and the <b>file</b> variable needs to give the name of the additional json file including the timeline data as shown below.</p></div>
+
+<figure>
+		<pre style="overflow: hidden;border: 2px solid black;padding: 10px;">
+<code>...  
+  "<b>timeline</b>": {
+    "<b>parent</b>": "extensions",
+    "<b>class</b>": "timeline",
+    "<b>file</b>": "timeline.json",
+    "<b>title</b>": "Simple Site - The <b>Timeline Extension</b>",
+    "<b>content</b>": "&lt;p&gt;This extension uses the &#91;Mermaid|https://mermaid-js.github.io/mermaid/#/&#93; library to produce a customised timeline gantt chart. It is an example of a special sub-page and should be added to the ... ",
+    "<b>content right</b>": ""		
+	}
+...
+</code></pre><figcaption class=\"figure-caption\">Simplified version of the JSON object used to describe this page.</figcaption>
+</figure>
+
+<p>The details included in the <b>content</b> and <b>content right</b> variable will be presented as <a href='pages.json.html'>previously described</a>, however the data included in the named file, in this case <b>timeline.json</b> will be processed to add a formatted timeline to the bottom of the page.</p>
+
+<h3>Timeline JSON file</h3>
+
+<p>As with the other JSON files the timeline data needs to be organised in a series of JSON objects, an example of which is provided below, for an example of real code please see the <a href='https://github.com/jpadfield/simple-site/blob/master/build/timeline.json'>timeline.json</a> file.</p>
+
+<figure>
+		<pre style="overflow: hidden;border: 2px solid black;padding: 10px;">
+<code>{
+  "<b>project</b>": "Simple title for time line",
+  "<b>start date</b>": "Start date of your project in the 2020-12-31 format",
+  "<b>margin</b>": -3, /* negative number of months - adds a margin to the left of your timeline to leave room for the group titles.*/
+...
+</code></pre><figcaption class=\"figure-caption\">The top three variable required in the timeline JSON file.</figcaption>
+</figure>
+
+<p>The rest of the data within the JSON file relates to a series of event organised in <b>groups</b>, it is ok just to have a single group, but the system automatically applies different background colours to each group, which allows an easy method of breaking up or organising a longer list of events. Each is identified with a unique short tag, and then within each individual group you have a group title and list of events called <b>stages</b>.</p>
+
+<p>Each stage is made up of four unnamed variables which equate to:
+<ul>
+<li>The display text that describes the particular stage or event</li>
+<li>An optional styling class - at this time only three options are used in the example below;
+<ul>
+<li><b>""</b>: (basically empty) a mid blue with a dark blue outline</li>
+<li><b>"crit"</b>: a red with a lighter read outline</li>
+<li><b>"crit, active"</b>: a lighter blue with a red outline.</li>
+</ul></li>
+<li>The start of the event: given in a number of months from the start date, or a number of months and days if formatted as "3,3" - three months and three days.</li>
+<li>The end of the event: given in a number of months from the start date, or a number of months and days if formatted as "3,3" - three months and three days.</li>
+</ul></p>
+<figure>
+		<pre style="overflow: hidden;border: 2px solid black;padding: 10px;">
+<code>
+... 
+  "<b>groups</b>": { /
+    "<b>int</b>": {
+      "<b>title</b>": "Initial discussion and planning",
+      "<b>stages</b>" : [
+        ["Literature/website/software review", "", 2, 8],
+        ["Establish communications, collaborative environments and links with related interest groups",	"", 0, 4],				
+        ["Recruit Project Researcher", "crit", "3,3", 6],
+        ["Project Researcher In Post", "crit", 6, 21]
+      ]},
+    "<b>ws</b>": {
+      "<b>title</b>": "Workshops",
+       "<b>stages</b>": [
+        ["Organise Workshop 1", "", 2, "5,20"],
+        ["Workshop 1 - The Beginning", "crit", "5,20", "5,21"],
+        ["Organise Workshop 2",	"", 6, 9],
+        ["Workshop 2 - The Middle", "crit, active", 9, 10],
+        ["Organise Workshop 3 – Document available resources and development ideas", "", 10, 18],
+        ["Workshop 3 - The End", "crit, active", 18, 19]
+      ]},
+			
+...
+
+    }
+  }
+</code></pre><figcaption class=\"figure-caption\">The first few objects in the <a href='https://github.com/jpadfield/simple-site/blob/master/build/timeline.json'>JSON file</a> used to describe the example timeline below.</figcaption>
+</figure>
+
+<figure>
+		<pre style="overflow: hidden;border: 2px solid black;padding: 10px;">
+<code>{
+  "<b>project</b>": "Simple Site Time Line Example",
+  "<b>start date</b>": "2020-02-01",
+  "<b>margin</b>": -3,
+  "<b>groups</b>": {
+    "<b>int</b>": {
+      "<b>title</b>": "Initial discussion and planning",
+      "<b>stages</b>" : [
+        ["Literature/website/software review", "", 2, 8],
+        ["Establish communications, collaborative environments and links with related interest groups",	"", 0, 4],				
+        ["Recruit Project Researcher", "crit", "3,3", 6],
+        ["Project Researcher In Post", "crit", 6, 21]
+      ]},
+    "<b>ws</b>": {
+      "<b>title</b>": "Workshops",
+       "<b>stages</b>": [
+        ["Organise Workshop 1", "", 2, "5,20"],
+        ["Workshop 1 - The Beginning", "crit", "5,20", "5,21"],
+        ["Organise Workshop 2",	"", 6, 9],
+        ["Workshop 2 - The Middle", "crit, active", 9, 10],
+        ["Organise Workshop 3 – Document available resources and development ideas", "", 10, 18],
+        ["Workshop 3 - The End", "crit, active", 18, 19]
+      ]},
+			
+...
+
+    }
+  }
+</code></pre><figcaption class=\"figure-caption\">The first few objects in the <a href='https://github.com/jpadfield/simple-site/blob/master/build/timeline.json'>JSON file</a> used to describe the example timeline below.</figcaption>
+</figure>
+
+<h3>Example Timeline</h3><div class="foonote"><ul></ul></div>	<div class="mermaid">
 gantt
        dateFormat  YYYY-MM-DD
        title Simple Site Time Line Example	
        	section Initial discussion and planning
-		Add as a margin :int0, 2020-01-06, 2020-01-06
-		Literature/website/software review :int1, 2020-06-06, 2020-12-06
-		Establish communications, collaborative environments and links with related interest groups :int2, 2020-04-06, 2020-08-06
-		Recruit Project Researcher :crit, int3, 2020-07-09, 2020-10-06
-		Project Researcher In Post :crit, int4, 2020-10-06, 2022-01-06
+		Add as a margin :int0, 2020-01-07, 2020-01-07
+		Literature/website/software review :int1, 2020-06-07, 2020-12-07
+		Establish communications, collaborative environments and links with related interest groups :int2, 2020-04-07, 2020-08-07
+		Recruit Project Researcher :crit, int3, 2020-07-10, 2020-10-07
+		Project Researcher In Post :crit, int4, 2020-10-07, 2022-01-07
 	section Workshops
-		Organise Workshop 1 :ws0, 2020-06-06, 2020-09-26
-		Workshop 1 - The Beginning :crit, ws1, 2020-09-26, 2020-09-27
-		Organise Workshop 2 :ws2, 2020-10-06, 2021-01-06
-		Workshop 2 - The Middle :crit, active, ws3, 2021-01-06, 2021-02-06
-		Organise Workshop 3 – Document available resources and development ideas :ws4, 2021-02-06, 2021-10-06
-		Workshop 3 - The End :crit, active, ws5, 2021-10-06, 2021-11-06
+		Organise Workshop 1 :ws0, 2020-06-07, 2020-09-27
+		Workshop 1 - The Beginning :crit, ws1, 2020-09-27, 2020-09-28
+		Organise Workshop 2 :ws2, 2020-10-07, 2021-01-07
+		Workshop 2 - The Middle :crit, active, ws3, 2021-01-07, 2021-02-07
+		Organise Workshop 3 – Document available resources and development ideas :ws4, 2021-02-07, 2021-10-07
+		Workshop 3 - The End :crit, active, ws5, 2021-10-07, 2021-11-07
 	section Collaborative Research
-		Assessing the output of Workshop 1 :cr0, 2020-09-27, 2020-11-06
-		Assessing the output of Workshop 2 :cr1, 2021-02-06, 2021-04-06
-		Project Resource survey :cr2, 2020-10-06, 2021-02-06
-		Evaluate selection of identified project Resources :cr3, 2021-02-06, 2021-03-06
-		Assessing the output of Workshop 3 :cr4, 2021-11-06, 2021-12-06
+		Assessing the output of Workshop 1 :cr0, 2020-09-28, 2020-11-07
+		Assessing the output of Workshop 2 :cr1, 2021-02-07, 2021-04-07
+		Project Resource survey :cr2, 2020-10-07, 2021-02-07
+		Evaluate selection of identified project Resources :cr3, 2021-02-07, 2021-03-07
+		Assessing the output of Workshop 3 :cr4, 2021-11-07, 2021-12-07
 	section Placements
-		Secondments (some may be virtual) for researcher :pl0, 2021-01-06, 2021-09-06
+		Secondments (some may be virtual) for researcher :pl0, 2021-01-07, 2021-09-07
 	section Public demonstrations
-		Evaluation of demonstration deliverables :crit, active, pd0, 2021-11-06, 2021-12-06
-		Presentation of demonstration deliverables :crit, active, pd1, 2021-12-06, 2022-01-06
+		Evaluation of demonstration deliverables :crit, active, pd0, 2021-11-07, 2021-12-07
+		Presentation of demonstration deliverables :crit, active, pd1, 2021-12-07, 2022-01-07
 	section Reporting
-		Complete and Deliver Final Rreport :crit, active, rp0, 2021-12-06, 2022-01-06
+		Complete and Deliver Final Rreport :crit, active, rp0, 2021-12-07, 2022-01-07
 
 	</div></div><!--/span--></div><!--/row-->    <br/>
 			</div><!--/span-->
