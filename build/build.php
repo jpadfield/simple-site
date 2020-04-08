@@ -637,7 +637,7 @@ END;
 function positionExtensionContent ($str, $extra)
 	{
 	$count = 0;
-	$str = preg_replace('/\[[#][#]\]/', $extra, $str, -1, $count))
+	$str = preg_replace('/\[[#][#]\]/', $extra, $str, -1, $count);
 
 	if (!$count)
 		{$str .= $extra;}
