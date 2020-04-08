@@ -49,7 +49,8 @@
 
 <div class="alert alert-info" role="alert"><h4 class="alert-heading">New Opportunities</h4><p>What jobs could require consistent processing of simple files of text, or numbers, and then present formatted results in image viewers, graphs, maps, flow charts, etc?</p><p>There are lots of great pieces of software out there, so this project is intended to make use of open source libraries rather than creating new ones.</p><p>The main question here is, <b>how can researchers, who do not have their own web server, or sufficient coding skills gain access to their own data processing and presentation system?</b></p></div>
 
-<p>Beyond the standard variables that have already been explained the <a href='sub-pages.json.html'>sub-page</a> JSON file includes two additional variables that can be used to indicate the inclusion of a page extension.</h3>
+<h3>How it works</h3>
+<p>As has already been explained, the <a href='sub-pages.json.html'>sub-page</a> JSON file includes two additional variables that can be used to indicate the inclusion of a page extension.</p>
 
 <figure>
 		<pre style="overflow: hidden;border: 2px solid black;padding: 10px;">
@@ -59,12 +60,15 @@
 ...
 </code></pre><figcaption class=\"figure-caption\">Extension variables included in the <a href='sub-pages.json.html'>sub.pages.json</a> page object.</figcaption>
 </figure>
-<p>Simply, the <b>class</b> variable indicates what type of extension should be included and the <b>file</b> variable indicates the name of the file that includes the required extra data. The two examples provided here are:
+<p>Simply, the <b>class</b> variable indicates what type of extension should be included and the <b>file</b> variable indicates the name of the file that includes any required extra data. The two classes currently available are:
 <ul>
 <li>The <a href='timeline.html'>timeline</a> class, which can be used to include a formatted <a href='https://en.wikipedia.org/wiki/Gantt_chart'>Gantt Chart</a>, using the <a href='https://mermaid-js.github.io/mermaid/#/'>Mermaid</a> library, to display a simple project timeline.</li>
 <li>The <a href='IIIF%20viewer.html'>mirador</a> class, which can be used to include an <a href='https://iiif.io/'>IIIF</a> images viewer called <a href='https://projectmirador.org/'>Mirador</a>, to organise and present high resolution images, which are already hosted elsewhere on the web.</li>
 </ul></p>
-<h4>Gallery</h4>
+<h4>Positioning the extension content</h4>
+<p>By default all extension content will be automatically added below the details given in the <b>content</b> or <b>content right</b> fields. If one would like the content to appear before of even embedded within the details provided by <b>content</b> or <b>content right</b> then it can be positioned by simply adding <b>[##]</b> at the appropriate position. The system will automatically replace <b>[##]</b> with the chosen extension content.</p>
+
+<h3>Examples Gallery</h3>
 
 
   <div class="row text-center text-lg-left">
