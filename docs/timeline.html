@@ -50,7 +50,38 @@ g a {color:inherit;}
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><a href="extensions.html">Extensions</a></li>
 			</ol>
-		</nav></div><!--/span--></div><!--/row-->    <div class="row"><div class="col-12 col-lg-12"><p>This extension uses the <a href='https://mermaid-js.github.io/mermaid/#/'>Mermaid</a> library to produce a customised timeline gantt chart. It is an example of a special sub-page and should be added to the <a href='sub-pages.json.html'>sub-pages.json</a>.</p>
+		</nav></div><!--/span--></div><!--/row-->    <div class="row"><div class="col-12 col-lg-12"><p>This extension uses the <a href='https://mermaid-js.github.io/mermaid/#/'>Mermaid</a> library to produce a customised timeline gantt chart. It is an example of a special sub-page and should be added to the <a href='sub-pages.json.html'>sub-pages.json</a>.</p>	<div class="mermaid">
+gantt
+       dateFormat  YYYY-MM-DD
+       title Simple Site Time Line Example	
+       	section Initial discussion and planning
+		Add as a margin :int0, 2020-01-08, 2020-01-08
+		Literature/website/software review :int1, 2020-06-08, 2020-12-08
+		Establish communications, collaborative environments and links with related interest groups :int2, 2020-04-08, 2020-08-08
+		Recruit Project Researcher :crit, int3, 2020-07-11, 2020-10-08
+		Project Researcher In Post :crit, int4, 2020-10-08, 2022-01-08
+	section Workshops
+		Organise Workshop 1 :ws0, 2020-06-08, 2020-09-28
+		Workshop 1 - The Beginning :crit, ws1, 2020-09-28, 2020-09-29
+		Organise Workshop 2 :ws2, 2020-10-08, 2021-01-08
+		Workshop 2 - The Middle :crit, active, ws3, 2021-01-08, 2021-02-08
+		Organise Workshop 3 – Document available resources and development ideas :ws4, 2021-02-08, 2021-10-08
+		Workshop 3 - The End :crit, active, ws5, 2021-10-08, 2021-11-08
+	section Collaborative Research
+		Assessing the output of Workshop 1 :cr0, 2020-09-29, 2020-11-08
+		Assessing the output of Workshop 2 :cr1, 2021-02-08, 2021-04-08
+		Project Resource survey :cr2, 2020-10-08, 2021-02-08
+		Evaluate selection of identified project Resources :cr3, 2021-02-08, 2021-03-08
+		Assessing the output of Workshop 3 :cr4, 2021-11-08, 2021-12-08
+	section Placements
+		Secondments (some may be virtual) for researcher :pl0, 2021-01-08, 2021-09-08
+	section Public demonstrations
+		Evaluation of demonstration deliverables :crit, active, pd0, 2021-11-08, 2021-12-08
+		Presentation of demonstration deliverables :crit, active, pd1, 2021-12-08, 2022-01-08
+	section Reporting
+		Complete and Deliver Final Rreport :crit, active, rp0, 2021-12-08, 2022-01-08
+
+	</div>
 
 <div class="alert alert-info" role="alert"><h4 class="alert-heading">Extension Variables</h4><p>For this extension to work the <b>class</b> variable needs to be set to <b>timeline</b> and the <b>file</b> variable needs to give the name of the additional json file including the timeline data as shown below.</p></div>
 
@@ -163,38 +194,7 @@ g a {color:inherit;}
 </code></pre><figcaption class=\"figure-caption\">The first few objects in the <a href='https://github.com/jpadfield/simple-site/blob/master/build/timeline.json'>JSON file</a> used to describe the example timeline below.</figcaption>
 </figure>
 
-<h3>Example Timeline</h3><div class="foonote"><ul></ul></div>	<div class="mermaid">
-gantt
-       dateFormat  YYYY-MM-DD
-       title Simple Site Time Line Example	
-       	section Initial discussion and planning
-		Add as a margin :int0, 2020-01-07, 2020-01-07
-		Literature/website/software review :int1, 2020-06-07, 2020-12-07
-		Establish communications, collaborative environments and links with related interest groups :int2, 2020-04-07, 2020-08-07
-		Recruit Project Researcher :crit, int3, 2020-07-10, 2020-10-07
-		Project Researcher In Post :crit, int4, 2020-10-07, 2022-01-07
-	section Workshops
-		Organise Workshop 1 :ws0, 2020-06-07, 2020-09-27
-		Workshop 1 - The Beginning :crit, ws1, 2020-09-27, 2020-09-28
-		Organise Workshop 2 :ws2, 2020-10-07, 2021-01-07
-		Workshop 2 - The Middle :crit, active, ws3, 2021-01-07, 2021-02-07
-		Organise Workshop 3 – Document available resources and development ideas :ws4, 2021-02-07, 2021-10-07
-		Workshop 3 - The End :crit, active, ws5, 2021-10-07, 2021-11-07
-	section Collaborative Research
-		Assessing the output of Workshop 1 :cr0, 2020-09-28, 2020-11-07
-		Assessing the output of Workshop 2 :cr1, 2021-02-07, 2021-04-07
-		Project Resource survey :cr2, 2020-10-07, 2021-02-07
-		Evaluate selection of identified project Resources :cr3, 2021-02-07, 2021-03-07
-		Assessing the output of Workshop 3 :cr4, 2021-11-07, 2021-12-07
-	section Placements
-		Secondments (some may be virtual) for researcher :pl0, 2021-01-07, 2021-09-07
-	section Public demonstrations
-		Evaluation of demonstration deliverables :crit, active, pd0, 2021-11-07, 2021-12-07
-		Presentation of demonstration deliverables :crit, active, pd1, 2021-12-07, 2022-01-07
-	section Reporting
-		Complete and Deliver Final Rreport :crit, active, rp0, 2021-12-07, 2022-01-07
-
-	</div></div><!--/span--></div><!--/row-->    <br/>
+<h3>Example Timeline</h3><div class="foonote"><ul></ul></div></div><!--/span--></div><!--/row-->    <br/>
 			</div><!--/span-->
 			
 			
