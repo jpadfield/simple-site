@@ -633,8 +633,19 @@ END;
 	return ($page_html);
 	}
 
-// visualise with: https://mermaidjs.github.io/mermaid-live-editor test
 
+function positionExtensionContent ($str, $extra)
+	{
+	$count = 0;
+	$str = preg_replace('/\[[#][#]\]/', $extra, $str, -1, $count))
+
+	if (!$count)
+		{$str .= $extra;}
+
+	return ($str);	
+	}
+
+	
 function buildExtensionContent ($name, $d, $pd)
 	{
 	$content = parseLinks ($d["content"], 1);
@@ -681,7 +692,8 @@ function buildExtensionContent ($name, $d, $pd)
       position: relative;
      }";
 
-    $content .= '<div id="viewer"></div>';
+		$content = positionExtensionContent ($content, '<div id="viewer"></div>');
+    //$content .= '<div id="viewer"></div>';
 		}
 	else if ($d["class"] == "timeline")
 		{
@@ -749,8 +761,10 @@ gantt
        $str
 	</div>
 END;
-			$content .= ob_get_contents();
+			$mcontent = ob_get_contents();
 			ob_end_clean(); // Don't send output to client
+
+			$content = positionExtensionContent ($content, $mcontent);
 			}	
 		}
 	return (array($content, $pd));
