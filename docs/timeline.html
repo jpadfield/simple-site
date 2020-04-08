@@ -50,7 +50,10 @@ g a {color:inherit;}
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><a href="extensions.html">Extensions</a></li>
 			</ol>
-		</nav></div><!--/span--></div><!--/row-->    <div class="row"><div class="col-12 col-lg-12"><p>This extension uses the <a href='https://mermaid-js.github.io/mermaid/#/'>Mermaid</a> library to produce a customised timeline gantt chart. It is an example of a special sub-page and should be added to the <a href='sub-pages.json.html'>sub-pages.json</a>.</p>	<div class="mermaid">
+		</nav></div><!--/span--></div><!--/row-->    <div class="row"><div class="col-12 col-lg-12"><p>This extension uses the <a href='https://mermaid-js.github.io/mermaid/#/'>Mermaid</a> library to produce a customised timeline gantt chart. It is an example of a special sub-page and should be added to the <a href='sub-pages.json.html'>sub-pages.json</a>.</p>
+
+<h3>The Example</h3>
+	<div class="mermaid">
 gantt
        dateFormat  YYYY-MM-DD
        title Simple Site Time Line Example	
@@ -83,6 +86,7 @@ gantt
 
 	</div>
 
+<h3>Summary</h3>
 <div class="alert alert-info" role="alert"><h4 class="alert-heading">Extension Variables</h4><p>For this extension to work the <b>class</b> variable needs to be set to <b>timeline</b> and the <b>file</b> variable needs to give the name of the additional json file including the timeline data as shown below.</p></div>
 
 <figure>
@@ -134,31 +138,17 @@ gantt
 		<pre style="overflow: hidden;border: 2px solid black;padding: 10px;">
 <code>
 ... 
-  "<b>groups</b>": { /
-    "<b>int</b>": {
-      "<b>title</b>": "Initial discussion and planning",
+  "<b>groups</b>": { 
+    "<b>tag1</b>": {
+      "<b>title</b>": "Tag1 Title",
       "<b>stages</b>" : [
-        ["Literature/website/software review", "", 2, 8],
-        ["Establish communications, collaborative environments and links with related interest groups",	"", 0, 4],				
-        ["Recruit Project Researcher", "crit", "3,3", 6],
-        ["Project Researcher In Post", "crit", 6, 21]
-      ]},
-    "<b>ws</b>": {
-      "<b>title</b>": "Workshops",
-       "<b>stages</b>": [
-        ["Organise Workshop 1", "", 2, "5,20"],
-        ["Workshop 1 - The Beginning", "crit", "5,20", "5,21"],
-        ["Organise Workshop 2",	"", 6, 9],
-        ["Workshop 2 - The Middle", "crit, active", 9, 10],
-        ["Organise Workshop 3 – Document available resources and development ideas", "", 10, 18],
-        ["Workshop 3 - The End", "crit, active", 18, 19]
-      ]},
-			
-...
-
+        ["Text string describing the stage", "", 1, 2],
+        ["Text string describing a critical stage", "crit", 2, 4],
+        ["Text string describing an active stage", "crit, active", 3, 8]
+      ]}
     }
-  }
-</code></pre><figcaption class=\"figure-caption\">The first few objects in the <a href='https://github.com/jpadfield/simple-site/blob/master/build/timeline.json'>JSON file</a> used to describe the example timeline below.</figcaption>
+...
+</code></pre><figcaption class=\"figure-caption\">The first few objects in the <a href='https://github.com/jpadfield/simple-site/blob/master/build/timeline.json'>JSON file</a> used to describe the example timeline are shown below.</figcaption>
 </figure>
 
 <figure>
@@ -192,9 +182,7 @@ gantt
     }
   }
 </code></pre><figcaption class=\"figure-caption\">The first few objects in the <a href='https://github.com/jpadfield/simple-site/blob/master/build/timeline.json'>JSON file</a> used to describe the example timeline below.</figcaption>
-</figure>
-
-<h3>Example Timeline</h3><div class="foonote"><ul></ul></div></div><!--/span--></div><!--/row-->    <br/>
+</figure><div class="foonote"><ul></ul></div></div><!--/span--></div><!--/row-->    <br/>
 			</div><!--/span-->
 			
 			
