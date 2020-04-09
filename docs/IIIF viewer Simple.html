@@ -12,8 +12,15 @@
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<link href="https://unpkg.com/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="css/main.css" rel="stylesheet" type="text/css">
+	<link href="https://tanc-ahrc.github.io/mirador/mirador/css/mirador-combined.css" rel="stylesheet" type="text/css">
     <style>
     
+#viewer {       
+      display: block;
+      width: 100%;
+      height: 600px;
+      position: relative;
+     }
     </style>
   </head>
 
@@ -28,7 +35,7 @@
 				style="" alt="The National Gallery"/>
 		  </a>
 			<div class="collapse navbar-collapse" id="navbarsExampleDefault"><ul class="navbar-nav">
-<li class="nav-item "><a class="nav-link" href="index.html">Home</a></li><li class="nav-item "><a class="nav-link" href="Instructions.html">Instructions</a></li><!-- Dropdown Loop 1 --><li class="nav-item dropdown "><a id="dropdownMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" title="Click to open the JSON menu" >JSON</a><ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow"><li><a href="JSON.html" class="dropdown-item top-item" title="Click to open the JSON page">JSON</a></li><li class="dropdown-divider"></li><li><a href="site.json.html" class="dropdown-item">Site.json</a></li><li><a href="pages.json.html" class="dropdown-item">Pages.json</a></li><li><a href="sub-pages.json.html" class="dropdown-item">Sub-pages.json</a></li></ul></li><!-- End Loop 1 --><!-- Dropdown Loop 1 --><li class="nav-item dropdown "><a id="dropdownMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" title="Click to open the Extensions menu" >Extensions</a><ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow"><li><a href="extensions.html" class="dropdown-item top-item" title="Click to open the Extensions page">Extensions</a></li><li class="dropdown-divider"></li><li><a href="timeline.html" class="dropdown-item">Timeline</a></li><li><a href="IIIF viewer.html" class="dropdown-item">IIIF viewer</a></li><li><a href="IIIF viewer Simple.html" class="dropdown-item">IIIF viewer Simple</a></li></ul></li><!-- End Loop 1 --><!-- Dropdown Loop 1 --><li class="nav-item dropdown active"><a id="dropdownMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" title="Click to open the Example menu" >Example<span class="sr-only">(current)</span></a><ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow"><li><a href="example.html" class="dropdown-item top-item" title="Click to open the Example page">Example</a></li><li class="dropdown-divider"></li><!-- Dropdown Loop 2 --><li class="dropdown-submenu">
+<li class="nav-item "><a class="nav-link" href="index.html">Home</a></li><li class="nav-item "><a class="nav-link" href="Instructions.html">Instructions</a></li><!-- Dropdown Loop 1 --><li class="nav-item dropdown "><a id="dropdownMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" title="Click to open the JSON menu" >JSON</a><ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow"><li><a href="JSON.html" class="dropdown-item top-item" title="Click to open the JSON page">JSON</a></li><li class="dropdown-divider"></li><li><a href="site.json.html" class="dropdown-item">Site.json</a></li><li><a href="pages.json.html" class="dropdown-item">Pages.json</a></li><li><a href="sub-pages.json.html" class="dropdown-item">Sub-pages.json</a></li></ul></li><!-- End Loop 1 --><!-- Dropdown Loop 1 --><li class="nav-item dropdown active"><a id="dropdownMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" title="Click to open the Extensions menu" >Extensions<span class="sr-only">(current)</span></a><ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow"><li><a href="extensions.html" class="dropdown-item top-item" title="Click to open the Extensions page">Extensions</a></li><li class="dropdown-divider"></li><li><a href="timeline.html" class="dropdown-item">Timeline</a></li><li><a href="IIIF viewer.html" class="dropdown-item">IIIF viewer</a></li><li><a href="IIIF viewer Simple.html" class="dropdown-item">IIIF viewer Simple</a></li></ul></li><!-- End Loop 1 --><!-- Dropdown Loop 1 --><li class="nav-item dropdown "><a id="dropdownMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" title="Click to open the Example menu" >Example</a><ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow"><li><a href="example.html" class="dropdown-item top-item" title="Click to open the Example page">Example</a></li><li class="dropdown-divider"></li><!-- Dropdown Loop 2 --><li class="dropdown-submenu">
    <a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the Example-subpage-01 menu">Example-subpage-01</a>
 		<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow"><li><a href="example-subpage-01.html" class="dropdown-item  top-item" title="Click to open the Example-subpage-01 page">Example-subpage-01</a></li><li class="dropdown-divider"></li><!-- Dropdown Loop  --><li class="dropdown-submenu">
    <a id="dropdownMenu" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the Example-sub-subpage-01 menu">Example-sub-subpage-01</a>
@@ -44,11 +51,11 @@
 			<div class="row ">				
 			 <div class="col-12 col-md-12">          
 				
-				<div class="jumbotron"><h2>Another example of a simple sub page</h2></div><div class="row"><div class="col-12 col-lg-12">		<nav aria-label="breadcrumb">
+				<div class="jumbotron"><h2>Simple Site IIIF Example - Mirador</h2></div><div class="row"><div class="col-12 col-lg-12">		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
-				<li class="breadcrumb-item"><a href="example.html">Example</a></li>
+				<li class="breadcrumb-item"><a href="extensions.html">Extensions</a></li>
 			</ol>
-		</nav></div><!--/span--></div><!--/row-->    <div class="row"><div class="col-12 col-lg-12"><p>Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Cras ultricies ligula sed magna dictum porta. Donec rutrum congue leo eget malesuada.</p><div class="foonote"><ul></ul></div></div><!--/span--></div><!--/row-->    <br/>
+		</nav></div><!--/span--></div><!--/row-->    <div class="row"><div class="col-12 col-lg-12"><div id="viewer"></div> My own personal collection of images<div class="foonote"><ul></ul></div></div><!--/span--></div><!--/row-->    <br/>
 			</div><!--/span-->
 			
 			
@@ -69,8 +76,21 @@
 	<script src="https://unpkg.com/jquery@3.4.1/dist/jquery.min.js"></script>
 	<script src="https://unpkg.com/tether@1.4.7/dist/js/tether.min.js"></script>
 	<script src="https://unpkg.com/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
+	<script src="https://tanc-ahrc.github.io/mirador/mirador/mirador.min.js"></script>
     <script>
 			
+	$(function() {
+       myMiradorInstance = Mirador({
+         id: "viewer",
+         layout: "1x1",
+         buildPath: "https://tanc-ahrc.github.io/mirador/mirador/",
+         data: [{"manifestUri":"https:\/\/iiif.harvardartmuseums.org\/manifests\/object\/299843","location":"Harvard University"},{"manifestUri":"https:\/\/media.nga.gov\/public\/manifests\/nga_highlights.json","location":"National Gallery of Art"}],
+         "windowObjects": [{ "loadedManifest":"https://iiif.harvardartmuseums.org/manifests/object/299843", "slotAddress":"row1", "viewType": "ImageView"}],
+         annotationEndpoint: {
+           name:"Local Storage",
+           module: "LocalStorageEndpoint" }
+       });
+     });
 			function onLoad() {
 				$(function() {
   // ------------------------------------------------------- //
