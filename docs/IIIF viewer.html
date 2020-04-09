@@ -35,7 +35,7 @@
 				style="" alt="The National Gallery"/>
 		  </a>
 			<div class="collapse navbar-collapse" id="navbarsExampleDefault"><ul class="navbar-nav">
-<li class="nav-item "><a class="nav-link" href="index.html">Home</a></li><li class="nav-item "><a class="nav-link" href="Instructions.html">Instructions</a></li><!-- Dropdown Loop 1 --><li class="nav-item dropdown "><a id="dropdownMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" title="Click to open the JSON menu" >JSON</a><ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow"><li><a href="JSON.html" class="dropdown-item top-item" title="Click to open the JSON page">JSON</a></li><li class="dropdown-divider"></li><li><a href="site.json.html" class="dropdown-item">Site.json</a></li><li><a href="pages.json.html" class="dropdown-item">Pages.json</a></li><li><a href="sub-pages.json.html" class="dropdown-item">Sub-pages.json</a></li></ul></li><!-- End Loop 1 --><!-- Dropdown Loop 1 --><li class="nav-item dropdown active"><a id="dropdownMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" title="Click to open the Extensions menu" >Extensions<span class="sr-only">(current)</span></a><ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow"><li><a href="extensions.html" class="dropdown-item top-item" title="Click to open the Extensions page">Extensions</a></li><li class="dropdown-divider"></li><li><a href="timeline.html" class="dropdown-item">Timeline</a></li><li><a href="IIIF viewer.html" class="dropdown-item">IIIF viewer</a></li><li><a href="IIIF viewer Simple.html" class="dropdown-item">IIIF viewer Simple</a></li></ul></li><!-- End Loop 1 --><!-- Dropdown Loop 1 --><li class="nav-item dropdown "><a id="dropdownMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" title="Click to open the Example menu" >Example</a><ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow"><li><a href="example.html" class="dropdown-item top-item" title="Click to open the Example page">Example</a></li><li class="dropdown-divider"></li><!-- Dropdown Loop 2 --><li class="dropdown-submenu">
+<li class="nav-item "><a class="nav-link" href="index.html">Home</a></li><li class="nav-item "><a class="nav-link" href="Instructions.html">Instructions</a></li><!-- Dropdown Loop 1 --><li class="nav-item dropdown "><a id="dropdownMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" title="Click to open the JSON menu" >JSON</a><ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow"><li><a href="JSON.html" class="dropdown-item top-item" title="Click to open the JSON page">JSON</a></li><li class="dropdown-divider"></li><li><a href="site.json.html" class="dropdown-item">Site.json</a></li><li><a href="pages.json.html" class="dropdown-item">Pages.json</a></li><li><a href="sub-pages.json.html" class="dropdown-item">Sub-pages.json</a></li></ul></li><!-- End Loop 1 --><!-- Dropdown Loop 1 --><li class="nav-item dropdown active"><a id="dropdownMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" title="Click to open the Extensions menu" >Extensions<span class="sr-only">(current)</span></a><ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow"><li><a href="extensions.html" class="dropdown-item top-item" title="Click to open the Extensions page">Extensions</a></li><li class="dropdown-divider"></li><li><a href="timeline.html" class="dropdown-item">Timeline</a></li><li><a href="IIIF viewer.html" class="dropdown-item">IIIF viewer</a></li></ul></li><!-- End Loop 1 --><!-- Dropdown Loop 1 --><li class="nav-item dropdown "><a id="dropdownMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" title="Click to open the Example menu" >Example</a><ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow"><li><a href="example.html" class="dropdown-item top-item" title="Click to open the Example page">Example</a></li><li class="dropdown-divider"></li><!-- Dropdown Loop 2 --><li class="dropdown-submenu">
    <a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the Example-subpage-01 menu">Example-subpage-01</a>
 		<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow"><li><a href="example-subpage-01.html" class="dropdown-item  top-item" title="Click to open the Example-subpage-01 page">Example-subpage-01</a></li><li class="dropdown-divider"></li><!-- Dropdown Loop  --><li class="dropdown-submenu">
    <a id="dropdownMenu" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the Example-sub-subpage-01 menu">Example-sub-subpage-01</a>
@@ -51,11 +51,102 @@
 			<div class="row ">				
 			 <div class="col-12 col-md-12">          
 				
-				<div class="jumbotron"><h2>Simple Site IIIF Example - Mirador</h2></div><div class="row"><div class="col-12 col-lg-12">		<nav aria-label="breadcrumb">
+				<div class="jumbotron"><h2>Simple Site - The <b>IIIF Mirador Extension</b></h2></div><div class="row"><div class="col-12 col-lg-12">		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><a href="extensions.html">Extensions</a></li>
 			</ol>
-		</nav></div><!--/span--></div><!--/row-->    <div class="row"><div class="col-12 col-lg-12"><div id="viewer"></div> My own personal collection of images<div class="foonote"><ul></ul></div></div><!--/span--></div><!--/row-->    <br/>
+		</nav></div><!--/span--></div><!--/row-->    <div class="row"><div class="col-12 col-lg-12"><p>This extension uses the <a href='https://iiif.io'>IIIF</a> image viewer <a href='https://projectmirador.org/'>Mirador</a> to produce a customised presentation of a bespoke selection of [IIIF manifests@@IIIF manifests are simply a structured list of web based images resources that can be viewed in a IIIF compliant viewer, for more details see https://iiif.io/api/presentation/2.1/#table-of-contents]. It is an example of a special sub-page and should be added to the <a href='sub-pages.json.html'>sub-pages.json</a>.</p>
+
+<h3>The Example</h3>
+<div id="viewer"></div>
+
+<h3>Summary</h3>
+<div class="alert alert-info" role="alert"><h4 class="alert-heading">Extension Variables</h4><p>For this extension to work the <b>class</b> variable needs to be set to <b>mirador</b> and the <b>file</b> variable needs to give the name of the additional json file including the IIIF manifest list data as shown below.</p></div>
+
+<figure>
+		<pre style="overflow: hidden;border: 2px solid black;padding: 10px;">
+<code>...  
+  "<b>timeline</b>": {
+    "<b>parent</b>": "extensions",
+    "<b>class</b>": "mirador",
+    "<b>file</b>": "mirador.json",
+    "<b>title</b>": "Simple Site - The &lt;b&gt;IIIF Mirador Extension&lt;/b&gt;",
+    "<b>content</b>": "&lt;p&gt;This extension uses the &#91;IIIF|https://iiif.io&#93; to produce a customised presentation of a bespoke selection of &#91;IIIF manifests ... ",
+    "<b>content right</b>": ""		
+	}
+...
+</code></pre><figcaption class=\"figure-caption\">Simplified version of the JSON object used to describe this page.</figcaption>
+</figure>
+
+<p>The details included in the <b>content</b> and <b>content right</b> variable will be presented as <a href='pages.json.html'>previously described</a>, however the data included in the named file, in this case <b>mirador.json</b> will be processed to add a populated MIrador image viewer to the page.</p>
+
+<h3>Mirador JSON file</h3>
+
+<p>As with the other JSON files the mirador data needs to be organised in a series of JSON objects, an example of which is provided below, for an example of real code please see the <a href='https://github.com/jpadfield/simple-site/blob/master/build/mirador.json'>mirador.json</a> file. The expected data can be split into two parts, the first is required and the second, more complex section is optional.</p>
+
+<h4>Section one - <b>manifests</b> object</h4>
+
+<p>This object is composed of a simple list of a pair of values for each manifest, the actual URI for the manifest and an indication on where each manifest is from. If only the manifests object is provided Mirador is setup to autoload in the first image of the first manifest.</p>
+<figure>
+		<pre style="overflow: hidden;border: 2px solid black;padding: 10px;">
+<code>...
+  "<b>manifests</b>": [
+    {
+    "<b>manifestUri</b>": "https://web.address/of/a/manifest you want to include",
+    "<b>location</b>": "Where the manifest if from (Institution Name)"},
+    {
+    "<b>manifestUri</b>": "https://you.can.include/a/number/of/manifests/as/required ",
+    "<b>location</b>": "Great Museum"}		
+    ]
+...
+</code></pre><figcaption class=\"figure-caption\">A commented example of a manifests object with two manifests listed.</figcaption>
+</figure>
+
+<h4>Section two - the <b>windows</b> object</h4>
+<p>As noted above this section is optional, it can also be a bit more complex. THis object id intended to allow users to make use of some of the standard Mirador options to define which manifests and images are automatically loaded into the viewer and how they are arranged.</p>
+<figure>
+		<pre style="overflow: hidden;border: 2px solid black;padding: 10px;">
+<code>...
+  "<b>windows</b>": {
+    "<b>layout</b>": "viewer grid dimension, rows x columns: default value is <b>1x1</b>",
+    "<b>slots</b>": [
+      {
+      "<b>loadedManifest</b>": "URI of the manifest, from the included list, that you would like to load into a given slot by default",
+      "<b>slotAddress</b>":"The position of this window, given in the form <b>row1.column2</b> etc. - for single image views just use <b>row1</b>",
+      "<b>viewType</b>": "The type of presentation, enter one of <b>ThumbnailsView</b>, <b>ImageView</b>, <b>ScrollView</b>, <b>BookView</b>",
+      "<b>canvasID</b>: "More complex and optional - Define the URI of a specific image ID taken from the given manifest URI, (these IDs can be found by opening up the manifest in a text editor)."}
+    ]}
+...
+</code></pre><figcaption class=\"figure-caption\">A commented version of a windows object with a single slot defined. More information about these various values can be found on the main <a href='https://github.com/ProjectMirador/mirador/wiki/Configuration-Guides'>Mirador webpage</a>.</figcaption>
+</figure>
+
+<h4>A full example</h4>
+<p>The following code is copy of the actual JSON file used to create the example viewer shown above.</p>
+
+<figure>
+		<pre style="overflow: hidden;border: 2px solid black;padding: 10px;">
+<code>{
+  "manifests": [
+    { "manifestUri": "https://iiif.harvardartmuseums.org/manifests/object/299843", "location": "Harvard University"},
+    { "manifestUri": "https://media.nga.gov/public/manifests/nga_highlights.json", "location": "National Gallery of Art"}		
+    ],
+  "windows": {
+    "layout": "1x2",
+    "slots": [
+    {
+    "loadedManifest": "https://media.nga.gov/public/manifests/nga_highlights.json",
+    "slotAddress":"row1.column1",
+    "viewType": "ImageView",
+    "canvasID":"https://media.nga.gov/public/manifests/canvas/52178.json"
+    },
+    {
+    "loadedManifest": "https://iiif.harvardartmuseums.org/manifests/object/299843",
+    "slotAddress":"row1.column2",
+    "viewType": "ImageView"}
+    ]}
+}
+</code></pre><figcaption class=\"figure-caption\">A commented version of a windows object with a single slot defined. More information about these various values can be found on the main <a href='https://github.com/ProjectMirador/mirador/wiki/Configuration-Guides'>Mirador webpage</a>.</figcaption>
+</figure><div class="foonote"><ul></ul></div></div><!--/span--></div><!--/row-->    <br/>
 			</div><!--/span-->
 			
 			
@@ -85,7 +176,7 @@
          layout: "1x2",
          buildPath: "https://tanc-ahrc.github.io/mirador/mirador/",
          data: [{"manifestUri":"https:\/\/iiif.harvardartmuseums.org\/manifests\/object\/299843","location":"Harvard University"},{"manifestUri":"https:\/\/media.nga.gov\/public\/manifests\/nga_highlights.json","location":"National Gallery of Art"}],
-         "windowObjects": [{"loadedManifest":"https:\/\/media.nga.gov\/public\/manifests\/nga_highlights.json","slotAddress":"row1.column1","viewType":"ImageView","canvasID":"https:\/\/media.nga.gov\/iiif\/public\/objects\/6\/1\/3\/7\/1\/61371-primary-0-nativeres.ptif\/full\/full\/0\/default.jpg"},{"loadedManifest":"https:\/\/iiif.harvardartmuseums.org\/manifests\/object\/299843","slotAddress":"row1.column2","viewType":"ImageView"}],
+         "windowObjects": [{"loadedManifest":"https:\/\/media.nga.gov\/public\/manifests\/nga_highlights.json","slotAddress":"row1.column1","viewType":"ImageView","canvasID":"https:\/\/media.nga.gov\/public\/manifests\/canvas\/52178.json"},{"loadedManifest":"https:\/\/iiif.harvardartmuseums.org\/manifests\/object\/299843","slotAddress":"row1.column2","viewType":"ImageView"}],
          annotationEndpoint: {
            name:"Local Storage",
            module: "LocalStorageEndpoint" }
