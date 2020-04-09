@@ -664,7 +664,7 @@ function buildExtensionContent ($name, $d, $pd)
 				{$wo = json_encode($dets["windows"]);}
 			 else
 			  {$use = $dets["manifests"][0]["manifestUri"];
-				 $wo = '[{ "loadedManifest":"'.$use.'", "slotAddress":"row1", "viewType": "ImageView"}]');
+				 $wo = '[{ "loadedManifest":"'.$use.'", "slotAddress":"row1", "viewType": "ImageView"}]';
 				}}
 
 		// The mirador files could also be pulled from https://unpkg.com
