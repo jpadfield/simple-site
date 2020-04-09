@@ -6,7 +6,7 @@
 	"windows": {
 		"layout": "1x2",
 		"slots": [
-		{ "loadedManifest": "https://media.nga.gov/public/manifests/nga_highlights.json", "slotAddress":"row1.column1", "viewType": "ImageView", "canvasID":"https://media.nga.gov/iiif/public/objects/6/1/3/7/1/61371-primary-0-nativeres.ptif/full/full/0/default.jpg"},
+		{ "loadedManifest": "https://media.nga.gov/public/manifests/nga_highlights.json", "slotAddress":"row1.column1", "viewType": "ImageView", "canvasID":"https://media.nga.gov/public/manifests/canvas/52178.json"},
 		{ "loadedManifest": "https://iiif.harvardartmuseums.org/manifests/object/299843", "slotAddress":"row1.column2", "viewType": "ImageView"}
 		]}
 	}
