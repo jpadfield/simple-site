@@ -55,11 +55,11 @@
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><a href="extensions.html">Extensions</a></li>
 			</ol>
-		</nav></div><!--/span--></div><!--/row-->    <div class="row"><div class="col-12 col-lg-12"><p>This extension uses the <a href='https://iiif.io'>IIIF</a> image viewer <a href='https://projectmirador.org/'>Mirador</a> to produce a customised presentation of a bespoke selection of [IIIF manifests@@IIIF manifests are simply a structured list of web based images resources that can be viewed in a IIIF compliant viewer, for more details see https://iiif.io/api/presentation/2.1/#table-of-contents]. It is an example of a special sub-page and should be added to the <a href='sub-pages.json.html'>sub-pages.json</a>.</p>
+		</nav></div><!--/span--></div><!--/row-->    <div class="row"><div class="col-12 col-lg-12"><p>This extension uses the <a href='https://iiif.io'>IIIF</a> image viewer <a href='https://projectmirador.org/'>Mirador</a> to produce a customised presentation of a bespoke selection of IIIF manifests<sup><a id="ref1" href="#section1">[1]</a></sup>. It is an example of a special sub-page and should be added to the <a href='sub-pages.json.html'>sub-pages.json</a>.</p>
 
 <h3>The Example</h3>
 <div id="viewer"></div>
-
+<br/>
 <h3>Summary</h3>
 <div class="alert alert-info" role="alert"><h4 class="alert-heading">Extension Variables</h4><p>For this extension to work the <b>class</b> variable needs to be set to <b>mirador</b> and the <b>file</b> variable needs to give the name of the additional json file including the IIIF manifest list data as shown below.</p></div>
 
@@ -101,7 +101,7 @@
 ...
 </code></pre><figcaption class=\"figure-caption\">A commented example of a manifests object with two manifests listed.</figcaption>
 </figure>
-
+<br/>
 <h4>Section two - the <b>windows</b> object</h4>
 <p>As noted above this section is optional, it can also be a bit more complex. THis object id intended to allow users to make use of some of the standard Mirador options to define which manifests and images are automatically loaded into the viewer and how they are arranged.</p>
 <figure>
@@ -119,7 +119,7 @@
 ...
 </code></pre><figcaption class=\"figure-caption\">A commented version of a windows object with a single slot defined. More information about these various values can be found on the main <a href='https://github.com/ProjectMirador/mirador/wiki/Configuration-Guides'>Mirador webpage</a>.</figcaption>
 </figure>
-
+<br/>
 <h4>A full example</h4>
 <p>The following code is copy of the actual JSON file used to create the example viewer shown above.</p>
 
@@ -146,7 +146,7 @@
     ]}
 }
 </code></pre><figcaption class=\"figure-caption\">A commented version of a windows object with a single slot defined. More information about these various values can be found on the main <a href='https://github.com/ProjectMirador/mirador/wiki/Configuration-Guides'>Mirador webpage</a>.</figcaption>
-</figure><div class="foonote"><ul></ul></div></div><!--/span--></div><!--/row-->    <br/>
+</figure><div class="foonote"><ul><li id="section1"><a href="#ref1">[1]</a> IIIF manifests are simply a structured list of web based images resources that can be viewed in a IIIF compliant viewer, for more details see <a href='https://iiif.io/api/presentation/2.1/#table-of-contents'>https://iiif.io/api/presentation/2.1/#table-of-contents</a></li></ul></div></div><!--/span--></div><!--/row-->    <br/>
 			</div><!--/span-->
 			
 			
