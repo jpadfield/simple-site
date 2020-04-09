@@ -661,10 +661,12 @@ function buildExtensionContent ($name, $d, $pd)
 			 $mans = json_encode($dets["manifests"]);			 
 			 
 			 if (isset($dets["windows"]))
-				{$wo = json_encode($dets["windows"]);}
+				{$wo = json_encode($dets["windows"]["slots"]);
+				 $lo = json_encode($dets["windows"]["layout"]);}
 			 else
 			  {$use = $dets["manifests"][0]["manifestUri"];
 				 $wo = '[{ "loadedManifest":"'.$use.'", "slotAddress":"row1", "viewType": "ImageView"}]';
+				 $lo = '"1x1"';
 				}}
 
 		// The mirador files could also be pulled from https://unpkg.com
@@ -678,7 +680,7 @@ function buildExtensionContent ($name, $d, $pd)
 	$(function() {
        myMiradorInstance = Mirador({
          id: "viewer",
-         layout: "1x1",
+         layout: '.$lo.',
          buildPath: "https://tanc-ahrc.github.io/mirador/mirador/",
          data: '.$mans.',
          "windowObjects": '.$wo.',
