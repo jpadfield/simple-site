@@ -2,7 +2,7 @@
 
 This is a very simple set of processes for creating a standard set of webpages based on a simple set of json files. This project is intended to work along side other projects to provide a simple way of creating a set of consistent webpages, which can be delivered as part of your own GitHub project using [GitHub pages](https://pages.github.com/). 
 
-An example set of pages, including more detailed instructions and examples can be seen at: [simple-site](https://jpadfield.github.io/simple-site/)
+### An example set of pages, including more detailed instructions and examples can be seen at: [simple-site](https://jpadfield.github.io/simple-site/)
 
 The content of the pages are controlled with three [json](https://en.wikipedia.org/wiki/JSON) files stored in the build folder, further details are supplied within the build directory [README](./build/README.md) file:
 
@@ -54,14 +54,14 @@ New sets of html pages are created automatically, within GitHub, when the json f
 This project was developed and tested as part of the work of several projects:
 
 ## H2020 EU project [SSHOC](https://sshopencloud.eu/)
-<img style="height:64px;" src="https://github.com/jpadfield/simple-site/blob/master/docs/graphics/sshoc-logo.png" alt="SSHOC Grant Info">
-<img src="https://github.com/jpadfield/simple-site/blob/master/docs/graphics/sshoc-eu-tag2.png" alt="SSHOC Grant Info">
+<img height="64px" src="https://github.com/jpadfield/simple-site/blob/master/docs/graphics/sshoc-logo.png" alt="SSHOC Grant Info">
+<img height="32px" src="https://github.com/jpadfield/simple-site/blob/master/docs/graphics/sshoc-eu-tag2.png" alt="SSHOC Grant Info">
 
 ## The EPSRC Funded [ARTICT](https://research.ng-london.org.uk/external/ARTICT) project
-<img style="height:64px;" src="https://github.com/jpadfield/simple-site/blob/master/docs/graphics/UKRI_EPSR_Council-Logo_Horiz-RGB.png" alt="EPSRC Logo">
+<img  height="64px" src="https://github.com/jpadfield/simple-site/blob/master/docs/graphics/UKRI_EPSR_Council-Logo_Horiz-RGB.png" alt="EPSRC Logo">
 
 ## The AHRC Funded [IIIF - TANC](https://tanc-ahrc.github.io/IIIF-TNC) project
-<img style="height:64px;" src="https://github.com/jpadfield/simple-site/blob/master/docs/graphics/TANC - IIIF.png" alt="IIIF - TNC">
+<img height="64px" src="https://github.com/jpadfield/simple-site/blob/master/docs/graphics/TANC - IIIF.png" alt="IIIF - TNC">
 
 ## The AHRC Funded [HeritagePIDs](https://tanc-ahrc.github.io/HeritagePIDs) project
-<img style="height:64px;" src="https://github.com/jpadfield/simple-site/blob/master/docs/graphics/TANC - PIDS.png" alt="HeritagePIDs">
+<img height="64px" src="https://github.com/jpadfield/simple-site/blob/master/docs/graphics/TANC - PIDS.png" alt="HeritagePIDs">
