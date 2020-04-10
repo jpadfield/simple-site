@@ -48,3 +48,20 @@ Once built, simple html pages should run without any additional software, all of
 
 New sets of html pages are created automatically, within GitHub, when the json files are edited, controlled by a customised [GitHub Action](https://help.github.com/en/actions), called [build.yml](.github/workflows/build.yml). However, if you want to be able to run the build process manually within a downloaded version of the repository you will also need to have **php** installed:
 * [PHP](https://en.wikipedia.org/wiki/PHP)
+
+
+# Acknowledgement
+This project was developed and tested as part of the work of several projects:
+
+## H2020 EU project [SSHOC](https://sshopencloud.eu/)
+<img style="height:64px;" src="https://github.com/jpadfield/simple-site/blob/master/docs/graphics/sshoc-logo.png" alt="SSHOC Grant Info">
+<img src="https://github.com/jpadfield/simple-site/blob/master/docs/graphics/sshoc-eu-tag2.png" alt="SSHOC Grant Info">
+
+## The EPSRC Funded [ARTICT](https://research.ng-london.org.uk/external/ARTICT) project
+<img style="height:64px;" src="https://github.com/jpadfield/simple-site/blob/master/docs/graphics/UKRI_EPSR_Council-Logo_Horiz-RGB.png" alt="EPSRC Logo">
+
+## The AHRC Funded [IIIF - TANC](https://tanc-ahrc.github.io/IIIF-TNC) project
+<img style="height:64px;" src="https://github.com/jpadfield/simple-site/blob/master/docs/graphics/TANC - IIIF.png" alt="IIIF - TNC">
+
+## The AHRC Funded [HeritagePIDs](https://tanc-ahrc.github.io/HeritagePIDs) project
+<img style="height:64px;" src="https://github.com/jpadfield/simple-site/blob/master/docs/graphics/TANC - PIDS.png" alt="HeritagePIDs">
