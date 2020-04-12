@@ -29,7 +29,7 @@ jobs:
         cd ../
     - name: Commit files  # transfer the new html files back into the repository
       run: |
-        git config --local user.name "jpadfield"
+        git config --local user.name  ${{ github.actor }}
         git add ./docs
         git commit -m "Updating the repository GitHub html pages in the docs folder"
     - name: Push changes  # push the output folder to your repo
