@@ -8,8 +8,8 @@ $pages = getRemoteJsonDetails("pages.json", false, true);
 if (!is_array($pages) or count($pages) < 1)
 	{exit("\nERROR: Sorry your pages.json file has not been opened correctly please check you json formatting and try vaildating it using a web-site similar to https://jsonlint.com/\n\n");}
 $raw_subpages = getRemoteJsonDetails("sub-pages.json", false, true);
-if (!is_array($raw_subpages) or count($raw_subpages) < 1)
-	{exit("\nERROR: Sorry your sub-pages.json file has not been opened correctly please check you json formatting and try vaildating it using a web-site similar to https://jsonlint.com/\n\n");}
+if (!is_array($raw_subpages))
+	{exit("\nERROR: Sorry your sub-pages.json file has not been opened correctly please check you json formatting and try validating it using a web-site similar to https://jsonlint.com/\nIf no sub-pages are required simply delete everything in the file and leave just: {}\n\n");}
 
 $extensionPages = array("timeline", "mirador");
 
