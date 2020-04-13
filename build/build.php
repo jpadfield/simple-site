@@ -1,15 +1,22 @@
 <?php
 
-
 $site = getRemoteJsonDetails("site.json", false, true);
 if (!is_array($site) or count($site) < 1)
 	{exit("\nERROR: Sorry your site.json file has not been opened correctly please check you json formatting and try vaildating it using a web-site similar to https://jsonlint.com/\n\n");}
+
+// The original system used an additional sub-pages file, so just add any extra sub-pages still listed there
+if (is_file("sub-pages.json"))
+	{$expages = getRemoteJsonDetails("sub-pages.json", false, true);}
+else
+	{$expages = array();}
+
+	
+$pnames = array();	
 $pages = getRemoteJsonDetails("pages.json", false, true);
 if (!is_array($pages) or count($pages) < 1)
 	{exit("\nERROR: Sorry your pages.json file has not been opened correctly please check you json formatting and try vaildating it using a web-site similar to https://jsonlint.com/\n\n");}
-$raw_subpages = getRemoteJsonDetails("sub-pages.json", false, true);
-if (!is_array($raw_subpages))
-	{exit("\nERROR: Sorry your sub-pages.json file has not been opened correctly please check you json formatting and try validating it using a web-site similar to https://jsonlint.com/\nIf no sub-pages are required simply delete everything in the file and leave just: {}\n\n");}
+else
+	{$pages = pagesCheck(array_merge($expages, $pages));}
 
 $extensionPages = array("timeline", "mirador");
 
@@ -21,30 +28,24 @@ $fcount = 1;
 $footnotes = array();
 
 $defaults = array(
-	"metaDescription" => "The National Gallery, London, ".
-		"Scientific Department, is involved with research within a wide ".
-		"range of fields, this page presents an example of some of the ".
-		"work carried out.",
-	"metaKeywords" => "The National Gallery, London, ".
-		"National Gallery London, Scientific, Research, Heritage, Culture",
-	"metaAuthor" => "Joseph Padfield| joseph.padfield@ng-london.org.uk |".
-			"National Gallery | London UK | website@ng-london.org.uk |".
-			" www.nationalgallery.org.uk",
-	"metaTitle" => "NG Test Page",
-	"metaFavIcon" => "https://www.nationalgallery.org.uk/custom/ng/img/icons/favicon.ico",
+	"metaDescription" => "GitHub Project.",
+	"metaKeywords" => "GitHub, PHP, Javascript, Clone",
+	"metaAuthor" => "Me",
+	"metaTitle" => "Test Page",
+	"metaFavIcon" => "graphics/favicon.ico",
 	"extra_js_scripts" => array(), 
 	"extra_css_scripts" => array(),
 	"extra_css" => "",
 	"extra_js" => "",
 	"logo_link" => "",
-	"logo_path" => "graphics/ng-logo-white-100x40.png",
+	"logo_path" => "graphics/github pages.png",
 	"logo_style" => "",
 	"extra_onload" => "",
 	"topNavbar" => "",
 	"body" => "",
 	"fluid" => false,
 	"offcanvas" => false,
-	"footer" => "&copy; The National Gallery 2020</p>",
+	"footer" => "&copy; Me 2020</p>",
 	"footer2" => false,
 	"licence" => false,
 	"extra_logos" => array(),
@@ -56,11 +57,29 @@ $gdp = array_merge ($defaults, $site);
 $html_path = "../docs/";
 		
 buildExamplePages ();	
+
+function pagesCheck($pages)
+	{
+	global $pnames;
+	
+	$default = array(
+		"parent"=>"", "class"=>"", "file"=>"",
+		"title"=>"", "content"=>"", "content right"=>""
+		);
+
+	foreach ($pages as $k => $a)
+		{$pages[$k] = array_merge($default, $a);
+		 if (!$pages[$k]["parent"])
+			{$pnames[] = $k;}}
+
+	return($pages);
+  }
+	
+
 	
 function prg($exit=false, $alt=false, $noecho=false)
 	{
 	if ($alt === false) {$out = $GLOBALS;}
-	
 	else {$out = $alt;}
 	
 	ob_start();
@@ -79,7 +98,6 @@ function prg($exit=false, $alt=false, $noecho=false)
 	else {return ($out);}
 	}
 	
-
 function getRemoteJsonDetails ($uri, $format=false, $decode=false)
 	{if ($format) {$uri = $uri.".".$format;}
 	 $fc = file_get_contents($uri);
@@ -111,7 +129,6 @@ function parseLinks ($text, $sno=1)
 	$fcount = $sno;
 	
 	$text = preg_replace_callback('/\[([^\]]+)[|]([^\]]+)\]/', 'addLinks', $text);
-	//$text = preg_replace_callback('/\[[@][@]\]/', 'countFootNotes', $text);
 	$text = preg_replace_callback('/\[[@][@]([^\]]+)\]/', 'countFootNotes', $text);
 
 	//Extract the footnotes for this section of the text
@@ -165,9 +182,7 @@ function buildSimpleBSGrid ($bdDetails = array())
 		}
 
 function loopMenus ($str, $key, $arr, $no)
-	{
-	global $pages, $raw_subpages;
-
+	{		
 	$str .=
 		'<!-- Dropdown Loop '.$no.' -->';
             
@@ -193,9 +208,8 @@ function loopMenus ($str, $key, $arr, $no)
 	
 function buildTopNav ($name, $bcs=false)
 	{
-	global $pages, $menuList;
+	global $pages, $pnames, $menuList;
 	
-	$pnames = array_keys($pages);
 	$active = array("active", '<span class="sr-only">(current)</span>');
 	$html = "<div class=\"collapse navbar-collapse\" id=\"navbarsExampleDefault\"><ul class=\"navbar-nav\">
 ";
@@ -238,22 +252,14 @@ function buildTopNav ($name, $bcs=false)
 	
 function loopBreadcrumbs ($name, $arr=array())
 	{
-	global $pages, $raw_subpages;
+	global $pages;
 	
 	$arr[] = $name;
 	
-	if ($name and !isset($pages[$name]) and isset($raw_subpages[$name]))
-		{$arr = loopBreadcrumbs ($raw_subpages[$name]["parent"], $arr);}	
+	if ($name and $pages[$name]["parent"])
+		{$arr = loopBreadcrumbs ($pages[$name]["parent"], $arr);}	
 	
 	return ($arr);
-	}
-
-function buildMenuList ($a)
-	{
-	global $menuList;
-	foreach ($raw_subpages as $k => $a)
-		{}
-	
 	}
 	
 function buildExamplePages ()
@@ -270,23 +276,18 @@ function buildExamplePages ()
 	// to commit at least one new file as thus not return an error.
 	writeTSPage ();
 
-	//foreach ($pages as $name => $d)
-	//	{$menuList[$name] = array();}
-
-	foreach ($raw_subpages as $k => $a)
-		{$a["name"] = $k;		 
-		 $a["bcs"] = array_reverse(loopBreadcrumbs ($k));
-		 $tml = implode ("']['", $a["bcs"]);
-		 $tml = "\$menuList['".$tml."'] = array();";
-		 eval($tml);	 
-		 $raw_subpages[$k] = $a;
-		 $subpages[$a["parent"]][]= $a;}
-	
-	foreach ($raw_subpages as $k => $a)
-		{writePage ($k, $a, false);}
+	foreach ($pages as $k => $a) {
+		if (isset($a["parent"]) and $a["parent"]) {
+			$a["name"] = $k;		 
+			$a["bcs"] = array_reverse(loopBreadcrumbs ($k));
+			$tml = implode ("']['", $a["bcs"]);
+			$tml = "\$menuList['".$tml."'] = array();";
+			eval($tml);	 
+			$pages[$k] = $a;
+			$subpages[$a["parent"]][]= $a;}}
 		 
 	foreach ($pages as $name => $d)
-		{writePage ($name, $d, true);}
+		{writePage ($name, $d);}
 	}
 
 function buildBreadcrumbs ($arr)
@@ -331,9 +332,9 @@ function writeTSPage ()
 	fclose($myfile);
 	}
 	
-function writePage ($name, $d, $tnav=true)
+function writePage ($name, $d)
 	{	
-	global $subpages, $gdp, $menuList, $extensionPages, $fcount, $footnotes;
+	global $gdp, $menuList, $extensionPages, $fcount, $footnotes;
 
 	$footnotes = array();	
 	$pd = $gdp;
@@ -341,14 +342,15 @@ function writePage ($name, $d, $tnav=true)
 	if ($name == "home") {$use= "index";}
 	else {$use = $name;}
 		
-	if ($tnav)
-		{$pd["topNavbar"] = buildTopNav ($name);
-		 $pd["breadcrumbs"] = "";}
-	else
+	if ($d["parent"])
 		{$pd["topNavbar"] = buildTopNav ($d["bcs"][0]);
 		 $pd["breadcrumbs"] = buildBreadcrumbs ($d["bcs"]);}
+	else
+		{$pd["topNavbar"] = buildTopNav ($name);
+		 $pd["breadcrumbs"] = "";}
+	
 
-	if (isset($d["class"]) and in_array($d["class"], $extensionPages))
+	if (in_array($d["class"], $extensionPages))
 		{$ta = buildExtensionContent($name, $d, $pd);
 		 $content = $ta[0];
 		 $pd = $ta[1];}
@@ -377,60 +379,12 @@ function writePage ($name, $d, $tnav=true)
 				array (
 					"class" => "col-6 col-lg-6",
 					"content" => $d["content right"]);}
-
-	// Button links replaced with nested dropdown in nav bar				
-	/*if (isset($subpages[$name]))
-		{
-		$crows = "";
-			
-		foreach ($subpages[$name] as $g => $a)
-			{
-			ob_start();			
-			echo <<<END
-			<tr>
-				<td>
-					<a class="btn btn-outline-dark btn-block" href="$a[name].html" role="button">$a[title]</a>
-				</td>
-			</tr>
-END;
-			$crows .= ob_get_contents();
-			ob_end_clean(); // Don't send output to client			
-			}
-			
-		$pd["grid"]["rows"][] = array(array (
-			"class" => "col-12 col-lg-12",	
-			"content" => '<table width="100%">'.$crows.'</table></br>'));						
-		}*/
 					
 	$pd["body"] = buildSimpleBSGrid ($pd["grid"]);
 	$html = buildBootStrapNGPage ($pd);
 	$myfile = fopen("../docs/${use}.html", "w");
 	fwrite($myfile, $html);
 	fclose($myfile);
-	}
-
-function formatSubPages ($arr)
-	{
-	$items = "";
-	foreach ($arr as $g => $a)
-		{$items .= "<a class=\"dropdown-item\" href=\"$a[name].html\">".
-			"$a[title]</a>";}
-		
-	ob_start();			
-	echo <<<END
-<li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Sub Pages
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">          
-          $items
-        </div>
-      </li>
-END;
-	$subpages = ob_get_contents();
-	ob_end_clean(); // Don't send output to client
-
-	return ($subpages);
 	}
 	
 function buildBootStrapNGPage ($pageDetails=array())
@@ -634,7 +588,7 @@ END;
 	}
 
 
-function positionExtensionContent ($str, $extra)
+function positionExtraContent ($str, $extra)
 	{
 	$count = 0;
 	$str = preg_replace('/\[[#][#]\]/', $extra, $str, -1, $count);
@@ -652,7 +606,6 @@ function buildExtensionContent ($name, $d, $pd)
 		
 	if ($d["class"] == "mirador")
 		{
-		if (!isset($d["file"])) {$d["file"] = "NOTFOUND";}
 		$mans = '[]';
 		$wo = '[]';
 		
@@ -698,13 +651,10 @@ function buildExtensionContent ($name, $d, $pd)
       position: relative;
      }";
 
-		$content = positionExtensionContent ($content, '<div id="viewer"></div>');
-    //$content .= '<div id="viewer"></div>';
+		$content = positionExtraContent ($content, '<div id="viewer"></div>');
 		}
 	else if ($d["class"] == "timeline")
-		{
-		if (!isset($d["file"])) {$d["file"] = "NOTFOUND";}
-			
+		{			
 		if (!file_exists($d["file"]))
 			{die("ERROR: $d[file] missing\n");}
 		else
@@ -770,7 +720,7 @@ END;
 			$mcontent = ob_get_contents();
 			ob_end_clean(); // Don't send output to client
 
-			$content = positionExtensionContent ($content, $mcontent);
+			$content = positionExtraContent ($content, $mcontent);
 			}	
 		}
 	return (array($content, $pd));
