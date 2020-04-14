@@ -135,6 +135,7 @@ function parseLinks ($text, $sno=1)
 	$use = array_slice($footnotes, ($sno-1), ($fcount-1));
 	
 	$text = $text . "<div class=\"foonote\"><ul>";
+	if ($use) {$text = $text . "<hr/>";}
 	foreach ($use as $j => $str)
 		{$k = $j + $sno;
 		 $str = preg_replace_callback('/http[^\s]+/', 'addLinks', $str);
