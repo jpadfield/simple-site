@@ -50,7 +50,7 @@
 <div class="alert alert-info" role="alert"><h4 class="alert-heading">New Opportunities</h4><p>What jobs could require consistent processing of simple files of text, or numbers, and then present formatted results in image viewers, graphs, maps, flow charts, etc?</p><p>There are lots of great pieces of software out there, so this project is intended to make use of open source libraries rather than creating new ones.</p><p>The main question here is, <b>how can researchers, who do not have their own web server, or sufficient coding skills gain access to their own data processing and presentation system?</b></p></div>
 
 <h3>How it works</h3>
-<p>As has already been explained, the <a href='sub-pages.json.html'>sub-page</a> JSON file includes two additional variables that can be used to indicate the inclusion of a page extension.</p>
+<p>As has already been explained, the <a href='pages.json.html'>page</a> JSON file includes two variables that can be used to indicate the inclusion of a page extension.</p>
 
 <figure>
 		<pre style="overflow: hidden;border: 2px solid black;padding: 10px;">
@@ -58,7 +58,7 @@
   "<b>class</b>": ["Indicates which project extension to use"],
   "<b>file</b>": ["Indicates the file in which any required extra data can be found"],
 ...
-</code></pre><figcaption class=\"figure-caption\">Extension variables included in the <a href='sub-pages.json.html'>sub.pages.json</a> page object.</figcaption>
+</code></pre><figcaption class=\"figure-caption\">Extension variables included in the <a href='pages.json.html'>pages.json</a> page object.</figcaption>
 </figure>
 <p>Simply, the <b>class</b> variable indicates what type of extension should be included and the <b>file</b> variable indicates the name of the file that includes any required extra data. The two classes currently available are:
 <ul>
