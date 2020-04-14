@@ -44,7 +44,63 @@
 			<div class="row ">				
 			 <div class="col-12 col-md-12">          
 				
-				<div class="jumbotron"><h2>Simple Site - Instructions</h2></div><div class="row"><div class="col-12 col-lg-12"></div><!--/span--></div><!--/row-->    <div class="row"><div class="col-12 col-lg-12"><p>To make use of this system it is recommended that you:</p><ul><li><a href='https://github.com/join'>Join GitHub</a></li></ul><p>and then either:</p><ul><li><a href='https://help.github.com/en/github/getting-started-with-github/fork-a-repo'>Copy/Fork</a> the repository, edit the sample JSON files and begin to build your own project.</li><li><a href='https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository'>Download/Clone</a> a copy of the repository to your local machine, edit the JSON files as required and then just copy the required folders and files into you own existing repository.</li></ul><p>For the full system to work, including the automatic rebuild process you will need to ensure your own repository includes:<ul><li>A copy of the <b>build</b> folder.</li><li>A copy of the <b>docs</b> folder.</li><li>A copy of the <b>.github/workflows/build.yml</b> file setup as a <a href='https://help.github.com/en/actions'>GitHub Action</a>.</li><li>A copy of any required licence files.</li></ul><p>The automatic process of building the pages is controlled by a <a href='https://help.github.com/en/actions'>GitHub Action</a>, there is quite a lot of documentation available about setting up a new <a href='https://help.github.com/en/actions'>GitHub Action</a>, but the basic steps will require you to:<ul><li>Click on the <b>Actions</b> option at the top of your repository page.</li><li>Click on the <b>New workflow</b> button.</li><li>Click on the <b>Set up a workflow yourself</b> button.</li><li>Edit the suggested page name if you want.</li><li>Delete the default text in the edit window that will appear.</li><li>Copy and paste the raw version of <a href='https://raw.githubusercontent.com/jpadfield/simple-site/master/.github/workflows/build.yml'>build.yml</a> file into the editor.</li><li>Click on the <b>Start commit</b> button to save the new workflow.</li></ul></li><h3>Dependencies</h3>Once built, simple html pages should run without any additional software, all of the basic required <a href='https://en.wikipedia.org/wiki/JavaScript'>javascript</a> files and <a href='https://en.wikipedia.org/wiki/Cascading_Style_Sheets'>css</a> style sheet files are already included, or externally referenced but more information about the main ones can be found at:<ul><li><a href='https://getbootstrap.com/'>Bootstrap</a><li><a href='https://jquery.com/'>Jquery</a></li><li><a href='https://projectmirador.org/'>Project Mirador</a></li><li><a href='https://mermaid-js.github.io/mermaid'>Mermaid</a></li></ul></li>New sets of html pages are created automatically, within GitHub, when the JSON files are edited, controlled by a customised <a href='https://help.github.com/en/actions'>GitHub Action</a>, called <b>build.yml</b>. However, if you want to be able to run the build process manually within a downloaded version of the repository you will also need to have <a href='https://www.php.net/'>PHP</a> installed.<h3>Issues and Comments</h3><p>Any issues or comments can be added to the Issues section of this GitHub project: <a href='https://github.com/jpadfield/simple-site/issues'>here</a>.</p><div class="foonote"><ul></ul></div></div><!--/span--></div><!--/row-->    <br/>
+				<div class="jumbotron"><h2>Simple Site - Instructions</h2></div><div class="row"><div class="col-12 col-lg-12"></div><!--/span--></div><!--/row-->    <div class="row"><div class="col-12 col-lg-12"><h3>To make use of this system it is recommended that you</h3>
+<ul>
+	<li><a href='https://github.com/join'>Join GitHub</a></li>
+</ul>
+<p>and then either:</p>
+<ul>
+	<li><a href='https://help.github.com/en/github/getting-started-with-github/fork-a-repo'>Copy/Fork</a> the repository, edit the sample JSON files and begin to build your own project.</li>
+	<li><a href='https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository'>Download/Clone</a> a copy of the repository to your local machine, edit the JSON files as required and then just copy the required folders and files into you own existing repository.</li>
+</ul>
+<p>For the full system to work, including the automatic rebuild process you will need to ensure your own repository includes:</p>
+<ul>
+	<li>A copy of the <b>build</b> folder.</li>
+	<li>A copy of the <b>docs</b> folder.</li>
+	<li>A copy of the <b>.github/workflows/build.yml</b> file setup as a <a href='https://help.github.com/en/actions'>GitHub Action</a>.</li>
+	<li>A copy of any required licence files.</li>
+</ul>
+
+<h3>Additional things to check</h3>
+
+<p>Depending on how you copy the files you may also need to check the following issues.</p>
+
+<h4>GitHub Actions</h4>
+<p>The automatic process of building the pages is controlled by a <a href='https://help.github.com/en/actions'>GitHub Action</a>. If you fork the original repository the GitHUb Action will be copied automatically, if not there is quite a lot of documentation available about setting up a new <a href='https://help.github.com/en/actions'>GitHub Action</a>, but the basic steps will require you to:
+<ul>
+	<li>Click on the <b>Actions</b> option at the top of your repository page.</li>
+	<li>Click on the <b>New workflow</b> button.</li>
+	<li>Click on the <b>Set up a workflow yourself</b> button.</li>
+	<li>Edit the suggested page name if you want.</li>
+	<li>Delete the default text in the edit window that will appear.</li>
+	<li>Copy and paste the raw version of <a href='https://raw.githubusercontent.com/jpadfield/simple-site/master/.github/workflows/build.yml'>build.yml</a> file into the editor.</li>
+	<li>Click on the <b>Start commit</b> button to save the new workflow.</li>
+</ul>
+<p>If you forked the repository this additional setup process may not be required.</p>
+
+<h4>Enabling GitHub Pages</h4>
+<p>GitHub does not present project web-pages, GitHub Pages, by default, but it is very easy to turn this functionality on. The following steps can be followed when using this project, for more general instructions, or if you want to find more information you should be able to start <a href='https://pages.github.com/'>here</a></p>
+<ul>
+	<li>This process assumes you have copied the required project files, specifically the <b>docs</b> folder.</li>
+	<li>Start from your project landing page - for the simple-site project the landing page is <a href='https://github.com/jpadfield/simple-site/'>https://github.com/jpadfield/simple-site/</a>.</li>
+	<li>Click on the <b>Settings</b> tab, which should be towards the upper right corner of the page.</li>
+	<li>Scroll down until you reach the <b>GitHub Pages</b> section.</li>
+	<li>Select the <b>master branch /docs folder</b> option in the <b>Source</b> dropdown.</li>
+	<li>There will be a slight pause and the screen should be updated, with an indication of what your new web-page address will be.</li>
+	<li>Your GitHub Pages should no be up and running.</li>
+</ul>
+<figure class="figure"><img src="graphics/github pages 01.png" class="figure-img img-fluid rounded" alt="Example screenshots of the GitHub Pages section of the Settings page."><figcaption class="figure-caption">Example screenshots of the GitHub Pages section of the Settings page.</figcaption></figure>
+<h3>Dependencies</h3>
+<p>Once built, simple-site should run without any additional software, all of the basic required <a href='https://en.wikipedia.org/wiki/JavaScript'>javascript</a> files and <a href='https://en.wikipedia.org/wiki/Cascading_Style_Sheets'>css</a> style sheet files are already included, or externally referenced but more information about the main ones can be found at:</p>
+<ul>
+	<li><a href='https://getbootstrap.com/'>Bootstrap</a></li>
+	<li><a href='https://jquery.com/'>Jquery</a></li>
+	<li><a href='https://projectmirador.org/'>Project Mirador</a></li>
+	<li><a href='https://mermaid-js.github.io/mermaid'>Mermaid</a></li>
+</ul>
+<p>New sets of html pages are created automatically, within GitHub, when the JSON files are edited, controlled by a customised <a href='https://help.github.com/en/actions'>GitHub Action</a>, called <b>build.yml</b>. However, if you want to be able to run the build process manually within a downloaded version of the repository you will also need to have <a href='https://www.php.net/'>PHP</a> installed.</p>
+<h3>Issues and Comments</h3>
+<p>Any issues or comments can be added to the Issues section of this GitHub project: <a href='https://github.com/jpadfield/simple-site/issues'>here</a>.</p><div class="foonote"><ul></ul></div></div><!--/span--></div><!--/row-->    <br/>
 			</div><!--/span-->
 			
 			
