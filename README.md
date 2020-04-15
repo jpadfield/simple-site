@@ -4,11 +4,10 @@ This is a very simple set of processes for creating a standard set of webpages b
 
 ### An example set of pages, including more detailed instructions and examples can be seen at: [simple-site](https://jpadfield.github.io/simple-site/)
 
-The content of the pages are controlled with three [json](https://en.wikipedia.org/wiki/JSON) files stored in the build folder, further details are supplied within the build directory [README](./build/README.md) file:
+The content of the pages are controlled with two main [json](https://en.wikipedia.org/wiki/JSON) files stored in the **build** folder, further details are supplied within the [simple-site](https://jpadfield.github.io/simple-site/) web pages:
 
 * Various site wide details are defined within the [site.json](./build/site.json) file.
-* The content for the various main pages, which will be listed as tabs, are defined within the [pages.json](./build/pages.json) file.
-* Any required sub-pages can then also be defined within the [sub-pages.json](./build/sub-pages.json) file. These sub-pages, or even sub-sub-pages etc, will not be given main tabs, but will be listed within drop-down menus from the related main page tab.
+* The content for the webpages are then generally defined within the [pages.json](./build/pages.json) file, this includes the main pages which will be listed as tabs and then any required sub-pages, or even sub-sub-pages etc, that will be listed within drop-down menus from a related main page tab.
 
 # Screenshots 
 <img src="./docs/graphics/example screenshot 01.png" width="50%" alt="Example Screenshot"><img src="./docs/graphics/example screenshot 02.png" width="50%" alt="Example Screenshot">
@@ -26,6 +25,7 @@ and then either:
 For the full system to work, including the automatic rebuild process you will need to ensure your own repository includes:
 * A copy of the **build** folder.
 * A copy of the **docs** folder.
+* A copy of the **graphics** folder, to house any required images.
 * A copy of the [build.yml](.github/workflows/build.yml) setup as a GitHub action.
 * A copy of any required licence files.
 
@@ -37,6 +37,17 @@ The automatic process of building the pages is controlled by a **GitHub Action**
 * Delete the default text in the edit window that will appear.
 * Copy and paste the raw version of [build.yml](https://raw.githubusercontent.com/jpadfield/simple-site/master/.github/workflows/build.yml) file into the editor.
 * Click on the **Start commit** button to save the new workflow.
+
+# Enabling GitHub Pages
+GitHub does not present project web-pages, GitHub Pages, by default, but it is very easy to turn this functionality on. The following steps can be followed when using this project, for more general instructions, or if you want to find more information you should be able to start [here](https://pages.github.com/)
+
+* This process assumes you have copied the required project files, specifically the **docs** folder.
+* Start from your project landing page - for the simple-site project the landing page is https://github.com/jpadfield/simple-site/.
+* Click on the **Settings** tab, which should be towards the upper right corner of the page.
+* Scroll down until you reach the **GitHub Pages** section.
+* Select the **master branch /docs folder** option in the **Source** dropdown.
+* There will be a slight pause and the screen should be updated, with an indication of what your new web-page address will be.
+* Your GitHub Pages should now be up and running.
 
 # Dependencies
 
