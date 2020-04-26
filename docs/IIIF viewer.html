@@ -183,12 +183,12 @@ https://media.nga.gov/public/manifests/nga_highlights.json
     <script>
 			
 	$(function() {
-       myMiradorInstance = Mirador({
-         id: "viewer",
-         layout: "1x2",
-         buildPath: "https://tanc-ahrc.github.io/mirador/mirador/",
-         data: [{"manifestUri":"https:\/\/iiif.harvardartmuseums.org\/manifests\/object\/299843","location":"Harvard University"},{"manifestUri":"https:\/\/media.nga.gov\/public\/manifests\/nga_highlights.json","location":"National Gallery of Art"}],
-         "windowObjects": [{"loadedManifest":"https:\/\/media.nga.gov\/public\/manifests\/nga_highlights.json","slotAddress":"row1.column1","viewType":"ImageView","canvasID":"https:\/\/media.nga.gov\/public\/manifests\/canvas\/52178.json","bottomPanelVisible":false,"annotationLayer":false},{"loadedManifest":"https:\/\/iiif.harvardartmuseums.org\/manifests\/object\/299843","slotAddress":"row1.column2","viewType":"ImageView","bottomPanelVisible":false,"annotationLayer":false}]
+     myMiradorInstance = Mirador({
+       id: "viewer",
+       layout: "1x2",
+       buildPath: "https://tanc-ahrc.github.io/mirador/mirador/",
+       data: [{"manifestUri":"https:\/\/iiif.harvardartmuseums.org\/manifests\/object\/299843","location":"Harvard University"},{"manifestUri":"https:\/\/media.nga.gov\/public\/manifests\/nga_highlights.json","location":"National Gallery of Art"}],
+       "windowObjects": [{"loadedManifest":"https:\/\/media.nga.gov\/public\/manifests\/nga_highlights.json","slotAddress":"row1.column1","viewType":"ImageView","canvasID":"https:\/\/media.nga.gov\/public\/manifests\/canvas\/52178.json","bottomPanelVisible":false,"annotationLayer":false},{"loadedManifest":"https:\/\/iiif.harvardartmuseums.org\/manifests\/object\/299843","slotAddress":"row1.column2","viewType":"ImageView","bottomPanelVisible":false,"annotationLayer":false}]
        });
      });
 			function onLoad() {
