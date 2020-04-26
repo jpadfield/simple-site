@@ -1,5 +1,16 @@
 <?php
 
+// simple array "extentionClassName => newFunctionName"
+$extensionList = array();
+
+// and in any available extension files
+// each one should add a value to the extensionList
+// and define its own newFunction
+$de = glob("extensions/*.php");
+foreach($de as $file){
+   require_once $file;
+}
+
 $site = getRemoteJsonDetails("site.json", false, true);
 if (!is_array($site) or count($site) < 1)
 	{exit("\nERROR: Sorry your site.json file has not been opened correctly please check you json formatting and try vaildating it using a web-site similar to https://jsonlint.com/\n\n");}
@@ -18,7 +29,7 @@ if (!is_array($pages) or count($pages) < 1)
 else
 	{$pages = pagesCheck(array_merge($expages, $pages));}
 
-$extensionPages = array("timeline", "mirador", "gallery");
+//$extensionPages = array("timeline", "mirador", "gallery");
 
 $menuList = array();
 $subpages = array();
@@ -335,7 +346,7 @@ function writeTSPage ()
 	
 function writePage ($name, $d)
 	{	
-	global $gdp, $menuList, $extensionPages, $fcount, $footnotes;
+	global $gdp, $menuList, $extensionList, $fcount, $footnotes;
 
 	$footnotes = array();	
 	$pd = $gdp;
@@ -349,10 +360,9 @@ function writePage ($name, $d)
 	else
 		{$pd["topNavbar"] = buildTopNav ($name);
 		 $pd["breadcrumbs"] = "";}
-	
-
-	if (in_array($d["class"], $extensionPages))
-		{$ta = buildExtensionContent($name, $d, $pd);
+    
+	if (isset($d["class"]) and isset($extensionList[$d["class"]]))
+		{$ta = buildExtensionContent($d, $pd);
 		 $content = $ta[0];
 		 $pd = $ta[1];}
 	else
@@ -617,213 +627,14 @@ function listToManifest ($list)
 	return($manifests);
 	}
 	
-function buildExtensionContent ($name, $d, $pd)
+function buildExtensionContent ($d, $pd)
 	{
-	$content = parseLinks ($d["content"], 1);
+  global $extensionList;
+  $fn = $extensionList[$d["class"]];
+	$out = call_user_func_array($fn, array($d, $pd));
+  $content = parseLinks ($out["d"]["content"], 1);
 		
-	if ($d["class"] == "mirador")
-		{
-		$mans = '[]';
-		$wo = '[{"annotationLayer" : false, "bottomPanelVisible" : false}]';
-		$lo = '""';
-		
-		if (file_exists($d["file"]))
-			{
-			$dets = getRemoteJsonDetails($d["file"], false, true);
-			
-			if (!$dets)
-				{
-				$dets = getRemoteJsonDetails($d["file"], false, false);
-				$dets = explode(PHP_EOL, trim($dets));
-
-				if (preg_match('/^http.+/', $dets[0]))
-					{$mans = listToManifest ($dets);
-					 $use = $dets[0];
-				   $wo = '[{ "loadedManifest":"'.$use.'", "slotAddress":"row1", "viewType": "ImageView", "annotationLayer" : false, "bottomPanelVisible" : false}]';
-				   $lo = '"1x1"';}
-				}
-			else {
-				$mans = json_encode($dets["manifests"]);			 
-			 
-				if (isset($dets["windows"]))
-				 {
-					foreach ($dets["windows"]["slots"] as $k => $a)
-						{$dets["windows"]["slots"][$k]["bottomPanelVisible"] = false;
-						 $dets["windows"]["slots"][$k]["annotationLayer"] = false;}
-						
-					$wo = json_encode($dets["windows"]["slots"]);
-				  $lo = json_encode($dets["windows"]["layout"]);}
-				else
-				 {$use = $dets["manifests"][0]["manifestUri"];
-				  $wo = '[{ "loadedManifest":"'.$use.'", "slotAddress":"row1", "viewType": "ImageView", "annotationLayer" : false, "bottomPanelVisible" : false}]';
-				  $lo = '"1x1"';
-				 }
-			 }
-			}
-
-		// The mirador files could also be pulled from https://unpkg.com
-		// But version 2.7.2 did not seem to work, will try again once V3 is
-		// fully released. - jpadfield 30/03/20
-		$pd["extra_css_scripts"][] =
-			"https://tanc-ahrc.github.io/mirador/mirador/css/mirador-combined.css";
-		$pd["extra_js_scripts"][] =
-			"https://tanc-ahrc.github.io/mirador/mirador/mirador.min.js";
-		$pd["extra_js"] .= '
-	$(function() {
-       myMiradorInstance = Mirador({
-         id: "viewer",
-         layout: '.$lo.',
-         buildPath: "https://tanc-ahrc.github.io/mirador/mirador/",
-         data: '.$mans.',
-         "windowObjects": '.$wo.'
-       });
-     });';
-			//use to hide the label used for the first line which is just in place to provide a margin/padding on the left.
-			$pd["extra_css"] .= "
-#viewer {       
-      display: block;
-      width: 100%;
-      height: 600px;
-      position: relative;
-     }";
-
-		$content = positionExtraContent ($content, '<div id="viewer"></div>');
-		}
-	else if ($d["class"] == "timeline")
-		{			
-		if (!file_exists($d["file"]))
-			{die("ERROR: $d[file] missing\n");}
-		else
-			{
-			$dets = getRemoteJsonDetails($d["file"], false, true);
-
-			if (!isset($dets["start date"]))
-				{die("ERROR: $d[file] format problems - 'start date' not found\n");}
-		
-			$start = $dets["start date"];
-	
-			$prefs = array_keys($dets["groups"]);
-			$first = $prefs[0];
-
-			if (!isset($dets["project"])) {$dets["project"] = "Please add a project title";}
-			if (!isset($dets["margin"])) {$dets["margin"] = -3;}
-		
-			array_unshift($dets["groups"][$first]["stages"],
-				array("Add as a margin", "", $dets["margin"], $dets["margin"]));
-		
-			$str = "";
-			foreach ($dets["groups"] as $pref => $ga)
-				{
-				$str .= "\tsection $ga[title]\n";
-				$no = 0;
-				foreach ($ga["stages"] as $k => $a)
-					{
-					if ($a[1]) {$a[1] = "$a[1], ";}
-					$str .= "\t\t".$a[0]." :$a[1]$pref$no, ".dA($a[2]).
-						", ".dA($a[3])."\n";
-					$no++;
-					}
-				}
-
-			$pd["extra_js_scripts"][] =
-				"https://unpkg.com/mermaid@8.4.8/dist/mermaid.min.js";
-			$pd["extra_onload"] .= "
-	mermaid.ganttConfig = {
-    titleTopMargin:25,
-    barHeight:20,
-    barGap:4,
-    topPadding:50,
-    sidePadding:50
-		}
-//console.log(mermaid.render);
-  mermaid.initialize({startOnLoad:true, flowchart: { 
-    curve: 'basis' 
-  }});";
-			//use to hide the label used for the first line which is just in place to provide a margin/padding on the left.
-			$pd["extra_css"] .= "
-g a {color:inherit;}
-#".$first."0-text {display:none;}";
-
-		ob_start();
-		echo <<<END
-	<div class="mermaid">
-gantt
-       dateFormat  YYYY-MM-DD
-       title $dets[project]	
-       $str
-	</div>
-END;
-			$mcontent = ob_get_contents();
-			ob_end_clean(); // Don't send output to client
-
-			$content = positionExtraContent ($content, $mcontent);
-			}	
-		}
-	else if ($d["class"] == "gallery")
-		{
-		$gcontent = "";
-		
-		if (!file_exists($d["file"]))
-			{die("ERROR: $d[file] missing\n");}
-		else
-			{
-			$dets = getRemoteJsonDetails($d["file"], false, true);
-			if (isset($dets["ptitle"]))
-				{$gcontent .= "<h3>$dets[ptitle]</h3>";}
-			$gcontent .= '<div class="row text-center text-lg-left">';
-			$last = "primary";
-			
-			foreach ($dets["images"] as $n => $a)
-				{
-				$a = array_merge(array("logo" => "", "link" => "#", "level" => "primary"), $a);
-
-				if ($a["level"] != $last)
-					{
-					$gcontent .= '</div>';
-					if (isset($dets["stitle"]))
-						{$gcontent .= "<h3>$dets[stitle]</h3>";}
-					$gcontent .= '<div class="row text-center text-lg-left">';
-					}
-
-				$last = $a["level"];
-					
-				ob_start();
-		echo <<<END
-    <div class="col-lg-3 col-md-4 col-6">
-      <a href="$a[link]" class="d-block mb-4 h-100">
-        <img class="img-fluid img-thumbnail $a[level] mx-auto d-block"
-				  src="$a[logo]" alt="$n">
-      </a>
-    </div>
-END;
-				$gcontent .= ob_get_contents();
-				ob_end_clean(); // Don't send output to client
-				}
-
-			$gcontent .= '</div>';
-			
-			//use to hide the label used for the first line which is just in place to provide a margin/padding on the left.
-			$pd["extra_css"] .= "
-
-img.primary, img.secondary {
-  display: block;
-  max-width:230px;
-  max-height:128px;
-  width: auto;
-  height: auto;
-	border: 0px solid black;
-	}
-	
-img.secondary{
-  max-width:192px;
-  max-height:96px;
-	}";
-
-			$content = positionExtraContent ($content, $gcontent);
-			}	
-		}
-		
-	return (array($content, $pd));
+	return (array($content, $out["pd"]));
 	}
 	
 function dA ($v)
