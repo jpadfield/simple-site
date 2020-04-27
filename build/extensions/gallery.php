@@ -59,7 +59,7 @@ img.secondary{
   max-height:96px;
 	}";
 
-    $d["content"] = positionExtraContent ($content, $gcontent);
+    $d["content"] = positionExtraContent ($d["content"], $gcontent);
 		}	
 
   return (array("d" => $d, "pd" => $pd));
