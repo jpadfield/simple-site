@@ -3,9 +3,19 @@
 // simple array "extentionClassName => newFunctionName"
 $extensionList = array();
 
-// and in any available extension files
+// In any available extension files
 // each one should add a value to the extensionList
 // and define its own newFunction
+//
+//$extensionList["newExtension"] = "extensionNewFunction";
+//
+//function extensionNewFunction ($d, $pd)  {		
+//	if (isset($d["file"]) and file_exists($d["file"]))
+//		{/*DO STUFF*/}	
+//
+//  return (array("d" => $d, "pd" => $pd)); }
+//
+
 $de = glob("extensions/*.php");
 foreach($de as $file){
    require_once $file;
