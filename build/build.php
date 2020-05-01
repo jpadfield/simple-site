@@ -467,10 +467,7 @@ END;
 	if ($pageDetails["licence"])
 			{$tofu = '<div class="licence">'.$pageDetails["licence"].'</div>';}
 	else
-			{$tofu = '<div>This site was developed and is maintained by: 
-				<a href="mailto:joseph.padfield@ng-london.org.uk" 
-					title="Joseph Padfield, The National Gallery Scientific Department">Joseph Padfield</a>.
-					<a href="http://www.nationalgallery.org.uk/terms-of-use">Terms of Use</a></div>';}
+			{$tofu = '<div>This site is based on the <a href=" https://github.com/jpadfield/simple-site">simple-site</a> project.</div>';}
 	
 	$extra_logos = "";
 	$exlno = 1;
