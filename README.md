@@ -4,6 +4,8 @@ This is a very simple set of processes for creating a standard set of webpages b
 
 ### An example set of pages, including more detailed instructions and examples can be seen at: [simple-site](https://jpadfield.github.io/simple-site/)
 
+### For those new to GitHub there is a lot of general documentation out there, such as [Github Guides](https://guides.github.com/) and [Getting Started with GitHub](https://help.github.com/en/github/getting-started-with-github), but one particular place to start might be the series of videos [GitHub for Poets](https://www.youtube.com/playlist?list=PLRqwX-V7Uu6ZF9C0YMKuns9sLDzK6zoiV).
+
 The content of the pages are controlled with two main [json](https://en.wikipedia.org/wiki/JSON) files stored in the **build** folder, further details are supplied within the [simple-site](https://jpadfield.github.io/simple-site/) web pages:
 
 * Various site wide details are defined within the [site.json](./build/site.json) file.
