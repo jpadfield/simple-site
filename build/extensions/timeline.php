@@ -1,9 +1,12 @@
 <?php
 
 $extensionList["timeline"] = "extensionTimeline";
-
+$start = false;
+	
 function extensionTimeline ($d, $pd)
   {
+	global $start;
+	
   if (isset($d["file"]) and file_exists($d["file"]))
 		{
 		$dets = getRemoteJsonDetails($d["file"], false, true);
@@ -71,5 +74,30 @@ END;
 
   return (array("d" => $d, "pd" => $pd));
   }
-    
+
+
+	
+function dA ($v)
+	{
+	global $start;
+	$a = explode(",", $v);
+	$m = intval($a[0]);
+	if(isset($a[1]))
+		{$d = intval($a[1]);}
+	else
+		{$d = 0;}
+	$date=new DateTime($start); // date object created.
+
+	$invert = 0;
+	if ($m < 0 or $d < 0)
+		{$invert = 1;
+		 $m = abs($m);
+		 $d = abs($d);}
+	$di = new DateInterval('P'.$m.'M'.$d.'D');
+	$di->invert = $invert;
+	$date->add($di); // inerval of 1 year 3 months added
+	$new = $date->format('Y-m-d'); // Output is 2020-Aug-30
+	return($new);
+	}
+	   
 ?>
