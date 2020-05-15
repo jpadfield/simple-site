@@ -395,10 +395,10 @@ function writePage ($name, $d)
 							
 	if ($d["content right"])
 		{$d["content right"] = parseLinks ($d["content right"], $fcount);
-		 $pd["grid"]["rows"][1][0]["class"] = "col-6 col-lg-6";
+		 $pd["grid"]["rows"][1][0]["class"] = "col-lg-6";
 		 $pd["grid"]["rows"][1][1] = 
 				array (
-					"class" => "col-6 col-lg-6",
+					"class" => "col-lg-6",
 					"content" => $d["content right"]);}
 					
 	$pd["body"] = buildSimpleBSGrid ($pd["grid"]);
