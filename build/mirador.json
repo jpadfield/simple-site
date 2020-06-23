@@ -1,12 +1,19 @@
-	{
-	"manifests": [
-		{ "manifestUri": "https://iiif.harvardartmuseums.org/manifests/object/299843", "location": "Harvard University"},
-		{ "manifestUri": "https://media.nga.gov/public/manifests/nga_highlights.json", "location": "National Gallery of Art"}		
-		],
-	"windows": {
-		"layout": "1x2",
-		"slots": [
-		{ "loadedManifest": "https://media.nga.gov/public/manifests/nga_highlights.json", "slotAddress":"row1.column1", "viewType": "ImageView", "canvasID":"https://media.nga.gov/public/manifests/canvas/52178.json"},
-		{ "loadedManifest": "https://iiif.harvardartmuseums.org/manifests/object/299843", "slotAddress":"row1.column2", "viewType": "ImageView"}
-		]}
-	}
+{
+	"manifests": {
+		"https://iiif.harvardartmuseums.org/manifests/object/299843": {
+			"provider": "Harvard University"
+		},
+		"https://media.nga.gov/public/manifests/nga_highlights.json": {
+			"provider": "National Gallery of Art"
+		}
+	},
+	"windows": [{
+			"manifestId": "https://media.nga.gov/public/manifests/nga_highlights.json",
+			"canvasIndex": 0
+		},
+		{
+			"manifestId": "https://iiif.harvardartmuseums.org/manifests/object/299843",
+			"canvasIndex": 3
+		}
+	]
+}
