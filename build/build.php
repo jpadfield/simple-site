@@ -2,7 +2,7 @@
 
 // Last updated 22 Dec 2020
 
-// simple array "extentionClassName => newFunctionName"
+// simple array "extentionClassName => newFunctionName" 
 $extensionList = array();
 $html_path = "../docs/";
 
