@@ -1,7 +1,21 @@
 <?php
 
+// Last updated 22 Dec 2020
+
 // simple array "extentionClassName => newFunctionName"
 $extensionList = array();
+$html_path = "../docs/";
+
+$default_scripts = array(
+	"js-scripts" => array (
+		"jquery" => "https://unpkg.com/jquery@3.4.1/dist/jquery.min.js",
+		"tether" => "https://unpkg.com/tether@1.4.7/dist/js/tether.min.js",
+		"bootstrap" => "https://unpkg.com/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"),
+	"css-scripts" => array(
+		"fontawesome" => "https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css",
+		"bootstrap" => "https://unpkg.com/bootstrap@4.4.1/dist/css/bootstrap.min.css",
+		"main" => "css/main.css"
+		));
 
 // In any available extension files
 // each one should add a value to the extensionList
@@ -18,8 +32,9 @@ $extensionList = array();
 
 $de = glob("extensions/*.php");
 foreach($de as $file){
-   require_once $file;
+  require_once $file;
 }
+
 
 $site = getRemoteJsonDetails("site.json", false, true);
 if (!is_array($site) or count($site) < 1)
@@ -42,8 +57,6 @@ if (!is_array($pages) or count($pages) < 1)
 	{exit("\nERROR: Sorry your pages.json file has not been opened correctly please check you json formatting and try vaildating it using a web-site similar to https://jsonlint.com/\n\n");}
 else
 	{$pages = pagesCheck(array_merge($expages, $pages));}
-
-//$extensionPages = array("timeline", "mirador", "gallery");
 
 $menuList = array();
 $subpages = array();
@@ -108,12 +121,22 @@ function prg($exit=false, $alt=false, $noecho=false)
 	else {$out = $alt;}
 	
 	ob_start();
-	//echo "<pre class=\"wrap\">";
+  
+  if (php_sapi_name() === 'cli')
+    {echo "\n";}
+  else
+    {echo "<pre class=\"wrap\">";}
+    
 	if (is_object($out))
 		{var_dump($out);}
 	else
 		{print_r ($out);}
-	echo "\n";//</pre>";
+
+  if (php_sapi_name() === 'cli') 
+    {echo "\n";}
+  else
+    {echo "</pre>";}
+    
 	$out = ob_get_contents();
 	ob_end_clean(); // Don't send output to client
   
@@ -367,7 +390,8 @@ function writePage ($name, $d)
 	$extraHTML = "";
 	$footnotes = array();	
 	$pd = $gdp;
-		
+	$pd["page"] = "${use}.html";
+    
 	if ($name == "home") {$use= "index";}
 	else {$use = $name;}
 		
@@ -377,7 +401,7 @@ function writePage ($name, $d)
 	else
 		{$pd["topNavbar"] = buildTopNav ($name);
 		 $pd["breadcrumbs"] = "";}
-    
+
 	if (isset($d["class"]) and isset($extensionList[$d["class"]]))
 		{$ta = buildExtensionContent($d, $pd);
 		 $content = $ta[0];
@@ -425,16 +449,7 @@ function writePage ($name, $d)
 	
 function buildBootStrapNGPage ($pageDetails=array())
 	{
-	$default_scripts = array(
-	"js-scripts" => array (
-		"jquery" => "https://unpkg.com/jquery@3.4.1/dist/jquery.min.js",
-		"tether" => "https://unpkg.com/tether@1.4.7/dist/js/tether.min.js",
-		"bootstrap" => "https://unpkg.com/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"),
-	"css-scripts" => array(
-		"fontawesome" => "https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css",
-		"bootstrap" => "https://unpkg.com/bootstrap@4.4.1/dist/css/bootstrap.min.css",
-		"main" => "css/main.css"
-		));
+  global $default_scripts;
 
 	ob_start();			
 	echo <<<END
@@ -581,6 +596,7 @@ END;
     <meta name="description" content="$pageDetails[metaDescription]" />
 		<meta name="keywords" content="$pageDetails[metaKeywords]" />
     <meta name="author" content="$pageDetails[metaAuthor]" />
+    <meta name="image" content="$pageDetails[metaImage]" />
     <link rel="icon" href="$pageDetails[metaFavIcon]">
     <title>$pageDetails[metaTitle]</title>
     $cssScripts
@@ -653,7 +669,7 @@ function displayCode ($array, $title=false, $format="json", $caption=false)
 	else
 		{$code = "";
 		 foreach($array as $value){
-     $code .= $value . "<br>";}}
+     $code .= trim($value) . "<br>";}}
 
   if ($title)
 		{$title = "<h3>$title</h3>";}
@@ -663,7 +679,7 @@ function displayCode ($array, $title=false, $format="json", $caption=false)
     
 	ob_start();			
 	echo <<<END
-	<br/<br/>
+	<hr/>
 	$title
 	<figure>
 		<pre style="overflow-y: auto;overflow-x: hidden; border: 2px solid black;padding: 10px;max-height:400px;"><code>${code}</code></pre>
