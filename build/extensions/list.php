@@ -1,5 +1,7 @@
 <?php
 
+// Last update 22 Dec 2020
+
 $extensionList["list"] = "extensionCards";
 $blank = array("groups" => array(), "ptitle" => "",
 		"stitle" => "",  "comment" => "", "image" => "", "link" => "");
@@ -176,19 +178,21 @@ function extensionCards ($d, $pd)
   return (array("d" => $d, "pd" => $pd));
   }
 
- function buildFullCard ($la)
-		{	 
-		if ($la["link"])
-				{$ltop= "<a href=\"$la[link]\" class=\"stretched-link nodec\">";
-					$lbottom = "</a>";}
-		else
-				{$ltop= "";
-					$lbottom = "";}
+function buildFullCard ($la)
+  {	 
+  if ($la["link"])
+    {$ltop= "<a href=\"$la[link]\" class=\"stretched-link nodec\">";
+      $lbottom = "</a>";
+      $hclass =  "card-hov";}
+  else
+    {$ltop= "";
+     $lbottom = "";
+     $hclass =  "";}
 				
-		ob_start();			
-		echo <<<END
+  ob_start();			
+  echo <<<END
 
-<div class="card mb-3 card-hov " style="width: 100%;">
+<div class="card mb-3 $hclass" style="width: 100%;">
   $ltop<div class="row no-gutters">
     <div class="col-md-4  my-auto" >
       <img src="$la[image]" class="card-img" alt="$la[ptitle]">
@@ -213,15 +217,17 @@ END;
  function buildSimpleCard ($la) {			
 		if ($la["link"])
 				{$ltop= "<a href=\"$la[link]\" class=\"stretched-link nodec\">";
-					$lbottom = "</a>"	;}
+					$lbottom = "</a>"	;
+      $hclass =  "card-hov";}
 		else
 				{$ltop= "";
-					$lbottom = "";}
+					$lbottom = "";
+      $hclass =  "";}
 				
 		ob_start();			
 		echo <<<END
 		
-  <div class="col mb-4">
+  <div class="col mb-4 $hclass";>
     <div class="card" title="$la[ptitle]">
 			$ltop
       <img class="card-img-top" src="$la[image]" alt="$la[ptitle]">
@@ -243,15 +249,17 @@ END;
  function buildImageCard ($la) {			
 		if ($la["link"])
 				{$ltop= "<a href=\"$la[link]\" class=\"stretched-link nodec\">";
-					$lbottom = "</a>"	;}
+					$lbottom = "</a>"	;
+      $hclass =  "card-hov";}
 		else
 				{$ltop= "";
-					$lbottom = "";}
+					$lbottom = "";
+      $hclass =  "";}
 				
 		ob_start();			
 		echo <<<END
 		
-  <div class="col mb-4">
+  <div class="col mb-4 $hclass">
     <div class="card" title="$la[ptitle]">
 			$ltop
       <img class="card-img-top" src="$la[image]" alt="$la[ptitle]">

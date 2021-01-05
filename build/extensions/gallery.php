@@ -1,5 +1,7 @@
 <?php
 
+// Last updated 20 Dec 2020
+
 $extensionList["gallery"] = "extensionGallery";
 
 function extensionGallery ($d, $pd)
