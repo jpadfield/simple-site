@@ -12,10 +12,11 @@ function extensionPanelTruck ($d, $pd)
 	$wo = '';
 	$codeHTML = "";
 	$codecaption = "The complete panel truck JSON file used to define the images, positions and captions presented in this example.";
-		
-	if (isset($d["file"]) and file_exists($d["file"]) and isset($d["displaycode"]))
+	
+	if (isset($d["file"]))
 		{$dets = getRemoteJsonDetails($d["file"], false, true);
-		 $extraHTML .= displayCode ($dets, "The Panel Truck JSON File", "json", $codecaption);}
+		 if ($dets and isset($d["displaycode"]))
+			{$extraHTML .= displayCode ($dets, "The Panel Truck JSON File", "json", $codecaption);}}
 
 	$pd["extra_js_scripts"][] = "https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs/webcomponents-loader.js";
 	$pd["extra_js_scripts"][] = "https://cdn.jsdelivr.net/npm/vue@2.6.12";
