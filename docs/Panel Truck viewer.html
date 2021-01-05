@@ -52,6 +52,229 @@
 		</nav></div><!--/span--></div><!--/row-->    <div class="row"><div class="col-12 col-lg-12"><div style="width:1000px;height:800px;"><!-- the panel-truck component will take the size of its parent element -->
 <panel-truck screenplaySrc="https://gist.githubusercontent.com/garrettdashnelson/73b32f40cccbe30239838dd3bd63988a/raw/7d4f7efc52ee0bb0929110a4438c37d8c98f0aa5/test-screenplay.json"></panel-truck>
 </div><div class="foonote"><ul></ul></div></div><!--/span--></div><!--/row-->    <div class="row"><div class="col-12 col-lg-12">	<hr/>
+	<h3>The Panel Truck JSON File</h3>
+	<figure>
+		<pre style="overflow-y: auto;overflow-x: hidden; border: 2px solid black;padding: 10px;max-height:400px;"><code>{
+    &quot;metadata&quot;: {
+        &quot;author&quot;: &quot;Garrett Dash Nelson&quot;,
+        &quot;title&quot;: &quot;Narrating maps and images with panel-truck&quot;,
+        &quot;subtitle&quot;: &quot;An interactive tool from the Leventhal Map &amp; Education Center&quot;,
+        &quot;publishedDate&quot;: &quot;2020-12-30&quot;
+    },
+    &quot;scenes&quot;: [
+        {
+            &quot;sceneSource&quot;: {
+                &quot;sourceType&quot;: &quot;iiif&quot;,
+                &quot;iiifManifest&quot;: {
+                    &quot;manifest&quot;: &quot;https://www.digitalcommonwealth.org/search/commonwealth:6969z354f/manifest.json&quot;,
+                    &quot;sequence&quot;: 0,
+                    &quot;canvas&quot;: 0,
+                    &quot;image&quot;: 0
+                }
+            },
+            &quot;extent&quot;: [
+                1983,
+                -2568,
+                2831,
+                -1837
+            ],
+            &quot;moreInfo&quot;: &quot;https://collections.leventhalmap.org/search/commonwealth:6969z354f&quot;,
+            &quot;caption&quot;: {
+                &quot;title&quot;: &quot;A caption may have a title&quot;,
+                &quot;text&quot;: &quot;And descriptive text telling the reader what we're looking at. This image is loaded from a IIIF Manifest, by passing the Manifest URL together with a sequence, canvas, and image indices.&quot;
+            }
+        },
+        {
+            &quot;sceneSource&quot;: {
+                &quot;sourceType&quot;: &quot;iiif&quot;,
+                &quot;iiifManifest&quot;: {
+                    &quot;manifest&quot;: &quot;https://www.digitalcommonwealth.org/search/commonwealth:6969z354f/manifest.json&quot;,
+                    &quot;sequence&quot;: 0,
+                    &quot;canvas&quot;: 0,
+                    &quot;image&quot;: 0
+                }
+            },
+            &quot;extent&quot;: [
+                2395,
+                -3374,
+                4168,
+                -2155
+            ],
+            &quot;moreInfo&quot;: &quot;https://collections.leventhalmap.org/search/commonwealth:6969z354f&quot;,
+            &quot;caption&quot;: {
+                &quot;title&quot;: &quot;Taking a tour&quot;,
+                &quot;text&quot;: &quot;We can tour around the image by changing the extent that we want featured in the view.&quot;
+            }
+        },
+        {
+            &quot;sceneSource&quot;: {
+                &quot;sourceType&quot;: &quot;IIIF&quot;,
+                &quot;iiifManifest&quot;: {
+                    &quot;manifest&quot;: &quot;https://www.digitalcommonwealth.org/search/commonwealth:6969z354f/manifest.json&quot;,
+                    &quot;sequence&quot;: 0,
+                    &quot;canvas&quot;: 0,
+                    &quot;image&quot;: 0
+                }
+            },
+            &quot;moreInfo&quot;: &quot;https://collections.leventhalmap.org/search/commonwealth:6969z354f&quot;,
+            &quot;caption&quot;: {
+                &quot;text&quot;: &quot;A caption doesn't need a title; only the text is required. **Markdown** _is also_ supported, and we can [insert links](https://leventhalmap.org)&quot;
+            }
+        },
+        {
+            &quot;sceneSource&quot;: {
+                &quot;sourceType&quot;: &quot;IIIF&quot;,
+                &quot;iiifManifest&quot;: {
+                    &quot;manifest&quot;: &quot;https://www.digitalcommonwealth.org/search/commonwealth:6969z354f/manifest.json&quot;,
+                    &quot;sequence&quot;: 0,
+                    &quot;canvas&quot;: 1,
+                    &quot;image&quot;: 0
+                }
+            },
+            &quot;extent&quot;: [
+                5434,
+                -4641,
+                7566,
+                -3015
+            ],
+            &quot;moreInfo&quot;: &quot;https://collections.leventhalmap.org/search/commonwealth:6969z354f&quot;,
+            &quot;caption&quot;: {
+                &quot;title&quot;: &quot;Jumping to a new image in the same Manifest&quot;,
+                &quot;text&quot;: &quot;Now we've jumped over to another image from the same Manifest.&quot;
+            }
+        },
+        {
+            &quot;sceneSource&quot;: {
+                &quot;sourceType&quot;: &quot;IIIF&quot;,
+                &quot;iiifManifest&quot;: {
+                    &quot;manifest&quot;: &quot;https://www.digitalcommonwealth.org/search/commonwealth:6969z354f/manifest.json&quot;,
+                    &quot;sequence&quot;: 0,
+                    &quot;canvas&quot;: 1,
+                    &quot;image&quot;: 0
+                }
+            },
+            &quot;extent&quot;: [
+                50,
+                -1300,
+                1200,
+                -800
+            ],
+            &quot;moreInfo&quot;: &quot;https://collections.leventhalmap.org/search/commonwealth:6969z354f&quot;,
+            &quot;caption&quot;: {
+                &quot;text&quot;: &quot;And now we're panning around that image. You can pan around as much as you like, at any zoom level.&quot;
+            }
+        },
+        {
+            &quot;sceneSource&quot;: {
+                &quot;sourceType&quot;: &quot;IIIF&quot;,
+                &quot;iiifImage&quot;: {
+                    &quot;image&quot;: &quot;https://digital.library.unt.edu/iiif/ark:/67531/metadc891/m1/1/info.json&quot;
+                }
+            },
+            &quot;moreInfo&quot;: &quot;https://digital.library.unt.edu/ark:/67531/metadc891/m1/1/&quot;,
+            &quot;caption&quot;: {
+                &quot;title&quot;: &quot;IIIF Single Image&quot;,
+                &quot;text&quot;: &quot;If we don't want to load from a Manifest, we can pass an Image endpoint directly, instead&quot;
+            }
+        },
+        {
+            &quot;sceneSource&quot;: {
+                &quot;sourceType&quot;: &quot;image&quot;,
+                &quot;imageSource&quot;: &quot;https://img1.grunge.com/img/gallery/the-worst-things-captain-picard-has-ever-done/intro-1570819077.jpg&quot;
+            },
+            &quot;moreInfo&quot;: &quot;https://patrickstewartsong.ytmnd.com&quot;,
+            &quot;caption&quot;: {
+                &quot;title&quot;: &quot;But not everybody uses IIIF!&quot;,
+                &quot;text&quot;: &quot;That's true ... which is why we can also pass in a static image&quot;
+            }
+        },
+        {
+            &quot;sceneSource&quot;: {
+                &quot;sourceType&quot;: &quot;image&quot;,
+                &quot;imageSource&quot;: &quot;https://img1.grunge.com/img/gallery/the-worst-things-captain-picard-has-ever-done/intro-1570819077.jpg&quot;
+            },
+            &quot;moreInfo&quot;: &quot;https://patrickstewartsong.ytmnd.com&quot;,
+            &quot;extent&quot;: [
+                300,
+                200,
+                700,
+                450
+            ],
+            &quot;caption&quot;: {
+                &quot;text&quot;: &quot;Image extents are in positive pixel coordinates from the lower left corner&quot;
+            }
+        },
+        {
+            &quot;sceneSource&quot;: {
+                &quot;sourceType&quot;: &quot;geoMap&quot;
+            },
+            &quot;extent&quot;: [
+                -7913969.8286,
+                5225321.2452,
+                -7908050.7362,
+                5231737.1783
+            ],
+            &quot;caption&quot;: {
+                &quot;text&quot;: &quot;We can also use real world maps; this one is from OSM&quot;
+            }
+        },
+        {
+            &quot;sceneSource&quot;: {
+                &quot;sourceType&quot;: &quot;geoMap&quot;
+            },
+            &quot;extent&quot;: [
+                -7911817.6485,
+                5229372.4077,
+                -7910337.8754,
+                5230976.391
+            ],
+            &quot;caption&quot;: {
+                &quot;text&quot;: &quot;And now we're zooming the map to a new extent&quot;
+            }
+        },
+        {
+            &quot;sceneSource&quot;: {
+                &quot;sourceType&quot;: &quot;geoMap&quot;,
+                &quot;tileJSON&quot;: &quot;https://s3.us-east-2.wasabisys.com/urbanatlases/39999059012052/tileset.json&quot;
+            },
+            &quot;extent&quot;: [
+                -7910381.833063327,
+                5214743.9101842595,
+                -7909811.426519942,
+                5215200.235418969
+            ],
+            &quot;caption&quot;: {
+                &quot;text&quot;: &quot;If we have a custom web map, we can pass it in using either a TileJSON ...&quot;
+            }
+        },
+        {
+            &quot;sceneSource&quot;: {
+                &quot;sourceType&quot;: &quot;geoMap&quot;,
+                &quot;tileXYZ&quot;: &quot;https://a.tile.opentopomap.org/{z}/{x}/{y}.png&quot;
+            },
+            &quot;extent&quot;: [
+                -7910896.224,
+                5214033.0488,
+                -7910156.3375,
+                5214835.0404
+            ],
+            &quot;caption&quot;: {
+                &quot;text&quot;: &quot;... or as a standard XYZ schema. Map scenes use EPSG:3857 (Web Mercator) coordinates for their extents.&quot;
+            }
+        },
+        {
+            &quot;sceneSource&quot;: {
+                &quot;sourceType&quot;: &quot;geoMap&quot;,
+                &quot;tileXYZ&quot;: &quot;https://a.tile.opentopomap.org/{z}/{x}/{y}.png&quot;
+            },
+            &quot;caption&quot;: {
+                &quot;text&quot;: &quot;If you don't provide an extent for a geographic map, it will zoom to the entire world.&quot;
+            }
+        }
+    ]
+}</code></pre>
+		<figcaption class=\"figure-caption\">The complete panel truck JSON file used to define the images, positions and captions presented in this example.</figcaption>
+	</figure>	<hr/>
 	<h3>Page JSON Object</h3>
 	<figure>
 		<pre style="overflow-y: auto;overflow-x: hidden; border: 2px solid black;padding: 10px;max-height:400px;"><code>{
