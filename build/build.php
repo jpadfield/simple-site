@@ -70,6 +70,7 @@ $defaults = array(
 	"metaKeywords" => "GitHub, PHP, Javascript, Clone",
 	"metaAuthor" => "Me",
 	"metaTitle" => "Test Page",
+	"metaImage" => false,
 	"metaFavIcon" => "graphics/favicon.ico",
 	"extra_js_scripts" => array(), 
 	"extra_css_scripts" => array(),
@@ -389,11 +390,11 @@ function writePage ($name, $d)
 
 	$extraHTML = "";
 	$footnotes = array();	
-	$pd = $gdp;
-	$pd["page"] = "${use}.html";
+	$pd = $gdp;	
     
 	if ($name == "home") {$use= "index";}
 	else {$use = $name;}
+	$pd["page"] = "${use}.html";
 		
 	if ($d["parent"])
 		{$pd["topNavbar"] = buildTopNav ($d["bcs"][0]);
