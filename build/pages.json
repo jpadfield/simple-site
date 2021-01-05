@@ -82,7 +82,7 @@
 		"content right": "",
 		"displaycode": true		
 	},
-	"Panel-Truck viewer": {
+	"Panel Truck viewer": {
 		"parent": "extensions",
 		"class": "paneltruck",
 		"file": "https://gist.githubusercontent.com/garrettdashnelson/73b32f40cccbe30239838dd3bd63988a/raw/7d4f7efc52ee0bb0929110a4438c37d8c98f0aa5/test-screenplay.json",
