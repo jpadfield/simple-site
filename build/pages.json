@@ -87,7 +87,7 @@
 		"class": "paneltruck",
 		"file": "https://gist.githubusercontent.com/garrettdashnelson/73b32f40cccbe30239838dd3bd63988a/raw/7d4f7efc52ee0bb0929110a4438c37d8c98f0aa5/test-screenplay.json",
 		"title": "Simple Site - The <b>Panel-Truck (IIIF) Extension</b>",
-		"content": "",
+		"content": "<p class=\"small-credit\">Created with panel-truck 0.1, <a href=\"https:\/\/leventhalmap.org\">Leventhal Map and Education Center<\/a> at the Boston Public Library<\/p>",
 		"content right": "",
 		"displaycode": true		
 	}
