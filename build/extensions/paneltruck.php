@@ -29,7 +29,7 @@ END;
 	ob_end_clean(); // Don't send output to client
 
 	$d["content"] = positionExtraContent ($d["content"], '<div style="width:100%;height:800px;"><!-- the panel-truck component will take the size of its parent element -->
-<panel-truck screenplaySrc="'.$d["file"].'"></panel-truck>
+<panel-truck screenplay-src="'.$d["file"].'"></panel-truck>
 </div>'.$codeHTML);
 
   return (array("d" => $d, "pd" => $pd));
