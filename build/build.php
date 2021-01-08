@@ -586,7 +586,7 @@ END;
   if($pageDetails["fluid"]) {$containerClass = "container-fluid";}
   else {$containerClass = "container";}
 
-	if ($pageDetails["GoogleAnalyticsID"])
+	if (false)//$pageDetails["GoogleAnalyticsID"])
 		{
 		ob_start();			
 		echo <<<END
