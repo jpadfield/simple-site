@@ -316,7 +316,7 @@ function loopBreadcrumbs ($name, $arr=array())
 	
 function buildExamplePages ()
 	{
-	global $pages, $html_path;
+	global $pages, $subpages, $html_path, $menuList;
 	
 	$files = glob($html_path."*.html");
 	
@@ -586,7 +586,7 @@ END;
   if($pageDetails["fluid"]) {$containerClass = "container-fluid";}
   else {$containerClass = "container";}
 
-	if (false)//$pageDetails["GoogleAnalyticsID"])
+	if ($pageDetails["GoogleAnalyticsID"])
 		{
 		ob_start();			
 		echo <<<END
