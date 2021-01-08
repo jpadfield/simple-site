@@ -88,7 +88,8 @@ $defaults = array(
 	"footer2" => false,
 	"licence" => false,
 	"extra_logos" => array(),
-	"breadcrumbs" => false
+	"breadcrumbs" => false,
+	"GoogleAnalyticsID" => false
 	);
 				
 $gdp = array_merge ($defaults, $site);   
@@ -315,8 +316,7 @@ function loopBreadcrumbs ($name, $arr=array())
 	
 function buildExamplePages ()
 	{
-	global $gdp, $pages, $site, $raw_subpages, $subpages, $bcs,
-		$html_path, $menuList;
+	global $pages, $html_path;
 	
 	$files = glob($html_path."*.html");
 	
@@ -585,7 +585,26 @@ END;
   
   if($pageDetails["fluid"]) {$containerClass = "container-fluid";}
   else {$containerClass = "container";}
-  
+
+	if ($pageDetails["GoogleAnalyticsID"])
+		{
+		ob_start();			
+		echo <<<END
+<!-- Global site tag (gtag.js) - Google Analytics - Only added in if the 'GoogleAnalyticsID' i set in the site.json file-->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=$pageDetails[GoogleAnalyticsID]"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', '$pageDetails[GoogleAnalyticsID]');
+	</script>
+END;
+		$GoogleAnalytics = ob_get_contents();
+		ob_end_clean(); // Don't send output to client
+		}  
+	else
+		{$GoogleAnalytics = false;}
+		
   $fn = "function"; 
 	ob_start();			
 	echo <<<END
@@ -604,6 +623,7 @@ END;
     <style>
     $pageDetails[extra_css]
     </style>
+    $GoogleAnalytics
   </head>
 
   <body onload="onLoad();">
