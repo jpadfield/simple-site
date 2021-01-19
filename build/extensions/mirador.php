@@ -55,7 +55,7 @@ function extensionMirador ($d, $pd)
     }
 
 	$pd["extra_css"] .= ".fixed-top {z-index:1111;}";
-	$mirador_path = "https://unpkg.com/mirador@3.0.0-beta.10/dist/";
+	$mirador_path = "https://unpkg.com/mirador@3.0.0/dist/";
 	$pd["extra_js_scripts"][] = $mirador_path."mirador.min.js";
 
 	ob_start();			
