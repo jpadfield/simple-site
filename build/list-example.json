@@ -1,1 +1,40 @@
-{}
+{
+  "defaultcard": "full",
+  "displaychecked": true,
+  "tableofcontents": false,
+  "groups": {},
+	"list": [{
+	"groups": ["Full Card Format"],
+	"ptitle": "The IIIF - TANC Project",
+	"stitle": "Practical applications of IIIF as a building block towards a digital National Collection",
+	"comment": "AHRC funded - IIIF-TNC | Practical applications of IIIF as a building block towards a digital National Collection - IIIF - TNC",
+	"image": "graphics/TANC%20-%20IIIF.png",
+	"checked": "",
+	"link": "https://tanc-ahrc.github.io/IIIF-TNC"
+},{
+	"groups": ["Full Card Format"],
+	"ptitle": "The HeritagePIDs Project",
+	"stitle": "Persistent Identifiers as IRO Infrastructure",
+	"comment": "AHRC funded - HeritagePIDs | Persistent Identifiers as IRO Infrastructure - HeritagePIDs",
+	"image": "graphics/TANC%20-%20IIIF.png",
+	"checked": "",
+	"link": "https://tanc-ahrc.github.io/HeritagePIDs"
+},{
+	"groups": ["Full Card Format"],
+	"ptitle": "The SSHOC Project",
+	"stitle": "Social Sciences & Humanities Open Cloud",
+	"comment": "Social Sciences & Humanities Open Cloud (SSHOC)is a project funded by the EU framework programme Horizon 2020 and unites [20 partner organisations and their 27 associates|https://www.sshopencloud.eu/partners] in developing the social sciences and humanities area of the [European Open Science Cloud (EOSC)|http://www.eosc-portal.eu/] - [SSHOC|https://www.sshopencloud.eu/]",
+	"image": "graphics/sshoc-logo.png",
+	"checked": "",
+	"link": "https://www.sshopencloud.eu/"
+},{
+	"groups": ["Full Card Format"],
+	"ptitle": "The ARTICT Project",
+	"stitle": "Art Through the ICT Lens",
+	"comment": "EPSRC funded - ARTICT | Art Through the ICT Lens: Big Data Processing Tools to Support the Technical Study, Preservation and Conservation of Old Master Paintings - ARTICT",
+	"image": "graphics/TANC%20-%20PIDS.png",
+	"checked": "",
+	"link": "https://www.sshopencloud.eu/"
+}]
+	
+}
