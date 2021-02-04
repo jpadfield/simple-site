@@ -1,6 +1,6 @@
 <?php
 
-// Last updated 22 Dec 2020
+// Last updated 04 Feb 2021
 
 // simple array "extentionClassName => newFunctionName" 
 $extensionList = array();
@@ -84,7 +84,7 @@ $defaults = array(
 	"body" => "",
 	"fluid" => false,
 	"offcanvas" => false,
-	"footer" => "&copy; Me 2020</p>",
+	"footer" => "&copy; Me 2021</p>",
 	"footer2" => false,
 	"licence" => false,
 	"extra_logos" => array(),
