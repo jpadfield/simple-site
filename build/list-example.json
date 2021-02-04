@@ -1,19 +1,19 @@
 {
   "defaultcard": "full",
   "displaychecked": true,
-  "tableofcontents": false,
+  "tableofcontents": true,
   "groups": {
     "Full Card Format" : {
-      "comment": "",
+      "comment": "This the most complex formatting provided presenting all of the main details in an interactive card like presentation",
       "card": "full"},
     "Simple Card Format" : {
-      "comment": "",
+      "comment": "This is a simplified version of the full card, the sizes of the image is generally limited, the second title is not shown and the cards are arrange in columns rather than rows.",
       "card": "simple"},
     "Image Only Format" : {
-      "comment": "",
+      "comment": "This is simplest card format, limited to a clickable image with the primary title shown as hover text.",
       "card": "image"},
     "List Format" : {
-      "comment": "",
+      "comment": "The list format only display clickable titles and the comment for each entry, arranged as a simple bulet point list.",
       "card": "list"}
     	},
   "list": [{
@@ -36,7 +36,7 @@
 	"groups": ["Full Card Format", "Simple Card Format", "Image Only Format", "List Format"],
 	"ptitle": "The SSHOC Project",
 	"stitle": "Social Sciences & Humanities Open Cloud",
-	"comment": "Social Sciences & Humanities Open Cloud (SSHOC)is a project funded by the EU framework programme Horizon 2020 and unites [20 partner organisations and their 27 associates|https://www.sshopencloud.eu/partners] in developing the social sciences and humanities area of the [European Open Science Cloud (EOSC)|http://www.eosc-portal.eu/] - [SSHOC|https://www.sshopencloud.eu/]",
+	"comment": "Social Sciences & Humanities Open Cloud (SSHOC)is a project funded by the EU framework programme Horizon 2020 and unites 20 partner organisations and their 27 associates in developing the social sciences and humanities area of the European Open Science Cloud (EOSC) - SSHOC",
 	"image": "graphics/sshoc-logo.png",
 	"checked": "04/02/2021",
 	"link": "https://www.sshopencloud.eu/"
