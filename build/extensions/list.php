@@ -227,7 +227,7 @@ END;
 		ob_start();			
 		echo <<<END
 		
-  <div class="col mb-4 $hclass";>
+  <div class="col-mb-4 $hclass";>
     <div class="card" title="$la[ptitle]">
 			$ltop
       <img class="card-img-top" src="$la[image]" alt="$la[ptitle]">
@@ -259,7 +259,7 @@ END;
 		ob_start();			
 		echo <<<END
 		
-  <div class="col mb-4 $hclass">
+  <div class="col-mb-4 $hclass">
     <div class="card" title="$la[ptitle]">
 			$ltop
       <img class="card-img-top" src="$la[image]" alt="$la[ptitle]">
