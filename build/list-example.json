@@ -8,10 +8,12 @@
       "card": "full"},
     "Simple Card Format" : {
       "comment": "This is a simplified version of the full card, the sizes of the image is generally limited, the second title is not shown and the cards are arrange in columns rather than rows.",
-      "card": "simple"},
+      "card": "simple",
+      "maxcols": 2},
     "Image Only Format" : {
       "comment": "This is simplest card format, limited to a clickable image with the primary title shown as hover text.",
-      "card": "image"},
+      "card": "image",
+      "maxcols": 3},
     "List Format" : {
       "comment": "The list format only display clickable titles and the comment for each entry, arranged as a simple bulet point list.",
       "card": "list"}
