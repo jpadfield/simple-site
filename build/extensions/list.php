@@ -4,7 +4,7 @@
 
 $extensionList["list"] = "extensionCards";
 $blank = array("groups" => array(), "ptitle" => "",
-		"stitle" => "",  "comment" => "", "image" => "", "link" => "");
+		"stitle" => "",  "comment" => "", "image" => "", "link" => "", "max-cols" => 3);
 $defaultcard = "list";
 $displaychecked = true;
 		
@@ -214,20 +214,32 @@ END;
 		return ($html);
 		}
 
- function buildSimpleCard ($la) {			
-		if ($la["link"])
-				{$ltop= "<a href=\"$la[link]\" class=\"stretched-link nodec\">";
-					$lbottom = "</a>"	;
-      $hclass =  "card-hov";}
-		else
-				{$ltop= "";
-					$lbottom = "";
-      $hclass =  "";}
-				
-		ob_start();			
-		echo <<<END
-		
-  <div class="col-mb-4 $hclass";>
+function BS_ColClass ($max=3)
+  {
+  $cno = intval($max);
+  if ($cno > 12) {$cno = 12;}
+  if ($cno < 1) {$cno = 1;}
+  $cno = intval(12/$cno);
+  $class = "col-".$cno;
+  return ($class);
+  }
+
+function buildSimpleCard ($la) {			
+  if ($la["link"])
+    {$ltop= "<a href=\"$la[link]\" class=\"stretched-link nodec\">";
+     $lbottom = "</a>";
+     $hclass =  "card-hov";}
+  else
+    {$ltop= "";
+     $lbottom = "";
+     $hclass =  "";}
+	
+  $cc = BS_ColClass ($la["max-cols"]);
+  
+  ob_start();			
+  echo <<<END
+  		
+  <div class="$cc mb-4 $hclass";>
     <div class="card" title="$la[ptitle]">
 			$ltop
       <img class="card-img-top" src="$la[image]" alt="$la[ptitle]">
@@ -246,20 +258,22 @@ END;
 		return ($html);
 		}
 		
- function buildImageCard ($la) {			
-		if ($la["link"])
-				{$ltop= "<a href=\"$la[link]\" class=\"stretched-link nodec\">";
-					$lbottom = "</a>"	;
-      $hclass =  "card-hov";}
-		else
-				{$ltop= "";
-					$lbottom = "";
-      $hclass =  "";}
-				
-		ob_start();			
-		echo <<<END
+function buildImageCard ($la) {			
+  if ($la["link"])
+    {$ltop= "<a href=\"$la[link]\" class=\"stretched-link nodec\">";
+     $lbottom = "</a>"	;
+     $hclass =  "card-hov";}
+  else
+    {$ltop= "";
+     $lbottom = "";
+     $hclass =  "";}
+	
+  $cc = BS_ColClass ($la["max-cols"]);				
+	
+  ob_start();			
+  echo <<<END
 		
-  <div class="col-mb-4 $hclass">
+  <div class="$cc mb-4 $hclass">
     <div class="card" title="$la[ptitle]">
 			$ltop
       <img class="card-img-top" src="$la[image]" alt="$la[ptitle]">
