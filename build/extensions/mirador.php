@@ -1,6 +1,7 @@
 <?php
 
-// Updated to Mirador V3 18/05/2020
+// Updated to Mirador V3 18/03/2021
+// Adding extra manifests in the Text example as the catalog rather than a manifest variable
 
 $extensionList["mirador"] = "extensionMirador";
 
@@ -30,7 +31,10 @@ function extensionMirador ($d, $pd)
 				{$mans = listToManifest ($dets);
 				 $wo = '[{
 					"manifestId": "'.$dets[0].'"
-					}]';}
+					}]';
+				 $cats = "\"catalog\": [{\"manifestId\": \"".implode("\"}, {\"manifestId\": \"", $dets)."\"}],";}
+				else
+					{$cats = "";}
       }
     else {
 			// Used to display the JSON used to create a given page for demos
@@ -66,6 +70,7 @@ var myMiradorInstance = Mirador.viewer({
        id: "mirador",
        windows: $wo,
        manifests: $mans,
+       $cats
        $workspace
        });     
      });
