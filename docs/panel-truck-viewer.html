@@ -1,68 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Simple system for creating a set of web-pages to support your GitHub repository from a few simple json files." />
-		<meta name="keywords" content="The National Gallery, London, National Gallery London, Scientific, Research, Heritage, Culture, JSON, PHP, Javascript, Github Pages, Dissemination, VRE, IIIF, Mermaid, Timeline, Mirador " />
-    <meta name="author" content="Joseph Padfield| joseph.padfield@ng-london.org.uk |National Gallery | London UK | website@ng-london.org.uk |www.nationalgallery.org.uk" />
-    <meta name="image" content="" />
-    <link rel="icon" href="https://www.nationalgallery.org.uk/custom/ng/img/icons/favicon.ico">
-    <title>NG Simple Site</title>
-    
-	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<link href="https://unpkg.com/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-	<link href="css/main.css" rel="stylesheet" type="text/css">
-    <style>
-    
-    </style>
-    <!-- Global site tag (gtag.js) - Google Analytics - Only added in if the 'GoogleAnalyticsID' i set in the site.json file-->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-BQV11QKCED"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-		gtag('config', 'G-BQV11QKCED');
-	</script>
-  </head>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Simple system for creating a set of web-pages to support your GitHub repository from a few simple json files." />
+<meta name="keywords" content="The National Gallery, London, National Gallery London, Scientific, Research, Heritage, Culture, JSON, PHP, Javascript, Github Pages, Dissemination, VRE, IIIF, Mermaid, Timeline, Mirador " />
+<meta name="author" content="Joseph Padfield| joseph.padfield@ng-london.org.uk |National Gallery | London UK | website@ng-london.org.uk |www.nationalgallery.org.uk" />
+<meta name="image" content="" />
+<link rel="icon" href="https://www.nationalgallery.org.uk/custom/ng/img/icons/favicon.ico">
 
-  <body onload="onLoad();">
-		<div class="container">
-			<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <a class="navbar-brand"  href="./">
-  		<img id="page-logo" class="logo" title="Logo" src="graphics/ng-logo-white-100x40.png" 
-				style="" alt="The National Gallery"/>
-		  </a>
-			<div class="collapse navbar-collapse" id="navbarsExampleDefault"><ul class="navbar-nav">
-<li class="nav-item "><a class="nav-link" href="index.html">Home</a></li><li class="nav-item "><a class="nav-link" href="instructions.html">Instructions</a></li><!-- Dropdown Loop 1 --><li class="nav-item dropdown "><a id="dropdownMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" title="Click to open the JSON menu" >JSON</a><ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow"><li><a href="JSON.html" class="dropdown-item top-item" title="Click to open the JSON page">JSON</a></li><li class="dropdown-divider"></li><li><a href="site.json.html" class="dropdown-item">Site.json</a></li><li><a href="pages.json.html" class="dropdown-item">Pages.json</a></li></ul></li><!-- End Loop 1 --><!-- Dropdown Loop 1 --><li class="nav-item dropdown active"><a id="dropdownMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" title="Click to open the Extensions menu" >Extensions<span class="sr-only">(current)</span></a><ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow"><li><a href="extensions.html" class="dropdown-item top-item" title="Click to open the Extensions page">Extensions</a></li><li class="dropdown-divider"></li><li><a href="timeline.html" class="dropdown-item">Timeline</a></li><li><a href="Galleries%20and%20Lists.html" class="dropdown-item">Galleries and Lists</a></li><li><a href="Mirador%20IIIF%20viewer.html" class="dropdown-item">Mirador IIIF viewer</a></li><li><a href="Panel%20Truck%20viewer.html" class="dropdown-item">Panel Truck viewer</a></li><li><a href="Curtain%20Viewer.html" class="dropdown-item">Curtain Viewer</a></li></ul></li><!-- End Loop 1 --><!-- Dropdown Loop 1 --><li class="nav-item dropdown "><a id="dropdownMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" title="Click to open the Example menu" >Example</a><ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow"><li><a href="example.html" class="dropdown-item top-item" title="Click to open the Example page">Example</a></li><li class="dropdown-divider"></li><!-- Dropdown Loop 2 --><li class="dropdown-submenu">
-   <a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the Example-subpage-01 menu">Example-subpage-01</a>
-		<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow"><li><a href="example-subpage-01.html" class="dropdown-item  top-item" title="Click to open the Example-subpage-01 page">Example-subpage-01</a></li><li class="dropdown-divider"></li><!-- Dropdown Loop  --><li class="dropdown-submenu">
-   <a id="dropdownMenu" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the Example-sub-subpage-01 menu">Example-sub-subpage-01</a>
-		<ul aria-labelledby="dropdownMenu" class="dropdown-menu border-0 shadow"><li><a href="example-sub-subpage-01.html" class="dropdown-item  top-item" title="Click to open the Example-sub-subpage-01 page">Example-sub-subpage-01</a></li><li class="dropdown-divider"></li><li><a href="example-sub-sub-subpage-01.html" class="dropdown-item">Example-sub-sub-subpage-01</a></li></ul></li><!-- End Loop  --></ul></li><!-- End Loop 2 --><li><a href="example-subpage-02.html" class="dropdown-item">Example-subpage-02</a></li></ul></li><!-- End Loop 1 --><li class="nav-item "><a class="nav-link" href="about.html">About</a></li></ul></div>
-			
-    <span class="navbar-text">
-      			<a href="https://github.com/jpadfield/simple-site/">
-				<img id="ex-logo1" class="logo" title="github" src="graphics/github logo white.png" 
-				style="" alt="GitHub Jpadfield Simple-site"/>
-		  </a>
-    </span>
-    </nav>
-			<div class="row ">				
-			 <div class="col-12 col-md-12">          
-				
-				<div class="jumbotron"><h2>Simple Site - The <b>Panel-Truck (IIIF) Extension</b></h2></div><div class="row"><div class="col-12 col-lg-12">		<nav aria-label="breadcrumb">
-			<ol class="breadcrumb">
-				<li class="breadcrumb-item"><a href="extensions.html">Extensions</a></li>
-			</ol>
-		</nav></div><!--/span--></div><!--/row-->    <div class="row"><div class="col-12 col-lg-12"><p>This extension makes use of <a href='https://iiif.io'>IIIF</a> and the <a href='https://geoservices.leventhalmap.org/cartinal/documentation/panel-truck.html'>panel-truck (v0.1)</a> viewer, created by the <a href="https://leventhalmap.org">Leventhal Map and Education Center</a> at the Boston Public Library. The panel-truck viewer is a web UI tool which allows users to present interactive storylines using images and maps. It is an example of a special page that can be added to the <a href='pages.json.html'>pages.json</a> file.</p>
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="NG Simple Site" />
+<meta property="og:description" content="Simple system for creating a set of web-pages to support your GitHub repository from a few simple json files." />
+<meta property="og:url" content="http://example.com" />
+<meta property="og:site_name" content="Simple site" />
+<meta property="og:image" content="graphics/github logo white.png" />
+<meta name="twitter:image" content="graphics/github logo white.png" />
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:description" content="Simple system for creating a set of web-pages to support your GitHub repository from a few simple json files." />
+<meta name="twitter:title" content="NG Simple Site" />
+<meta name="twitter:site" content="@joepadfield" />
+<meta name="twitter:creator" content="@joepadfield" />
+<title>NG Simple Site</title>
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="https://unpkg.com/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="css/main.css" rel="stylesheet" type="text/css">
+<style>
+
+</style>
+<!-- Global site tag (gtag.js) - Google Analytics - Only added in if the 'GoogleAnalyticsID' i set in the site.json file-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BQV11QKCED"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-BQV11QKCED');
+</script>
+</head>
+
+<body onload="onLoad();">
+<div class="container">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<a class="navbar-brand"  href="./">
+<img id="page-logo" class="logo" title="Logo" src="graphics/ng-logo-white-100x40.png"
+style="" alt="The National Gallery"/>
+</a>
+<div class="collapse navbar-collapse" id="navbarsExampleDefault"><ul class="navbar-nav">
+	<li class="nav-item "><a class="nav-link" href="index.html">Home</a></li><li class="nav-item "><a class="nav-link" href="instructions.html">Instructions</a></li><!-- Dropdown Loop 1 --><li class="nav-item dropdown "><a id="dropdownMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" title="Click to open the JSON menu" >JSON</a><ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow"><li><a href="json.html" class="dropdown-item top-item" title="Click to open the JSON page">JSON</a></li><li class="dropdown-divider"></li><li><a href="site-json.html" class="dropdown-item">Site.json</a></li><li><a href="pages-json.html" class="dropdown-item">Pages.json</a></li></ul></li><!-- End Loop 1 --><!-- Dropdown Loop 1 --><li class="nav-item dropdown active"><a id="dropdownMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" title="Click to open the Extensions menu" >Extensions<span class="sr-only">(current)</span></a><ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow"><li><a href="extensions.html" class="dropdown-item top-item" title="Click to open the Extensions page">Extensions</a></li><li class="dropdown-divider"></li><li><a href="timeline.html" class="dropdown-item">Timeline</a></li><li><a href="galleries-and-lists.html" class="dropdown-item">Galleries and Lists</a></li><li><a href="mirador-iiif-viewer.html" class="dropdown-item">Mirador IIIF viewer</a></li><li><a href="panel-truck-viewer.html" class="dropdown-item">Panel Truck viewer</a></li><li><a href="curtain-viewer.html" class="dropdown-item">Curtain Viewer</a></li></ul></li><!-- End Loop 1 --><!-- Dropdown Loop 1 --><li class="nav-item dropdown "><a id="dropdownMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" title="Click to open the Example menu" >Example</a><ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow"><li><a href="example.html" class="dropdown-item top-item" title="Click to open the Example page">Example</a></li><li class="dropdown-divider"></li><!-- Dropdown Loop 2 --><li class="dropdown-submenu"><a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the Example-subpage-01 menu">Example-subpage-01</a><ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow"><li><a href="example-subpage-01.html" class="dropdown-item  top-item" title="Click to open the Example-subpage-01 page">Example-subpage-01</a></li><li class="dropdown-divider"></li><!-- Dropdown Loop  --><li class="dropdown-submenu"><a id="dropdownMenu" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the Example-sub-subpage-01 menu">Example-sub-subpage-01</a><ul aria-labelledby="dropdownMenu" class="dropdown-menu border-0 shadow"><li><a href="example-sub-subpage-01.html" class="dropdown-item  top-item" title="Click to open the Example-sub-subpage-01 page">Example-sub-subpage-01</a></li><li class="dropdown-divider"></li><li><a href="example-sub-sub-subpage-01.html" class="dropdown-item">Example-sub-sub-subpage-01</a></li></ul></li><!-- End Loop  --></ul></li><!-- End Loop 2 --><li><a href="example-subpage-02.html" class="dropdown-item">Example-subpage-02</a></li></ul></li><!-- End Loop 1 --><li class="nav-item "><a class="nav-link" href="about.html">About</a></li></ul></div>
+
+<span class="navbar-text">
+<a href="https://github.com/jpadfield/simple-site/">
+<img id="ex-logo1" class="logo" title="github" src="graphics/github logo white.png"
+style="" alt="GitHub Jpadfield Simple-site"/>
+</a>
+</span>
+</nav>
+<div class="row ">
+<div class="col-12 col-md-12">
+
+<div class="jumbotron"><h2>Simple Site - The <b>Panel-Truck (IIIF) Extension</b></h2></div><div class="row"><div class=\"$col[class]\"><nav aria-label="breadcrumb">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="extensions.html\">extensions</a></li>
+</ol>
+</nav></div><!--/span--></div><!--/row--><div class="row"><div class=\"$col[class]\"><p>This extension makes use of <a href='https://iiif.io'>IIIF</a> and the <a href='https://geoservices.leventhalmap.org/cartinal/documentation/panel-truck.html'>panel-truck (v0.1)</a> viewer, created by the <a href="https://leventhalmap.org">Leventhal Map and Education Center</a> at the Boston Public Library. The panel-truck viewer is a web UI tool which allows users to present interactive storylines using images and maps. It is an example of a special page that can be added to the <a href='pages.json.html'>pages.json</a> file.</p>
 
 <h3>The Example</h3>
 <div style="width:100%;height:800px;"><!-- the panel-truck component will take the size of its parent element -->
-<panel-truck screenplay-src="https://gist.githubusercontent.com/garrettdashnelson/73b32f40cccbe30239838dd3bd63988a/raw/7d4f7efc52ee0bb0929110a4438c37d8c98f0aa5/test-screenplay.json"></panel-truck>
-</div>
+  <panel-truck screenplay-src="https://gist.githubusercontent.com/garrettdashnelson/73b32f40cccbe30239838dd3bd63988a/raw/7d4f7efc52ee0bb0929110a4438c37d8c98f0aa5/test-screenplay.json"></panel-truck>
+  </div>
 <br/>
 <h3>Summary</h3>
 <div class="alert alert-info" role="alert"><h4 class="alert-heading">Extension Variables</h4><p>For this extension to work the <b>class</b> variable needs to be set to <b>paneltruck</b> and the <b>file</b> variable needs to give the name of the additional json file including the panel-truck script details as shown below.</p></div>
@@ -73,10 +85,10 @@
 
 <p>As with the other JSON files the panel-truck data needs to be organised in a series of JSON objects, an example of which is provided below, for a live presentation of the example of code please see the <a href='https://gist.githubusercontent.com/garrettdashnelson/73b32f40cccbe30239838dd3bd63988a/raw/7d4f7efc52ee0bb0929110a4438c37d8c98f0aa5/test-screenplay.json'>test-screenplay.json</a> file.</p>
 
-<p>The required and optional json variables have all been described as part of the standard <a href='https://geoservices.leventhalmap.org/cartinal/documentation/panel-truck.html#creating-a-screenplay'>panel-truck documentation</a>, but for any more information please <a href='https://www.leventhalmap.org/about/people/garrett-nelson/'>get in touch</a> with the original project.</p><div class="foonote"><ul></ul></div></div><!--/span--></div><!--/row-->    <div class="row"><div class="col-12 col-lg-12">	<hr/>
-	<h3>The Panel Truck JSON File</h3>
-	<figure>
-		<pre style="overflow-y: auto;overflow-x: hidden; border: 2px solid black;padding: 10px;max-height:400px;"><code>{
+<p>The required and optional json variables have all been described as part of the standard <a href='https://geoservices.leventhalmap.org/cartinal/documentation/panel-truck.html#creating-a-screenplay'>panel-truck documentation</a>, but for any more information please <a href='https://www.leventhalmap.org/about/people/garrett-nelson/'>get in touch</a> with the original project.</p><div class="foonote"><ul></ul></div></div><!--/span--></div><!--/row--><div class="row"><div class=\"$col[class]\"><hr/>
+<h3>The Panel Truck JSON File</h3>
+<figure>
+<pre style="overflow-y: auto;overflow-x: hidden; border: 2px solid black;padding: 10px;max-height:400px;"><code>{
     &quot;metadata&quot;: {
         &quot;author&quot;: &quot;Garrett Dash Nelson&quot;,
         &quot;title&quot;: &quot;Narrating maps and images with panel-truck&quot;,
@@ -295,11 +307,11 @@
         }
     ]
 }</code></pre>
-		<figcaption class=\"figure-caption\">The complete panel truck JSON file used to define the images, positions and captions presented in this example.</figcaption>
-	</figure>	<hr/>
-	<h3>Page JSON Object</h3>
-	<figure>
-		<pre style="overflow-y: auto;overflow-x: hidden; border: 2px solid black;padding: 10px;max-height:400px;"><code>{
+<figcaption class=\"figure-caption\">The complete panel truck JSON file used to define the images, positions and captions presented in this example.</figcaption>
+</figure><hr/>
+<h3>Page JSON Object</h3>
+<figure>
+<pre style="overflow-y: auto;overflow-x: hidden; border: 2px solid black;padding: 10px;max-height:400px;"><code>{
     &quot;parent&quot;: &quot;extensions&quot;,
     &quot;class&quot;: &quot;paneltruck&quot;,
     &quot;file&quot;: &quot;https://gist.githubusercontent.com/garrettdashnelson/73b32f40cccbe30239838dd3bd63988a/raw/7d4f7efc52ee0bb0929110a4438c37d8c98f0aa5/test-screenplay.json&quot;,
@@ -309,55 +321,55 @@
     &quot;displaycode&quot;: true,
     &quot;name&quot;: &quot;Panel Truck viewer&quot;
 }</code></pre>
-		<figcaption class=\"figure-caption\">The complete JSON object used to define this content and layout of this page.</figcaption>
-	</figure></div><!--/span--></div><!--/row-->    <br/>
-			</div><!--/span-->
-			
-			
-			</div><!--/row-->
-			
-			  <footer>
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-5" style="text-align:left;">&copy; The National Gallery 2021</div>
-				<div class="col-2" style="text-align:center;"></div>
-				<div class="col-5" style="text-align:right;"><a href='http://rightsstatements.org/vocab/InC-EDU/1.0/'><img height='16' alt='In Copyright - Educational Use Permitted' title='In Copyright - Educational Use Permitted' src='graphics/InC-EDU.dark-white-interior-blue-type.png'/></a><a rel='license' href='https://creativecommons.org/licenses/by-nc/4.0/'><img alt='Creative Commons Licence' style='border-width:0' src='https://i.creativecommons.org/l/by-nc/4.0/88x31.png' /></a></div>
-			</div>
-		</div>        
-  </footer>
-    </div><!--/.container-->
-    
-    
-	<script src="https://unpkg.com/jquery@3.4.1/dist/jquery.min.js"></script>
-	<script src="https://unpkg.com/tether@1.4.7/dist/js/tether.min.js"></script>
-	<script src="https://unpkg.com/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
-	<script src="https://geoservices.leventhalmap.org/panel-truck/webcomponent-0.1/panel-truck.min.js"></script>
-    <script>
-			
-			function onLoad() {
-				$(function() {
-  // ------------------------------------------------------- //
-  // Multi Level dropdowns
-  // ------------------------------------------------------ //
-  $("ul.dropdown-menu [data-toggle='dropdown']").on("click", function(event) {
-    event.preventDefault();
-    event.stopPropagation();
-
-    $(this).siblings().toggleClass("show");
+<figcaption class=\"figure-caption\">The complete JSON object used to define this content and layout of this page.</figcaption>
+</figure></div><!--/span--></div><!--/row--><br/>
+</div><!--/span-->
 
 
-    if (!$(this).next().hasClass('show')) {
-      $(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
-    }
-    $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) {
-      $('.dropdown-submenu .show').removeClass("show");
-    });
+</div><!--/row-->
 
-  });
+<footer>
+<div class="container-fluid">
+<div class="row">
+<div class="col-5" style="text-align:left;">&copy; The National Gallery 2021</div>
+<div class="col-2" style="text-align:center;"></div>
+<div class="col-5" style="text-align:right;"><a href='http://rightsstatements.org/vocab/InC-EDU/1.0/'><img height='16' alt='In Copyright - Educational Use Permitted' title='In Copyright - Educational Use Permitted' src='graphics/InC-EDU.dark-white-interior-blue-type.png'/></a><a rel='license' href='https://creativecommons.org/licenses/by-nc/4.0/'><img alt='Creative Commons Licence' style='border-width:0' src='https://i.creativecommons.org/l/by-nc/4.0/88x31.png' /></a></div>
+</div>
+</div>
+</footer>
+</div><!--/.container-->
+
+
+<script src="https://unpkg.com/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="https://unpkg.com/tether@1.4.7/dist/js/tether.min.js"></script>
+<script src="https://unpkg.com/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+<script src="https://geoservices.leventhalmap.org/panel-truck/webcomponent-0.1/panel-truck.min.js"></script>
+<script>
+
+function onLoad() {
+	$(function() {
+// ------------------------------------------------------- //
+// Multi Level dropdowns
+// ------------------------------------------------------ //
+$("ul.dropdown-menu [data-toggle='dropdown']").on("click", function(event) {
+event.preventDefault();
+event.stopPropagation();
+
+$(this).siblings().toggleClass("show");
+
+
+if (!$(this).next().hasClass('show')) {
+$(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
+}
+$(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) {
+$('.dropdown-submenu .show').removeClass("show");
 });
-				}
-    </script>
-  </body>
+
+});
+});
+}
+</script>
+</body>
 </html>

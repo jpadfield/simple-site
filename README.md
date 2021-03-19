@@ -2,7 +2,7 @@
 
 # simple-site
 
-This is a very simple set of processes for creating a standard set of webpages based on a simple set of json files. This project is intended to work along side other projects to provide a simple way of creating a set of consistent webpages, which can be delivered as part of your own GitHub project using [GitHub pages](https://pages.github.com/). 
+This is a very simple set of processes for creating a standard set of webpages based on a simple set of json files. This project is intended to work along side other projects to provide a simple way of creating a set of consistent webpages, which can be delivered as part of your own GitHub project using [GitHub pages](https://pages.github.com/).
 
 ### An example set of pages, including more detailed instructions and examples can be seen at: [simple-site](https://jpadfield.github.io/simple-site/)
 
@@ -13,7 +13,8 @@ The content of the pages are controlled with two main [json](https://en.wikipedi
 * Various site wide details are defined within the [site.json](./build/site.json) file.
 * The content for the webpages are then generally defined within the [pages.json](./build/pages.json) file, this includes the main pages which will be listed as tabs and then any required sub-pages, or even sub-sub-pages etc, that will be listed within drop-down menus from a related main page tab.
 
-# Screenshots 
+# Screenshots
+
 <img src="./docs/graphics/example screenshot 01.png" width="50%" alt="Example Screenshot"><img src="./docs/graphics/example screenshot 02.png" width="50%" alt="Example Screenshot">
 
 Once any of the json files are updated, within the GitHub repository, a new set of html pages are automatically generated, by GitHub, using the [build.php](build/build/php) file. Please note that although the new html pages are generated quite quickly it may take a few minutes before the changes are pushed through to your actual GitHub web pages.

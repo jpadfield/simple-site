@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Simple system for creating a set of web-pages to support your GitHub repository from a few simple json files." />
+<meta name="keywords" content="The National Gallery, London, National Gallery London, Scientific, Research, Heritage, Culture, JSON, PHP, Javascript, Github Pages, Dissemination, VRE, IIIF, Mermaid, Timeline, Mirador " />
+<meta name="author" content="Joseph Padfield| joseph.padfield@ng-london.org.uk |National Gallery | London UK | website@ng-london.org.uk |www.nationalgallery.org.uk" />
+<meta name="image" content="" />
+<link rel="icon" href="https://www.nationalgallery.org.uk/custom/ng/img/icons/favicon.ico">
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="NG Simple Site" />
+<meta property="og:description" content="Simple system for creating a set of web-pages to support your GitHub repository from a few simple json files." />
+<meta property="og:url" content="http://example.com" />
+<meta property="og:site_name" content="Simple site" />
+<meta property="og:image" content="graphics/github logo white.png" />
+<meta name="twitter:image" content="graphics/github logo white.png" />
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:description" content="Simple system for creating a set of web-pages to support your GitHub repository from a few simple json files." />
+<meta name="twitter:title" content="NG Simple Site" />
+<meta name="twitter:site" content="@joepadfield" />
+<meta name="twitter:creator" content="@joepadfield" />
+<title>NG Simple Site</title>
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="https://unpkg.com/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="css/main.css" rel="stylesheet" type="text/css">
+<style>
+
+.card-img {
+width: auto;
+max-width: 100%;
+max-height:200px;
+display: block;
+margin-left: auto;
+margin-right: auto;
+padding: 10px;
+}
+
+.card-img-top {
+width: auto;
+max-width: 100%;
+max-height:128px;
+display: block;
+margin-left: auto;
+margin-right: auto;
+padding: 10px;
+}
+
+.nodec:link, .nodec:visited, .nodec:hover, .nodec:active {
+text-decoration: none;
+color: inherit;
+}
+
+.card-hov:hover {
+opacity: 0.7;
+}
+
+.offsetanchor {
+position: relative;
+top: -75px;
+}
+
+
+</style>
+<!-- Global site tag (gtag.js) - Google Analytics - Only added in if the 'GoogleAnalyticsID' i set in the site.json file-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BQV11QKCED"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-BQV11QKCED');
+</script>
+</head>
+
+<body onload="onLoad();">
+<div class="container">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<a class="navbar-brand"  href="./">
+<img id="page-logo" class="logo" title="Logo" src="graphics/ng-logo-white-100x40.png"
+style="" alt="The National Gallery"/>
+</a>
+<div class="collapse navbar-collapse" id="navbarsExampleDefault"><ul class="navbar-nav">
+	<li class="nav-item "><a class="nav-link" href="index.html">Home</a></li><li class="nav-item "><a class="nav-link" href="instructions.html">Instructions</a></li><!-- Dropdown Loop 1 --><li class="nav-item dropdown "><a id="dropdownMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" title="Click to open the JSON menu" >JSON</a><ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow"><li><a href="json.html" class="dropdown-item top-item" title="Click to open the JSON page">JSON</a></li><li class="dropdown-divider"></li><li><a href="site-json.html" class="dropdown-item">Site.json</a></li><li><a href="pages-json.html" class="dropdown-item">Pages.json</a></li></ul></li><!-- End Loop 1 --><!-- Dropdown Loop 1 --><li class="nav-item dropdown active"><a id="dropdownMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" title="Click to open the Extensions menu" >Extensions<span class="sr-only">(current)</span></a><ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow"><li><a href="extensions.html" class="dropdown-item top-item" title="Click to open the Extensions page">Extensions</a></li><li class="dropdown-divider"></li><li><a href="timeline.html" class="dropdown-item">Timeline</a></li><li><a href="galleries-and-lists.html" class="dropdown-item">Galleries and Lists</a></li><li><a href="mirador-iiif-viewer.html" class="dropdown-item">Mirador IIIF viewer</a></li><li><a href="panel-truck-viewer.html" class="dropdown-item">Panel Truck viewer</a></li><li><a href="curtain-viewer.html" class="dropdown-item">Curtain Viewer</a></li></ul></li><!-- End Loop 1 --><!-- Dropdown Loop 1 --><li class="nav-item dropdown "><a id="dropdownMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" title="Click to open the Example menu" >Example</a><ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow"><li><a href="example.html" class="dropdown-item top-item" title="Click to open the Example page">Example</a></li><li class="dropdown-divider"></li><!-- Dropdown Loop 2 --><li class="dropdown-submenu"><a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the Example-subpage-01 menu">Example-subpage-01</a><ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow"><li><a href="example-subpage-01.html" class="dropdown-item  top-item" title="Click to open the Example-subpage-01 page">Example-subpage-01</a></li><li class="dropdown-divider"></li><!-- Dropdown Loop  --><li class="dropdown-submenu"><a id="dropdownMenu" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the Example-sub-subpage-01 menu">Example-sub-subpage-01</a><ul aria-labelledby="dropdownMenu" class="dropdown-menu border-0 shadow"><li><a href="example-sub-subpage-01.html" class="dropdown-item  top-item" title="Click to open the Example-sub-subpage-01 page">Example-sub-subpage-01</a></li><li class="dropdown-divider"></li><li><a href="example-sub-sub-subpage-01.html" class="dropdown-item">Example-sub-sub-subpage-01</a></li></ul></li><!-- End Loop  --></ul></li><!-- End Loop 2 --><li><a href="example-subpage-02.html" class="dropdown-item">Example-subpage-02</a></li></ul></li><!-- End Loop 1 --><li class="nav-item "><a class="nav-link" href="about.html">About</a></li></ul></div>
+
+<span class="navbar-text">
+<a href="https://github.com/jpadfield/simple-site/">
+<img id="ex-logo1" class="logo" title="github" src="graphics/github logo white.png"
+style="" alt="GitHub Jpadfield Simple-site"/>
+</a>
+</span>
+</nav>
+<div class="row ">
+<div class="col-12 col-md-12">
+
+<div class="jumbotron"><h2>Simple Site - The <b>List and Gallery Extension</b></h2></div><div class="row"><div class=\"$col[class]\"><nav aria-label="breadcrumb">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="extensions.html\">extensions</a></li>
+</ol>
+</nav></div><!--/span--></div><!--/row--><div class="row"><div class=\"$col[class]\"><p>This extension has been setup to automate the process of creating formatted lists and galleries using <a href='https://getbootstrap.com/'>Bootstrap</a>. It is an example of a special page that can be added to the <a href='pages.json.html'>pages.json</a> file.</p>
+
+<h3>The Example</h3><p>This example is displaying a list of four entries, displayed four times, demonstrating all four available display formats. An optional table of contents providing links to each of the defined groups has also been included.</p>
+<h3>Contents</h3><ul><li><a id="full+card+format-TBC" class="offsetanchor"></a><a href="#full+card+format">Full Card Format</a></li><li><a id="simple+card+format-TBC" class="offsetanchor"></a><a href="#simple+card+format">Simple Card Format</a></li><li><a id="image+only+format-TBC" class="offsetanchor"></a><a href="#image+only+format">Image Only Format</a></li><li><a id="list+format-TBC" class="offsetanchor"></a><a href="#list+format">List Format</a></li></ul><h3><a id="full+card+format" class="anchor offsetanchor" aria-hidden="true" href="#full+card+format-TBC"></a><a class="anchor nodec" aria-hidden="true" href="#full+card+format-TBC">Full Card Format</a></h3><p>This the most complex formatting provided presenting all of the main details in an interactive card like presentation</p><div class="card-column">
+<div class="card mb-3 card-hov" style="width: 100%;">
+<a href="https://tanc-ahrc.github.io/IIIF-TNC" class="stretched-link nodec"><div class="row no-gutters">
+<div class="col-md-4  my-auto" >
+<img src="graphics/TANC%20-%20IIIF.png" class="card-img" alt="The IIIF - TANC Project">
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<h4 class="card-title">The IIIF - TANC Project</h4>
+<h5 class="card-title">Practical applications of IIIF as a building block towards a digital National Collection</h5>
+<p class="card-text">AHRC funded - IIIF-TNC | Practical applications of IIIF as a building block towards a digital National Collection - IIIF - TNC</p>
+</div>
+</div>
+</div></a>
+</div>
+
+<div class="card mb-3 card-hov" style="width: 100%;">
+<a href="https://tanc-ahrc.github.io/HeritagePIDs" class="stretched-link nodec"><div class="row no-gutters">
+<div class="col-md-4  my-auto" >
+<img src="graphics/TANC%20-%20PIDS.png" class="card-img" alt="The HeritagePIDs Project">
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<h4 class="card-title">The HeritagePIDs Project</h4>
+<h5 class="card-title">Persistent Identifiers as IRO Infrastructure</h5>
+<p class="card-text">AHRC funded - HeritagePIDs | Persistent Identifiers as IRO Infrastructure - HeritagePIDs</p>
+</div>
+</div>
+</div></a>
+</div>
+
+<div class="card mb-3 card-hov" style="width: 100%;">
+<a href="https://www.sshopencloud.eu/" class="stretched-link nodec"><div class="row no-gutters">
+<div class="col-md-4  my-auto" >
+<img src="graphics/sshoc-logo.png" class="card-img" alt="The SSHOC Project">
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<h4 class="card-title">The SSHOC Project</h4>
+<h5 class="card-title">Social Sciences & Humanities Open Cloud</h5>
+<p class="card-text">Social Sciences & Humanities Open Cloud (SSHOC)is a project funded by the EU framework programme Horizon 2020 and unites 20 partner organisations and their 27 associates in developing the social sciences and humanities area of the European Open Science Cloud (EOSC) - SSHOC</p>
+</div>
+</div>
+</div></a>
+</div>
+
+<div class="card mb-3 card-hov" style="width: 100%;">
+<a href="https://research.ng-london.org.uk/external/ARTICT" class="stretched-link nodec"><div class="row no-gutters">
+<div class="col-md-4  my-auto" >
+<img src="graphics/UKRI_EPSR_Council-Logo_Horiz-RGB.png" class="card-img" alt="The ARTICT Project">
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<h4 class="card-title">The ARTICT Project</h4>
+<h5 class="card-title">Art Through the ICT Lens</h5>
+<p class="card-text">EPSRC funded - ARTICT | Art Through the ICT Lens: Big Data Processing Tools to Support the Technical Study, Preservation and Conservation of Old Master Paintings - ARTICT</p>
+</div>
+</div>
+</div></a>
+</div>
+</div><br/><h3><a id="simple+card+format" class="anchor offsetanchor" aria-hidden="true" href="#simple+card+format-TBC"></a><a class="anchor nodec" aria-hidden="true" href="#simple+card+format-TBC">Simple Card Format</a></h3><p>This is a simplified version of the full card, the sizes of the image is generally limited, the second title is not shown and the cards are arrange in columns rather than rows.</p><div class="card-deck">
+<div class="col-6 mb-4 card-hov";>
+<div class="card" title="The IIIF - TANC Project">
+<a href="https://tanc-ahrc.github.io/IIIF-TNC" class="stretched-link nodec">
+<img class="card-img-top" src="graphics/TANC%20-%20IIIF.png" alt="The IIIF - TANC Project">
+</a>
+<div class="card-body">
+<h5 class="card-title">The IIIF - TANC Project</h5>
+<p class="card-text">AHRC funded - IIIF-TNC | Practical applications of IIIF as a building block towards a digital National Collection - IIIF - TNC</p>
+</div>
+</div>
+</div>
+
+<div class="col-6 mb-4 card-hov";>
+<div class="card" title="The HeritagePIDs Project">
+<a href="https://tanc-ahrc.github.io/HeritagePIDs" class="stretched-link nodec">
+<img class="card-img-top" src="graphics/TANC%20-%20PIDS.png" alt="The HeritagePIDs Project">
+</a>
+<div class="card-body">
+<h5 class="card-title">The HeritagePIDs Project</h5>
+<p class="card-text">AHRC funded - HeritagePIDs | Persistent Identifiers as IRO Infrastructure - HeritagePIDs</p>
+</div>
+</div>
+</div>
+
+<div class="col-6 mb-4 card-hov";>
+<div class="card" title="The SSHOC Project">
+<a href="https://www.sshopencloud.eu/" class="stretched-link nodec">
+<img class="card-img-top" src="graphics/sshoc-logo.png" alt="The SSHOC Project">
+</a>
+<div class="card-body">
+<h5 class="card-title">The SSHOC Project</h5>
+<p class="card-text">Social Sciences & Humanities Open Cloud (SSHOC)is a project funded by the EU framework programme Horizon 2020 and unites 20 partner organisations and their 27 associates in developing the social sciences and humanities area of the European Open Science Cloud (EOSC) - SSHOC</p>
+</div>
+</div>
+</div>
+
+<div class="col-6 mb-4 card-hov";>
+<div class="card" title="The ARTICT Project">
+<a href="https://research.ng-london.org.uk/external/ARTICT" class="stretched-link nodec">
+<img class="card-img-top" src="graphics/UKRI_EPSR_Council-Logo_Horiz-RGB.png" alt="The ARTICT Project">
+</a>
+<div class="card-body">
+<h5 class="card-title">The ARTICT Project</h5>
+<p class="card-text">EPSRC funded - ARTICT | Art Through the ICT Lens: Big Data Processing Tools to Support the Technical Study, Preservation and Conservation of Old Master Paintings - ARTICT</p>
+</div>
+</div>
+</div>
+</div><br/><h3><a id="image+only+format" class="anchor offsetanchor" aria-hidden="true" href="#image+only+format-TBC"></a><a class="anchor nodec" aria-hidden="true" href="#image+only+format-TBC">Image Only Format</a></h3><p>This is simplest card format, limited to a clickable image with the primary title shown as hover text.</p><div class="card-deck">
+<div class="col-4 mb-4 card-hov">
+<div class="card" title="The IIIF - TANC Project">
+<a href="https://tanc-ahrc.github.io/IIIF-TNC" class="stretched-link nodec">
+<img class="card-img-top" src="graphics/TANC%20-%20IIIF.png" alt="The IIIF - TANC Project">
+</a>
+</div>
+</div>
+
+<div class="col-4 mb-4 card-hov">
+<div class="card" title="The HeritagePIDs Project">
+<a href="https://tanc-ahrc.github.io/HeritagePIDs" class="stretched-link nodec">
+<img class="card-img-top" src="graphics/TANC%20-%20PIDS.png" alt="The HeritagePIDs Project">
+</a>
+</div>
+</div>
+
+<div class="col-4 mb-4 card-hov">
+<div class="card" title="The SSHOC Project">
+<a href="https://www.sshopencloud.eu/" class="stretched-link nodec">
+<img class="card-img-top" src="graphics/sshoc-logo.png" alt="The SSHOC Project">
+</a>
+</div>
+</div>
+
+<div class="col-4 mb-4 card-hov">
+<div class="card" title="The ARTICT Project">
+<a href="https://research.ng-london.org.uk/external/ARTICT" class="stretched-link nodec">
+<img class="card-img-top" src="graphics/UKRI_EPSR_Council-Logo_Horiz-RGB.png" alt="The ARTICT Project">
+</a>
+</div>
+</div>
+</div><br/><h3><a id="list+format" class="anchor offsetanchor" aria-hidden="true" href="#list+format-TBC"></a><a class="anchor nodec" aria-hidden="true" href="#list+format-TBC">List Format</a></h3><p>The list format only display clickable titles and the comment for each entry, arranged as a simple bulet point list.</p><ul><li><a href="https://tanc-ahrc.github.io/IIIF-TNC" class="">The IIIF - TANC Project</a> - AHRC funded - IIIF-TNC | Practical applications of IIIF as a building block towards a digital National Collection - IIIF - TNC<span style="font-size:0.75em">  ( no checked date )</span></li><li><a href="https://tanc-ahrc.github.io/HeritagePIDs" class="">The HeritagePIDs Project</a> - AHRC funded - HeritagePIDs | Persistent Identifiers as IRO Infrastructure - HeritagePIDs<span style="font-size:0.75em">  ( no checked date )</span></li><li><a href="https://www.sshopencloud.eu/" class="">The SSHOC Project</a> - Social Sciences & Humanities Open Cloud (SSHOC)is a project funded by the EU framework programme Horizon 2020 and unites 20 partner organisations and their 27 associates in developing the social sciences and humanities area of the European Open Science Cloud (EOSC) - SSHOC<span style="font-size:0.75em">  ( last checked 04/02/2021 )</span></li><li><a href="https://research.ng-london.org.uk/external/ARTICT" class="">The ARTICT Project</a> - EPSRC funded - ARTICT | Art Through the ICT Lens: Big Data Processing Tools to Support the Technical Study, Preservation and Conservation of Old Master Paintings - ARTICT<span style="font-size:0.75em">  ( no checked date )</span></li></ul><br/>
+
+<h3>Summary</h3>
+
+<div class="alert alert-info" role="alert"><h4 class="alert-heading">Extension Variables</h4><p>For this extension to work the <b>class</b> variable needs to be set to <b>list</b> and the <b>file</b> variable needs to give the name of the additional json file including the list data as shown below.</p></div>
+
+<figure>
+<pre style="overflow: hidden;border: 2px solid black;padding: 10px;">
+<code>
+...  
+  "<b>List - Gallery Example</b>": {
+    "<b>parent</b>": "extensions",
+    "<b>class</b>": "list",
+    "<b>file</b>": "list-example.json",
+    "<b>title</b>": "Simple Site - The &lt;b&gt;List Extension Gallery of Supporters&lt;/b&gt;",
+    "<b>content</b>": "&lt;p&gt;This extension has been setup to automate the process of creating formatted lists and galleries using &#91;Bootstrap|https://getbootstrap.com/&#93;. It is an example of a special page that can be added to the ... ",
+    "<b>content right</b>": ""
+  },
+...
+</code>
+	</pre>
+	<figcaption class=\\\\"figure-caption\\\\">Simplified version of the JSON object used to describe this page.</figcaption>
+</figure>
+
+<p>The details included in the <b>content</b> and <b>content right</b> variable will be presented as <a href='pages.json.html'>previously described</a>, however the data included in the named file, in this case <b>timeline.json</b> will be processed to add a formatted timeline to the page.</p>
+
+<h3>List JSON file</h3>
+
+<p>As with the other JSON files the list data needs to be organised in a series of JSON objects, these are documented below, but for an example of a fully formatted JSON file please see the <a href='https://github.com/jpadfield/simple-site/blob/master/build/list-example.json'>list-example.json</a> file.</p>
+
+<figure>
+<pre style="overflow: hidden;border: 2px solid black;padding: 10px;">
+<code>{
+  "<b>defaultcard</b>": "<b>list</b>, <b>full</b>, <b>simple</b> or <b>image</b> - selected default formatting used for each of the included list entries",
+  "<b>displaychecked</b>": "<b>true</b> or <b>false</b> - option to display dates of when included or listed links where last checked.",
+  "<b>tableofcontents</b>": "<b>true</b> or <b>false</b> - option to include a table of contents",
+  "<b>groups"</b>: "<b>{}</b>" - optional array of extra variables to define alternative formatting and to include a comment for each defined group of list entries, see below.",
+...
+</code></pre><figcaption class="figure-caption">The top four variables required in the list JSON file.</figcaption>
+</figure>
+
+<figure>
+<pre style="overflow: hidden;border: 2px solid black;padding: 10px;">
+<code>{
+...
+  "group name" : {
+    "<b>comment</b>": "Optional comment or summary used to describe all of the list items in a given group.",
+    "<b>card</b>": "<b>list</b>, <b>full</b>, <b>simple</b> or <b>image</b> - selected formatting to be used for this specific group of list entries."
+    "<b>maxcols</b>": "Optional number from 1 - 12 to indicate the maximum number of columns to allow for simple cards and image cards. The default value is 3."
+    },
+...
+</code></pre><figcaption class="figure-caption">An example of the optional variables that can be used to further define individual groups of list entries.</figcaption>
+</figure>
+
+<p>The rest of the data within the JSON file relates to a series of entries organised as a <b>list</b>, it is ok just to have a single item in the list.</p>
+
+<p>List entries ....</p>
+
+<figure>
+
+<pre style="overflow: hidden;border: 2px solid black;padding: 10px;">
+<code>
+... 
+"list": [
+  {
+  "groups": ["Group Name 1", "Group Name 2"], - "comma separated list of groups this particular list entry should be display in - normally just a single entry"
+  "ptitle": "Primary entry title",
+  "stitle": "Optional secondary title",
+  "comment": "Optional comment or summary used to describe this particular list entry",
+  "image": "Optional file path for image", "this can be a full public URL or a local link to an image uploaded into the local <b>graphics</b> folder within your GitHub repository"
+  "checked": "Optional date to define when the provided link was last checked",
+  "link": "Optional html link to further information or details related to this list entry"
+},
+...
+</code></pre><figcaption class="figure-caption">The required and optional variables used to define each list entry.</figcaption>
+</figure><div class="foonote"><ul></ul></div></div><!--/span--></div><!--/row--><div class="row"><div class=\"$col[class]\"><hr/>
+<h3>Page JSON Object</h3>
+<figure>
+<pre style="overflow-y: auto;overflow-x: hidden; border: 2px solid black;padding: 10px;max-height:400px;"><code>{
+    &quot;parent&quot;: &quot;extensions&quot;,
+    &quot;class&quot;: &quot;list&quot;,
+    &quot;file&quot;: &quot;list-example.json&quot;,
+    &quot;title&quot;: &quot;Simple Site - The &lt;b&gt;List and Gallery Extension&lt;/b&gt;&quot;,
+    &quot;content&quot;: &quot;&lt;p&gt;This extension has been setup to automate the process of creating formatted lists and galleries using [Bootstrap|https://getbootstrap.com/]. It is an example of a special page that can be added to the [pages.json|pages.json.html] file.&lt;/p&gt;\r\n\r\n&lt;h3&gt;The Example&lt;/h3&gt;&lt;p&gt;This example is displaying a list of four entries, displayed four times, demonstrating all four available display formats. An optional table of contents providing links to each of the defined groups has also been included.&lt;/p&gt;\r\n[##]\r\n\r\n&lt;h3&gt;Summary&lt;/h3&gt;\r\n\r\n&lt;div class=\&quot;alert alert-info\&quot; role=\&quot;alert\&quot;&gt;&lt;h4 class=\&quot;alert-heading\&quot;&gt;Extension Variables&lt;/h4&gt;&lt;p&gt;For this extension to work the &lt;b&gt;class&lt;/b&gt; variable needs to be set to &lt;b&gt;list&lt;/b&gt; and the &lt;b&gt;file&lt;/b&gt; variable needs to give the name of the additional json file including the list data as shown below.&lt;/p&gt;&lt;/div&gt;\r\n\r\n&lt;figure&gt;\r\n&lt;pre style=\&quot;overflow: hidden;border: 2px solid black;padding: 10px;\&quot;&gt;\r\n&lt;code&gt;\r\n...  \r\n  \&quot;&lt;b&gt;List - Gallery Example&lt;/b&gt;\&quot;: {\r\n    \&quot;&lt;b&gt;parent&lt;/b&gt;\&quot;: \&quot;extensions\&quot;,\r\n    \&quot;&lt;b&gt;class&lt;/b&gt;\&quot;: \&quot;list\&quot;,\r\n    \&quot;&lt;b&gt;file&lt;/b&gt;\&quot;: \&quot;list-example.json\&quot;,\r\n    \&quot;&lt;b&gt;title&lt;/b&gt;\&quot;: \&quot;Simple Site - The &amp;lt;b&amp;gt;List Extension Gallery of Supporters&amp;lt;/b&amp;gt;\&quot;,\r\n    \&quot;&lt;b&gt;content&lt;/b&gt;\&quot;: \&quot;&amp;lt;p&amp;gt;This extension has been setup to automate the process of creating formatted lists and galleries using &amp;#91;Bootstrap|https://getbootstrap.com/&amp;#93;. It is an example of a special page that can be added to the ... \&quot;,\r\n    \&quot;&lt;b&gt;content right&lt;/b&gt;\&quot;: \&quot;\&quot;\r\n  },\r\n...\r\n&lt;/code&gt;\r\n\t&lt;/pre&gt;\r\n\t&lt;figcaption class=\\\\\\\\\&quot;figure-caption\\\\\\\\\&quot;&gt;Simplified version of the JSON object used to describe this page.&lt;/figcaption&gt;\r\n&lt;/figure&gt;\r\n\r\n&lt;p&gt;The details included in the &lt;b&gt;content&lt;/b&gt; and &lt;b&gt;content right&lt;/b&gt; variable will be presented as [previously described|pages.json.html], however the data included in the named file, in this case &lt;b&gt;timeline.json&lt;/b&gt; will be processed to add a formatted timeline to the page.&lt;/p&gt;\r\n\r\n&lt;h3&gt;List JSON file&lt;/h3&gt;\r\n\r\n&lt;p&gt;As with the other JSON files the list data needs to be organised in a series of JSON objects, these are documented below, but for an example of a fully formatted JSON file please see the [list-example.json|https://github.com/jpadfield/simple-site/blob/master/build/list-example.json] file.&lt;/p&gt;\r\n\r\n&lt;figure&gt;\r\n&lt;pre style=\&quot;overflow: hidden;border: 2px solid black;padding: 10px;\&quot;&gt;\r\n&lt;code&gt;{\r\n  \&quot;&lt;b&gt;defaultcard&lt;/b&gt;\&quot;: \&quot;&lt;b&gt;list&lt;/b&gt;, &lt;b&gt;full&lt;/b&gt;, &lt;b&gt;simple&lt;/b&gt; or &lt;b&gt;image&lt;/b&gt; - selected default formatting used for each of the included list entries\&quot;,\r\n  \&quot;&lt;b&gt;displaychecked&lt;/b&gt;\&quot;: \&quot;&lt;b&gt;true&lt;/b&gt; or &lt;b&gt;false&lt;/b&gt; - option to display dates of when included or listed links where last checked.\&quot;,\r\n  \&quot;&lt;b&gt;tableofcontents&lt;/b&gt;\&quot;: \&quot;&lt;b&gt;true&lt;/b&gt; or &lt;b&gt;false&lt;/b&gt; - option to include a table of contents\&quot;,\r\n  \&quot;&lt;b&gt;groups\&quot;&lt;/b&gt;: \&quot;&lt;b&gt;{}&lt;/b&gt;\&quot; - optional array of extra variables to define alternative formatting and to include a comment for each defined group of list entries, see below.\&quot;,\r\n...\r\n&lt;/code&gt;&lt;/pre&gt;&lt;figcaption class=\&quot;figure-caption\&quot;&gt;The top four variables required in the list JSON file.&lt;/figcaption&gt;\r\n&lt;/figure&gt;\r\n\r\n&lt;figure&gt;\r\n&lt;pre style=\&quot;overflow: hidden;border: 2px solid black;padding: 10px;\&quot;&gt;\r\n&lt;code&gt;{\r\n...\r\n  \&quot;group name\&quot; : {\r\n    \&quot;&lt;b&gt;comment&lt;/b&gt;\&quot;: \&quot;Optional comment or summary used to describe all of the list items in a given group.\&quot;,\r\n    \&quot;&lt;b&gt;card&lt;/b&gt;\&quot;: \&quot;&lt;b&gt;list&lt;/b&gt;, &lt;b&gt;full&lt;/b&gt;, &lt;b&gt;simple&lt;/b&gt; or &lt;b&gt;image&lt;/b&gt; - selected formatting to be used for this specific group of list entries.\&quot;\r\n    \&quot;&lt;b&gt;maxcols&lt;/b&gt;\&quot;: \&quot;Optional number from 1 - 12 to indicate the maximum number of columns to allow for simple cards and image cards. The default value is 3.\&quot;\r\n    },\r\n...\r\n&lt;/code&gt;&lt;/pre&gt;&lt;figcaption class=\&quot;figure-caption\&quot;&gt;An example of the optional variables that can be used to further define individual groups of list entries.&lt;/figcaption&gt;\r\n&lt;/figure&gt;\r\n\r\n&lt;p&gt;The rest of the data within the JSON file relates to a series of entries organised as a &lt;b&gt;list&lt;/b&gt;, it is ok just to have a single item in the list.&lt;/p&gt;\r\n\r\n&lt;p&gt;List entries ....&lt;/p&gt;\r\n\r\n&lt;figure&gt;\r\n\r\n&lt;pre style=\&quot;overflow: hidden;border: 2px solid black;padding: 10px;\&quot;&gt;\r\n&lt;code&gt;\r\n... \r\n\&quot;list\&quot;: [\r\n  {\r\n  \&quot;groups\&quot;: [\&quot;Group Name 1\&quot;, \&quot;Group Name 2\&quot;], - \&quot;comma separated list of groups this particular list entry should be display in - normally just a single entry\&quot;\r\n  \&quot;ptitle\&quot;: \&quot;Primary entry title\&quot;,\r\n  \&quot;stitle\&quot;: \&quot;Optional secondary title\&quot;,\r\n  \&quot;comment\&quot;: \&quot;Optional comment or summary used to describe this particular list entry\&quot;,\r\n  \&quot;image\&quot;: \&quot;Optional file path for image\&quot;, \&quot;this can be a full public URL or a local link to an image uploaded into the local &lt;b&gt;graphics&lt;/b&gt; folder within your GitHub repository\&quot;\r\n  \&quot;checked\&quot;: \&quot;Optional date to define when the provided link was last checked\&quot;,\r\n  \&quot;link\&quot;: \&quot;Optional html link to further information or details related to this list entry\&quot;\r\n},\r\n...\r\n&lt;/code&gt;&lt;/pre&gt;&lt;figcaption class=\&quot;figure-caption\&quot;&gt;The required and optional variables used to define each list entry.&lt;/figcaption&gt;\r\n&lt;/figure&gt;&quot;,
+    &quot;content right&quot;: &quot;&quot;,
+    &quot;displaycode&quot;: true,
+    &quot;name&quot;: &quot;Galleries and Lists&quot;
+}</code></pre>
+<figcaption class=\"figure-caption\">The complete JSON object used to define this content and layout of this page.</figcaption>
+</figure></div><!--/span--></div><!--/row--><br/>
+</div><!--/span-->
+
+
+</div><!--/row-->
+
+<footer>
+<div class="container-fluid">
+<div class="row">
+<div class="col-5" style="text-align:left;">&copy; The National Gallery 2021</div>
+<div class="col-2" style="text-align:center;"></div>
+<div class="col-5" style="text-align:right;"><a href='http://rightsstatements.org/vocab/InC-EDU/1.0/'><img height='16' alt='In Copyright - Educational Use Permitted' title='In Copyright - Educational Use Permitted' src='graphics/InC-EDU.dark-white-interior-blue-type.png'/></a><a rel='license' href='https://creativecommons.org/licenses/by-nc/4.0/'><img alt='Creative Commons Licence' style='border-width:0' src='https://i.creativecommons.org/l/by-nc/4.0/88x31.png' /></a></div>
+</div>
+</div>
+</footer>
+</div><!--/.container-->
+
+
+<script src="https://unpkg.com/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="https://unpkg.com/tether@1.4.7/dist/js/tether.min.js"></script>
+<script src="https://unpkg.com/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+
+function onLoad() {
+	$(function() {
+// ------------------------------------------------------- //
+// Multi Level dropdowns
+// ------------------------------------------------------ //
+$("ul.dropdown-menu [data-toggle='dropdown']").on("click", function(event) {
+event.preventDefault();
+event.stopPropagation();
+
+$(this).siblings().toggleClass("show");
+
+
+if (!$(this).next().hasClass('show')) {
+$(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
+}
+$(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) {
+$('.dropdown-submenu .show').removeClass("show");
+});
+
+});
+});
+}
+</script>
+</body>
+</html>
