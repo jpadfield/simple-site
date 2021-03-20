@@ -1,5 +1,11 @@
 <?php
-
+/**
+ * Build script for Joe Padfield's Simple site generator
+ *
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
+ * @author Joe Padfield (Majority)
+ * @author Daniel Pett (minimal)
+ */
 // Last updated 04 Feb 2021
 
 // simple array "extensionClassName => newFunctionName"
@@ -10,8 +16,10 @@ $default_scripts = array(
 	"js-scripts" => array (
 		"jquery" => "https://unpkg.com/jquery@3.6.0/dist/jquery.min.js",
 		"tether" => "https://unpkg.com/tether@1.4.7/dist/js/tether.min.js",
-		"bootstrap" => "https://unpkg.com/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"),
-		"css-scripts" => array(
+		"bootstrap" => "https://unpkg.com/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js",
+		"lunr" => "https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js",
+		"search" => "js/search.js"),
+	"css-scripts" => array(
 			"fontawesome" => "https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css",
 			"bootstrap" => "https://unpkg.com/bootstrap@4.6.0/dist/css/bootstrap.min.css",
 			"main" => "css/main.css"
@@ -32,11 +40,14 @@ $default_scripts = array(
 	//
 
 	$de = glob("extensions/*.php");
+
 	foreach($de as $file){
 		require_once $file;
 	}
 
-
+	/**
+	 * Load Json file for site variables
+	 */
 	$site = getRemoteJsonDetails("site.json", false, true);
 	if (!is_array($site) or count($site) < 1) {
 		exit("\nERROR: Sorry your site.json file has not been opened correctly please check you json formatting and try vaildating it using a web-site similar to https://jsonlint.com/\n\n");
@@ -102,7 +113,12 @@ $default_scripts = array(
 
 	buildExamplePages ();
 
-	function pagesCheck($pages) {
+	/**
+	 * Check pages in array of names
+	 * @param array $pages [description]
+	 * @return array       [description]
+	 */
+	function pagesCheck(array $pages) {
 		global $pnames;
 
 		$default = array(
@@ -116,8 +132,7 @@ $default_scripts = array(
 				$pnames[] = $k;
 			}
 		}
-
-		return($pages);
+		return $pages;
 	}
 
 
@@ -242,7 +257,11 @@ $default_scripts = array(
 		return $text;
 	}
 
-
+	/**
+	 * [buildSimpleBSGrid description]
+	 * @param  array  $bdDetails [description]
+	 * @return string            [description]
+	 */
 	function buildSimpleBSGrid ($bdDetails = array()) {
 		ob_start();
 
@@ -279,6 +298,7 @@ $default_scripts = array(
 
 		return($html);
 	}
+
 	/**
 	 * [loopMenus description]
 	 * @param  [type] $str [description]
@@ -316,8 +336,12 @@ $default_scripts = array(
 	return $str;
 }
 
-
-function slugify($text)
+/**
+ * [slugify description]
+ * @param  string $text [description]
+ * @return [type]       [description]
+ */
+function slugify(string $text)
 {
   // replace non letter or digits by -
   $text = preg_replace('~[^\pL\d]+~u', '-', $text);
@@ -343,6 +367,7 @@ function slugify($text)
 
   return $text;
 }
+
 /**
  * [buildTopNav description]
  * @param  [type]  $name [description]
@@ -370,7 +395,7 @@ function buildTopNav ($name, $bcs=false) {
 		} else {
 			$a = array("", "");
 		}
-
+		unset($menuList['Search']);
 		if (isset($menuList[$pname])) {
 			$html .= '<!-- Dropdown Loop ' . $no . ' --><li class="nav-item dropdown ';
 			$html .= $a[0] . '"><a id="dropdownMenu' . $no;
@@ -398,13 +423,22 @@ function buildTopNav ($name, $bcs=false) {
 			$html .= $puse . '.html">' . ucfirst($pname) . $a[1] . '</a></li>';
 		}
 	}
-
+	$html .= '<form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" id="search" type="search" name="query" placeholder="Search" aria-label="Search" action="/search" method="GET">
+          <button class="btn btn-outline-light my-2 my-sm-0" type="submit" formaction="search.html">Search</button>
+        </form>';
 	$html .= "</ul></div>";
 
 	return($html);
 }
 
-function loopBreadcrumbs ($name, $arr=array())
+/**
+ * [loopBreadcrumbs description]
+ * @param  [type] $name [description]
+ * @param  array  $arr  [description]
+ * @return [type]       [description]
+ */
+function loopBreadcrumbs ($name, $arr = array())
 {
 	global $pages;
 
@@ -416,6 +450,10 @@ function loopBreadcrumbs ($name, $arr=array())
 	return ($arr);
 }
 
+/**
+ * [buildExamplePages description]
+ * @return [type] [description]
+ */
 function buildExamplePages () {
 	global $pages, $subpages, $html_path, $menuList;
 
@@ -443,6 +481,7 @@ function buildExamplePages () {
 				writePage ($name, $d);
 			}
 		}
+
 	/**
 	 * [buildBreadcrumbs description]
 	 * @param  array $arr [description]
@@ -477,6 +516,8 @@ function buildExamplePages () {
 
 		return($html);
 	}
+
+
 	/**
 	 * [writeTSPage description]
 	 * @return [type] [description]
@@ -491,6 +532,12 @@ function buildExamplePages () {
 		fclose($myfile);
 	}
 
+	/**
+	 * [writePage description]
+	 * @param  [type] $name [description]
+	 * @param  [type] $d    [description]
+	 * @return [type]       [description]
+	 */
 	function writePage ($name, $d) {
 
 		global $gdp, $menuList, $extensionList, $fcount, $footnotes, $extraHTML;
@@ -566,7 +613,11 @@ function buildExamplePages () {
 				fwrite($myfile, $html);
 				fclose($myfile);
 			}
-
+/**
+ * [buildBootStrapNGPage description]
+ * @param  array  $pageDetails [description]
+ * @return [type]              [description]
+ */
 function buildBootStrapNGPage ($pageDetails = array()) {
 global $default_scripts;
 
@@ -789,7 +840,12 @@ if($pageDetails["offcanvas"])
 		return ($page_html);
 	}
 
-
+	/**
+	 * [positionExtraContent description]
+	 * @param  [type] $str   [description]
+	 * @param  [type] $extra [description]
+	 * @return [type]        [description]
+	 */
 	function positionExtraContent ($str, $extra)
 	{
 		$count = 0;
@@ -800,7 +856,12 @@ if($pageDetails["offcanvas"])
 		return $str;
 	}
 
-
+	/**
+	 * [buildExtensionContent description]
+	 * @param  [type] $d  [description]
+	 * @param  [type] $pd [description]
+	 * @return [type]     [description]
+	 */
 	function buildExtensionContent ($d, $pd)
 	{
 		global $extensionList;
@@ -810,7 +871,14 @@ if($pageDetails["offcanvas"])
 		return array($content, $out["pd"]);
 	}
 
-
+	/**
+	 * [displayCode description]
+	 * @param  [type]  $array   [description]
+	 * @param  boolean $title   [description]
+	 * @param  string  $format  [description]
+	 * @param  boolean $caption [description]
+	 * @return [type]           [description]
+	 */
 	function displayCode ($array, $title=false, $format="json", $caption=false)
 	{
 		if ($format == "json") {
