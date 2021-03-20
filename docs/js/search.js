@@ -15,7 +15,6 @@ async function main() {
       this.field('id')
       this.field('title')
       this.field('content', { boost: 10 })
-      this.field('url')
       Object.entries(documents).forEach(function (document) {
         this.add( {
           "id": document[0],
@@ -24,27 +23,31 @@ async function main() {
         })
       }, this)
     });
+
+    let strippedString = originalString.replace(/(<([^>]+)>)/gi, "");
+
     let searchParams = new URLSearchParams(window.location.search)
     let param = searchParams.get('query')
     var results = idx.search(param);
     function slugify(text) {
       return text.toString().toLowerCase()
-                            .replace(/\s+/g, '-')           // Replace spaces with -
-                            .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
-                            .replace(/\-\-+/g, '-')         // Replace multiple - with single -
-                            .replace(/^-+/, '')             // Trim - from start of text
-                            .replace(/-+$/, '');            // Trim - from end of text
+            .replace(/\s+/g, '-')           // Replace spaces with -
+            .replace(/&/g, '-and-')         // Replace & with 'and'
+            .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+            .replace(/\-\-+/g, '-');        // Replace multiple - with single -im - from end of text
     }
     if (results.length) {
     for (result of results) {
       var doc = documents[result.ref];
+      var content = doc.content;
+      var stripped = content.replace(/(<([^>]+)>)/gi, "");
       $( "#search_results" ).append(
       '<div class="col-md-6 mt-3"><div class="card h-100"><div class="card-body"><a href="'
       + slugify(doc.title) + '.html"><h5 class="card-title">'
       + doc.title
       + '</h5></a>'
-      // + '<p class="card-text">' + doc.content + '</p>'
-      + '<a href="' + slugify(doc.title)+ '" class="btn btn-dark stretched-link">Read more </a>'
+      + '<p class="card-text">' + stripped.substring(0,200) + '</p>
+      + '<a href="' + slugify(doc.title) + '.html" class="btn btn-dark stretched-link">Read more </a>'
       + '</div></div>');
       }
     } else {
