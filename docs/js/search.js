@@ -43,8 +43,8 @@ async function main() {
       + slugify(doc.title) + '.html"><h5 class="card-title">'
       + doc.title
       + '</h5></a>'
-      + '<p class="card-text">' + doc.content + '</p>'
-      + '<a href="' + doc.url + '" class="btn btn-dark stretched-link">Read more </a>'
+      // + '<p class="card-text">' + doc.content + '</p>'
+      + '<a href="' + slugify(doc.title)+ '" class="btn btn-dark stretched-link">Read more </a>'
       + '</div></div>');
       }
     } else {
