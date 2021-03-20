@@ -46,7 +46,7 @@ async function main() {
       + slugify(doc.title) + '.html"><h5 class="card-title">'
       + doc.title
       + '</h5></a>'
-      + '<p class="card-text">' + stripped.substring(0,200) + '</p>
+      + '<p class="card-text">' + stripped.substring(0,200) + '</p>'
       + '<a href="' + slugify(doc.title) + '.html" class="btn btn-dark stretched-link">Read more </a>'
       + '</div></div>');
       }
