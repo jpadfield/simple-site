@@ -27,12 +27,20 @@ async function main() {
     let searchParams = new URLSearchParams(window.location.search)
     let param = searchParams.get('query')
     var results = idx.search(param);
+    function slugify(text) {
+      return text.toString().toLowerCase()
+                            .replace(/\s+/g, '-')           // Replace spaces with -
+                            .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+                            .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+                            .replace(/^-+/, '')             // Trim - from start of text
+                            .replace(/-+$/, '');            // Trim - from end of text
+    }
     if (results.length) {
     for (result of results) {
       var doc = documents[result.ref];
       $( "#search_results" ).append(
       '<div class="col-md-6 mt-3"><div class="card h-100"><div class="card-body"><a href="'
-      + doc.url + '"><h5 class="card-title">'
+      + slugify(doc.title) + '.html"><h5 class="card-title">'
       + doc.title
       + '</h5></a>'
       + '<p class="card-text">' + doc.content + '</p>'
