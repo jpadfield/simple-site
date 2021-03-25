@@ -75,7 +75,14 @@
 <p>Depending on how you copy the files you may also need to check the following issues.</p>
 
 <h4>GitHub Actions</h4>
-<p>The automatic process of building the pages is controlled by a <a href='https://help.github.com/en/actions'>GitHub Action</a>. If you fork the original repository the GitHUb Action will be copied automatically, if not there is quite a lot of documentation available about setting up a new <a href='https://help.github.com/en/actions'>GitHub Action</a>, but the basic steps will require you to:
+<p>The automatic process of building the pages is controlled by a <a href='https://help.github.com/en/actions'>GitHub Action</a>. If you fork the original repository the GitHUb Action will be copied automatically, but it will need to be re-enabled, as it is disabled during the fork process: 
+<ul>
+	<li>Click on the <b>Actions</b> option at the top of your repository page.</li>
+	<li>A warning message will appear indicating that workflows have been disabled during the fork process.</li>
+	<li>Click on the green “I understand...” button to re-enable the GitHub Actions</li>
+</ul>
+
+If you did not fork the repository there is quite a lot of documentation available about setting up a new <a href='https://help.github.com/en/actions'>GitHub Action</a>, but the basic steps will require you to:
 <ul>
 	<li>Click on the <b>Actions</b> option at the top of your repository page.</li>
 	<li>Click on the <b>New workflow</b> button.</li>
@@ -85,7 +92,7 @@
 	<li>Copy and paste the raw version of <a href='https://raw.githubusercontent.com/jpadfield/simple-site/master/.github/workflows/build.yml'>build.yml</a> file into the editor.</li>
 	<li>Click on the <b>Start commit</b> button to save the new workflow.</li>
 </ul>
-<p>If you forked the repository this additional setup process may not be required.</p>
+<p>If you forked the repository this additional setup of setting up a new workflow will not be required.</p>
 
 <h4>Enabling GitHub Pages</h4>
 <p>GitHub does not present project web-pages, GitHub Pages, by default, but it is very easy to turn this functionality on. The following steps can be followed when using this project, for more general instructions, or if you want to find more information you should be able to start <a href='https://pages.github.com/'>here</a></p>
@@ -94,8 +101,11 @@
 	<li>Start from your project landing page - for the simple-site project the landing page is <a href='https://github.com/jpadfield/simple-site/'>https://github.com/jpadfield/simple-site/</a>.</li>
 	<li>Click on the <b>Settings</b> tab, which should be towards the upper right corner of the page.</li>
 	<li>Scroll down until you reach the <b>GitHub Pages</b> section.</li>
-	<li>Select the <b>master branch /docs folder</b> option in the <b>Source</b> dropdown.</li>
-	<li>There will be a slight pause and the screen should be updated, with an indication of what your new web-page address will be.</li>
+	<li>Select the <b>master/main branch /docs folder</b> option in the <b>Source</b> dropdown.</li>
+	<li>In the new dropdown to the right of the selected option select “/doc” as the source folder</li>
+	<li>Click on the “Save” button to continue.</li>
+	<li>There will be a slight pause and the screen should be updated</li>
+	<li>You can then scroll back down to the GitHub Pages section to see what your new web-page address will be.</li>
 	<li>Your GitHub Pages should no be up and running.</li>
 </ul>
 <figure class="figure"><img src="graphics/github pages 01.png" class="figure-img img-fluid rounded" alt="Example screenshots of the GitHub Pages section of the Settings page."><figcaption class="figure-caption">Example screenshots of the GitHub Pages section of the Settings page.</figcaption></figure>
