@@ -1,6 +1,6 @@
 <?php
 
-// Last update 19 Feb 2021
+// Last update 24 Mar 2021
 
 $extensionList["list"] = "extensionCards";
 $blank = array("groups" => array(), "ptitle" => "",
@@ -150,6 +150,22 @@ function extensionCards ($d, $pd)
   top: -75px;
 }
 
+.pcontainer {
+   position: relative;
+   width: 100%;
+   padding-top: 56.25%; /* 16:9 Aspect Ratio */
+	}
+	
+.preview {
+   position: absolute;
+   top: 0;
+   left: 0;
+   bottom: 0;
+   right: 0;
+   width: 100%;
+   height: 100%;
+	}
+
 ";
 
     // Check if a table of contents should be added.
@@ -192,6 +208,71 @@ function buildFullCard ($la)
       </div>
     </div>
   </div>$lbottom
+</div>
+
+END;
+    $html = ob_get_contents();
+    ob_end_clean(); // Don't send output to client
+
+    return ($html);
+    }
+
+function buildPresentationCard ($la)
+  {   
+  if ($la["link"])
+    {$ltop= "<a href=\"$la[link]\">";
+      $lbottom = "</a>";}
+  else
+    {$ltop= "";
+     $lbottom = "";}
+     
+  $extra = "";
+  
+  //https://www.youtube.com/embed/
+  
+     
+  if (isset($la["video"]))
+		{
+		if (preg_match("/^http[s]*[:][\/]+www[.]youtube[.]com[\/].+$/", $la["video"], $m))
+			{$prev = '<div class="pcontainer"><iframe class="preview" src="'.$la["video"].
+				'" title="YouTube video player" frameborder="0" allow='.
+				'"accelerometer; autoplay; clipboard-write; encrypted-media; '.
+				'gyroscope; picture-in-picture" allowfullscreen></iframe></div>';}
+		else
+			{$vtype = pathinfo($la["video"], PATHINFO_EXTENSION);	
+			 $prev = '<div class="pcontainer">
+					<video class="preview" controls>
+					<source src="'.$la["video"].'" type="video/'.$vtype.'">
+					Your browser does not support the video tag.
+					</video></div>';}
+			
+		if (isset($la["slides"])) 
+			{$extra .= "<p>The slides for this presentation can be downloaded <a href=\"$la[slides]\">here</a></p>";}
+		}
+	else if (isset($la["slides"]))
+		{$prev = '<div class="pcontainer"><iframe class="preview-iframe preview" id="preview-iframe" '.
+			'src="'.$la["slides"].'"></iframe></div>';}
+	else if (isset($la["image"]))
+		{$prev = "<img src=\"$la[image]\" class=\"card-img\" alt=\"$la[ptitle]\">";}
+	else
+		{$prev = "";}        
+         
+  ob_start();      
+  echo <<<END
+<div class="card mb-3" style="width: 100%;">
+  <div class="row no-gutters">
+    <div class="col-md-4  my-auto" >
+      $prev
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h4 class="card-title">$la[ptitle]</h4>
+        $ltop<h5 class="card-title">$la[stitle]</h5>$lbottom
+        <p class="card-text">$la[comment]</p>        
+        $extra
+      </div>      
+    </div>
+  </div>
 </div>
 
 END;
@@ -343,7 +424,7 @@ function startGroupHtml ($gnm, $comment, $card, $tbc)
       "row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5\">";}            
   else*/ if (in_array($card, array("list")))
     {$html = "$gtop<ul>";}              
-  else if (in_array($card, array("full")))
+  else if (in_array($card, array("full", "presentation")))
     {$html = "$gtop<div class=\"card-column\">";}
   else //if (in_array($card, array("simple"))) or anything else
     {$html = "$gtop<div class=\"card-deck\">";}
