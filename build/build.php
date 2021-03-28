@@ -395,6 +395,7 @@ function writePage ($name, $d)
 	if ($name == "home") {$use= "index";}
 	else {$use = $name;}
 	$pd["page"] = "${use}.html";
+	$pd["use"] = $use;
 		
 	if ($d["parent"])
 		{$pd["topNavbar"] = buildTopNav ($d["bcs"][0]);
@@ -618,7 +619,7 @@ END;
     <meta name="author" content="$pageDetails[metaAuthor]" />
     <meta name="image" content="$pageDetails[metaImage]" />
     <link rel="icon" href="$pageDetails[metaFavIcon]">
-    <title>$pageDetails[metaTitle] - $use</title>
+    <title>$pageDetails[metaTitle] - $pageDetails[use]</title>
     $cssScripts
     <style>
     $pageDetails[extra_css]
