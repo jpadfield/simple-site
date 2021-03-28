@@ -618,7 +618,7 @@ END;
     <meta name="author" content="$pageDetails[metaAuthor]" />
     <meta name="image" content="$pageDetails[metaImage]" />
     <link rel="icon" href="$pageDetails[metaFavIcon]">
-    <title>$pageDetails[metaTitle]</title>
+    <title>$pageDetails[metaTitle] - $use</title>
     $cssScripts
     <style>
     $pageDetails[extra_css]
