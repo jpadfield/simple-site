@@ -13,7 +13,7 @@ function extensionMirador ($d, $pd)
 	$wo = '';
 	$codeHTML = "";
 	$codecaption = "The complete mirador JSON file used to define the manifests and images presented in this example.";
-		
+	$cats = ""; // This was added to preload manifests in V3 for text only list - need to update other configs to follow V3 rather than V2 	
 	if (isset($d["file"]) and file_exists($d["file"]))
 		{
 		$dets = getRemoteJsonDetails($d["file"], false, true);
