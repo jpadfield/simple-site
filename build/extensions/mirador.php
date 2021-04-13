@@ -3,6 +3,8 @@
 // Updated to Mirador V3 18/03/2021
 // Adding extra manifests in the Text example as the catalog rather than a manifest variable
 
+// Last updated 13 Apr 2021
+
 $extensionList["mirador"] = "extensionMirador";
 
 function extensionMirador ($d, $pd)
@@ -23,10 +25,6 @@ function extensionMirador ($d, $pd)
 			$dets = getRemoteJsonDetails($d["file"], false, false);
 			$dets = explode(PHP_EOL, trim($dets));
 
-			// Used to display the JSON used to create a given page for demos
-			if (isset($d["displaycode"]))
-				{$extraHTML .= displayCode ($dets, "The Mirador TXT File", "txt", $codecaption);}
-
 			if (preg_match('/^http.+/', $dets[0]))
 				{$mans = listToManifest ($dets);
 				 $wo = '[{
@@ -36,11 +34,7 @@ function extensionMirador ($d, $pd)
 				else
 					{$cats = "";}
       }
-    else {
-			// Used to display the JSON used to create a given page for demos
-			if (isset($d["displaycode"]))
-				{$extraHTML .= displayCode ($dets, "The Mirador JSON File", "json", $codecaption);}
-				
+    else {				
 			$mans = json_encode($dets["manifests"]);			 
 			 
 			if (isset($dets["workspace"]))

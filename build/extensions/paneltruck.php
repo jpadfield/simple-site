@@ -1,6 +1,6 @@
 <?php
 
-// Created 05/01/2021
+// Last updated 13 Apr 2021
 
 $extensionList["paneltruck"] = "extensionPanelTruck";
 
@@ -13,11 +13,6 @@ function extensionPanelTruck ($d, $pd)
 	$codeHTML = "";
 	$codecaption = "The complete panel truck JSON file used to define the images, positions and captions presented in this example.";
 	
-	if (isset($d["file"]))
-		{$dets = getRemoteJsonDetails($d["file"], false, true);
-		 if ($dets and isset($d["displaycode"]))
-			{$extraHTML .= displayCode ($dets, "The Panel Truck JSON File", "json", $codecaption);}}
-
 	$pd["extra_js_scripts"][] = "https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs/webcomponents-loader.js";
 	$pd["extra_js_scripts"][] = "https://cdn.jsdelivr.net/npm/vue@2.6.12";
 	$pd["extra_js_scripts"][] = "https://geoservices.leventhalmap.org/panel-truck/webcomponent-0.1/panel-truck.min.js";

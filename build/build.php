@@ -51,7 +51,9 @@ else
 // system is used to present demo pages.
 $extraHTML = "";
 	
-$pnames = array();	
+$pnames = array();
+$dpnames = array();
+
 $pages = getRemoteJsonDetails("pages.json", false, true);
 if (!is_array($pages) or count($pages) < 1)
 	{exit("\nERROR: Sorry your pages.json file has not been opened correctly please check you json formatting and try vaildating it using a web-site similar to https://jsonlint.com/\n\n");}
@@ -100,7 +102,7 @@ buildExamplePages ();
 
 function pagesCheck($pages)
 	{
-	global $pnames;
+	global $pnames, $dpnames;
 	
 	$default = array(
 		"parent"=>"", "class"=>"", "file"=>"",
@@ -110,11 +112,12 @@ function pagesCheck($pages)
 	foreach ($pages as $k => $a)
 		{$pages[$k] = array_merge($default, $a);
 		 if (!$pages[$k]["parent"])
-			{$pnames[] = $k;}}
+			{$pnames[] = $k;}
+		 if (isset($a["displayName"]))
+			{$dpnames[$k] = trim($a["displayName"]);}}
 
 	return($pages);
   }
-	
 
 	
 function prg($exit=false, $alt=false, $noecho=false)
@@ -234,20 +237,31 @@ function buildSimpleBSGrid ($bdDetails = array())
 
 function loopMenus ($str, $key, $arr, $no)
 	{		
+	global $dpnames;
 	$str .=
 		'<!-- Dropdown Loop '.$no.' -->';
+		
+	if (isset($dpnames[$key]))
+		{$dkey = $dpnames[$key];}
+	else
+		{$dkey = $key;}
             
 	$str .= '<li class="dropdown-submenu">
-   <a id="dropdownMenu'.$no.'" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the '.ucfirst($key).' menu">'.ucfirst($key).'</a>
+   <a id="dropdownMenu'.$no.'" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the &ldquo;'.ucfirst($dkey).'&rdquo; menu">'.ucfirst($dkey).'</a>
 		<ul aria-labelledby="dropdownMenu'.$no.'" class="dropdown-menu border-0 shadow">'.
-		'<li><a href="'.str_replace(' ', '%20', $key).'.html" class="dropdown-item  top-item" title="Click to open the '.ucfirst($key).' page">'.ucfirst($key).'</a></li>'.
+		'<li><a href="'.str_replace(' ', '%20', $key).'.html" class="dropdown-item  top-item" title="Click to open the &ldquo;'.ucfirst($dkey).'&rdquo; page">'.ucfirst($dkey).'</a></li>'.
 		'<li class="dropdown-divider"></li>';
 
 	foreach ($arr as $k => $a)
 		{
+		if (isset($dpnames[$k]))
+			{$dk = $dpnames[$k];}
+		else
+			{$dk = $k;}
+			
 		if (!$a)
 			{$str .= '<li><a href="'.str_replace(' ', '%20', $k).'.html" class="dropdown-item">'.
-				ucfirst($k).'</a></li>';}
+				ucfirst($dk).'</a></li>';}
 		else
 			{$str = loopMenus ($str, $k, $a, false, $no+1);}
 		}
@@ -259,7 +273,9 @@ function loopMenus ($str, $key, $arr, $no)
 	
 function buildTopNav ($name, $bcs=false)
 	{
-	global $pages, $pnames, $menuList;
+	global $pages, $pnames, $dpnames, $menuList;
+	
+	//prg(0, $dpnames);
 	
 	$active = array("active", '<span class="sr-only">(current)</span>');
 	$html = "<div class=\"collapse navbar-collapse\" id=\"navbarsExampleDefault\"><ul class=\"navbar-nav\">
@@ -268,8 +284,14 @@ function buildTopNav ($name, $bcs=false)
 	$no = 1;	
 	
 	foreach ($pnames as $pname)
-		{if ($pname == "home") {$puse= "index";}
+		{if ($pname == "home") {$puse= "index";} 
 		 else {$puse = $pname;}
+		 
+		 if (isset($dpnames[$pname]))
+			{$dpname = $dpnames[$pname];}
+		 else
+			{$dpname = $pname;}
+			
 		 $puse = str_replace(' ', '%20', $puse);
 
 		 if ($pname == $name) {$a = $active;}
@@ -278,15 +300,20 @@ function buildTopNav ($name, $bcs=false)
 		 if (isset($menuList[$pname]))
 			{
 			$html .= '<!-- Dropdown Loop '.$no.' --><li class="nav-item dropdown '.$a[0].'">'.
-				'<a id="dropdownMenu'.$no.'" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" title="Click to open the '.ucfirst($pname).' menu" >'.ucfirst($pname).$a[1].'</a>';
+				'<a id="dropdownMenu'.$no.'" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" title="Click to open the &ldquo;'.ucfirst($dpname).'&rdquo; menu" >'.ucfirst($dpname).$a[1].'</a>';
 			$html .= '<ul aria-labelledby="dropdownMenu'.$no.
 				'" class="dropdown-menu border-0 shadow">'.'<li><a href="'.
-				$puse.'.html" class="dropdown-item top-item" title="Click to open the '.ucfirst($pname).' page">'.ucfirst($pname).'</a></li>'.
+				$puse.'.html" class="dropdown-item top-item" title="Click to open the &ldquo;'.ucfirst($dpname).'&rdquo; page">'.ucfirst($dpname).'</a></li>'.
 				'<li class="dropdown-divider"></li>';
 			foreach ($menuList[$pname] as $k => $a)
 				{
+				if (isset($dpnames[$k]))
+					{$dk = $dpnames[$k];}
+				else
+					{$dk = $k;}
+			
 				if (!$a)
-					{$html .= '<li><a href="'.str_replace(' ', '%20', $k).'.html" class="dropdown-item">'.ucfirst($k).'</a></li>';}
+					{$html .= '<li><a href="'.str_replace(' ', '%20', $k).'.html" class="dropdown-item">'.ucfirst($dk).'</a></li>';}
 				else
 					{$html = loopMenus ($html, $k, $a, $no+1);}
 				}
@@ -295,7 +322,7 @@ function buildTopNav ($name, $bcs=false)
 			}
 		 else
 			{$html .= '<li class="nav-item '.$a[0].'"><a class="nav-link" href="'.
-			$puse.'.html">'.ucfirst($pname).$a[1].'</a></li>';}}
+			$puse.'.html">'.ucfirst($dpname).$a[1].'</a></li>';}}
 	
 	$html .= "</ul></div>";
 	
@@ -312,6 +339,22 @@ function loopBreadcrumbs ($name, $arr=array())
 		{$arr = loopBreadcrumbs ($pages[$name]["parent"], $arr);}	
 	
 	return ($arr);
+	}
+	
+function makeFlatMenuList ($arr=false)
+	{	
+	global $menuList, $menuFlatList;
+			
+	if (!$arr) {$arr=$menuList;}
+		
+	foreach ($arr as $k => $v)
+		{
+		if (is_array($v) and $v)
+			{$menuFlatList[$k] = array_keys($v);
+			 makeFlatMenuList ($v);}
+		else
+			{$menuFlatList[$k] = false;}		
+		}
 	}
 	
 function buildExamplePages ()
@@ -336,13 +379,16 @@ function buildExamplePages ()
 			eval($tml);	 
 			$pages[$k] = $a;
 			$subpages[$a["parent"]][]= $a;}}
-		 
+	
+	makeFlatMenuList();
+	
 	foreach ($pages as $name => $d)
 		{writePage ($name, $d);}
 	}
 
 function buildBreadcrumbs ($arr)
 	{
+	global $dpnames;
 	
 	$html = false;
 	
@@ -354,7 +400,12 @@ function buildBreadcrumbs ($arr)
 		$list = "";
 		foreach ($arr as $k => $v)
 			{
-			$V = ucfirst($v);
+			if (isset($dpnames[$v]))
+				{$dv = $dpnames[$v];}
+			else
+				{$dv = $v;}
+				
+			$V = ucfirst($dv);
 			$v = str_replace(' ', '%20', $v);
 			$list .= "<li class=\"breadcrumb-item\"><a href=\"${v}.html\">$V</a></li>";
 			}
@@ -365,6 +416,42 @@ function buildBreadcrumbs ($arr)
 				$list
 			</ol>
 		</nav>
+END;
+		$html = ob_get_contents();
+		ob_end_clean(); // Don't send output to client
+		}
+	
+	return($html);
+	}
+	
+function buildChildLinks ($arr)
+	{	
+	global $dpnames;
+	
+	$html = false;
+			
+	if ($arr) {
+		
+		$list = "";
+		foreach ($arr as $k => $v)
+			{
+			if (isset($dpnames[$v]))
+				{$dv = $dpnames[$v];}
+			else
+				{$dv = $v;}
+				
+			$V = ucfirst($dv);
+			$v = str_replace(' ', '%20', $v);
+			$list .= "<a class=\"list-group-item list-group-item-action\" href=\"${v}.html\">$V</a>";
+			}
+	ob_start();			
+	echo <<<END
+		<div class="alert alert-light" role="alert">
+			<h3>Included Pages</h3>
+			<div class="list-group">			
+				$list
+			</div>
+		</div>
 END;
 		$html = ob_get_contents();
 		ob_end_clean(); // Don't send output to client
@@ -384,9 +471,19 @@ function writeTSPage ()
 	fclose($myfile);
 	}
 	
+function writeRDPage ($pname, $target)
+	{
+	global $html_path;
+	
+	$myfile = fopen($html_path."${pname}.html", "w");
+	$html = "<meta http-equiv=\"refresh\" content=\"0; URL='$target'\" />";
+	fwrite($myfile, $html);
+	fclose($myfile);
+	}
+	
 function writePage ($name, $d)
 	{	
-	global $gdp, $menuList, $extensionList, $fcount, $footnotes, $extraHTML;
+	global $gdp, $menuList, $menuFlatList, $extensionList, $fcount, $footnotes, $extraHTML;
 
 	$extraHTML = "";
 	$footnotes = array();	
@@ -396,6 +493,15 @@ function writePage ($name, $d)
 	else {$use = $name;}
 	$pd["page"] = "${use}.html";
 	$pd["use"] = $use;
+	
+	// This has been added to allow for redirects - if the names of existing 
+	// pages need to be changed redirects from the old name can be included 
+	// automatically.
+	if (isset($d["aliases"]))
+		{$als = explode(",", $d["aliases"]);
+		 foreach ($als as $k => $pname)
+			{writeRDPage (trim($pname), $pd["page"]);}
+		}
 		
 	if ($d["parent"])
 		{$pd["topNavbar"] = buildTopNav ($d["bcs"][0]);
@@ -410,7 +516,7 @@ function writePage ($name, $d)
 		 $pd = $ta[1];}
 	else
 		{$content = parseLinks ($d["content"], 1);}
-
+		
 	$pd["grid"] = array(
 		"topjumbotron" => "<h2>$d[title]</h2>",
 		"bottomjumbotron" => "",
@@ -434,13 +540,26 @@ function writePage ($name, $d)
 					"class" => "col-lg-6",
 					"content" => $d["content right"]);}
 
+	if (isset($menuFlatList[$name]) and $menuFlatList[$name])
+		{$childrenHTML = buildChildLinks ($menuFlatList[$name]);
+		 $pd["grid"]["rows"][] = array( array (
+					"class" => "col-12 col-lg-12",
+					"content" => $childrenHTML));}
+		
 	// Used to display the JSON used to create a given page for demos
 	if (isset($d["displaycode"]))
-		{unset($d["bcs"]);
-		 $extraHTML .= displayCode ($d, "Page JSON Object");
-		 $pd["grid"]["rows"][2] = array( array (
+		{unset($d["bcs"]);			
+		 $codeHTML = displayCodeSection ($d, "Page JSON Object");		 
+		 if (isset($d["file"]) and $d["file"])
+			{$fcont = getRemoteJsonDetails($d["file"], false, true);
+			 $codeHTML .= displayCodeSection ($fcont, "Extra extension file", 
+				"json", "The complete extension file used to define extra content included in this page.");}
+		
+		 $codeHTML = displayCode($codeHTML);
+			
+		 $pd["grid"]["rows"][] = array( array (
 					"class" => "col-12 col-lg-12",
-					"content" => $extraHTML));}
+					"content" => $codeHTML));}
 					
 	$pd["body"] = buildSimpleBSGrid ($pd["grid"]);
 	$html = buildBootStrapNGPage ($pd);
@@ -681,8 +800,7 @@ function buildExtensionContent ($d, $pd)
 	return (array($content, $out["pd"]));
 	}
 
-
-function displayCode ($array, $title=false, $format="json", $caption=false)
+function displayCodeSection ($array, $title=false, $format="json", $caption=false)
 	{		
 	if ($format == "json")
 		{$json = json_encode($array, JSON_PRETTY_PRINT);
@@ -701,15 +819,53 @@ function displayCode ($array, $title=false, $format="json", $caption=false)
     
 	ob_start();			
 	echo <<<END
-	<hr/>
 	$title
 	<figure>
 		<pre style="overflow-y: auto;overflow-x: hidden; border: 2px solid black;padding: 10px;max-height:400px;"><code>${code}</code></pre>
 		<figcaption class=\"figure-caption\">$caption</figcaption>
-	</figure>
+	</figure>	
 END;
 		$codeHTML = ob_get_contents();
 		ob_end_clean(); // Don't send output to client
+
+  return ($codeHTML);
+	}
+	
+function displayCode ($str)
+	{  		
+	ob_start();			
+	echo <<<END
+	<hr/>
+	<style>
+	details {
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    padding: .5em .5em 0;
+}
+
+summary {
+    font-weight: bold;
+    margin: -.5em -.5em 0;
+    padding: .5em;
+}
+
+details[open] {
+    padding: .5em;
+}
+
+details[open] summary {
+    border-bottom: 1px solid #aaa;
+    margin-bottom: .5em;
+}
+	</style>
+	<details>
+	<summary>Display the full code used to define this page.</summary>
+	<br/>
+	$str
+	</details>
+END;
+	$codeHTML = ob_get_contents();
+	ob_end_clean(); // Don't send output to client
 
   return ($codeHTML);
 	}
