@@ -1,6 +1,6 @@
 <?php
 
-// Last updated 04 Feb 2021
+// Last updated 13 April 2021
 
 // simple array "extentionClassName => newFunctionName" 
 $extensionList = array();
