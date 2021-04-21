@@ -1,5 +1,7 @@
 <?php
 
+// Last update 21 Apr 2021
+
 $extensionList["timeline"] = "extensionTimeline";
 $start = false;
 	
@@ -158,7 +160,7 @@ END;
     $mcontent = ob_get_contents();
 		ob_end_clean(); // Don't send output to client
 
-		$d["content"] = positionExtraContent ($d["content"], $mcontent);
+		$d = positionExtraContent ($d, $mcontent);
     }
 
   return (array("d" => $d, "pd" => $pd));

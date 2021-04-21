@@ -1,6 +1,6 @@
 <?php
 
-// Last update 24 Mar 2021
+// Last update 21 Apr 2021
 
 $extensionList["list"] = "extensionCards";
 $blank = array("groups" => array(), "ptitle" => "",
@@ -175,7 +175,7 @@ function extensionCards ($d, $pd)
     else
       {$tb = "";}
       
-    $d["content"] = positionExtraContent ($d["content"], $tb.$gcontent);
+    $d = positionExtraContent ($d, $tb.$gcontent);
     }
 
   return (array("d" => $d, "pd" => $pd));

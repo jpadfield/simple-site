@@ -1,6 +1,6 @@
 <?php
 
-// Last updated 22 Dec 2020
+// Last update 21 Apr 2021
 
 $extensionList["dygraph"] = "extensionDygraph";
       
@@ -63,7 +63,8 @@ END;
     $mcontent = ob_get_contents();
 		ob_end_clean(); // Don't send output to client
 
-		$d["content"] = positionExtraContent ($d["content"], $mcontent);
+		//$d["content"] = positionExtraContent ($d["content"], $mcontent);
+		$d = positionExtraContent ($d, $mcontent);
 
 		}	
 

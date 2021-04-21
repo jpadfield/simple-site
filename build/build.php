@@ -1,6 +1,6 @@
 <?php
 
-// Last updated 13 April 2021
+// Last update 21 Apr 2021
 
 // simple array "extentionClassName => newFunctionName" 
 $extensionList = array();
@@ -511,11 +511,11 @@ function writePage ($name, $d)
 		 $pd["breadcrumbs"] = "";}
 
 	if (isset($d["class"]) and isset($extensionList[$d["class"]]))
-		{$ta = buildExtensionContent($d, $pd);
-		 $content = $ta[0];
+		{$ta = buildExtensionContent($d, $pd);		 
+		 $d = $ta[0];
 		 $pd = $ta[1];}
-	else
-		{$content = parseLinks ($d["content"], 1);}
+
+	$content = parseLinks ($d["content"], 1);
 		
 	$pd["grid"] = array(
 		"topjumbotron" => "<h2>$d[title]</h2>",
@@ -549,11 +549,18 @@ function writePage ($name, $d)
 	// Used to display the JSON used to create a given page for demos
 	if (isset($d["displaycode"]))
 		{unset($d["bcs"]);			
+		 unset($d["name"]);			
 		 $codeHTML = displayCodeSection ($d, "Page JSON Object");		 
 		 if (isset($d["file"]) and $d["file"])
 			{$fcont = getRemoteJsonDetails($d["file"], false, true);
+			 $format = "json";
+			 if (!$fcont) {
+				 $fcont = getRemoteJsonDetails($d["file"], false, false);
+				 $fcont = explode(PHP_EOL, trim($fcont));
+				 $format = "txt";
+				 }
 			 $codeHTML .= displayCodeSection ($fcont, "Extra extension file", 
-				"json", "The complete extension file used to define extra content included in this page.");}
+				$format, "The complete extension file used to define extra content included in this page.");}
 		
 		 $codeHTML = displayCode($codeHTML);
 			
@@ -778,7 +785,21 @@ END;
 	}
 
 
-function positionExtraContent ($str, $extra)
+function positionExtraContent ($d, $extra)
+	{
+	$count = 0;
+	
+	if (preg_match('/\[[#][#]\]/', $d["content"]))
+		{$d["content"] = preg_replace('/\[[#][#]\]/', $extra, $d["content"], -1, $count);}
+	else if (preg_match('/\[[#][#]\]/', $d["content right"]))
+		{$d["content right"] = preg_replace('/\[[#][#]\]/', $extra, $d["content right"], -1, $count);}
+	else
+		{$d["content"] .= $extra;}
+
+	return ($d);	
+	}
+	
+function OLDpositionExtraContent ($str, $extra)
 	{
 	$count = 0;
 	$str = preg_replace('/\[[#][#]\]/', $extra, $str, -1, $count);
@@ -791,6 +812,16 @@ function positionExtraContent ($str, $extra)
 
 	
 function buildExtensionContent ($d, $pd)
+	{
+  global $extensionList;
+  $fn = $extensionList[$d["class"]];
+	$out = call_user_func_array($fn, array($d, $pd));
+  //$content = parseLinks ($out["d"]["content"], 1);
+		
+	return (array($out["d"], $out["pd"]));
+	}
+	
+function OLDbuildExtensionContent ($d, $pd)
 	{
   global $extensionList;
   $fn = $extensionList[$d["class"]];

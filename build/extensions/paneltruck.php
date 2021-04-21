@@ -1,6 +1,6 @@
 <?php
 
-// Last updated 13 Apr 2021
+// Last update 21 Apr 2021
 
 $extensionList["paneltruck"] = "extensionPanelTruck";
 
@@ -23,7 +23,7 @@ END;
 	$pd["extra_js"] .= ob_get_contents();
 	ob_end_clean(); // Don't send output to client
 
-	$d["content"] = positionExtraContent ($d["content"], '<div style="width:100%;height:800px;"><!-- the panel-truck component will take the size of its parent element -->
+	$d = positionExtraContent ($d, '<div style="width:100%;height:800px;"><!-- the panel-truck component will take the size of its parent element -->
 <panel-truck screenplay-src="'.$d["file"].'"></panel-truck>
 </div>'.$codeHTML);
 

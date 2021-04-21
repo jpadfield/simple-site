@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Simple system for creating a set of web-pages to support your GitHub repository from a few simple json files." />
+		<meta name="keywords" content="The National Gallery, London, National Gallery London, Scientific, Research, Heritage, Culture, JSON, PHP, Javascript, Github Pages, Dissemination, VRE, IIIF, Mermaid, Timeline, Mirador " />
+    <meta name="author" content="Joseph Padfield| joseph.padfield@ng-london.org.uk |National Gallery | London UK | website@ng-london.org.uk |www.nationalgallery.org.uk" />
+    <meta name="image" content="" />
+    <link rel="icon" href="https://www.nationalgallery.org.uk/custom/ng/img/icons/favicon.ico">
+    <title>NG Simple Site - OpenSeadragon Viewer</title>
+    
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="https://unpkg.com/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="css/main.css" rel="stylesheet" type="text/css">
+    <style>
+    .openseadragon
+{
+    
+    height:     500px;
+    border:     1px solid black;
+    color:      #333; /* text color for messages */
+    background-color: black;
+}
+    </style>
+    <!-- Global site tag (gtag.js) - Google Analytics - Only added in if the 'GoogleAnalyticsID' i set in the site.json file-->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-BQV11QKCED"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-BQV11QKCED');
+	</script>
+  </head>
+
+  <body onload="onLoad();">
+		<div class="container">
+			<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand"  href="./">
+  		<img id="page-logo" class="logo" title="Logo" src="graphics/ng-logo-white-100x40.png" 
+				style="" alt="The National Gallery"/>
+		  </a>
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault"><ul class="navbar-nav">
+<li class="nav-item "><a class="nav-link" href="index.html">Home</a></li><li class="nav-item "><a class="nav-link" href="instructions.html">Instructions</a></li><!-- Dropdown Loop 1 --><li class="nav-item dropdown "><a id="dropdownMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" title="Click to open the &ldquo;JSON&rdquo; menu" >JSON</a><ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow"><li><a href="JSON.html" class="dropdown-item top-item" title="Click to open the &ldquo;JSON&rdquo; page">JSON</a></li><li class="dropdown-divider"></li><li><a href="site.json.html" class="dropdown-item">Site.json</a></li><li><a href="pages.json.html" class="dropdown-item">Pages.json</a></li></ul></li><!-- End Loop 1 --><!-- Dropdown Loop 1 --><li class="nav-item dropdown active"><a id="dropdownMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" title="Click to open the &ldquo;Extensions&rdquo; menu" >Extensions<span class="sr-only">(current)</span></a><ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow"><li><a href="extensions.html" class="dropdown-item top-item" title="Click to open the &ldquo;Extensions&rdquo; page">Extensions</a></li><li class="dropdown-divider"></li><li><a href="timeline.html" class="dropdown-item">Timeline</a></li><li><a href="Galleries%20and%20Lists.html" class="dropdown-item">Galleries and Lists</a></li><li><a href="Mirador%20IIIF%20viewer.html" class="dropdown-item">Mirador IIIF viewer</a></li><li><a href="Panel%20Truck%20viewer.html" class="dropdown-item">Panel Truck viewer</a></li><li><a href="Curtain%20Viewer.html" class="dropdown-item">Curtain Viewer</a></li><li><a href="OpenSeadragon%20Viewer.html" class="dropdown-item">OpenSeadragon Viewer</a></li></ul></li><!-- End Loop 1 --><!-- Dropdown Loop 1 --><li class="nav-item dropdown "><a id="dropdownMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" title="Click to open the &ldquo;Example&rdquo; menu" >Example</a><ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow"><li><a href="example.html" class="dropdown-item top-item" title="Click to open the &ldquo;Example&rdquo; page">Example</a></li><li class="dropdown-divider"></li><!-- Dropdown Loop 2 --><li class="dropdown-submenu">
+   <a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the &ldquo;Nice display pagename&rdquo; menu">Nice display pagename</a>
+		<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow"><li><a href="example-subpage-01.html" class="dropdown-item  top-item" title="Click to open the &ldquo;Nice display pagename&rdquo; page">Nice display pagename</a></li><li class="dropdown-divider"></li><!-- Dropdown Loop  --><li class="dropdown-submenu">
+   <a id="dropdownMenu" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the &ldquo;Example-sub-subpage-01&rdquo; menu">Example-sub-subpage-01</a>
+		<ul aria-labelledby="dropdownMenu" class="dropdown-menu border-0 shadow"><li><a href="example-sub-subpage-01.html" class="dropdown-item  top-item" title="Click to open the &ldquo;Example-sub-subpage-01&rdquo; page">Example-sub-subpage-01</a></li><li class="dropdown-divider"></li><li><a href="example-sub-sub-subpage-01.html" class="dropdown-item">Great webpage</a></li></ul></li><!-- End Loop  --></ul></li><!-- End Loop 2 --><li><a href="example-subpage-02.html" class="dropdown-item">Example-subpage-02</a></li></ul></li><!-- End Loop 1 --><li class="nav-item "><a class="nav-link" href="about.html">About</a></li></ul></div>
+			
+    <span class="navbar-text">
+      			<a href="https://github.com/jpadfield/simple-site/">
+				<img id="ex-logo1" class="logo" title="github" src="graphics/github logo white.png" 
+				style="" alt="GitHub Jpadfield Simple-site"/>
+		  </a>
+    </span>
+    </nav>
+			<div class="row ">				
+			 <div class="col-12 col-md-12">          
+				
+				<div class="jumbotron"><h2>Simple Site - The <b>OpenSeadragonViewer (IIIF) Extension</b><i></i></h2></div><div class="row"><div class="col-12 col-lg-12">		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="extensions.html">Extensions</a></li>
+			</ol>
+		</nav></div><!--/span--></div><!--/row-->    <div class="row"><div class="col-12 col-lg-12"><p>This extension creates an <a href='https://openseadragon.github.io/'>OpenSeaDragon</a> viewer based on <a href='https://iiif.io'>IIIF</a> resources, either images<sup><a id="ref1" href="#section1">[1]</a></sup> or manifests<sup><a id="ref2" href="#section2">[2]</a></sup>. It is an example of a special page that can be added to the <a href='pages.json.html'>pages.json</a> file.</p>
+
+<h3>The Example</h3>
+<div class="row" style="padding-left:16px;padding-right:16px;"><div class="col-12 col-lg-12"><div id="openseadragonviewerdiv" class="openseadragon"></div></div></div>
+<br/>
+<h3>Summary</h3>
+<div class="alert alert-info" role="alert"><h4 class="alert-heading">Extension Variables</h4><p>For this extension to work the <b>class</b> variable needs to be set to <b>openseadragon</b> and the <b>file</b> variable needs to be a URL to a live IIIF mainifest or the path to a simple text list of either IIIF manifests or individual <b>info.json</b> URLs for IIIF images, as shown below.</p></div>
+
+<p>The details included in the <b>content</b> and <b>content right</b> variable will be presented as <a href='pages.json.html'>previously described</a>, however the data included in the named file, in this case <b>openseadragon_list.txt</b> will be processed and displayed in the openseadragon viewer. <b>Please note that a full resolvable URL is required when a single IIIF manifest is used, but a simple filename can be used to reference a local file</b>.</p><div class="foonote"><ul><hr/><li id="section1"><a href="#ref1">[1]</a> For more information about how direct image URLs are constructed see:<a href='https://iiif.io/api/image/3.0/#51-image-information-request'>https://iiif.io/api/image/3.0/#51-image-information-request</a></li><li id="section2"><a href="#ref2">[2]</a> IIIF manifests are simply a structured list of web based images resources that can be viewed in a IIIF compliant viewer, for more details see <a href='https://iiif.io/api/presentation/3.0/#52-manifest'>https://iiif.io/api/presentation/3.0/#52-manifest</a></li></ul></div></div><!--/span--></div><!--/row-->    <div class="row"><div class="col-12 col-lg-12">	<hr/>
+	<style>
+	details {
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    padding: .5em .5em 0;
+}
+
+summary {
+    font-weight: bold;
+    margin: -.5em -.5em 0;
+    padding: .5em;
+}
+
+details[open] {
+    padding: .5em;
+}
+
+details[open] summary {
+    border-bottom: 1px solid #aaa;
+    margin-bottom: .5em;
+}
+	</style>
+	<details>
+	<summary>Display the full code used to define this page.</summary>
+	<br/>
+		<h3>Page JSON Object</h3>
+	<figure>
+		<pre style="overflow-y: auto;overflow-x: hidden; border: 2px solid black;padding: 10px;max-height:400px;"><code>{
+    &quot;parent&quot;: &quot;extensions&quot;,
+    &quot;class&quot;: &quot;openseadragon&quot;,
+    &quot;file&quot;: &quot;openseadragon_list.txt&quot;,
+    &quot;title&quot;: &quot;Simple Site - The &lt;b&gt;OpenSeadragonViewer (IIIF) Extension&lt;/b&gt;&lt;i&gt;&lt;/i&gt;&quot;,
+    &quot;content&quot;: &quot;&lt;p&gt;This extension creates an [OpenSeaDragon|https://openseadragon.github.io/] viewer based on [IIIF|https://iiif.io] resources, either images[@@For more information about how direct image URLs are constructed see:https://iiif.io/api/image/3.0/#51-image-information-request] or manifests[@@IIIF manifests are simply a structured list of web based images resources that can be viewed in a IIIF compliant viewer, for more details see https://iiif.io/api/presentation/3.0/#52-manifest]. It is an example of a special page that can be added to the [pages.json|pages.json.html] file.&lt;/p&gt;\r\n\r\n&lt;h3&gt;The Example&lt;/h3&gt;\r\n&lt;div class=\&quot;row\&quot; style=\&quot;padding-left:16px;padding-right:16px;\&quot;&gt;&lt;div class=\&quot;col-12 col-lg-12\&quot;&gt;&lt;div id=\&quot;openseadragonviewerdiv\&quot; class=\&quot;openseadragon\&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;\r\n&lt;br/&gt;\r\n&lt;h3&gt;Summary&lt;/h3&gt;\r\n&lt;div class=\&quot;alert alert-info\&quot; role=\&quot;alert\&quot;&gt;&lt;h4 class=\&quot;alert-heading\&quot;&gt;Extension Variables&lt;/h4&gt;&lt;p&gt;For this extension to work the &lt;b&gt;class&lt;/b&gt; variable needs to be set to &lt;b&gt;openseadragon&lt;/b&gt; and the &lt;b&gt;file&lt;/b&gt; variable needs to be a URL to a live IIIF mainifest or the path to a simple text list of either IIIF manifests or individual &lt;b&gt;info.json&lt;/b&gt; URLs for IIIF images, as shown below.&lt;/p&gt;&lt;/div&gt;\r\n\r\n&lt;p&gt;The details included in the &lt;b&gt;content&lt;/b&gt; and &lt;b&gt;content right&lt;/b&gt; variable will be presented as [previously described|pages.json.html], however the data included in the named file, in this case &lt;b&gt;openseadragon_list.txt&lt;/b&gt; will be processed and displayed in the openseadragon viewer. &lt;b&gt;Please note that a full resolvable URL is required when a single IIIF manifest is used, but a simple filename can be used to reference a local file&lt;/b&gt;.&lt;/p&gt;&quot;,
+    &quot;content right&quot;: &quot;&quot;,
+    &quot;displaycode&quot;: true
+}</code></pre>
+		<figcaption class=\"figure-caption\">The complete JSON object used to define this content and layout of this page.</figcaption>
+	</figure>		<h3>Extra extension file</h3>
+	<figure>
+		<pre style="overflow-y: auto;overflow-x: hidden; border: 2px solid black;padding: 10px;max-height:400px;"><code>https://images.britishart.yale.edu/iiif/2e789b5b-3172-4540-bd73-0d3c7c845389/info.json<br>https://ids.lib.harvard.edu/ids/iiif/47174896/info.json<br>https://data.ng-london.org.uk/0F6J-0001-0000-0000.iiif<br>https://media.nga.gov/public/manifests/nga_highlights.json<br></code></pre>
+		<figcaption class=\"figure-caption\">The complete extension file used to define extra content included in this page.</figcaption>
+	</figure>	
+	</details></div><!--/span--></div><!--/row-->    <br/>
+			</div><!--/span-->
+			
+			
+			</div><!--/row-->
+			
+			  <footer>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-5" style="text-align:left;">&copy; The National Gallery 2021</div>
+				<div class="col-2" style="text-align:center;"></div>
+				<div class="col-5" style="text-align:right;"><a href='http://rightsstatements.org/vocab/InC-EDU/1.0/'><img height='16' alt='In Copyright - Educational Use Permitted' title='In Copyright - Educational Use Permitted' src='graphics/InC-EDU.dark-white-interior-blue-type.png'/></a><a rel='license' href='https://creativecommons.org/licenses/by-nc/4.0/'><img alt='Creative Commons Licence' style='border-width:0' src='https://i.creativecommons.org/l/by-nc/4.0/88x31.png' /></a></div>
+			</div>
+		</div>        
+  </footer>
+    </div><!--/.container-->
+    
+    
+	<script src="https://unpkg.com/jquery@3.4.1/dist/jquery.min.js"></script>
+	<script src="https://unpkg.com/tether@1.4.7/dist/js/tether.min.js"></script>
+	<script src="https://unpkg.com/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://unpkg.com/openseadragon@2.4.2/build/openseadragon/openseadragon.js"></script>
+    <script>
+				$(function() {
+
+var myOSDInstance = OpenSeadragon({
+					id:            "openseadragonviewerdiv",
+          prefixUrl:     "https://openseadragon.github.io/openseadragon/images/",
+          sequenceMode:  true,
+          tileSources:   ["https://images.britishart.yale.edu/iiif/2e789b5b-3172-4540-bd73-0d3c7c845389/info.json",
+"https://ids.lib.harvard.edu/ids/iiif/47174896/info.json",
+"https://data.ng-london.org.uk/iiif/image/0VJF-0008-0000-0000/info.json",
+"https://media.nga.gov/iiif/public/objects/1/0/6/3/8/2/106382-primary-0-nativeres.ptif/info.json",
+"https://media.nga.gov/iiif/public/objects/6/1/3/7/1/61371-primary-0-nativeres.ptif/info.json",
+"https://media.nga.gov/iiif/public/objects/5/2/1/7/8/52178-primary-0-nativeres.ptif/info.json",
+"https://media.nga.gov/iiif/public/objects/4/6/6/2/6/46626-primary-0-nativeres.ptif/info.json",
+"https://media.nga.gov/iiif/public/objects/1/1/3/8/1138-primary-0-nativeres.ptif/info.json",
+"https://media.nga.gov/iiif/public/objects/4/6/1/5/9/46159-primary-0-nativeres.ptif/info.json",
+"https://media.nga.gov/iiif/public/objects/3/3/2/5/3/33253-primary-0-nativeres.ptif/info.json",
+"https://media.nga.gov/iiif/public/objects/1/2/3/1/1231-primary-0-nativeres.ptif/info.json",
+"https://media.nga.gov/iiif/public/objects/3/7/0/0/3/37003-primary-0-nativeres.ptif/info.json",
+"https://media.nga.gov/iiif/public/objects/5/7/6/576-primary-0-nativeres.ptif/info.json",
+"https://media.nga.gov/iiif/public/objects/7/9/79-primary-0-nativeres.ptif/info.json",
+"https://media.nga.gov/iiif/public/objects/1/2/3/6/1236-primary-0-nativeres.ptif/info.json",
+"https://media.nga.gov/iiif/public/objects/4/6/3/0/3/46303-primary-0-nativeres.ptif/info.json",
+"https://media.nga.gov/iiif/public/objects/4/6/4/7/1/46471-primary-0-nativeres.ptif/info.json",
+"https://media.nga.gov/iiif/public/objects/4/6/1/1/4/46114-primary-0-nativeres.ptif/info.json",
+"https://media.nga.gov/iiif/public/objects/1/1/4/7/1147-primary-0-nativeres.ptif/info.json",
+"https://media.nga.gov/iiif/public/objects/1/2/2/5/1225-primary-0-nativeres.ptif/info.json",
+"https://media.nga.gov/iiif/public/objects/5/2/4/5/0/52450-primary-0-nativeres.ptif/info.json",
+"https://media.nga.gov/iiif/public/objects/1/2/1/9/8/12198-primary-0-nativeres.ptif/info.json",
+"https://media.nga.gov/iiif/public/objects/4/3/6/2/4/43624-primary-0-nativeres.ptif/info.json",
+"https://media.nga.gov/iiif/public/objects/7/4/7/9/6/74796-primary-0-nativeres.ptif/info.json",
+"https://media.nga.gov/iiif/public/objects/4/6/6/2/7/46627-primary-0-nativeres.ptif/info.json",
+"https://media.nga.gov/iiif/public/objects/1/3/4/4/8/5/134485-primary-0-nativeres.ptif/info.json",
+"https://media.nga.gov/iiif/public/objects/6/6/4/0/9/66409-primary-0-nativeres.ptif/info.json",
+"https://media.nga.gov/iiif/public/objects/3/9/8/398-primary-0-nativeres.ptif/info.json",
+"https://media.nga.gov/iiif/public/objects/1/6/4/9/2/3/164923-primary-0-nativeres.ptif/info.json",
+]
+          });  
+     });
+			function onLoad() {
+				$(function() {
+  // ------------------------------------------------------- //
+  // Multi Level dropdowns
+  // ------------------------------------------------------ //
+  $("ul.dropdown-menu [data-toggle='dropdown']").on("click", function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    $(this).siblings().toggleClass("show");
+
+
+    if (!$(this).next().hasClass('show')) {
+      $(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
+    }
+    $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) {
+      $('.dropdown-submenu .show').removeClass("show");
+    });
+
+  });
+});
+				}
+    </script>
+  </body>
+</html>

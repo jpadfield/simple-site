@@ -1,6 +1,6 @@
 <?php
 
-// Last updated 13 Apr 2021
+// Last update 21 Apr 2021
 
 // A V&A viewer (https://github.com/vanda/curtain-viewer) based on OpenSeaDragon, using the curtain-sync plugin (https://github.com/cuberis/openseadragon-curtain-sync) for comparing naturally aligned image variants, such as those obtained by multi-spectral imaging, supplied as canvases in a IIIF manifest. 
 
@@ -18,7 +18,7 @@ function extensioncurtain ($d, $pd)
 	$pd["extra_js_scripts"][] = "https://jpadfield.github.io/curtain-viewer/js/1.08958bb6.chunk.js";
 	$pd["extra_js_scripts"][] = "https://jpadfield.github.io/curtain-viewer/js/app.a955ee34.js";
 
-	$d["content"] = positionExtraContent ($d["content"], '<div class="row" style="padding-left:16px;padding-right:16px;"><div class="col-12 col-lg-12"><div class="curtain-viewer" data-iiif-manifest="'.$d["file"].'"></div></div></div>');
+	$d = positionExtraContent ($d, '<div class="row" style="padding-left:16px;padding-right:16px;"><div class="col-12 col-lg-12"><div class="curtain-viewer" data-iiif-manifest="'.$d["file"].'"></div></div></div>');
 
   return (array("d" => $d, "pd" => $pd));
   }
