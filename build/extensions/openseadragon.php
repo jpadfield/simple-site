@@ -1,6 +1,6 @@
 <?php
 
-// Last update 21 Apr 2021
+// Last update 07 June 2021
 
 // Simple use of OpenSeadragon (https://openseadragon.github.io/) to display images based on a simple list of info.json files or manifests
 
@@ -37,7 +37,7 @@ function extensionopenseadragon ($d, $pd)
 				
 	$tileSources = listToTiles ($list);
     
-  $pd["extra_js_scripts"][] = "https://unpkg.com/openseadragon@2.4.2/build/openseadragon/openseadragon.js";
+  $pd["extra_js_scripts"][] = "https://cdn.jsdelivr.net/npm/openseadragon@2.4.2/build/openseadragon/openseadragon.min.js\" integrity=\"sha256-NMxPj6Qf1CWCzNQfKoFU8Jx18ToY4OWgnUO1cJWTWuw=\" crossorigin=\"anonymous";
 	
 		ob_start();			
 	echo <<<END

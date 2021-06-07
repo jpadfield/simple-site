@@ -1,6 +1,6 @@
 <?php
 
-// Last update 21 Apr 2021
+// Last update 07 June 2021
 
 // simple array "extentionClassName => newFunctionName" 
 $extensionList = array();
@@ -8,12 +8,12 @@ $html_path = "../docs/";
 
 $default_scripts = array(
 	"js-scripts" => array (
-		"jquery" => "https://unpkg.com/jquery@3.4.1/dist/jquery.min.js",
-		"tether" => "https://unpkg.com/tether@1.4.7/dist/js/tether.min.js",
-		"bootstrap" => "https://unpkg.com/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"),
+		"jquery" => "https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js\" integrity=\"sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=\" crossorigin=\"anonymous",
+		"tether" => "https://cdn.jsdelivr.net/npm/tether@2.0.0/dist/js/tether.min.js\" integrity=\"sha256-cExSEm1VrovuDNOSgLk0xLue2IXxIvbKV1gXuCqKPLE=\" crossorigin=\"anonymous",
+		"bootstrap" => "https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js\" integrity=\"sha256-d+FygkWgwt59CFkWPuCB4RE6p1/WiUYCy16w1+c5vKk=\" crossorigin=\"anonymous"),
 	"css-scripts" => array(
-		"fontawesome" => "https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css",
-		"bootstrap" => "https://unpkg.com/bootstrap@4.4.1/dist/css/bootstrap.min.css",
+		"fontawesome" => "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css\" integrity=\"sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=\" crossorigin=\"anonymous",
+		"bootstrap" => "https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.css\" integrity=\"sha256-BNdodQbWHpU3HT8xGhkEusT4ch4HEjvwzcbDcVuHR+E=\" crossorigin=\"anonymous",
 		"main" => "css/main.css"
 		));
 
@@ -205,8 +205,8 @@ function buildSimpleBSGrid ($bdDetails = array())
 		ob_start();
 		
 		if (isset($bdDetails["topjumbotron"]))
-			{echo "<div class=\"jumbotron\">".$bdDetails["topjumbotron"].
-				"</div>";}
+			{echo '<div class="p-2 bg-light border rounded-3 jumbotron">
+      <div class="container-fluid py-4">'.$bdDetails["topjumbotron"].'</div></div>';}
 		
 		if (isset($bdDetails["rows"])) 
 			{
@@ -224,8 +224,9 @@ function buildSimpleBSGrid ($bdDetails = array())
 			}
 		
 		if (isset($bdDetails["bottomjumbotron"]) and $bdDetails["bottomjumbotron"])
-			{echo "<div class=\"jumbotron\">".$bdDetails["bottomjumbotron"].
-				"</div>";}
+			{echo '<div class="p-2 bg-light border rounded-3 jumbotron">
+      <div class="container-fluid py-4">'.$bdDetails["bottomjumbotron"].'</div></div>';
+      }
 		else
 			{echo "<br/>";}
 		
@@ -234,6 +235,48 @@ function buildSimpleBSGrid ($bdDetails = array())
 		
 		return($html);
 		}
+
+function loopMenusTEST ($str, $key, $arr, $no)
+	{		
+	global $dpnames;
+	$str .=
+		'<!-- Dropdown Loop '.$no.' -->';
+		
+	if (isset($dpnames[$key]))
+		{$dkey = $dpnames[$key];}
+	else
+		{$dkey = $key;}
+            
+	$str .= '
+<li class="dropdown-submenu">
+	<div class="btn-group">
+		<a href="'.str_replace(' ', '%20', $key).'.html"><button type="button" class="btn btn-secondary nav-link" title="Click to open the &ldquo;'.ucfirst($dkey).'&rdquo; page">
+  '.ucfirst($dkey).'</button></a>
+  <button type="button" class="btn btn-secondary nav-link dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false"  title="Click to open the &ldquo;'.ucfirst($dkey).'&rdquo; menu">
+    <span class="visually-hidden">Toggle Dropdown</span>
+  </button>
+  <ul class="dropdown-menu">';
+
+	foreach ($arr as $k => $a)
+		{
+		if (isset($dpnames[$k]))
+			{$dk = $dpnames[$k];}
+		else
+			{$dk = $k;}
+			
+		if (!$a)
+			{$str .= '<li><a href="'.str_replace(' ', '%20', $k).'.html" class="dropdown-item">'.
+				ucfirst($dk).'</a></li>';}
+		else
+			{$str = loopMenus ($str, $k, $a, false, $no+1);}
+		}
+
+	$str .= '</ul></li><!-- End Loop '.$no.' -->'; 
+
+	return ($str);
+	}
+
+
 
 function loopMenus ($str, $key, $arr, $no)
 	{		
@@ -247,10 +290,13 @@ function loopMenus ($str, $key, $arr, $no)
 		{$dkey = $key;}
             
 	$str .= '<li class="dropdown-submenu">
-   <a id="dropdownMenu'.$no.'" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the &ldquo;'.ucfirst($dkey).'&rdquo; menu">'.ucfirst($dkey).'</a>
-		<ul aria-labelledby="dropdownMenu'.$no.'" class="dropdown-menu border-0 shadow">'.
-		'<li><a href="'.str_replace(' ', '%20', $key).'.html" class="dropdown-item  top-item" title="Click to open the &ldquo;'.ucfirst($dkey).'&rdquo; page">'.ucfirst($dkey).'</a></li>'.
-		'<li class="dropdown-divider"></li>';
+		<a id="dropdownMenu'.$no.'" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the &ldquo;'.ucfirst($dkey).'&rdquo; menu">'.ucfirst($dkey).'
+		&nbsp;&nbsp;<i class="fas fa-caret-right"></i></a>
+		
+		<ul aria-labelledby="dropdownMenu'.$no.'" class="dropdown-menu border-0 shadow">
+			<li><a href="'.str_replace(' ', '%20', $key).'.html" class="dropdown-item  top-item" title="Click to open the &ldquo;'.ucfirst($dkey).'&rdquo; page">
+				'.ucfirst($dkey).'</a></li>
+		<li class="dropdown-divider"></li>';
 
 	foreach ($arr as $k => $a)
 		{
@@ -299,12 +345,32 @@ function buildTopNav ($name, $bcs=false)
 		 
 		 if (isset($menuList[$pname]))
 			{
-			$html .= '<!-- Dropdown Loop '.$no.' --><li class="nav-item dropdown '.$a[0].'">'.
-				'<a id="dropdownMenu'.$no.'" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" title="Click to open the &ldquo;'.ucfirst($dpname).'&rdquo; menu" >'.ucfirst($dpname).$a[1].'</a>';
-			$html .= '<ul aria-labelledby="dropdownMenu'.$no.
-				'" class="dropdown-menu border-0 shadow">'.'<li><a href="'.
-				$puse.'.html" class="dropdown-item top-item" title="Click to open the &ldquo;'.ucfirst($dpname).'&rdquo; page">'.ucfirst($dpname).'</a></li>'.
-				'<li class="dropdown-divider"></li>';
+			/*$html .= '
+<!-- Dropdown Loop '.$no.' -->
+<li class="nav-item dropdown '.$a[0].'"></li>
+	<a id="dropdownMenu'.$no.'" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"  class="nav-link dropdown-toggle" title="Click to open the &ldquo;'.ucfirst($dpname).'&rdquo; menu" >
+		'.ucfirst($dpname).$a[1].'
+	</a>
+	<ul aria-labelledby="dropdownMenu'.$no.'" class="dropdown-menu border-0 shadow">
+		<li>
+			<a href="'.$puse.'.html" class="dropdown-item top-item" title="Click to open the &ldquo;'.ucfirst($dpname).'&rdquo; page">'.ucfirst($dpname).'</a>
+		</li>
+		<li class="dropdown-divider">
+	</li>';*/
+	
+	
+			$html .= '
+<li class="nav-item dropdown '.$a[0].'">
+<!-- Dropdown Loop '.$no.' -->
+<div class="btn-group">
+  <a href="'.$puse.'.html"><button type="button" class="btn nav-link" title="Click to open the &ldquo;'.ucfirst($dpname).'&rdquo; page">
+  '.ucfirst($dpname).$a[1].'</button></a>
+  <button type="button" class="btn nav-link dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false"  title="Click to open the &ldquo;'.ucfirst($dpname).'&rdquo; menu">
+    <span class="visually-hidden">Toggle Dropdown</span>
+  </button>
+  <ul class="dropdown-menu">';
+  
+	
 			foreach ($menuList[$pname] as $k => $a)
 				{
 				if (isset($dpnames[$k]))
@@ -324,7 +390,7 @@ function buildTopNav ($name, $bcs=false)
 			{$html .= '<li class="nav-item '.$a[0].'"><a class="nav-link" href="'.
 			$puse.'.html">'.ucfirst($dpname).$a[1].'</a></li>';}}
 	
-	$html .= "</ul></div>";
+	$html .= "</ul></div></li>";
 	
 	return($html);
 	}
@@ -386,36 +452,51 @@ function buildExamplePages ()
 		{writePage ($name, $d);}
 	}
 
+function parseBreadbrumbs ($str)
+	{
+	global $dpnames;
+	
+	$out = array();
+	
+	if (isset($dpnames[$str]))
+		{$dv = $dpnames[$str];}
+	else
+		{$dv = $str;}
+				
+	$out[0] = ucfirst($dv);
+	$out[1] = str_replace(' ', '%20', $str);
+	
+	return ($out);
+	}
+	
 function buildBreadcrumbs ($arr)
 	{
 	global $dpnames;
 	
 	$html = false;
 	
-	// we do not need a link to the page we are on
-	$ignore_last = array_pop($arr);
+	// process current page differently
+	$cp = parseBreadbrumbs (array_pop($arr));
 	
-	if ($arr) {
-		
+	if ($arr) 
+		{
 		$list = "";
 		foreach ($arr as $k => $v)
-			{
-			if (isset($dpnames[$v]))
-				{$dv = $dpnames[$v];}
-			else
-				{$dv = $v;}
-				
-			$V = ucfirst($dv);
-			$v = str_replace(' ', '%20', $v);
-			$list .= "<li class=\"breadcrumb-item\"><a href=\"${v}.html\">$V</a></li>";
-			}
-	ob_start();			
-	echo <<<END
-		<nav aria-label="breadcrumb">
+			{$pv = parseBreadbrumbs ($v);
+			 $list .= "<li class=\"breadcrumb-item\"><a href=\"".$pv[1].
+				".html\">$pv[0]</a></li>";}
+			
+		$list .= "<li class=\"breadcrumb-item active\" aria-current=\"page\">$cp[0]</li>";
+			
+		ob_start();			
+		echo <<<END
+		<div class="alert alert-light" role="alert" style="padding-bottom: 0px;border-color:#dee2e6;">
+		<nav  style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
 			<ol class="breadcrumb">
 				$list
 			</ol>
 		</nav>
+		</div>
 END;
 		$html = ob_get_contents();
 		ob_end_clean(); // Don't send output to client
@@ -518,7 +599,7 @@ function writePage ($name, $d)
 	$content = parseLinks ($d["content"], 1);
 		
 	$pd["grid"] = array(
-		"topjumbotron" => "<h2>$d[title]</h2>",
+		"topjumbotron" => "<h3>$d[title]</h3>",
 		"bottomjumbotron" => "",
 		"rows" => array(
 			array(
@@ -603,7 +684,7 @@ $(function() {
 });
 END;
 	$pageDetails["extra_onload"] .= ob_get_contents();
-	ob_end_clean(); // Don't send output to client
+	ob_end_clean(); // Don't send output to client 
 
 	$pageDetails["css_scripts"] = array_merge(
 		$default_scripts["css-scripts"], $pageDetails["extra_css_scripts"]);
@@ -649,9 +730,17 @@ END;
 		ob_start();			
 		echo <<<END
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+<div class="container-fluid">
+      <button 
+				class="navbar-toggler navbar-toggler-right" 
+				type="button" 
+				data-bs-toggle="collapse" 
+				data-bs-target="#navbarsExampleDefault" 
+				aria-controls="navbarsExampleDefault" 
+				aria-expanded="false" 
+				aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-      </button>
+      </button>    
       <a class="navbar-brand"  href="$pageDetails[logo_link]">
   		<img id="page-logo" class="logo" title="Logo" src="$pageDetails[logo_path]" 
 				style="$pageDetails[logo_style]" alt="The National Gallery"/>
@@ -661,6 +750,7 @@ END;
     <span class="navbar-text">
       $extra_logos
     </span>
+</div>
     </nav>
 END;
 		$pageDetails["topNavbar"] = ob_get_contents();

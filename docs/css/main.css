@@ -7,6 +7,7 @@
 
 .jumbotron {
 	margin-top: 80px;
+	margin-bottom: 20px;
 	}
 
 .licence {
@@ -38,6 +39,10 @@ pre code {
 *
 */
 
+.dropdown div a {
+  text-decoration: none; !important;  
+}
+
 .top-item {
 	background-color: #e9ecef !important;
 	}
@@ -60,7 +65,7 @@ pre code {
   float: none;
   vertical-align: 0em;
   border: none;
-  font-family: 'FontAwesome';
+  font-family: 'Font Awesome 5 Free';
 }
 
 .dropdown-submenu>.dropdown-menu {
