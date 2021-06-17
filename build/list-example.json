@@ -16,7 +16,10 @@
       "maxcols": 3},
     "List Format" : {
       "comment": "The list format only display clickable titles and the comment for each entry, arranged as a simple bulet point list.",
-      "card": "list"}
+      "card": "list"},
+    "Presentations" : {
+      "comment": "This additional format, requires additional variables and is specifically for formatting the resources used to present a lecture or presentation, video, slides, pdf, transcript, etc.",
+      "card": "presentation"}
     	},
   "list": [{
 	"groups": ["Full Card Format", "Simple Card Format", "Image Only Format", "List Format"],
@@ -50,6 +53,31 @@
 	"image": "graphics/UKRI_EPSR_Council-Logo_Horiz-RGB.png",
 	"checked": "",
 	"link": "https://research.ng-london.org.uk/external/ARTICT"
+},{
+	"groups": ["Presentations"],
+	"ptitle": "Introduction and Welcome",
+	"stitle": "Joe Padfield",
+	"comment": "",
+	"video": "https://www.youtube.com/embed/W1BoGtzvYVM",
+	"slides": "https://tanc-ahrc.github.io/IIIF-TNC/files/IIIF%20TaNC%20Webinar1%20-%20S01%2001%20-%20Jpadfield%20-%20%20Introduction.pdf",
+	"transcript": "https://tanc-ahrc.github.io/IIIF-TNC/files/IIIF%20TaNC%20Webinar1%20-%20S01%2001%20-%20Jpadfield%20-%20Introduction%20-%20Transcript.txt",
+	"link": "https:\/\/twitter.com\/JoePadfield"
+},{
+	"groups": ["Presentations"],
+	"ptitle": "Re-using IIIF resources in documentation solutions",
+	"stitle": "Joe Padfield",
+	"video": "https://www.youtube.com/embed/emS-4n7cxwo",
+	"comment": "Joe Padfield will present details of how IIIF has been used as the basis for the National Gallery’s internal image sharing and presentation system and how these resources have been re-used to create a digital documentation system to record the delicate process of sampling old master paintings.",
+	"slides": "https://tanc-ahrc.github.io/IIIF-TNC/files/IIIF TaNC Webinar1 - S01 04 - Jpadfield -  Re-using IIIF resources.pdf",
+	"link": "https:\/\/twitter.com\/JoePadfield"
+}, {
+	"groups": ["Presentations"],
+	"ptitle": "Using existing IIIF resources to create your own IIIF presentations",
+	"stitle": "Joe Padfield",
+	"comment": "Joe Padfield will present details of the Simple Site GitHub project and how it can be used by researchers to create their own IIIF workspace to explore, compare and present their own arrangement of existing IIIF resources.",
+	"video": "https://www.youtube.com/embed/xsuj4SQ1w2Y",
+	"slides": "https://tanc-ahrc.github.io/IIIF-TNC/files/IIIF TaNC Webinar1 - S02 04 - Jpadfield - SimpleSite.pdf",
+	"link": "https:\/\/twitter.com\/JoePadfield"
 }]
 	
 }

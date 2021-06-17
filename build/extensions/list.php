@@ -218,7 +218,7 @@ END;
     }
 
 function buildPresentationCard ($la)
-  {   
+  {  
   if ($la["link"])
     {$ltop= "<a href=\"$la[link]\">";
       $lbottom = "</a>";}
@@ -248,10 +248,14 @@ function buildPresentationCard ($la)
 			
 		if (isset($la["slides"])) 
 			{$extra .= "<p>The slides for this presentation can be downloaded <a href=\"$la[slides]\">here</a></p>";}
+		if (isset($la["transcript"])) 
+			{$extra .= "<p>The transcript for this presentation can be downloaded <a href=\"$la[transcript]\">here</a></p>";}
 		}
 	else if (isset($la["slides"]))
 		{$prev = '<div class="pcontainer"><iframe class="preview-iframe preview" id="preview-iframe" '.
-			'src="'.$la["slides"].'"></iframe></div>';}
+			'src="'.$la["slides"].'"></iframe></div>';
+		 if (isset($la["transcript"])) 
+			{$extra .= "<p>The transcript for this presentation can be downloaded <a href=\"$la[slides]\">here</a></p>";}}
 	else if (isset($la["image"]))
 		{$prev = "<img src=\"$la[image]\" class=\"card-img\" alt=\"$la[ptitle]\">";}
 	else
