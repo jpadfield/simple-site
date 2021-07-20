@@ -16,19 +16,13 @@
     <style>
     
     </style>
-    <!-- Global site tag (gtag.js) - Google Analytics - Only added in if the 'GoogleAnalyticsID' i set in the site.json file-->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-BQV11QKCED"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-		gtag('config', 'G-BQV11QKCED');
-	</script>
+    
   </head>
 
-  <body onload="onLoad();">
-		<div class="container">
-			<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<body onload="onLoad();">
+	<div id="wrap" class="container h-100">
+		
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 <div class="container-fluid">
       <button 
 				class="navbar-toggler navbar-toggler-right" 
@@ -45,48 +39,72 @@
 				style="" alt="The National Gallery"/>
 		  </a>
 			<div class="collapse navbar-collapse" id="navbarsExampleDefault"><ul class="navbar-nav">
-<li class="nav-item "><a class="nav-link" href="index.html">Home</a></li><li class="nav-item "><a class="nav-link" href="instructions.html">Instructions</a></li>
+
+<!-- Start Normal Item 1 -->
+<li class="nav-item "><a class="nav-link" style="white-space:nowrap;" href="home.html">Home</a>
+</li>
+<!-- End Normal Item 1 -->
+
+<!-- Start Normal Item 1 -->
+<li class="nav-item "><a class="nav-link" style="white-space:nowrap;" href="instructions.html">Instructions</a>
+</li>
+<!-- End Normal Item 1 -->
+
+<!-- Start Loop Item 1 -->
 <li class="nav-item dropdown ">
-<!-- Dropdown Loop 1 -->
-<div class="btn-group">
-  <a href="JSON.html"><button type="button" class="btn nav-link" title="Click to open the &ldquo;JSON&rdquo; page">
-  JSON</button></a>
-  <button type="button" class="btn nav-link dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false"  title="Click to open the &ldquo;JSON&rdquo; menu">
+<div class="btn-group"><a href="JSON.html" class="nav-link" title="Click to open the &ldquo;JSON&rdquo; page">
+  JSON</a><button type="button" class="btn nav-link dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false"  title="Click to open the &ldquo;JSON&rdquo; menu">
     <span class="visually-hidden">Toggle Dropdown</span>
   </button>
-  <ul class="dropdown-menu"><li><a href="site.json.html" class="dropdown-item">Site.json</a></li><li><a href="pages.json.html" class="dropdown-item">Pages.json</a></li></ul></li><!-- End Loop 1 -->
+	<ul class="dropdown-menu"><li><a href="site.json.html" class="dropdown-item">Site.json</a></li><li><a href="pages.json.html" class="dropdown-item">Pages.json</a></li>
+	</ul>
+</div>
+</li>
+<!-- End Loop Item 1 -->
+
+<!-- Start Loop Item 1 -->
 <li class="nav-item dropdown ">
-<!-- Dropdown Loop 1 -->
-<div class="btn-group">
-  <a href="extensions.html"><button type="button" class="btn nav-link" title="Click to open the &ldquo;Extensions&rdquo; page">
-  Extensions</button></a>
-  <button type="button" class="btn nav-link dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false"  title="Click to open the &ldquo;Extensions&rdquo; menu">
+<div class="btn-group"><a href="extensions.html" class="nav-link" title="Click to open the &ldquo;Extensions&rdquo; page">
+  Extensions</a><button type="button" class="btn nav-link dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false"  title="Click to open the &ldquo;Extensions&rdquo; menu">
     <span class="visually-hidden">Toggle Dropdown</span>
   </button>
-  <ul class="dropdown-menu"><li><a href="timeline.html" class="dropdown-item">Timeline</a></li><li><a href="Galleries%20and%20Lists.html" class="dropdown-item">Galleries and Lists</a></li><li><a href="Mirador%20IIIF%20viewer.html" class="dropdown-item">Mirador IIIF viewer</a></li><li><a href="Panel%20Truck%20viewer.html" class="dropdown-item">Panel Truck viewer</a></li><li><a href="Curtain%20Viewer.html" class="dropdown-item">Curtain Viewer</a></li><li><a href="OpenSeadragon%20Viewer.html" class="dropdown-item">OpenSeadragon Viewer</a></li></ul></li><!-- End Loop 1 -->
+	<ul class="dropdown-menu"><li><a href="timeline.html" class="dropdown-item">Timeline</a></li><li><a href="Galleries_and_Lists.html" class="dropdown-item">Galleries and Lists</a></li><li><a href="Mirador_IIIF_viewer.html" class="dropdown-item">Mirador IIIF viewer</a></li><li><a href="Panel_Truck_viewer.html" class="dropdown-item">Panel Truck viewer</a></li><li><a href="Curtain_Viewer.html" class="dropdown-item">Curtain Viewer</a></li><li><a href="OpenSeadragon_Viewer.html" class="dropdown-item">OpenSeadragon Viewer</a></li>
+	</ul>
+</div>
+</li>
+<!-- End Loop Item 1 -->
+
+<!-- Start Loop Item 1 -->
 <li class="nav-item dropdown ">
-<!-- Dropdown Loop 1 -->
-<div class="btn-group">
-  <a href="example.html"><button type="button" class="btn nav-link" title="Click to open the &ldquo;Example&rdquo; page">
-  Example</button></a>
-  <button type="button" class="btn nav-link dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false"  title="Click to open the &ldquo;Example&rdquo; menu">
+<div class="btn-group"><a href="example.html" class="nav-link" title="Click to open the &ldquo;Example&rdquo; page">
+  Example</a><button type="button" class="btn nav-link dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false"  title="Click to open the &ldquo;Example&rdquo; menu">
     <span class="visually-hidden">Toggle Dropdown</span>
   </button>
-  <ul class="dropdown-menu"><!-- Dropdown Loop 2 --><li class="dropdown-submenu">
+	<ul class="dropdown-menu"><!-- Dropdown Loop 2 --><li class="dropdown-submenu">
 		<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the &ldquo;Nice display pagename&rdquo; menu">Nice display pagename
 		&nbsp;&nbsp;<i class="fas fa-caret-right"></i></a>
 		
 		<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
 			<li><a href="example-subpage-01.html" class="dropdown-item  top-item" title="Click to open the &ldquo;Nice display pagename&rdquo; page">
 				Nice display pagename</a></li>
-		<li class="dropdown-divider"></li><!-- Dropdown Loop  --><li class="dropdown-submenu">
-		<a id="dropdownMenu" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the &ldquo;Example-sub-subpage-01&rdquo; menu">Example-sub-subpage-01
+		<li class="dropdown-divider"></li><!-- Dropdown Loop 3 --><li class="dropdown-submenu">
+		<a id="dropdownMenu3" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the &ldquo;Example-sub-subpage-01&rdquo; menu">Example-sub-subpage-01
 		&nbsp;&nbsp;<i class="fas fa-caret-right"></i></a>
 		
-		<ul aria-labelledby="dropdownMenu" class="dropdown-menu border-0 shadow">
+		<ul aria-labelledby="dropdownMenu3" class="dropdown-menu border-0 shadow">
 			<li><a href="example-sub-subpage-01.html" class="dropdown-item  top-item" title="Click to open the &ldquo;Example-sub-subpage-01&rdquo; page">
 				Example-sub-subpage-01</a></li>
-		<li class="dropdown-divider"></li><li><a href="example-sub-sub-subpage-01.html" class="dropdown-item">Great webpage</a></li></ul></li><!-- End Loop  --></ul></li><!-- End Loop 2 --><li><a href="example-subpage-02.html" class="dropdown-item">Example-subpage-02</a></li></ul></li><!-- End Loop 1 --><li class="nav-item active"><a class="nav-link" href="about.html">About<span class="sr-only">(current)</span></a></li></ul></div></li>
+		<li class="dropdown-divider"></li><li><a href="example-sub-sub-subpage-01.html" class="dropdown-item">Great webpage</a></li></ul></li><!-- End Loop 3 --></ul></li><!-- End Loop 2 --><li><a href="example-subpage-02.html" class="dropdown-item">Example-subpage-02</a></li>
+	</ul>
+</div>
+</li>
+<!-- End Loop Item 1 -->
+
+<!-- Start Normal Item 1 -->
+<li class="nav-item active"><a class="nav-link" style="white-space:nowrap;" href="about.html">About<span class="sr-only">(current)</span></a>
+</li>
+<!-- End Normal Item 1 -->
+</ul></div>
 			
     <span class="navbar-text">
       			<a href="https://github.com/jpadfield/simple-site/">
@@ -96,11 +114,20 @@
     </span>
 </div>
     </nav>
-			<div class="row ">				
-			 <div class="col-12 col-md-12">          
-				
-				<div class="p-2 bg-light border rounded-3 jumbotron">
-      <div class="container-fluid py-4"><h3>Simple Site - <b>About</b></h3></div></div><div class="row"><div class="col-12 col-lg-12"></div><!--/span--></div><!--/row-->    <div class="row"><div class="col-12 col-lg-12"><div class="alert alert-info" role="alert"><h4>Simple Site Collaborations</h4><p>The Simple Site project has developed out of work from a number of different projects, all of which involved some aspect of developing project websites, or documented methods of disseminating formatted data. This work will continue across the listed projects but further collaborations are anticipated.</p></div>
+		
+		<div class="row " style="padding-top:80px; padding-bottom:40px; min-height:100%;">				
+			<div class="col-12 col-md-12">  
+				<div class="h-100 d-flex flex-column"> 
+					
+					
+<!-- Start SimpleBDGrid -->
+<div class="p-2 bg-light border rounded-3 jumbotron">
+      <div class="container-fluid py-4"><h3>Simple Site - <b>About</b></h3></div></div><div class="container-fluid "><div class="row h-100"><div class="col-12">							
+								<div class="h-100 d-flex flex-column">
+							
+						</div></div><!--/span--></div></div><!--/row-->    <div class="container-fluid "><div class="row h-100"><div class="col-12 flex-grow-1">							
+								<div class="h-100 d-flex flex-column">
+							<div class="alert alert-info" role="alert"><h4>Simple Site Collaborations</h4><p>The Simple Site project has developed out of work from a number of different projects, all of which involved some aspect of developing project websites, or documented methods of disseminating formatted data. This work will continue across the listed projects but further collaborations are anticipated.</p></div>
 
 <h3>Acknowledgement</h3>
 
@@ -129,7 +156,10 @@
 <figure class="figure">
   <img style="height:64px;" src="graphics/TANC - PIDS.png" class="figure-img img-fluid rounded" alt="PIDS - TANC">
   <figcaption class="figure-caption">AHRC funded - HeritagePIDs | Persistent Identifiers as IRO Infrastructure - <a href='https://tanc-ahrc.github.io/HeritagePIDs'>HeritagePIDs</a></figcaption>
-</figure><div class="foonote"><ul></ul></div></div><!--/span--></div><!--/row-->    <div class="row"><div class="col-12 col-lg-12">	<hr/>
+</figure><div class="foonote"><ul></ul></div>
+						</div></div><!--/span--></div></div><!--/row-->    <div class="container-fluid "><div class="row h-100"><div class="col-12 col-lg-12">							
+								<div class="h-100 d-flex flex-column">
+								<hr/>
 	<style>
 	details {
     border: 1px solid #aaa;
@@ -164,17 +194,21 @@ details[open] summary {
     &quot;title&quot;: &quot;Simple Site - &lt;b&gt;About&lt;/b&gt;&quot;,
     &quot;content&quot;: &quot;&lt;div class=\&quot;alert alert-info\&quot; role=\&quot;alert\&quot;&gt;&lt;h4&gt;Simple Site Collaborations&lt;/h4&gt;&lt;p&gt;The Simple Site project has developed out of work from a number of different projects, all of which involved some aspect of developing project websites, or documented methods of disseminating formatted data. This work will continue across the listed projects but further collaborations are anticipated.&lt;/p&gt;&lt;/div&gt;\r\n\r\n&lt;h3&gt;Acknowledgement&lt;/h3&gt;\r\n\r\n&lt;p&gt;This project has been directly supported by the following projects:&lt;/p&gt;\r\n\r\n&lt;h4&gt;The SSHOC Project&lt;/h4&gt;\r\n&lt;figure class=\&quot;figure\&quot;&gt;\t\r\n  &lt;img style=\&quot;height:64px;\&quot; src=\&quot;graphics/sshoc-logo.png\&quot; class=\&quot;figure-img img-fluid rounded\&quot; alt=\&quot;The SSHOC Project\&quot;&gt;\r\n  &lt;img style=\&quot;height:32px;\&quot; src=\&quot;graphics/sshoc-eu-tag2.png\&quot; class=\&quot;figure-img img-fluid rounded\&quot; alt=\&quot;The SSHOC Project\&quot;&gt;\r\n  &lt;figcaption class=\&quot;figure-caption\&quot;&gt;Social Sciences &amp; Humanities Open Cloud (SSHOC)is a project funded by the EU framework programme Horizon 2020 and unites [20 partner organisations and their 27 associates|https://www.sshopencloud.eu/partners] in developing the social sciences and humanities area of the [European Open Science Cloud (EOSC)|http://www.eosc-portal.eu/] - [SSHOC|https://www.sshopencloud.eu/]&lt;/figcaption&gt;\r\n&lt;/figure&gt;\r\n\r\n&lt;h4&gt;The ARTICT Project&lt;/h4&gt;\r\n&lt;figure class=\&quot;figure\&quot;&gt;\r\n  &lt;img style=\&quot;height:64px;\&quot; src=\&quot;graphics/UKRI_EPSR_Council-Logo_Horiz-RGB.png\&quot; class=\&quot;figure-img img-fluid rounded\&quot; alt=\&quot;The ARTICT Project\&quot;&gt;\r\n  &lt;figcaption class=\&quot;figure-caption\&quot;&gt;EPSRC funded - ARTICT | Art Through the ICT Lens: Big Data Processing Tools to Support the Technical Study, Preservation and Conservation of Old Master Paintings - [ARTICT|https://research.ng-london.org.uk/external/ARTICT]&lt;/figcaption&gt;\r\n&lt;/figure&gt;\r\n\r\n&lt;h4&gt;The IIIF - TANC Project&lt;/h4&gt;\r\n&lt;figure class=\&quot;figure\&quot;&gt;\r\n  &lt;img style=\&quot;height:64px;\&quot; src=\&quot;graphics/TANC - IIIF.png\&quot; class=\&quot;figure-img img-fluid rounded\&quot; alt=\&quot;IIIF - TANC\&quot;&gt;\r\n  &lt;figcaption class=\&quot;figure-caption\&quot;&gt;AHRC funded - IIIF-TNC | Practical applications of IIIF as a building block towards a digital National Collection -   [IIIF - TNC|https://tanc-ahrc.github.io/IIIF-TNC]&lt;/figcaption&gt;\r\n&lt;/figure&gt;\r\n\r\n&lt;h4&gt;The HeritagePIDs Project&lt;/h4&gt;\r\n&lt;figure class=\&quot;figure\&quot;&gt;\r\n  &lt;img style=\&quot;height:64px;\&quot; src=\&quot;graphics/TANC - PIDS.png\&quot; class=\&quot;figure-img img-fluid rounded\&quot; alt=\&quot;PIDS - TANC\&quot;&gt;\r\n  &lt;figcaption class=\&quot;figure-caption\&quot;&gt;AHRC funded - HeritagePIDs | Persistent Identifiers as IRO Infrastructure - [HeritagePIDs|https://tanc-ahrc.github.io/HeritagePIDs]&lt;/figcaption&gt;\r\n&lt;/figure&gt;&quot;,
     &quot;content right&quot;: &quot;&quot;,
+    &quot;copy&quot;: false,
     &quot;displaycode&quot;: true
 }</code></pre>
 		<figcaption class=\"figure-caption\">The complete JSON object used to define this content and layout of this page.</figcaption>
 	</figure>	
-	</details></div><!--/span--></div><!--/row-->    <br/>
-			</div><!--/span-->
+	</details>
+						</div></div><!--/span--></div></div><!--/row-->    
+<!-- End SimpleBDGrid -->
+
+			</div></div><!--/span-->
 			
 			
-			</div><!--/row-->
+		</div><!--/row-->
 			
-			  <footer>
+		  <footer class="fixed-bottom bg-light">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-5" style="text-align:left;">&copy; The National Gallery 2021</div>
@@ -183,16 +217,18 @@ details[open] summary {
 			</div>
 		</div>        
   </footer>
-    </div><!--/.container-->
     
+	</div><!--/.container-->
     
+	
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/tether@2.0.0/dist/js/tether.min.js" integrity="sha256-cExSEm1VrovuDNOSgLk0xLue2IXxIvbKV1gXuCqKPLE=" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha256-d+FygkWgwt59CFkWPuCB4RE6p1/WiUYCy16w1+c5vKk=" crossorigin="anonymous"></script>
-    <script>
-			
-			function onLoad() {
-				$(function() {
+	<script>
+		
+		
+		function onLoad() {
+			$(function() {
   // ------------------------------------------------------- //
   // Multi Level dropdowns
   // ------------------------------------------------------ //
@@ -212,7 +248,8 @@ details[open] summary {
 
   });
 });
-				}
-    </script>
-  </body>
+			}
+	</script>
+</body>
+
 </html>

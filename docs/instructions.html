@@ -16,19 +16,13 @@
     <style>
     
     </style>
-    <!-- Global site tag (gtag.js) - Google Analytics - Only added in if the 'GoogleAnalyticsID' i set in the site.json file-->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-BQV11QKCED"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-		gtag('config', 'G-BQV11QKCED');
-	</script>
+    
   </head>
 
-  <body onload="onLoad();">
-		<div class="container">
-			<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<body onload="onLoad();">
+	<div id="wrap" class="container h-100">
+		
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 <div class="container-fluid">
       <button 
 				class="navbar-toggler navbar-toggler-right" 
@@ -45,48 +39,72 @@
 				style="" alt="The National Gallery"/>
 		  </a>
 			<div class="collapse navbar-collapse" id="navbarsExampleDefault"><ul class="navbar-nav">
-<li class="nav-item "><a class="nav-link" href="index.html">Home</a></li><li class="nav-item active"><a class="nav-link" href="instructions.html">Instructions<span class="sr-only">(current)</span></a></li>
+
+<!-- Start Normal Item 1 -->
+<li class="nav-item "><a class="nav-link" style="white-space:nowrap;" href="home.html">Home</a>
+</li>
+<!-- End Normal Item 1 -->
+
+<!-- Start Normal Item 1 -->
+<li class="nav-item active"><a class="nav-link" style="white-space:nowrap;" href="instructions.html">Instructions<span class="sr-only">(current)</span></a>
+</li>
+<!-- End Normal Item 1 -->
+
+<!-- Start Loop Item 1 -->
 <li class="nav-item dropdown ">
-<!-- Dropdown Loop 1 -->
-<div class="btn-group">
-  <a href="JSON.html"><button type="button" class="btn nav-link" title="Click to open the &ldquo;JSON&rdquo; page">
-  JSON</button></a>
-  <button type="button" class="btn nav-link dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false"  title="Click to open the &ldquo;JSON&rdquo; menu">
+<div class="btn-group"><a href="JSON.html" class="nav-link" title="Click to open the &ldquo;JSON&rdquo; page">
+  JSON</a><button type="button" class="btn nav-link dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false"  title="Click to open the &ldquo;JSON&rdquo; menu">
     <span class="visually-hidden">Toggle Dropdown</span>
   </button>
-  <ul class="dropdown-menu"><li><a href="site.json.html" class="dropdown-item">Site.json</a></li><li><a href="pages.json.html" class="dropdown-item">Pages.json</a></li></ul></li><!-- End Loop 1 -->
+	<ul class="dropdown-menu"><li><a href="site.json.html" class="dropdown-item">Site.json</a></li><li><a href="pages.json.html" class="dropdown-item">Pages.json</a></li>
+	</ul>
+</div>
+</li>
+<!-- End Loop Item 1 -->
+
+<!-- Start Loop Item 1 -->
 <li class="nav-item dropdown ">
-<!-- Dropdown Loop 1 -->
-<div class="btn-group">
-  <a href="extensions.html"><button type="button" class="btn nav-link" title="Click to open the &ldquo;Extensions&rdquo; page">
-  Extensions</button></a>
-  <button type="button" class="btn nav-link dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false"  title="Click to open the &ldquo;Extensions&rdquo; menu">
+<div class="btn-group"><a href="extensions.html" class="nav-link" title="Click to open the &ldquo;Extensions&rdquo; page">
+  Extensions</a><button type="button" class="btn nav-link dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false"  title="Click to open the &ldquo;Extensions&rdquo; menu">
     <span class="visually-hidden">Toggle Dropdown</span>
   </button>
-  <ul class="dropdown-menu"><li><a href="timeline.html" class="dropdown-item">Timeline</a></li><li><a href="Galleries%20and%20Lists.html" class="dropdown-item">Galleries and Lists</a></li><li><a href="Mirador%20IIIF%20viewer.html" class="dropdown-item">Mirador IIIF viewer</a></li><li><a href="Panel%20Truck%20viewer.html" class="dropdown-item">Panel Truck viewer</a></li><li><a href="Curtain%20Viewer.html" class="dropdown-item">Curtain Viewer</a></li><li><a href="OpenSeadragon%20Viewer.html" class="dropdown-item">OpenSeadragon Viewer</a></li></ul></li><!-- End Loop 1 -->
+	<ul class="dropdown-menu"><li><a href="timeline.html" class="dropdown-item">Timeline</a></li><li><a href="Galleries_and_Lists.html" class="dropdown-item">Galleries and Lists</a></li><li><a href="Mirador_IIIF_viewer.html" class="dropdown-item">Mirador IIIF viewer</a></li><li><a href="Panel_Truck_viewer.html" class="dropdown-item">Panel Truck viewer</a></li><li><a href="Curtain_Viewer.html" class="dropdown-item">Curtain Viewer</a></li><li><a href="OpenSeadragon_Viewer.html" class="dropdown-item">OpenSeadragon Viewer</a></li>
+	</ul>
+</div>
+</li>
+<!-- End Loop Item 1 -->
+
+<!-- Start Loop Item 1 -->
 <li class="nav-item dropdown ">
-<!-- Dropdown Loop 1 -->
-<div class="btn-group">
-  <a href="example.html"><button type="button" class="btn nav-link" title="Click to open the &ldquo;Example&rdquo; page">
-  Example</button></a>
-  <button type="button" class="btn nav-link dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false"  title="Click to open the &ldquo;Example&rdquo; menu">
+<div class="btn-group"><a href="example.html" class="nav-link" title="Click to open the &ldquo;Example&rdquo; page">
+  Example</a><button type="button" class="btn nav-link dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false"  title="Click to open the &ldquo;Example&rdquo; menu">
     <span class="visually-hidden">Toggle Dropdown</span>
   </button>
-  <ul class="dropdown-menu"><!-- Dropdown Loop 2 --><li class="dropdown-submenu">
+	<ul class="dropdown-menu"><!-- Dropdown Loop 2 --><li class="dropdown-submenu">
 		<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the &ldquo;Nice display pagename&rdquo; menu">Nice display pagename
 		&nbsp;&nbsp;<i class="fas fa-caret-right"></i></a>
 		
 		<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
 			<li><a href="example-subpage-01.html" class="dropdown-item  top-item" title="Click to open the &ldquo;Nice display pagename&rdquo; page">
 				Nice display pagename</a></li>
-		<li class="dropdown-divider"></li><!-- Dropdown Loop  --><li class="dropdown-submenu">
-		<a id="dropdownMenu" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the &ldquo;Example-sub-subpage-01&rdquo; menu">Example-sub-subpage-01
+		<li class="dropdown-divider"></li><!-- Dropdown Loop 3 --><li class="dropdown-submenu">
+		<a id="dropdownMenu3" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the &ldquo;Example-sub-subpage-01&rdquo; menu">Example-sub-subpage-01
 		&nbsp;&nbsp;<i class="fas fa-caret-right"></i></a>
 		
-		<ul aria-labelledby="dropdownMenu" class="dropdown-menu border-0 shadow">
+		<ul aria-labelledby="dropdownMenu3" class="dropdown-menu border-0 shadow">
 			<li><a href="example-sub-subpage-01.html" class="dropdown-item  top-item" title="Click to open the &ldquo;Example-sub-subpage-01&rdquo; page">
 				Example-sub-subpage-01</a></li>
-		<li class="dropdown-divider"></li><li><a href="example-sub-sub-subpage-01.html" class="dropdown-item">Great webpage</a></li></ul></li><!-- End Loop  --></ul></li><!-- End Loop 2 --><li><a href="example-subpage-02.html" class="dropdown-item">Example-subpage-02</a></li></ul></li><!-- End Loop 1 --><li class="nav-item "><a class="nav-link" href="about.html">About</a></li></ul></div></li>
+		<li class="dropdown-divider"></li><li><a href="example-sub-sub-subpage-01.html" class="dropdown-item">Great webpage</a></li></ul></li><!-- End Loop 3 --></ul></li><!-- End Loop 2 --><li><a href="example-subpage-02.html" class="dropdown-item">Example-subpage-02</a></li>
+	</ul>
+</div>
+</li>
+<!-- End Loop Item 1 -->
+
+<!-- Start Normal Item 1 -->
+<li class="nav-item "><a class="nav-link" style="white-space:nowrap;" href="about.html">About</a>
+</li>
+<!-- End Normal Item 1 -->
+</ul></div>
 			
     <span class="navbar-text">
       			<a href="https://github.com/jpadfield/simple-site/">
@@ -96,11 +114,20 @@
     </span>
 </div>
     </nav>
-			<div class="row ">				
-			 <div class="col-12 col-md-12">          
-				
-				<div class="p-2 bg-light border rounded-3 jumbotron">
-      <div class="container-fluid py-4"><h3>Simple Site - Instructions</h3></div></div><div class="row"><div class="col-12 col-lg-12"></div><!--/span--></div><!--/row-->    <div class="row"><div class="col-12 col-lg-12"><h3>To make use of this system it is recommended that you</h3>
+		
+		<div class="row " style="padding-top:80px; padding-bottom:40px; min-height:100%;">				
+			<div class="col-12 col-md-12">  
+				<div class="h-100 d-flex flex-column"> 
+					
+					
+<!-- Start SimpleBDGrid -->
+<div class="p-2 bg-light border rounded-3 jumbotron">
+      <div class="container-fluid py-4"><h3>Simple Site - Instructions</h3></div></div><div class="container-fluid "><div class="row h-100"><div class="col-12">							
+								<div class="h-100 d-flex flex-column">
+							
+						</div></div><!--/span--></div></div><!--/row-->    <div class="container-fluid "><div class="row h-100"><div class="col-12 flex-grow-1">							
+								<div class="h-100 d-flex flex-column">
+							<h3>To make use of this system it is recommended that you</h3>
 <ul>
 	<li><a href='https://github.com/join'>Join GitHub</a></li>
 </ul>
@@ -166,7 +193,10 @@ If you did not fork the repository there is quite a lot of documentation availab
 </ul>
 <p>New sets of html pages are created automatically, within GitHub, when the JSON files are edited, controlled by a customised <a href='https://help.github.com/en/actions'>GitHub Action</a>, called <b>build.yml</b>. However, if you want to be able to run the build process manually within a downloaded version of the repository you will also need to have <a href='https://www.php.net/'>PHP</a> installed.</p>
 <h3>Issues and Comments</h3>
-<p>Any issues or comments can be added to the Issues section of this GitHub project: <a href='https://github.com/jpadfield/simple-site/issues'>here</a>.</p><div class="foonote"><ul></ul></div></div><!--/span--></div><!--/row-->    <div class="row"><div class="col-12 col-lg-12">	<hr/>
+<p>Any issues or comments can be added to the Issues section of this GitHub project: <a href='https://github.com/jpadfield/simple-site/issues'>here</a>.</p><div class="foonote"><ul></ul></div>
+						</div></div><!--/span--></div></div><!--/row-->    <div class="container-fluid "><div class="row h-100"><div class="col-12 col-lg-12">							
+								<div class="h-100 d-flex flex-column">
+								<hr/>
 	<style>
 	details {
     border: 1px solid #aaa;
@@ -201,17 +231,21 @@ details[open] summary {
     &quot;title&quot;: &quot;Simple Site - Instructions&quot;,
     &quot;content&quot;: &quot;&lt;h3&gt;To make use of this system it is recommended that you&lt;/h3&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;[Join GitHub|https://github.com/join]&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;and then either:&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;[Copy/Fork|https://help.github.com/en/github/getting-started-with-github/fork-a-repo] the repository, edit the sample JSON files and begin to build your own project.&lt;/li&gt;\r\n\t&lt;li&gt;[Download/Clone|https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository] a copy of the repository to your local machine, edit the JSON files as required and then just copy the required folders and files into you own existing repository.&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;For the full system to work, including the automatic rebuild process you will need to ensure your own repository includes:&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;A copy of the &lt;b&gt;build&lt;/b&gt; folder.&lt;/li&gt;\r\n\t&lt;li&gt;A copy of the &lt;b&gt;docs&lt;/b&gt; folder.&lt;/li&gt;\r\n\t&lt;li&gt;A copy of the &lt;b&gt;.github/workflows/build.yml&lt;/b&gt; file setup as a [GitHub Action|https://help.github.com/en/actions].&lt;/li&gt;\r\n\t&lt;li&gt;A copy of any required licence files.&lt;/li&gt;\r\n&lt;/ul&gt;\r\n\r\n&lt;h3&gt;Additional things to check&lt;/h3&gt;\r\n\r\n&lt;p&gt;Depending on how you copy the files you may also need to check the following issues.&lt;/p&gt;\r\n\r\n&lt;h4&gt;GitHub Actions&lt;/h4&gt;\r\n&lt;p&gt;The automatic process of building the pages is controlled by a [GitHub Action|https://help.github.com/en/actions]. If you fork the original repository the GitHUb Action will be copied automatically, but it will need to be re-enabled, as it is disabled during the fork process: \r\n&lt;ul&gt;\r\n\t&lt;li&gt;Click on the &lt;b&gt;Actions&lt;/b&gt; option at the top of your repository page.&lt;/li&gt;\r\n\t&lt;li&gt;A warning message will appear indicating that workflows have been disabled during the fork process.&lt;/li&gt;\r\n\t&lt;li&gt;Click on the green \u201cI understand...\u201d button to re-enable the GitHub Actions&lt;/li&gt;\r\n&lt;/ul&gt;\r\n\r\nIf you did not fork the repository there is quite a lot of documentation available about setting up a new [GitHub Action|https://help.github.com/en/actions], but the basic steps will require you to:\r\n&lt;ul&gt;\r\n\t&lt;li&gt;Click on the &lt;b&gt;Actions&lt;/b&gt; option at the top of your repository page.&lt;/li&gt;\r\n\t&lt;li&gt;Click on the &lt;b&gt;New workflow&lt;/b&gt; button.&lt;/li&gt;\r\n\t&lt;li&gt;Click on the &lt;b&gt;Set up a workflow yourself&lt;/b&gt; button.&lt;/li&gt;\r\n\t&lt;li&gt;Edit the suggested page name if you want.&lt;/li&gt;\r\n\t&lt;li&gt;Delete the default text in the edit window that will appear.&lt;/li&gt;\r\n\t&lt;li&gt;Copy and paste the raw version of [build.yml|https://raw.githubusercontent.com/jpadfield/simple-site/master/.github/workflows/build.yml] file into the editor.&lt;/li&gt;\r\n\t&lt;li&gt;Click on the &lt;b&gt;Start commit&lt;/b&gt; button to save the new workflow.&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;If you forked the repository this additional setup of setting up a new workflow will not be required.&lt;/p&gt;\r\n\r\n&lt;h4&gt;Enabling GitHub Pages&lt;/h4&gt;\r\n&lt;p&gt;GitHub does not present project web-pages, GitHub Pages, by default, but it is very easy to turn this functionality on. The following steps can be followed when using this project, for more general instructions, or if you want to find more information you should be able to start [here|https://pages.github.com/]&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;This process assumes you have copied the required project files, specifically the &lt;b&gt;docs&lt;/b&gt; folder.&lt;/li&gt;\r\n\t&lt;li&gt;Start from your project landing page - for the simple-site project the landing page is [https://github.com/jpadfield/simple-site/|https://github.com/jpadfield/simple-site/].&lt;/li&gt;\r\n\t&lt;li&gt;Click on the &lt;b&gt;Settings&lt;/b&gt; tab, which should be towards the upper right corner of the page.&lt;/li&gt;\r\n\t&lt;li&gt;Scroll down until you reach the &lt;b&gt;GitHub Pages&lt;/b&gt; section.&lt;/li&gt;\r\n\t&lt;li&gt;Select the &lt;b&gt;master/main branch /docs folder&lt;/b&gt; option in the &lt;b&gt;Source&lt;/b&gt; dropdown.&lt;/li&gt;\r\n\t&lt;li&gt;In the new dropdown to the right of the selected option select \u201c/doc\u201d as the source folder&lt;/li&gt;\r\n\t&lt;li&gt;Click on the \u201cSave\u201d button to continue.&lt;/li&gt;\r\n\t&lt;li&gt;There will be a slight pause and the screen should be updated&lt;/li&gt;\r\n\t&lt;li&gt;You can then scroll back down to the GitHub Pages section to see what your new web-page address will be.&lt;/li&gt;\r\n\t&lt;li&gt;Your GitHub Pages should no be up and running.&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;figure class=\&quot;figure\&quot;&gt;&lt;img src=\&quot;graphics/github pages 01.png\&quot; class=\&quot;figure-img img-fluid rounded\&quot; alt=\&quot;Example screenshots of the GitHub Pages section of the Settings page.\&quot;&gt;&lt;figcaption class=\&quot;figure-caption\&quot;&gt;Example screenshots of the GitHub Pages section of the Settings page.&lt;/figcaption&gt;&lt;/figure&gt;\r\n&lt;h3&gt;Dependencies&lt;/h3&gt;\r\n&lt;p&gt;Once built, simple-site should run without any additional software, all of the basic required [javascript|https://en.wikipedia.org/wiki/JavaScript] files and [css|https://en.wikipedia.org/wiki/Cascading_Style_Sheets] style sheet files are already included, or externally referenced but more information about the main ones can be found at:&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;[Bootstrap|https://getbootstrap.com/]&lt;/li&gt;\r\n\t&lt;li&gt;[Jquery|https://jquery.com/]&lt;/li&gt;\r\n\t&lt;li&gt;[Project Mirador|https://projectmirador.org/]&lt;/li&gt;\r\n\t&lt;li&gt;[Mermaid|https://mermaid-js.github.io/mermaid]&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;New sets of html pages are created automatically, within GitHub, when the JSON files are edited, controlled by a customised [GitHub Action|https://help.github.com/en/actions], called &lt;b&gt;build.yml&lt;/b&gt;. However, if you want to be able to run the build process manually within a downloaded version of the repository you will also need to have [PHP|https://www.php.net/] installed.&lt;/p&gt;\r\n&lt;h3&gt;Issues and Comments&lt;/h3&gt;\r\n&lt;p&gt;Any issues or comments can be added to the Issues section of this GitHub project: [here|https://github.com/jpadfield/simple-site/issues].&lt;/p&gt;&quot;,
     &quot;content right&quot;: &quot;&quot;,
+    &quot;copy&quot;: false,
     &quot;displaycode&quot;: true
 }</code></pre>
 		<figcaption class=\"figure-caption\">The complete JSON object used to define this content and layout of this page.</figcaption>
 	</figure>	
-	</details></div><!--/span--></div><!--/row-->    <br/>
-			</div><!--/span-->
+	</details>
+						</div></div><!--/span--></div></div><!--/row-->    
+<!-- End SimpleBDGrid -->
+
+			</div></div><!--/span-->
 			
 			
-			</div><!--/row-->
+		</div><!--/row-->
 			
-			  <footer>
+		  <footer class="fixed-bottom bg-light">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-5" style="text-align:left;">&copy; The National Gallery 2021</div>
@@ -220,16 +254,18 @@ details[open] summary {
 			</div>
 		</div>        
   </footer>
-    </div><!--/.container-->
     
+	</div><!--/.container-->
     
+	
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/tether@2.0.0/dist/js/tether.min.js" integrity="sha256-cExSEm1VrovuDNOSgLk0xLue2IXxIvbKV1gXuCqKPLE=" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha256-d+FygkWgwt59CFkWPuCB4RE6p1/WiUYCy16w1+c5vKk=" crossorigin="anonymous"></script>
-    <script>
-			
-			function onLoad() {
-				$(function() {
+	<script>
+		
+		
+		function onLoad() {
+			$(function() {
   // ------------------------------------------------------- //
   // Multi Level dropdowns
   // ------------------------------------------------------ //
@@ -249,7 +285,8 @@ details[open] summary {
 
   });
 });
-				}
-    </script>
-  </body>
+			}
+	</script>
+</body>
+
 </html>

@@ -16,19 +16,13 @@
     <style>
     
     </style>
-    <!-- Global site tag (gtag.js) - Google Analytics - Only added in if the 'GoogleAnalyticsID' i set in the site.json file-->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-BQV11QKCED"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-		gtag('config', 'G-BQV11QKCED');
-	</script>
+    
   </head>
 
-  <body onload="onLoad();">
-		<div class="container">
-			<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<body onload="onLoad();">
+	<div id="wrap" class="container h-100">
+		
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 <div class="container-fluid">
       <button 
 				class="navbar-toggler navbar-toggler-right" 
@@ -45,48 +39,72 @@
 				style="" alt="The National Gallery"/>
 		  </a>
 			<div class="collapse navbar-collapse" id="navbarsExampleDefault"><ul class="navbar-nav">
-<li class="nav-item "><a class="nav-link" href="index.html">Home</a></li><li class="nav-item "><a class="nav-link" href="instructions.html">Instructions</a></li>
+
+<!-- Start Normal Item 1 -->
+<li class="nav-item "><a class="nav-link" style="white-space:nowrap;" href="home.html">Home</a>
+</li>
+<!-- End Normal Item 1 -->
+
+<!-- Start Normal Item 1 -->
+<li class="nav-item "><a class="nav-link" style="white-space:nowrap;" href="instructions.html">Instructions</a>
+</li>
+<!-- End Normal Item 1 -->
+
+<!-- Start Loop Item 1 -->
 <li class="nav-item dropdown ">
-<!-- Dropdown Loop 1 -->
-<div class="btn-group">
-  <a href="JSON.html"><button type="button" class="btn nav-link" title="Click to open the &ldquo;JSON&rdquo; page">
-  JSON</button></a>
-  <button type="button" class="btn nav-link dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false"  title="Click to open the &ldquo;JSON&rdquo; menu">
+<div class="btn-group"><a href="JSON.html" class="nav-link" title="Click to open the &ldquo;JSON&rdquo; page">
+  JSON</a><button type="button" class="btn nav-link dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false"  title="Click to open the &ldquo;JSON&rdquo; menu">
     <span class="visually-hidden">Toggle Dropdown</span>
   </button>
-  <ul class="dropdown-menu"><li><a href="site.json.html" class="dropdown-item">Site.json</a></li><li><a href="pages.json.html" class="dropdown-item">Pages.json</a></li></ul></li><!-- End Loop 1 -->
+	<ul class="dropdown-menu"><li><a href="site.json.html" class="dropdown-item">Site.json</a></li><li><a href="pages.json.html" class="dropdown-item">Pages.json</a></li>
+	</ul>
+</div>
+</li>
+<!-- End Loop Item 1 -->
+
+<!-- Start Loop Item 1 -->
 <li class="nav-item dropdown active">
-<!-- Dropdown Loop 1 -->
-<div class="btn-group">
-  <a href="extensions.html"><button type="button" class="btn nav-link" title="Click to open the &ldquo;Extensions&rdquo; page">
-  Extensions<span class="sr-only">(current)</span></button></a>
-  <button type="button" class="btn nav-link dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false"  title="Click to open the &ldquo;Extensions&rdquo; menu">
+<div class="btn-group"><a href="extensions.html" class="nav-link" title="Click to open the &ldquo;Extensions&rdquo; page">
+  Extensions<span class="sr-only">(current)</span></a><button type="button" class="btn nav-link dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false"  title="Click to open the &ldquo;Extensions&rdquo; menu">
     <span class="visually-hidden">Toggle Dropdown</span>
   </button>
-  <ul class="dropdown-menu"><li><a href="timeline.html" class="dropdown-item">Timeline</a></li><li><a href="Galleries%20and%20Lists.html" class="dropdown-item">Galleries and Lists</a></li><li><a href="Mirador%20IIIF%20viewer.html" class="dropdown-item">Mirador IIIF viewer</a></li><li><a href="Panel%20Truck%20viewer.html" class="dropdown-item">Panel Truck viewer</a></li><li><a href="Curtain%20Viewer.html" class="dropdown-item">Curtain Viewer</a></li><li><a href="OpenSeadragon%20Viewer.html" class="dropdown-item">OpenSeadragon Viewer</a></li></ul></li><!-- End Loop 1 -->
+	<ul class="dropdown-menu"><li><a href="timeline.html" class="dropdown-item">Timeline</a></li><li><a href="Galleries_and_Lists.html" class="dropdown-item">Galleries and Lists</a></li><li><a href="Mirador_IIIF_viewer.html" class="dropdown-item">Mirador IIIF viewer</a></li><li><a href="Panel_Truck_viewer.html" class="dropdown-item">Panel Truck viewer</a></li><li><a href="Curtain_Viewer.html" class="dropdown-item">Curtain Viewer</a></li><li><a href="OpenSeadragon_Viewer.html" class="dropdown-item">OpenSeadragon Viewer</a></li>
+	</ul>
+</div>
+</li>
+<!-- End Loop Item 1 -->
+
+<!-- Start Loop Item 1 -->
 <li class="nav-item dropdown ">
-<!-- Dropdown Loop 1 -->
-<div class="btn-group">
-  <a href="example.html"><button type="button" class="btn nav-link" title="Click to open the &ldquo;Example&rdquo; page">
-  Example</button></a>
-  <button type="button" class="btn nav-link dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false"  title="Click to open the &ldquo;Example&rdquo; menu">
+<div class="btn-group"><a href="example.html" class="nav-link" title="Click to open the &ldquo;Example&rdquo; page">
+  Example</a><button type="button" class="btn nav-link dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false"  title="Click to open the &ldquo;Example&rdquo; menu">
     <span class="visually-hidden">Toggle Dropdown</span>
   </button>
-  <ul class="dropdown-menu"><!-- Dropdown Loop 2 --><li class="dropdown-submenu">
+	<ul class="dropdown-menu"><!-- Dropdown Loop 2 --><li class="dropdown-submenu">
 		<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the &ldquo;Nice display pagename&rdquo; menu">Nice display pagename
 		&nbsp;&nbsp;<i class="fas fa-caret-right"></i></a>
 		
 		<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
 			<li><a href="example-subpage-01.html" class="dropdown-item  top-item" title="Click to open the &ldquo;Nice display pagename&rdquo; page">
 				Nice display pagename</a></li>
-		<li class="dropdown-divider"></li><!-- Dropdown Loop  --><li class="dropdown-submenu">
-		<a id="dropdownMenu" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the &ldquo;Example-sub-subpage-01&rdquo; menu">Example-sub-subpage-01
+		<li class="dropdown-divider"></li><!-- Dropdown Loop 3 --><li class="dropdown-submenu">
+		<a id="dropdownMenu3" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the &ldquo;Example-sub-subpage-01&rdquo; menu">Example-sub-subpage-01
 		&nbsp;&nbsp;<i class="fas fa-caret-right"></i></a>
 		
-		<ul aria-labelledby="dropdownMenu" class="dropdown-menu border-0 shadow">
+		<ul aria-labelledby="dropdownMenu3" class="dropdown-menu border-0 shadow">
 			<li><a href="example-sub-subpage-01.html" class="dropdown-item  top-item" title="Click to open the &ldquo;Example-sub-subpage-01&rdquo; page">
 				Example-sub-subpage-01</a></li>
-		<li class="dropdown-divider"></li><li><a href="example-sub-sub-subpage-01.html" class="dropdown-item">Great webpage</a></li></ul></li><!-- End Loop  --></ul></li><!-- End Loop 2 --><li><a href="example-subpage-02.html" class="dropdown-item">Example-subpage-02</a></li></ul></li><!-- End Loop 1 --><li class="nav-item "><a class="nav-link" href="about.html">About</a></li></ul></div></li>
+		<li class="dropdown-divider"></li><li><a href="example-sub-sub-subpage-01.html" class="dropdown-item">Great webpage</a></li></ul></li><!-- End Loop 3 --></ul></li><!-- End Loop 2 --><li><a href="example-subpage-02.html" class="dropdown-item">Example-subpage-02</a></li>
+	</ul>
+</div>
+</li>
+<!-- End Loop Item 1 -->
+
+<!-- Start Normal Item 1 -->
+<li class="nav-item "><a class="nav-link" style="white-space:nowrap;" href="about.html">About</a>
+</li>
+<!-- End Normal Item 1 -->
+</ul></div>
 			
     <span class="navbar-text">
       			<a href="https://github.com/jpadfield/simple-site/">
@@ -96,11 +114,20 @@
     </span>
 </div>
     </nav>
-			<div class="row ">				
-			 <div class="col-12 col-md-12">          
-				
-				<div class="p-2 bg-light border rounded-3 jumbotron">
-      <div class="container-fluid py-4"><h3>Simple Site - <b>Extensions</b></h3></div></div><div class="row"><div class="col-12 col-lg-12"></div><!--/span--></div><!--/row-->    <div class="row"><div class="col-12 col-lg-12"><h3>Adding further functionality</h3>
+		
+		<div class="row " style="padding-top:80px; padding-bottom:40px; min-height:100%;">				
+			<div class="col-12 col-md-12">  
+				<div class="h-100 d-flex flex-column"> 
+					
+					
+<!-- Start SimpleBDGrid -->
+<div class="p-2 bg-light border rounded-3 jumbotron">
+      <div class="container-fluid py-4"><h3>Simple Site - <b>Extensions</b></h3></div></div><div class="container-fluid "><div class="row h-100"><div class="col-12">							
+								<div class="h-100 d-flex flex-column">
+							
+						</div></div><!--/span--></div></div><!--/row-->    <div class="container-fluid "><div class="row h-100"><div class="col-12 flex-grow-1">							
+								<div class="h-100 d-flex flex-column">
+							<h3>Adding further functionality</h3>
 <p>This project will take a small set of JSON files, process them and produce a formatted set of html webpages. So the next question is, what other processing functions can be added to the system to allow ones GitHub project to host additional tools or even turn a project into a simple virtual research environment.</p>
 
 <div class="alert alert-info" role="alert"><h4 class="alert-heading">New Opportunities</h4><p>What jobs could require consistent processing of simple files of text, or numbers, and then present formatted results in image viewers, graphs, maps, flow charts, etc?</p><p>There are lots of great pieces of software out there, so this project is intended to make use of open source libraries rather than creating new ones.</p><p>The main question here is, <b>how can researchers, who do not have their own web server, or sufficient coding skills gain access to their own data processing and presentation system?</b></p></div>
@@ -159,12 +186,18 @@
             <img class="img-fluid img-thumbnail" src="graphics/lists_thumb.png" alt="">
           </a>
     </div>    
-  </div><div class="foonote"><ul></ul></div></div><!--/span--></div><!--/row-->    <div class="row"><div class="col-12 col-lg-12">		<div class="alert alert-light" role="alert">
+  </div><div class="foonote"><ul></ul></div>
+						</div></div><!--/span--></div></div><!--/row-->    <div class="container-fluid "><div class="row h-100"><div class="col-12 col-lg-12">							
+								<div class="h-100 d-flex flex-column">
+									<div class="alert alert-light" role="alert">
 			<h3>Included Pages</h3>
 			<div class="list-group">			
-				<a class="list-group-item list-group-item-action" href="timeline.html">Timeline</a><a class="list-group-item list-group-item-action" href="Galleries%20and%20Lists.html">Galleries and Lists</a><a class="list-group-item list-group-item-action" href="Mirador%20IIIF%20viewer.html">Mirador IIIF viewer</a><a class="list-group-item list-group-item-action" href="Panel%20Truck%20viewer.html">Panel Truck viewer</a><a class="list-group-item list-group-item-action" href="Curtain%20Viewer.html">Curtain Viewer</a><a class="list-group-item list-group-item-action" href="OpenSeadragon%20Viewer.html">OpenSeadragon Viewer</a>
+				<a class="list-group-item list-group-item-action" href="timeline.html">Timeline</a><a class="list-group-item list-group-item-action" href="Galleries_and_Lists.html">Galleries and Lists</a><a class="list-group-item list-group-item-action" href="Mirador_IIIF_viewer.html">Mirador IIIF viewer</a><a class="list-group-item list-group-item-action" href="Panel_Truck_viewer.html">Panel Truck viewer</a><a class="list-group-item list-group-item-action" href="Curtain_Viewer.html">Curtain Viewer</a><a class="list-group-item list-group-item-action" href="OpenSeadragon_Viewer.html">OpenSeadragon Viewer</a>
 			</div>
-		</div></div><!--/span--></div><!--/row-->    <div class="row"><div class="col-12 col-lg-12">	<hr/>
+		</div>
+						</div></div><!--/span--></div></div><!--/row-->    <div class="container-fluid "><div class="row h-100"><div class="col-12 col-lg-12">							
+								<div class="h-100 d-flex flex-column">
+								<hr/>
 	<style>
 	details {
     border: 1px solid #aaa;
@@ -199,17 +232,21 @@ details[open] summary {
     &quot;title&quot;: &quot;Simple Site - &lt;b&gt;Extensions&lt;/b&gt;&quot;,
     &quot;content&quot;: &quot;&lt;h3&gt;Adding further functionality&lt;/h3&gt;\r\n&lt;p&gt;This project will take a small set of JSON files, process them and produce a formatted set of html webpages. So the next question is, what other processing functions can be added to the system to allow ones GitHub project to host additional tools or even turn a project into a simple virtual research environment.&lt;/p&gt;\r\n\r\n&lt;div class=\&quot;alert alert-info\&quot; role=\&quot;alert\&quot;&gt;&lt;h4 class=\&quot;alert-heading\&quot;&gt;New Opportunities&lt;/h4&gt;&lt;p&gt;What jobs could require consistent processing of simple files of text, or numbers, and then present formatted results in image viewers, graphs, maps, flow charts, etc?&lt;/p&gt;&lt;p&gt;There are lots of great pieces of software out there, so this project is intended to make use of open source libraries rather than creating new ones.&lt;/p&gt;&lt;p&gt;The main question here is, &lt;b&gt;how can researchers, who do not have their own web server, or sufficient coding skills gain access to their own data processing and presentation system?&lt;/b&gt;&lt;/p&gt;&lt;/div&gt;\r\n\r\n&lt;h3&gt;How it works&lt;/h3&gt;\r\n&lt;p&gt;As has already been explained, the [page|pages.json.html] JSON file includes two variables that can be used to indicate the inclusion of a page extension.&lt;/p&gt;\r\n\r\n&lt;figure&gt;\r\n\t\t&lt;pre style=\&quot;overflow: hidden;border: 2px solid black;padding: 10px;\&quot;&gt;\r\n&lt;code&gt;...  \r\n  \&quot;&lt;b&gt;class&lt;/b&gt;\&quot;: [\&quot;Indicates which project extension to use\&quot;],\r\n  \&quot;&lt;b&gt;file&lt;/b&gt;\&quot;: [\&quot;Indicates the file in which any required extra data can be found\&quot;],\r\n...\r\n&lt;/code&gt;&lt;/pre&gt;&lt;figcaption class=\\\&quot;figure-caption\\\&quot;&gt;Extension variables included in the [pages.json|pages.json.html] page object.&lt;/figcaption&gt;\r\n&lt;/figure&gt;\r\n&lt;p&gt;Simply, the &lt;b&gt;class&lt;/b&gt; variable indicates what type of extension should be included and the &lt;b&gt;file&lt;/b&gt; variable indicates the name of the file that includes any required extra data. The two classes currently available are:\r\n&lt;ul&gt;\r\n&lt;li&gt;The [timeline|timeline.html] class, which can be used to include a formatted [Gantt Chart|https://en.wikipedia.org/wiki/Gantt_chart], using the [Mermaid|https://mermaid-js.github.io/mermaid/#/] library, to display a simple project timeline.&lt;/li&gt;\r\n&lt;li&gt;The [mirador|IIIF%20viewer.html] class, which can be used to include an [IIIF|https://iiif.io/] images viewer called [Mirador|https://projectmirador.org/], to organise and present high resolution images, which are already hosted elsewhere on the web.&lt;/li&gt;\r\n&lt;/ul&gt;&lt;/p&gt;\r\n&lt;h4&gt;Positioning the extension content&lt;/h4&gt;\r\n&lt;p&gt;By default all extension content will be automatically added below the details given in the &lt;b&gt;content&lt;/b&gt; or &lt;b&gt;content right&lt;/b&gt; fields. If one would like the content to appear before of even embedded within the details provided by &lt;b&gt;content&lt;/b&gt; or &lt;b&gt;content right&lt;/b&gt; then it can be positioned by simply adding &lt;b&gt;[##]&lt;/b&gt; at the appropriate position. The system will automatically replace &lt;b&gt;[##]&lt;/b&gt; with the chosen extension content.&lt;/p&gt;\r\n\r\n&lt;h3&gt;Examples Gallery&lt;/h3&gt;\r\n\r\n\r\n  &lt;div class=\&quot;row text-center text-lg-left\&quot;&gt;\r\n    &lt;div class=\&quot;col-lg-3 col-md-4 col-6\&quot;&gt;\r\n      &lt;a href=\&quot;timeline.html\&quot; class=\&quot;d-block mb-4 h-100\&quot;&gt;\r\n            &lt;img class=\&quot;img-fluid img-thumbnail\&quot; src=\&quot;graphics/timeline_thumb.png\&quot; alt=\&quot;\&quot;&gt;\r\n          &lt;/a&gt;\r\n    &lt;/div&gt;\r\n    &lt;div class=\&quot;col-lg-3 col-md-4 col-6\&quot;&gt;\r\n      &lt;a href=\&quot;Mirador%20IIIF%20viewer.html\&quot; class=\&quot;d-block mb-4 h-100\&quot;&gt;\r\n            &lt;img class=\&quot;img-fluid img-thumbnail\&quot; src=\&quot;graphics/mirador_thumb.png\&quot; alt=\&quot;\&quot;&gt;\r\n          &lt;/a&gt;\r\n    &lt;/div&gt;    \r\n    &lt;div class=\&quot;col-lg-3 col-md-4 col-6\&quot;&gt;\r\n      &lt;a href=\&quot;Panel%20Truck%20viewer.html\&quot; class=\&quot;d-block mb-4 h-100\&quot;&gt;\r\n            &lt;img class=\&quot;img-fluid img-thumbnail\&quot; src=\&quot;graphics/panel-truck_thumb.png\&quot; alt=\&quot;\&quot;&gt;\r\n          &lt;/a&gt;\r\n    &lt;/div&gt; \r\n    \r\n    &lt;div class=\&quot;col-lg-3 col-md-4 col-6\&quot;&gt;\r\n      &lt;a href=\&quot;Curtain%20Viewer.html\&quot; class=\&quot;d-block mb-4 h-100\&quot;&gt;\r\n            &lt;img class=\&quot;img-fluid img-thumbnail\&quot; src=\&quot;graphics/curtain-viewer_thumb.png\&quot; alt=\&quot;\&quot;&gt;\r\n          &lt;/a&gt;\r\n    &lt;/div&gt; \r\n    &lt;div class=\&quot;col-lg-3 col-md-4 col-6\&quot;&gt;\r\n      &lt;a href=\&quot;OpenSeadragon%20Viewer.html\&quot; class=\&quot;d-block mb-4 h-100\&quot;&gt;\r\n            &lt;img class=\&quot;img-fluid img-thumbnail\&quot; src=\&quot;graphics/openseadragon_thumb.png\&quot; alt=\&quot;\&quot;&gt;\r\n          &lt;/a&gt;\r\n    &lt;/div&gt; \r\n    &lt;div class=\&quot;col-lg-3 col-md-4 col-6\&quot;&gt;\r\n      &lt;a href=\&quot;Galleries%20and%20Lists.html\&quot; class=\&quot;d-block mb-4 h-100\&quot;&gt;\r\n            &lt;img class=\&quot;img-fluid img-thumbnail\&quot; src=\&quot;graphics/lists_thumb.png\&quot; alt=\&quot;\&quot;&gt;\r\n          &lt;/a&gt;\r\n    &lt;/div&gt;    \r\n  &lt;/div&gt;&quot;,
     &quot;content right&quot;: &quot;&quot;,
+    &quot;copy&quot;: false,
     &quot;displaycode&quot;: true
 }</code></pre>
 		<figcaption class=\"figure-caption\">The complete JSON object used to define this content and layout of this page.</figcaption>
 	</figure>	
-	</details></div><!--/span--></div><!--/row-->    <br/>
-			</div><!--/span-->
+	</details>
+						</div></div><!--/span--></div></div><!--/row-->    
+<!-- End SimpleBDGrid -->
+
+			</div></div><!--/span-->
 			
 			
-			</div><!--/row-->
+		</div><!--/row-->
 			
-			  <footer>
+		  <footer class="fixed-bottom bg-light">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-5" style="text-align:left;">&copy; The National Gallery 2021</div>
@@ -218,16 +255,18 @@ details[open] summary {
 			</div>
 		</div>        
   </footer>
-    </div><!--/.container-->
     
+	</div><!--/.container-->
     
+	
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/tether@2.0.0/dist/js/tether.min.js" integrity="sha256-cExSEm1VrovuDNOSgLk0xLue2IXxIvbKV1gXuCqKPLE=" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha256-d+FygkWgwt59CFkWPuCB4RE6p1/WiUYCy16w1+c5vKk=" crossorigin="anonymous"></script>
-    <script>
-			
-			function onLoad() {
-				$(function() {
+	<script>
+		
+		
+		function onLoad() {
+			$(function() {
   // ------------------------------------------------------- //
   // Multi Level dropdowns
   // ------------------------------------------------------ //
@@ -247,7 +286,8 @@ details[open] summary {
 
   });
 });
-				}
-    </script>
-  </body>
+			}
+	</script>
+</body>
+
 </html>

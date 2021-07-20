@@ -8,7 +8,7 @@
     <meta name="author" content="Joseph Padfield| joseph.padfield@ng-london.org.uk |National Gallery | London UK | website@ng-london.org.uk |www.nationalgallery.org.uk" />
     <meta name="image" content="" />
     <link rel="icon" href="graphics/favicon.ico">
-    <title>NG Simple Site - Panel Truck viewer</title>
+    <title>NG Simple Site - Panel_Truck_viewer</title>
     
 	<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous" rel="stylesheet" type="text/css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.css" integrity="sha256-BNdodQbWHpU3HT8xGhkEusT4ch4HEjvwzcbDcVuHR+E=" crossorigin="anonymous" rel="stylesheet" type="text/css">
@@ -16,19 +16,13 @@
     <style>
     
     </style>
-    <!-- Global site tag (gtag.js) - Google Analytics - Only added in if the 'GoogleAnalyticsID' i set in the site.json file-->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-BQV11QKCED"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-		gtag('config', 'G-BQV11QKCED');
-	</script>
+    
   </head>
 
-  <body onload="onLoad();">
-		<div class="container">
-			<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<body onload="onLoad();">
+	<div id="wrap" class="container h-100">
+		
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 <div class="container-fluid">
       <button 
 				class="navbar-toggler navbar-toggler-right" 
@@ -45,48 +39,72 @@
 				style="" alt="The National Gallery"/>
 		  </a>
 			<div class="collapse navbar-collapse" id="navbarsExampleDefault"><ul class="navbar-nav">
-<li class="nav-item "><a class="nav-link" href="index.html">Home</a></li><li class="nav-item "><a class="nav-link" href="instructions.html">Instructions</a></li>
+
+<!-- Start Normal Item 1 -->
+<li class="nav-item "><a class="nav-link" style="white-space:nowrap;" href="home.html">Home</a>
+</li>
+<!-- End Normal Item 1 -->
+
+<!-- Start Normal Item 1 -->
+<li class="nav-item "><a class="nav-link" style="white-space:nowrap;" href="instructions.html">Instructions</a>
+</li>
+<!-- End Normal Item 1 -->
+
+<!-- Start Loop Item 1 -->
 <li class="nav-item dropdown ">
-<!-- Dropdown Loop 1 -->
-<div class="btn-group">
-  <a href="JSON.html"><button type="button" class="btn nav-link" title="Click to open the &ldquo;JSON&rdquo; page">
-  JSON</button></a>
-  <button type="button" class="btn nav-link dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false"  title="Click to open the &ldquo;JSON&rdquo; menu">
+<div class="btn-group"><a href="JSON.html" class="nav-link" title="Click to open the &ldquo;JSON&rdquo; page">
+  JSON</a><button type="button" class="btn nav-link dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false"  title="Click to open the &ldquo;JSON&rdquo; menu">
     <span class="visually-hidden">Toggle Dropdown</span>
   </button>
-  <ul class="dropdown-menu"><li><a href="site.json.html" class="dropdown-item">Site.json</a></li><li><a href="pages.json.html" class="dropdown-item">Pages.json</a></li></ul></li><!-- End Loop 1 -->
+	<ul class="dropdown-menu"><li><a href="site.json.html" class="dropdown-item">Site.json</a></li><li><a href="pages.json.html" class="dropdown-item">Pages.json</a></li>
+	</ul>
+</div>
+</li>
+<!-- End Loop Item 1 -->
+
+<!-- Start Loop Item 1 -->
 <li class="nav-item dropdown active">
-<!-- Dropdown Loop 1 -->
-<div class="btn-group">
-  <a href="extensions.html"><button type="button" class="btn nav-link" title="Click to open the &ldquo;Extensions&rdquo; page">
-  Extensions<span class="sr-only">(current)</span></button></a>
-  <button type="button" class="btn nav-link dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false"  title="Click to open the &ldquo;Extensions&rdquo; menu">
+<div class="btn-group"><a href="extensions.html" class="nav-link" title="Click to open the &ldquo;Extensions&rdquo; page">
+  Extensions<span class="sr-only">(current)</span></a><button type="button" class="btn nav-link dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false"  title="Click to open the &ldquo;Extensions&rdquo; menu">
     <span class="visually-hidden">Toggle Dropdown</span>
   </button>
-  <ul class="dropdown-menu"><li><a href="timeline.html" class="dropdown-item">Timeline</a></li><li><a href="Galleries%20and%20Lists.html" class="dropdown-item">Galleries and Lists</a></li><li><a href="Mirador%20IIIF%20viewer.html" class="dropdown-item">Mirador IIIF viewer</a></li><li><a href="Panel%20Truck%20viewer.html" class="dropdown-item">Panel Truck viewer</a></li><li><a href="Curtain%20Viewer.html" class="dropdown-item">Curtain Viewer</a></li><li><a href="OpenSeadragon%20Viewer.html" class="dropdown-item">OpenSeadragon Viewer</a></li></ul></li><!-- End Loop 1 -->
+	<ul class="dropdown-menu"><li><a href="timeline.html" class="dropdown-item">Timeline</a></li><li><a href="Galleries_and_Lists.html" class="dropdown-item">Galleries and Lists</a></li><li><a href="Mirador_IIIF_viewer.html" class="dropdown-item">Mirador IIIF viewer</a></li><li><a href="Panel_Truck_viewer.html" class="dropdown-item">Panel Truck viewer</a></li><li><a href="Curtain_Viewer.html" class="dropdown-item">Curtain Viewer</a></li><li><a href="OpenSeadragon_Viewer.html" class="dropdown-item">OpenSeadragon Viewer</a></li>
+	</ul>
+</div>
+</li>
+<!-- End Loop Item 1 -->
+
+<!-- Start Loop Item 1 -->
 <li class="nav-item dropdown ">
-<!-- Dropdown Loop 1 -->
-<div class="btn-group">
-  <a href="example.html"><button type="button" class="btn nav-link" title="Click to open the &ldquo;Example&rdquo; page">
-  Example</button></a>
-  <button type="button" class="btn nav-link dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false"  title="Click to open the &ldquo;Example&rdquo; menu">
+<div class="btn-group"><a href="example.html" class="nav-link" title="Click to open the &ldquo;Example&rdquo; page">
+  Example</a><button type="button" class="btn nav-link dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false"  title="Click to open the &ldquo;Example&rdquo; menu">
     <span class="visually-hidden">Toggle Dropdown</span>
   </button>
-  <ul class="dropdown-menu"><!-- Dropdown Loop 2 --><li class="dropdown-submenu">
+	<ul class="dropdown-menu"><!-- Dropdown Loop 2 --><li class="dropdown-submenu">
 		<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the &ldquo;Nice display pagename&rdquo; menu">Nice display pagename
 		&nbsp;&nbsp;<i class="fas fa-caret-right"></i></a>
 		
 		<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
 			<li><a href="example-subpage-01.html" class="dropdown-item  top-item" title="Click to open the &ldquo;Nice display pagename&rdquo; page">
 				Nice display pagename</a></li>
-		<li class="dropdown-divider"></li><!-- Dropdown Loop  --><li class="dropdown-submenu">
-		<a id="dropdownMenu" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the &ldquo;Example-sub-subpage-01&rdquo; menu">Example-sub-subpage-01
+		<li class="dropdown-divider"></li><!-- Dropdown Loop 3 --><li class="dropdown-submenu">
+		<a id="dropdownMenu3" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the &ldquo;Example-sub-subpage-01&rdquo; menu">Example-sub-subpage-01
 		&nbsp;&nbsp;<i class="fas fa-caret-right"></i></a>
 		
-		<ul aria-labelledby="dropdownMenu" class="dropdown-menu border-0 shadow">
+		<ul aria-labelledby="dropdownMenu3" class="dropdown-menu border-0 shadow">
 			<li><a href="example-sub-subpage-01.html" class="dropdown-item  top-item" title="Click to open the &ldquo;Example-sub-subpage-01&rdquo; page">
 				Example-sub-subpage-01</a></li>
-		<li class="dropdown-divider"></li><li><a href="example-sub-sub-subpage-01.html" class="dropdown-item">Great webpage</a></li></ul></li><!-- End Loop  --></ul></li><!-- End Loop 2 --><li><a href="example-subpage-02.html" class="dropdown-item">Example-subpage-02</a></li></ul></li><!-- End Loop 1 --><li class="nav-item "><a class="nav-link" href="about.html">About</a></li></ul></div></li>
+		<li class="dropdown-divider"></li><li><a href="example-sub-sub-subpage-01.html" class="dropdown-item">Great webpage</a></li></ul></li><!-- End Loop 3 --></ul></li><!-- End Loop 2 --><li><a href="example-subpage-02.html" class="dropdown-item">Example-subpage-02</a></li>
+	</ul>
+</div>
+</li>
+<!-- End Loop Item 1 -->
+
+<!-- Start Normal Item 1 -->
+<li class="nav-item "><a class="nav-link" style="white-space:nowrap;" href="about.html">About</a>
+</li>
+<!-- End Normal Item 1 -->
+</ul></div>
 			
     <span class="navbar-text">
       			<a href="https://github.com/jpadfield/simple-site/">
@@ -96,17 +114,26 @@
     </span>
 </div>
     </nav>
-			<div class="row ">				
-			 <div class="col-12 col-md-12">          
-				
-				<div class="p-2 bg-light border rounded-3 jumbotron">
-      <div class="container-fluid py-4"><h3>Simple Site - The <b>Panel-Truck (IIIF) Extension</b></h3></div></div><div class="row"><div class="col-12 col-lg-12">		<div class="alert alert-light" role="alert" style="padding-bottom: 0px;border-color:#dee2e6;">
+		
+		<div class="row " style="padding-top:80px; padding-bottom:40px; min-height:100%;">				
+			<div class="col-12 col-md-12">  
+				<div class="h-100 d-flex flex-column"> 
+					
+					
+<!-- Start SimpleBDGrid -->
+<div class="p-2 bg-light border rounded-3 jumbotron">
+      <div class="container-fluid py-4"><h3>Simple Site - The <b>Panel-Truck (IIIF) Extension</b></h3></div></div><div class="container-fluid "><div class="row h-100"><div class="col-12">							
+								<div class="h-100 d-flex flex-column">
+									<div class="alert alert-light" role="alert" style="padding-bottom: 0px;border-color:#dee2e6;">
 		<nav  style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><a href="extensions.html">Extensions</a></li><li class="breadcrumb-item active" aria-current="page">Panel Truck viewer</li>
 			</ol>
 		</nav>
-		</div></div><!--/span--></div><!--/row-->    <div class="row"><div class="col-12 col-lg-12"><p>This extension makes use of <a href='https://iiif.io'>IIIF</a> and the <a href='https://geoservices.leventhalmap.org/cartinal/documentation/panel-truck.html'>panel-truck (v0.1)</a> viewer, created by the <a href="https://leventhalmap.org">Leventhal Map and Education Center</a> at the Boston Public Library. The panel-truck viewer is a web UI tool which allows users to present interactive storylines using images and maps. It is an example of a special page that can be added to the <a href='pages.json.html'>pages.json</a> file.</p>
+		</div>
+						</div></div><!--/span--></div></div><!--/row-->    <div class="container-fluid "><div class="row h-100"><div class="col-12 flex-grow-1">							
+								<div class="h-100 d-flex flex-column">
+							<p>This extension makes use of <a href='https://iiif.io'>IIIF</a> and the <a href='https://geoservices.leventhalmap.org/cartinal/documentation/panel-truck.html'>panel-truck (v0.1)</a> viewer, created by the <a href="https://leventhalmap.org">Leventhal Map and Education Center</a> at the Boston Public Library. The panel-truck viewer is a web UI tool which allows users to present interactive storylines using images and maps. It is an example of a special page that can be added to the <a href='pages.json.html'>pages.json</a> file.</p>
 
 <h3>The Example</h3>
 <div style="width:100%;height:800px;"><!-- the panel-truck component will take the size of its parent element -->
@@ -122,7 +149,10 @@
 
 <p>As with the other JSON files the panel-truck data needs to be organised in a series of JSON objects, an example of which is provided below, for a live presentation of the example of code please see the <a href='https://gist.githubusercontent.com/garrettdashnelson/73b32f40cccbe30239838dd3bd63988a/raw/7d4f7efc52ee0bb0929110a4438c37d8c98f0aa5/test-screenplay.json'>test-screenplay.json</a> file.</p>
 
-<p>The required and optional json variables have all been described as part of the standard <a href='https://geoservices.leventhalmap.org/cartinal/documentation/panel-truck.html#creating-a-screenplay'>panel-truck documentation</a>, but for any more information please <a href='https://www.leventhalmap.org/about/people/garrett-nelson/'>get in touch</a> with the original project.</p><div class="foonote"><ul></ul></div></div><!--/span--></div><!--/row-->    <div class="row"><div class="col-12 col-lg-12">	<hr/>
+<p>The required and optional json variables have all been described as part of the standard <a href='https://geoservices.leventhalmap.org/cartinal/documentation/panel-truck.html#creating-a-screenplay'>panel-truck documentation</a>, but for any more information please <a href='https://www.leventhalmap.org/about/people/garrett-nelson/'>get in touch</a> with the original project.</p><div class="foonote"><ul></ul></div>
+						</div></div><!--/span--></div></div><!--/row-->    <div class="container-fluid "><div class="row h-100"><div class="col-12 col-lg-12">							
+								<div class="h-100 d-flex flex-column">
+								<hr/>
 	<style>
 	details {
     border: 1px solid #aaa;
@@ -157,6 +187,7 @@ details[open] summary {
     &quot;title&quot;: &quot;Simple Site - The &lt;b&gt;Panel-Truck (IIIF) Extension&lt;/b&gt;&quot;,
     &quot;content&quot;: &quot;&lt;p&gt;This extension makes use of [IIIF|https://iiif.io] and the [panel-truck (v0.1)|https://geoservices.leventhalmap.org/cartinal/documentation/panel-truck.html] viewer, created by the &lt;a href=\&quot;https://leventhalmap.org\&quot;&gt;Leventhal Map and Education Center&lt;/a&gt; at the Boston Public Library. The panel-truck viewer is a web UI tool which allows users to present interactive storylines using images and maps. It is an example of a special page that can be added to the [pages.json|pages.json.html] file.&lt;/p&gt;\r\n\r\n&lt;h3&gt;The Example&lt;/h3&gt;\r\n&lt;div style=\&quot;width:100%;height:800px;\&quot;&gt;&lt;!-- the panel-truck component will take the size of its parent element --&gt;\n&lt;panel-truck screenplay-src=\&quot;https://gist.githubusercontent.com/garrettdashnelson/73b32f40cccbe30239838dd3bd63988a/raw/7d4f7efc52ee0bb0929110a4438c37d8c98f0aa5/test-screenplay.json\&quot;&gt;&lt;/panel-truck&gt;\n&lt;/div&gt;\r\n&lt;br/&gt;\r\n&lt;h3&gt;Summary&lt;/h3&gt;\r\n&lt;div class=\&quot;alert alert-info\&quot; role=\&quot;alert\&quot;&gt;&lt;h4 class=\&quot;alert-heading\&quot;&gt;Extension Variables&lt;/h4&gt;&lt;p&gt;For this extension to work the &lt;b&gt;class&lt;/b&gt; variable needs to be set to &lt;b&gt;paneltruck&lt;/b&gt; and the &lt;b&gt;file&lt;/b&gt; variable needs to give the name of the additional json file including the panel-truck script details as shown below.&lt;/p&gt;&lt;/div&gt;\r\n\r\n&lt;p&gt;The details included in the &lt;b&gt;content&lt;/b&gt; and &lt;b&gt;content right&lt;/b&gt; variable will be presented as [previously described|pages.json.html], however the data included in the named file, in this case &lt;b&gt;test-screenplay.json&lt;/b&gt; will be processed and displayed in the panel-truck viewer.&lt;/p&gt;\r\n\r\n&lt;h3&gt;Panel Truck  JSON file&lt;/h3&gt;\r\n\r\n&lt;p&gt;As with the other JSON files the panel-truck data needs to be organised in a series of JSON objects, an example of which is provided below, for a live presentation of the example of code please see the [test-screenplay.json|https://gist.githubusercontent.com/garrettdashnelson/73b32f40cccbe30239838dd3bd63988a/raw/7d4f7efc52ee0bb0929110a4438c37d8c98f0aa5/test-screenplay.json] file.&lt;/p&gt;\r\n\r\n&lt;p&gt;The required and optional json variables have all been described as part of the standard [panel-truck documentation|https://geoservices.leventhalmap.org/cartinal/documentation/panel-truck.html#creating-a-screenplay], but for any more information please [get in touch|https://www.leventhalmap.org/about/people/garrett-nelson/] with the original project.&lt;/p&gt;&quot;,
     &quot;content right&quot;: &quot;&quot;,
+    &quot;copy&quot;: false,
     &quot;displaycode&quot;: true
 }</code></pre>
 		<figcaption class=\"figure-caption\">The complete JSON object used to define this content and layout of this page.</figcaption>
@@ -383,13 +414,16 @@ details[open] summary {
 }</code></pre>
 		<figcaption class=\"figure-caption\">The complete extension file used to define extra content included in this page.</figcaption>
 	</figure>	
-	</details></div><!--/span--></div><!--/row-->    <br/>
-			</div><!--/span-->
+	</details>
+						</div></div><!--/span--></div></div><!--/row-->    
+<!-- End SimpleBDGrid -->
+
+			</div></div><!--/span-->
 			
 			
-			</div><!--/row-->
+		</div><!--/row-->
 			
-			  <footer>
+		  <footer class="fixed-bottom bg-light">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-5" style="text-align:left;">&copy; The National Gallery 2021</div>
@@ -398,19 +432,21 @@ details[open] summary {
 			</div>
 		</div>        
   </footer>
-    </div><!--/.container-->
     
+	</div><!--/.container-->
     
+	
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/tether@2.0.0/dist/js/tether.min.js" integrity="sha256-cExSEm1VrovuDNOSgLk0xLue2IXxIvbKV1gXuCqKPLE=" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha256-d+FygkWgwt59CFkWPuCB4RE6p1/WiUYCy16w1+c5vKk=" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
 	<script src="https://geoservices.leventhalmap.org/panel-truck/webcomponent-0.1/panel-truck.min.js"></script>
-    <script>
-			
-			function onLoad() {
-				$(function() {
+	<script>
+		
+		
+		function onLoad() {
+			$(function() {
   // ------------------------------------------------------- //
   // Multi Level dropdowns
   // ------------------------------------------------------ //
@@ -430,7 +466,8 @@ details[open] summary {
 
   });
 });
-				}
-    </script>
-  </body>
+			}
+	</script>
+</body>
+
 </html>
