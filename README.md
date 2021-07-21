@@ -2,7 +2,7 @@
 
 # simple-site
 
-This is a very simple set of processes for creating a standard set of webpages based on a simple set of json files. This project is intended to work along side other projects to provide a simple way of creating a set of consistent webpages, which can be delivered as part of your own GitHub project using [GitHub pages](https://pages.github.com/). 
+This is a very simple set of processes for creating a standard set of webpages based on a simple set of json files. This project is intended to work along side other projects to provide a simple way of creating a set of consistent webpages, which can be delivered as part of your own GitHub project using [GitHub pages](https://pages.github.com/).
 
 ### An example set of pages, including more detailed instructions and examples can be seen at: [simple-site](https://jpadfield.github.io/simple-site/)
 
