@@ -12,6 +12,8 @@
     
 	<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous" rel="stylesheet" type="text/css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.css" integrity="sha256-BNdodQbWHpU3HT8xGhkEusT4ch4HEjvwzcbDcVuHR+E=" crossorigin="anonymous" rel="stylesheet" type="text/css">
+	<link href="https://cdn.jsdelivr.net/npm/jquery.json-viewer@1.4.0/json-viewer/jquery.json-viewer.css" integrity="sha256-rXfxviikI1RGZM3px6piq9ZL0YZuO5ETcO8+toY+DDY=" crossorigin="anonymous" rel="stylesheet" type="text/css">
+	<link href="https://cdn.jsdelivr.net/npm/highlight.js@11.2.0/styles/github.css" integrity="sha256-Oppd74ucMR5a5Dq96FxjEzGF7tTw2fZ/6ksAqDCM8GY=" crossorigin="anonymous" rel="stylesheet" type="text/css">
 	<link href="css/main.css" rel="stylesheet" type="text/css">
 	<link href="https://jpadfield.github.io/curtain-viewer/bundle.css" rel="stylesheet" type="text/css">
     <style>
@@ -46,14 +48,14 @@
 </li>
 <!-- End Normal Item 1 -->
 
-<!-- Start Normal Item 1 -->
+<!-- Start Normal Item 2 -->
 <li class="nav-item "><a class="nav-link" style="white-space:nowrap;" href="instructions.html">Instructions</a>
 </li>
-<!-- End Normal Item 1 -->
+<!-- End Normal Item 2 -->
 
-<!-- Start Loop Item 1 -->
+<!-- Start Loop Item 3 -->
 <li class="nav-item dropdown ">
-<div class="btn-group"><a href="JSON.html" class="nav-link" title="Click to open the &ldquo;JSON&rdquo; page">
+<div class="btn-group"><a href="JSON.html" class="nav-link" style="white-space:nowrap;" title="Click to open the &ldquo;JSON&rdquo; page">
   JSON</a><button type="button" class="btn nav-link dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false"  title="Click to open the &ldquo;JSON&rdquo; menu">
     <span class="visually-hidden">Toggle Dropdown</span>
   </button>
@@ -61,11 +63,11 @@
 	</ul>
 </div>
 </li>
-<!-- End Loop Item 1 -->
+<!-- End Loop Item 3 -->
 
-<!-- Start Loop Item 1 -->
+<!-- Start Loop Item 4 -->
 <li class="nav-item dropdown active">
-<div class="btn-group"><a href="extensions.html" class="nav-link" title="Click to open the &ldquo;Extensions&rdquo; page">
+<div class="btn-group"><a href="extensions.html" class="nav-link" style="white-space:nowrap;" title="Click to open the &ldquo;Extensions&rdquo; page">
   Extensions<span class="sr-only">(current)</span></a><button type="button" class="btn nav-link dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false"  title="Click to open the &ldquo;Extensions&rdquo; menu">
     <span class="visually-hidden">Toggle Dropdown</span>
   </button>
@@ -73,46 +75,42 @@
 	</ul>
 </div>
 </li>
-<!-- End Loop Item 1 -->
+<!-- End Loop Item 4 -->
 
-<!-- Start Loop Item 1 -->
+<!-- Start Loop Item 5 -->
 <li class="nav-item dropdown ">
-<div class="btn-group"><a href="example.html" class="nav-link" title="Click to open the &ldquo;Example&rdquo; page">
+<div class="btn-group"><a href="example.html" class="nav-link" style="white-space:nowrap;" title="Click to open the &ldquo;Example&rdquo; page">
   Example</a><button type="button" class="btn nav-link dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false"  title="Click to open the &ldquo;Example&rdquo; menu">
     <span class="visually-hidden">Toggle Dropdown</span>
   </button>
-	<ul class="dropdown-menu"><!-- Dropdown Loop 2 --><li class="dropdown-submenu">
-		<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the &ldquo;Nice display pagename&rdquo; menu">Nice display pagename
+	<ul class="dropdown-menu"><!-- Dropdown Loop 5-1 --><li class="dropdown-submenu">
+		<a id="dropdownMenu5-1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the &ldquo;Nice display pagename&rdquo; menu">Nice display pagename
 		&nbsp;&nbsp;<i class="fas fa-caret-right"></i></a>
 		
-		<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
+		<ul aria-labelledby="dropdownMenu5-1" class="dropdown-menu border-0 shadow">
 			<li><a href="example-subpage-01.html" class="dropdown-item  top-item" title="Click to open the &ldquo;Nice display pagename&rdquo; page">
 				Nice display pagename</a></li>
-		<li class="dropdown-divider"></li><!-- Dropdown Loop 3 --><li class="dropdown-submenu">
-		<a id="dropdownMenu3" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the &ldquo;Example-sub-subpage-01&rdquo; menu">Example-sub-subpage-01
+		<li class="dropdown-divider"></li><!-- Dropdown Loop 5-1-1 --><li class="dropdown-submenu">
+		<a id="dropdownMenu5-1-1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the &ldquo;Example-sub-subpage-01&rdquo; menu">Example-sub-subpage-01
 		&nbsp;&nbsp;<i class="fas fa-caret-right"></i></a>
 		
-		<ul aria-labelledby="dropdownMenu3" class="dropdown-menu border-0 shadow">
+		<ul aria-labelledby="dropdownMenu5-1-1" class="dropdown-menu border-0 shadow">
 			<li><a href="example-sub-subpage-01.html" class="dropdown-item  top-item" title="Click to open the &ldquo;Example-sub-subpage-01&rdquo; page">
 				Example-sub-subpage-01</a></li>
-		<li class="dropdown-divider"></li><li><a href="example-sub-sub-subpage-01.html" class="dropdown-item">Great webpage</a></li></ul></li><!-- End Loop 3 --></ul></li><!-- End Loop 2 --><li><a href="example-subpage-02.html" class="dropdown-item">Example-subpage-02</a></li>
+		<li class="dropdown-divider"></li><li><a href="example-sub-sub-subpage-01.html" class="dropdown-item">Great webpage</a></li></ul></li><!-- End Loop 5-1-1 --></ul></li><!-- End Loop 5-1 --><li><a href="example-subpage-02.html" class="dropdown-item">Example-subpage-02</a></li>
 	</ul>
 </div>
 </li>
-<!-- End Loop Item 1 -->
+<!-- End Loop Item 5 -->
 
-<!-- Start Normal Item 1 -->
+<!-- Start Normal Item 6 -->
 <li class="nav-item "><a class="nav-link" style="white-space:nowrap;" href="about.html">About</a>
 </li>
-<!-- End Normal Item 1 -->
-</ul></div>
-			
-    <span class="navbar-text">
-      			<a href="https://github.com/jpadfield/simple-site/">
+<!-- End Normal Item 6 -->
+</ul><span class="navbar-text w-100">			<a href="https://github.com/jpadfield/simple-site/" class="float-end">
 				<img id="ex-logo1" class="logo" title="github" src="graphics/github logo white.png" 
 				style="" alt="GitHub Jpadfield Simple-site"/>
-		  </a>
-    </span>
+		  </a></span></div>
 </div>
     </nav>
 		
@@ -123,11 +121,11 @@
 					
 <!-- Start SimpleBDGrid -->
 <div class="p-2 bg-light border rounded-3 jumbotron">
-      <div class="container-fluid py-4"><h3><b>Curtain Viewer</b> - <i>A Dominican, with the Attributes of Saint Peter Martyr</i></h3></div></div><div class="container-fluid "><div class="row h-100"><div class="col-12">							
+      <div class="container-fluid py-2"><h3 style="margin-bottom:0px;"><b>Curtain Viewer</b> - <i>A Dominican, with the Attributes of Saint Peter Martyr</i></h3></div></div><div class="container-fluid "><div class="row h-100"><div class="col-12">							
 								<div class="h-100 d-flex flex-column">
-									<div class="alert alert-light" role="alert" style="padding-bottom: 0px;border-color:#dee2e6;">
+									<div class="alert alert-light" role="alert" style="padding:0.5rem 0.5rem 0px 0.5rem;border-color:#dee2e6;">
 		<nav  style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-			<ol class="breadcrumb">
+			<ol class="breadcrumb" style="margin-bottom:0.5rem;">
 				<li class="breadcrumb-item"><a href="extensions.html">Extensions</a></li><li class="breadcrumb-item active" aria-current="page">Curtain Viewer</li>
 			</ol>
 		</nav>
@@ -183,11 +181,11 @@ details[open] summary {
 	<br/>
 		<h3>Page JSON Object</h3>
 	<figure>
-		<pre style="overflow-y: auto;overflow-x: hidden; border: 2px solid black;padding: 10px;max-height:400px;"><code>{
+		<pre class="json-renderer" style="overflow-y: auto;overflow-x: auto; border: 2px solid black;padding: 10px;max-height:400px;"><code>{
     &quot;parent&quot;: &quot;extensions&quot;,
     &quot;class&quot;: &quot;curtain&quot;,
     &quot;file&quot;: &quot;https://raw.githubusercontent.com/jpadfield/simple-site/master/build/curtain-example-01.json&quot;,
-    &quot;title&quot;: &quot;&lt;b&gt;Curtain Viewer&lt;/b&gt; - &lt;i&gt;A Dominican, with the Attributes of Saint Peter Martyr&lt;/i&gt;&quot;,
+    &quot;title&quot;: &quot;&lt;h3 style=\&quot;margin-bottom:0px;\&quot;&gt;&lt;b&gt;Curtain Viewer&lt;/b&gt; - &lt;i&gt;A Dominican, with the Attributes of Saint Peter Martyr&lt;/i&gt;&lt;/h3&gt;&quot;,
     &quot;content&quot;: &quot;&lt;p&gt;This extension makes use of [IIIF|https://iiif.io] and the [Victoria and Albert Museum|https://www.vam.ac.uk/] - [Curtain Viewer|https://vanda.github.io/curtain-viewer] which is based on [OpenSeaDragon|https://openseadragon.github.io/], using the [curtain-sync plugin|https://github.com/cuberis/openseadragon-curtain-sync] for comparing naturally aligned image variants, such as those obtained by multi-spectral imaging, supplied as canvases in a IIIF manifest.&lt;/p&gt;\r\n\r\n&lt;p&gt;The images presented here are all representations of [A Dominican, with the Attributes of Saint Peter Martyr about 1490-1500|https://www.nationalgallery.org.uk/paintings/giovanni-bellini-a-dominican-with-the-attributes-of-saint-peter-martyr] by [Giovanni Bellini|http://www.nationalgallery.org.uk/artists/giovanni-bellini] which was presented as part of the [Close Examination: Fakes, Mistakes and Discoveries|https://www.nationalgallery.org.uk/exhibitions/past/close-examination-fakes-mistakes-and-discoveries] exhibition and is described in more detail [here|http://www.nationalgallery.org.uk/paintings/research/a-dominican-with-the-attributes-of-saint-peter-martyr].&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;b&gt;This viewer is limited to displaying three images at a time, but one can select any three from the set provided.&lt;/b&gt;&lt;/p&gt;\r\n\r\n&lt;h3&gt;The Example&lt;/h3&gt;\r\n&lt;div class=\&quot;row\&quot; style=\&quot;padding-left:16px;padding-right:16px;\&quot;&gt;&lt;div class=\&quot;col-12 col-lg-12\&quot;&gt;&lt;div class=\&quot;curtain-viewer\&quot; data-iiif-manifest=\&quot;https://raw.githubusercontent.com/jpadfield/simple-site/master/build/curtain-example-01.json\&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;\r\n&lt;br/&gt;\r\n&lt;h3&gt;Summary&lt;/h3&gt;\r\n&lt;div class=\&quot;alert alert-info\&quot; role=\&quot;alert\&quot;&gt;&lt;h4 class=\&quot;alert-heading\&quot;&gt;Extension Variables&lt;/h4&gt;&lt;p&gt;For this extension to work the &lt;b&gt;class&lt;/b&gt; variable needs to be set to &lt;b&gt;curtain&lt;/b&gt; and the &lt;b&gt;file&lt;/b&gt; variable needs to give the name of the additional json file including the IIIF collection manifest defining the set of images to present, as shown below.&lt;/p&gt;&lt;/div&gt;\r\n\r\n&lt;p&gt;The details included in the &lt;b&gt;content&lt;/b&gt; and &lt;b&gt;content right&lt;/b&gt; variable will be presented as [previously described|pages.json.html], however the data included in the named file, in this case &lt;b&gt;curtain-example-01.json&lt;/b&gt; will be processed and displayed in the curtain viewer. &lt;b&gt;Please note that a full resolvable URL is required for this file rather than just the local filename&lt;/b&gt;.&lt;/p&gt;\r\n\r\n&lt;h3&gt;Curtain Viewer IIIF Collection Manifest JSON file&lt;/h3&gt;\r\n\r\n&lt;p&gt;As with the other JSON files the curtain viewer data needs to be organised in a series of JSON objects, an example of which is provided below, for a live presentation of the example of code please see the [curtain-example-01.json|https://raw.githubusercontent.com/jpadfield/simple-site/master/build/curtain-example-01.json] file.&lt;/p&gt;\r\n\r\n&lt;p&gt;More general details of the variables and formatting required for the version of the IIIF Collection manifest used in the curtain viewer can found [here|https://iiif.io/api/presentation/2.1/#collection].&lt;/p&gt;&quot;,
     &quot;content right&quot;: &quot;&quot;,
     &quot;copy&quot;: false,
@@ -196,7 +194,7 @@ details[open] summary {
 		<figcaption class=\"figure-caption\">The complete JSON object used to define this content and layout of this page.</figcaption>
 	</figure>		<h3>Extra extension file</h3>
 	<figure>
-		<pre style="overflow-y: auto;overflow-x: hidden; border: 2px solid black;padding: 10px;max-height:400px;"><code>{
+		<pre class="json-renderer" style="overflow-y: auto;overflow-x: auto; border: 2px solid black;padding: 10px;max-height:400px;"><code>{
     &quot;@context&quot;: &quot;http://iiif.io/api/presentation/2/context.json&quot;,
     &quot;@id&quot;: &quot;https://raw.githubusercontent.com/jpadfield/simple-mirador/master/build/curtain-example-01.json&quot;,
     &quot;@type&quot;: &quot;sc:Collection&quot;,
@@ -253,13 +251,43 @@ details[open] summary {
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/tether@2.0.0/dist/js/tether.min.js" integrity="sha256-cExSEm1VrovuDNOSgLk0xLue2IXxIvbKV1gXuCqKPLE=" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha256-d+FygkWgwt59CFkWPuCB4RE6p1/WiUYCy16w1+c5vKk=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/jquery.json-viewer@1.4.0/json-viewer/jquery.json-viewer.js" integrity="sha256-klSHtWPkZv4zG4darvDEpAQ9hJFDqNbQrM+xDChm8Fo=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.2.0/build/highlight.min.js"></script>
 	<script src="https://jpadfield.github.io/curtain-viewer/js/1.08958bb6.chunk.js"></script>
 	<script src="https://jpadfield.github.io/curtain-viewer/js/app.a955ee34.js"></script>
 	<script>
 		
 		
 		function onLoad() {
-			$(function() {
+			hljs.highlightAll();			
+	$('pre.json-renderer').each(function(index, value) {			
+			var vtext = $(value).text()
+			var jsonResult;
+			
+			try {jsonResult = JSON.parse(vtext);}
+			catch (e) {console.log("\""+vtext+"\" " + "is not valid JSON: "+e);};
+		
+			if (jsonResult) {$(value).jsonViewer(jsonResult);}
+			else
+				{let vurl = new URL(vtext);
+				 if (vurl.origin != "null") {
+				 $.getJSON({
+						url: vtext
+						}).done(function (result, status, xhr) {
+								$(value).jsonViewer(result)
+								}).fail(function (xhr, status, error) {									
+									$(value).jsonViewer(JSON.parse('{"string":"'+vtext+
+										'","error":"The supplied text does not seems to be' +
+										' valid JSON or a valid URL"}'));
+									});
+							}
+				else
+					{$(value).jsonViewer(JSON.parse('{"string":"'+vtext+
+					 '","error":"The supplied text does not seems to be valid '+
+					 'JSON or a valid URL"}'));}
+				}		
+		});
+		$(function() {
   // ------------------------------------------------------- //
   // Multi Level dropdowns
   // ------------------------------------------------------ //

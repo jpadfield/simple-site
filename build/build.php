@@ -37,6 +37,11 @@ $extensionList = array();
 	* or https://example.org/mg-int/ works with code at https://example.org/ss/int/*
 */
 
+if (isset($_SERVER["SERVER_NAME"]))
+	{$domain = $_SERVER["SERVER_NAME"];}
+else
+	{$domain = "auto";}
+	
 if (isset($_GET["display"]))
 	{$echoPage = $_GET["display"];
 	 $rootURL = $_GET["root"];
@@ -57,17 +62,21 @@ $de = glob("extensions/*.php");
 foreach($de as $file){
   require_once $file;
 } 
-	
+
 $site = getRemoteJsonDetails("site.json", false, true);
 
 $default_scripts = array(
 	"js-scripts" => array (
 		"jquery" => "https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js\" integrity=\"sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=\" crossorigin=\"anonymous",
 		"tether" => "https://cdn.jsdelivr.net/npm/tether@2.0.0/dist/js/tether.min.js\" integrity=\"sha256-cExSEm1VrovuDNOSgLk0xLue2IXxIvbKV1gXuCqKPLE=\" crossorigin=\"anonymous",
-		"bootstrap" => "https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js\" integrity=\"sha256-d+FygkWgwt59CFkWPuCB4RE6p1/WiUYCy16w1+c5vKk=\" crossorigin=\"anonymous"),
+		"bootstrap" => "https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js\" integrity=\"sha256-d+FygkWgwt59CFkWPuCB4RE6p1/WiUYCy16w1+c5vKk=\" crossorigin=\"anonymous",
+		"json-viewer" => "https://cdn.jsdelivr.net/npm/jquery.json-viewer@1.4.0/json-viewer/jquery.json-viewer.js\" integrity=\"sha256-klSHtWPkZv4zG4darvDEpAQ9hJFDqNbQrM+xDChm8Fo=\" crossorigin=\"anonymous",
+		"highlight" => "https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.2.0/build/highlight.min.js"),
 	"css-scripts" => array(
 		"fontawesome" => "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css\" integrity=\"sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=\" crossorigin=\"anonymous",
 		"bootstrap" => "https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.css\" integrity=\"sha256-BNdodQbWHpU3HT8xGhkEusT4ch4HEjvwzcbDcVuHR+E=\" crossorigin=\"anonymous",
+		"json-viewer" => "https://cdn.jsdelivr.net/npm/jquery.json-viewer@1.4.0/json-viewer/jquery.json-viewer.css\" integrity=\"sha256-rXfxviikI1RGZM3px6piq9ZL0YZuO5ETcO8+toY+DDY=\" crossorigin=\"anonymous",
+		"highlight" => "https://cdn.jsdelivr.net/npm/highlight.js@11.2.0/styles/github.css\" integrity=\"sha256-Oppd74ucMR5a5Dq96FxjEzGF7tTw2fZ/6ksAqDCM8GY=\" crossorigin=\"anonymous",
 		"main" => $rootURL."css/main.css"
 		));
 		
@@ -116,7 +125,7 @@ $defaults = array(
 	"logo_link" => "",
 	"logo_path" => "graphics/github pages.png",
 	"logo_style" => "",
-	"extra_onload" => "",
+	"extra_onload" => "hljs.highlightAll();",
 	"topNavbar" => "",
 	"body" => "",
 	"fluid" => false,
@@ -129,7 +138,42 @@ $defaults = array(
 	"GoogleAnalyticsID" => false,
 	"navExtra" => false
 	);
-				
+
+ob_start();			
+		echo <<<END
+			
+	\$('pre.json-renderer').each(function(index, value) {			
+			var vtext = \$(value).text()
+			var jsonResult;
+			
+			try {jsonResult = JSON.parse(vtext);}
+			catch (e) {console.log("\""+vtext+"\" " + "is not valid JSON: "+e);};
+		
+			if (jsonResult) {\$(value).jsonViewer(jsonResult);}
+			else
+				{let vurl = new URL(vtext);
+				 if (vurl.origin != "null") {
+				 $.getJSON({
+						url: vtext
+						}).done(function (result, status, xhr) {
+								\$(value).jsonViewer(result)
+								}).fail(function (xhr, status, error) {									
+									\$(value).jsonViewer(JSON.parse('{"string":"'+vtext+
+										'","error":"The supplied text does not seems to be' +
+										' valid JSON or a valid URL"}'));
+									});
+							}
+				else
+					{\$(value).jsonViewer(JSON.parse('{"string":"'+vtext+
+					 '","error":"The supplied text does not seems to be valid '+
+					 'JSON or a valid URL"}'));}
+				}		
+		});
+		
+END;
+		$defaults["extra_onload"] .= ob_get_contents();
+		ob_end_clean(); // Don't send output to client
+						
 $gdp = array_merge ($defaults, $site);
 
 // NEED TO ALLOW a value of echopage that matches and alias to work, also bad echpage vales default to index/home or the first pages value
@@ -267,9 +311,9 @@ function buildSimpleBSGrid ($bdDetails = array())
 		echo "
 <!-- Start SimpleBDGrid -->
 ";
-		if (isset($bdDetails["topjumbotron"]))
+		if (isset($bdDetails["topjumbotron"]) and $bdDetails["topjumbotron"])
 			{echo '<div class="p-2 bg-light border rounded-3 jumbotron">
-      <div class="container-fluid py-4">'.$bdDetails["topjumbotron"].'</div></div>';}
+      <div class="container-fluid py-2">'.$bdDetails["topjumbotron"].'</div></div>';}
 		
 		if (isset($bdDetails["rows"])) 
 			{
@@ -292,7 +336,7 @@ function buildSimpleBSGrid ($bdDetails = array())
 		
 		if (isset($bdDetails["bottomjumbotron"]) and $bdDetails["bottomjumbotron"])
 			{echo '<div class="p-2 bg-light border rounded-3 jumbotron">
-      <div class="container-fluid py-4">'.$bdDetails["bottomjumbotron"].'</div></div>';
+      <div class="container-fluid py-2">'.$bdDetails["bottomjumbotron"].'</div></div>';
       }
 		else
 			{echo "";}
@@ -307,54 +351,11 @@ function buildSimpleBSGrid ($bdDetails = array())
 		return($html);
 		}
 
-function OLDloopMenus ($str, $key, $arr, $no)
-	{		
-	global $dpnames;
-	$str .=
-		'<!-- Dropdown Loop '.$no.' -->';
-		
-	if (isset($dpnames[$key]))
-		{$dkey = $dpnames[$key];}
-	else
-		{$dkey = $key;}
-            
-	$str .= '
-<li class="dropdown-submenu">
-	<div class="btn-group">
-		<a href="'.str_replace(' ', '%20', $key).'.html"><button type="button" class="btn btn-secondary nav-link" title="Click to open the &ldquo;'.ucfirst($dkey).'&rdquo; page">
-  '.ucfirst($dkey).'</button></a>
-  <button type="button" class="btn btn-secondary nav-link dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false"  title="Click to open the &ldquo;'.ucfirst($dkey).'&rdquo; menu">
-    <span class="visually-hidden">Toggle Dropdown</span>
-  </button>
-  <ul class="dropdown-menu">';
-
-	foreach ($arr as $k => $a)
-		{
-		if (isset($dpnames[$k]))
-			{$dk = $dpnames[$k];}
-		else
-			{$dk = $k;}
-			
-		if (!$a)
-			{$str .= '<li><a href="'.str_replace(' ', '%20', $k).'.html" class="dropdown-item">'.
-				ucfirst($dk).'</a></li>';}
-		else
-			{$str = loopMenus ($str, $k, $a, false, $no+1);}
-		}
-
-	$str .= '</ul></li><!-- End Loop '.$no.' -->'; 
-
-	return ($str);
-	}
-
-
-
-function loopMenus ($str, $key, $arr, $no, $suffix=false)
+function loopMenus ($str, $key, $arr, $no, $sno, $suffix=false)
 	{	
-	//prg(0, array("loopMenus", $no, $suffix));	
 	global $dpnames, $pages, $rootURL;
 	$str .=
-		'<!-- Dropdown Loop '.$no.' -->';
+		'<!-- Dropdown Loop '.$no.'-'.$sno.' -->';
 		
 	if (isset($dpnames[$key]))
 		{$dkey = $dpnames[$key];}
@@ -362,16 +363,17 @@ function loopMenus ($str, $key, $arr, $no, $suffix=false)
 		{$dkey = $key;}
             
 	$str .= '<li class="dropdown-submenu">
-		<a id="dropdownMenu'.$no.'" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the &ldquo;'.ucfirst($dkey).'&rdquo; menu">'.ucfirst($dkey).'
+		<a id="dropdownMenu'.$no.'-'.$sno.'" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the &ldquo;'.ucfirst($dkey).'&rdquo; menu">'.ucfirst($dkey).'
 		&nbsp;&nbsp;<i class="fas fa-caret-right"></i></a>
 		
-		<ul aria-labelledby="dropdownMenu'.$no.'" class="dropdown-menu border-0 shadow">
+		<ul aria-labelledby="dropdownMenu'.$no.'-'.$sno.'" class="dropdown-menu border-0 shadow">
 			<li><a href="'.$rootURL.str_replace(' ', '%20', $key).$suffix.'" class="dropdown-item  top-item" title="Click to open the &ldquo;'.ucfirst($dkey).'&rdquo; page">
 				'.ucfirst($dkey).'</a></li>
 		<li class="dropdown-divider"></li>';
 
+	$lsno = 1;
 	foreach ($arr as $k => $a)
-		{
+		{		
 		if ($pages[$k]["copy"])
 			{continue;}
 			
@@ -384,10 +386,12 @@ function loopMenus ($str, $key, $arr, $no, $suffix=false)
 			{$str .= '<li><a href="'.$rootURL.str_replace(' ', '%20', $k).$suffix.'" class="dropdown-item">'.
 				ucfirst($dk).'</a></li>';}
 		else
-			{$str = loopMenus ($str, $k, $a, $no+1, $suffix);}
+			{$str = loopMenus ($str, $k, $a, $no."-".$sno, $lsno, $suffix);}
+			
+		$lsno++;
 		}
 
-	$str .= '</ul></li><!-- End Loop '.$no.' -->'; 
+	$str .= '</ul></li><!-- End Loop '.$no.'-'.$sno.' -->'; 
 
 	return ($str);
 	}
@@ -428,14 +432,14 @@ function buildTopNav ($name, $bcs=false, $navExtra=false)
 <!-- Start Loop Item '.$no.' -->
 <li class="nav-item dropdown '.$a[0].'">
 <div class="btn-group">'.   
-  '<a href="'.$rootURL.$puse.$suffix.'" class="nav-link" title="Click to open the &ldquo;'.ucfirst($dpname).'&rdquo; page">
+  '<a href="'.$rootURL.$puse.$suffix.'" class="nav-link" style="white-space:nowrap;" title="Click to open the &ldquo;'.ucfirst($dpname).'&rdquo; page">
   '.ucfirst($dpname).$a[1].'</a>'  
   .'<button type="button" class="btn nav-link dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false"  title="Click to open the &ldquo;'.ucfirst($dpname).'&rdquo; menu">
     <span class="visually-hidden">Toggle Dropdown</span>
   </button>
 	<ul class="dropdown-menu">';
   
-	
+			$sno = 1;
 			foreach ($menuList[$pname] as $k => $a)
 				{
 				if (isset($dpnames[$k]))
@@ -446,7 +450,8 @@ function buildTopNav ($name, $bcs=false, $navExtra=false)
 				if (!$a)
 					{$html .= '<li><a href="'.$rootURL.str_replace(' ', '%20', $k).$suffix.'" class="dropdown-item">'.ucfirst($dk).'</a></li>';}
 				else
-					{$html = loopMenus ($html, $k, $a, $no+1, $suffix);}
+					{$html = loopMenus ($html, $k, $a, $no, $sno, $suffix);}
+				$sno++;
 				}
 
 			$html .= '
@@ -463,7 +468,9 @@ function buildTopNav ($name, $bcs=false, $navExtra=false)
 			$rootURL.$puse.$suffix.'">'.ucfirst($dpname).$a[1].'</a>
 </li>
 <!-- End Normal Item '.$no.' -->
-';}}
+';}
+$no++;
+	}
 	
 	$html .= '</ul>'.$navExtra.'</div>';
 	
@@ -553,8 +560,8 @@ function parseBreadbcrumbs ($str)
 	
 function buildBreadcrumbs ($arr)
 	{
-	global $dpnames, $suffix;
-	
+	global $dpnames, $suffix, $rootURL;
+
 	$html = false;
 		
 	// process current page differently
@@ -565,16 +572,16 @@ function buildBreadcrumbs ($arr)
 		$list = "";
 		foreach ($arr as $k => $v)
 			{$pv = parseBreadbcrumbs ($v);
-			 $list .= "<li class=\"breadcrumb-item\"><a href=\"".$pv[1].
+			 $list .= "<li class=\"breadcrumb-item\"><a href=\"".$rootURL.$pv[1].
 				$suffix."\">$pv[0]</a></li>";}
 			
 		$list .= "<li class=\"breadcrumb-item active\" aria-current=\"page\">$cp[0]</li>";
 			
 		ob_start();			
 		echo <<<END
-		<div class="alert alert-light" role="alert" style="padding-bottom: 0px;border-color:#dee2e6;">
+		<div class="alert alert-light" role="alert" style="padding:0.5rem 0.5rem 0px 0.5rem;border-color:#dee2e6;">
 		<nav  style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-			<ol class="breadcrumb">
+			<ol class="breadcrumb" style="margin-bottom:0.5rem;">
 				$list
 			</ol>
 		</nav>
@@ -584,6 +591,7 @@ END;
 		ob_end_clean(); // Don't send output to client
 		}
 	
+
 	return($html);
 	}
 	
@@ -677,6 +685,29 @@ function writePage ($name, $d)
 		{$ta = buildExtensionContent($d, $pd);		 
 		 $d = $ta[0];
 		 $pd = $ta[1];}
+ 
+	$extra_logos = "";
+	$exlno = 1;
+	foreach ($pd["extra_logos"] as $k => $lds)
+		{
+		ob_start();			
+		echo <<<END
+			<a href="$lds[link]/" class="float-end">
+				<img id="ex-logo${exlno}" class="logo" title="$k" src="$lds[logo]" 
+				style="$pd[logo_style]" alt="$lds[alt]"/>
+		  </a>
+END;
+		$extra_logos .= ob_get_contents();
+		ob_end_clean(); // Don't send output to client
+		
+		$exlno++;
+		}
+	
+	if (!$pd["navExtra"]) {$xw = "w-100";}
+	else {$xw = "";}
+	
+	if ($extra_logos)
+		{$pd["navExtra"] .= "<span class=\"navbar-text $xw\">$extra_logos</span>";}
 		 		
 	if ($d["parent"])
 		{$pd["topNavbar"] = buildTopNav ($d["bcs"][0], false, $pd["navExtra"]);
@@ -686,9 +717,12 @@ function writePage ($name, $d)
 		 $pd["breadcrumbs"] = "";}
 
 	$content = parseLinks ($d["content"], 1);
+	
+	if ($d["title"])
+		{$d["title"] = "<h3 style=\"margin-bottom:0px;\">$d[title]</h3>";}
 		
 	$pd["grid"] = array(
-		"topjumbotron" => "<h3>$d[title]</h3>",
+		"topjumbotron" => $d["title"],
 		"bottomjumbotron" => "",
 		"rows" => array(
 			array(
@@ -748,10 +782,10 @@ function writePage ($name, $d)
 					array (
 						"class" => "col-12 col-lg-12",
 						"content" => $codeHTML)));}
-					
+	
 	$pd["body"] = buildSimpleBSGrid ($pd["grid"]);
 
-	$html = buildBootStrapNGPage2 ($pd);
+	$html = buildBootStrapNGPage ($pd);
 	
 	if ($echoPage) 
 		{return($html);}
@@ -762,7 +796,7 @@ function writePage ($name, $d)
 		
 	}
 	
-function buildBootStrapNGPage ($pageDetails=array())
+/*function buildBootStrapNGPageOLD ($pageDetails=array())
 	{
   global $default_scripts;
 
@@ -814,22 +848,22 @@ END;
 	else
 			{$tofu = '<div>This site is based on the <a href=" https://github.com/jpadfield/simple-site">simple-site</a> project.</div>';}
 	
-	$extra_logos = "";
-	$exlno = 1;
-	foreach ($pageDetails["extra_logos"] as $k => $lds)
-		{
-		ob_start();			
-		echo <<<END
-			<a href="$lds[link]/">
-				<img id="ex-logo${exlno}" class="logo" title="$k" src="$lds[logo]" 
-				style="$pageDetails[logo_style]" alt="$lds[alt]"/>
-		  </a>
-END;
-		$extra_logos .= ob_get_contents();
-		ob_end_clean(); // Don't send output to client
-		
-		$exlno++;
-		}
+	//$extra_logos = "";
+	//$exlno = 1;
+	//foreach ($pageDetails["extra_logos"] as $k => $lds)
+//		{
+		//ob_start();			
+		//echo <<<END
+//			<a href="$lds[link]/">
+				//<img id="ex-logo${exlno}" class="logo" title="$k" src="$lds[logo]" 
+				//style="$pageDetails[logo_style]" alt="$lds[alt]"/>
+		  //</a>
+//END;
+		//$extra_logos .= ob_get_contents();
+		//ob_end_clean(); // Don't send output to client
+//		
+		//$exlno++;
+		//}
 		
 	if ($pageDetails["topNavbar"])
 		{
@@ -853,9 +887,9 @@ END;
 		  </a>
 			$pageDetails[topNavbar]
 			
-    <span class="navbar-text">
+    <!-- <span class="navbar-text">
       $extra_logos
-    </span>
+    </span> -->
 </div>
     </nav>
 END;
@@ -895,8 +929,8 @@ END;
   <footer>
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-5" style="text-align:left;">$pageDetails[footer]</div>
-				<div class="col-2" style="text-align:center;">$pageDetails[footer2]</div>
+				<div class="col-6" style="text-align:left;">$pageDetails[footer]</div>
+				<div class="col-1" style="text-align:center;">$pageDetails[footer2]</div>
 				<div class="col-5" style="text-align:right;">$pageDetails[licence]</div>
 			</div>
 		</div>        
@@ -978,12 +1012,12 @@ END;
 	ob_end_clean(); // Don't send output to client
 
 	return ($page_html);
-	}
+	}*/
 
 	
-function buildBootStrapNGPage2 ($pageDetails=array())
+function buildBootStrapNGPage ($pageDetails=array())
 	{
-  global $default_scripts;
+  global $default_scripts, $domain;
 
 	ob_start();			
 	echo <<<END
@@ -1032,23 +1066,6 @@ END;
 			{$tofu = '<div class="licence">'.$pageDetails["licence"].'</div>';}
 	else
 			{$tofu = '<div>This site is based on the <a href=" https://github.com/jpadfield/simple-site">simple-site</a> project.</div>';}
-	
-	$extra_logos = "";
-	$exlno = 1;
-	foreach ($pageDetails["extra_logos"] as $k => $lds)
-		{
-		ob_start();			
-		echo <<<END
-			<a href="$lds[link]/">
-				<img id="ex-logo${exlno}" class="logo" title="$k" src="$lds[logo]" 
-				style="$pageDetails[logo_style]" alt="$lds[alt]"/>
-		  </a>
-END;
-		$extra_logos .= ob_get_contents();
-		ob_end_clean(); // Don't send output to client
-		
-		$exlno++;
-		}
 		
 	if ($pageDetails["topNavbar"])
 		{
@@ -1071,10 +1088,6 @@ END;
 				style="$pageDetails[logo_style]" alt="The National Gallery"/>
 		  </a>
 			$pageDetails[topNavbar]
-			
-    <span class="navbar-text">
-      $extra_logos
-    </span>
 </div>
     </nav>
 END;
@@ -1106,17 +1119,26 @@ END;
 		 $offcanvasToggle = "";
 		 $sidepanel = "";
 		 $ocw = "12";}
- 	
+
 	if ($pageDetails["footer"] or $pageDetails["licence"])
 		{
+		if (isset($pageDetails["footer_cols"][0]) and 
+				isset($pageDetails["footer_cols"][1]))
+			{
+			$fc0 = intval($pageDetails["footer_cols"][0]);
+			$fc1 = intval($pageDetails["footer_cols"][1]);
+			$fc = array($fc0, $fc1, (12 - $fc0 - $fc1));}
+		else
+			{$fc = array(5,2,5);}
+			
 		ob_start();			
 		echo <<<END
   <footer class="fixed-bottom bg-light">
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-5" style="text-align:left;">$pageDetails[footer]</div>
-				<div class="col-2" style="text-align:center;">$pageDetails[footer2]</div>
-				<div class="col-5" style="text-align:right;">$pageDetails[licence]</div>
+				<div class="col-$fc[0]" style="text-align:left;">$pageDetails[footer]</div>
+				<div class="col-$fc[1]" style="text-align:center;">$pageDetails[footer2]</div>
+				<div class="col-$fc[2]" style="text-align:right;">$pageDetails[licence]</div>
 			</div>
 		</div>        
   </footer>
@@ -1138,7 +1160,10 @@ END;
 		window.dataLayer = window.dataLayer || [];
 		function gtag(){dataLayer.push(arguments);}
 		gtag('js', new Date());
-		gtag('config', '$pageDetails[GoogleAnalyticsID]');
+		gtag('config', '$pageDetails[GoogleAnalyticsID]', {
+    cookie_domain: '$domain',
+    cookie_flags: 'SameSite=Strict;Secure',
+  });
 	</script>
 END;
 		$GoogleAnalytics = ob_get_contents();
@@ -1204,7 +1229,21 @@ END;
 
 	return ($page_html);
 	}
+	
+function convertContenttoInfo ($d)
+	{
+	// Used to space hungry extensions if the position of the extension 
+	// code is not defined then the content will be moved to an 
+	// information model leaving just the extension content display in the page
+	
+	if (preg_match('/\[[#][#]\]/', $d["content"]) or preg_match('/\[[#][#]\]/', $d["content right"]))
+		{$d["info"] = false;}
+	else
+		{$d["info"] = $d["content"];
+		 $d["content"] = "[##]";}
 
+	return ($d);	
+	}
 
 function positionExtraContent ($d, $extra)
 	{
@@ -1273,7 +1312,7 @@ function displayCodeSection ($array, $title=false, $format="json", $caption=fals
 	echo <<<END
 	$title
 	<figure>
-		<pre style="overflow-y: auto;overflow-x: hidden; border: 2px solid black;padding: 10px;max-height:400px;"><code>${code}</code></pre>
+		<pre class="json-renderer" style="overflow-y: auto;overflow-x: auto; border: 2px solid black;padding: 10px;max-height:400px;"><code>${code}</code></pre>
 		<figcaption class=\"figure-caption\">$caption</figcaption>
 	</figure>	
 END;
@@ -1321,5 +1360,56 @@ END;
 
   return ($codeHTML);
 	}
+	
+function buildPagination ($link, $current, $max, $block=false)
+	{	
+	if ($current <= 1)
+		{$current = 1;
+		 $db = "disabled";
+		 $db2 = " aria-disabled=\"true\"";
+		 $previous = "";}
+	else
+		{$db = "";
+		 $db2 = "";
+		 $previous = "href=\"$link".($current - 1)."\"";}
+		
+	if ($block)
+		{$dn = "disabled";
+		 $dn2 = " aria-disabled=\"true\"";
+		 $next = "";}
+	else if ($current >= $max)
+		{$current = $max;
+		 $dn = "disabled";
+		 $dn2 = " aria-disabled=\"true\"";
+		 $next = "";}
+	else
+		{$dn = "";
+		 $dn2 = "";
+		 $next = "href=\"$link".($current + 1)."\"";}	
+	
+	ob_start();			
+	echo <<<END
+<nav aria-label="Navigate search pages">
+  <ul class="pagination pagination-sm" style="margin:5px 0px 0px 0px;">
+    <li class="page-item $db">
+      <a class="page-link" $previous tabindex="-1" $db2><i class="fas fa-angle-left"></i></a>
+    </li>
+    <li class="page-item disabled"><a class="page-link" aria-disabled="true"> $current/$max </a></li>
+    <li class="page-item $dn">
+      <a class="page-link" $next $dn2><i class="fas fa-angle-right"></i></a>
+    </li>
+  </ul>
+</nav>
+END;
+	$html = ob_get_contents();
+	ob_end_clean(); // Don't send output to client
+	
+	return($html);
+	}
+	
+function displayJSON ($str, $mh=400)
+	{return ("<pre class=\"json-renderer\" style=\"overflow-y: auto;".
+		"overflow-x: auto; border: 2px solid black;padding: 10px;".
+		"max-height:{$mh}px;\">$str</pre>");}
 
 ?>

@@ -12,6 +12,8 @@
     
 	<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous" rel="stylesheet" type="text/css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.css" integrity="sha256-BNdodQbWHpU3HT8xGhkEusT4ch4HEjvwzcbDcVuHR+E=" crossorigin="anonymous" rel="stylesheet" type="text/css">
+	<link href="https://cdn.jsdelivr.net/npm/jquery.json-viewer@1.4.0/json-viewer/jquery.json-viewer.css" integrity="sha256-rXfxviikI1RGZM3px6piq9ZL0YZuO5ETcO8+toY+DDY=" crossorigin="anonymous" rel="stylesheet" type="text/css">
+	<link href="https://cdn.jsdelivr.net/npm/highlight.js@11.2.0/styles/github.css" integrity="sha256-Oppd74ucMR5a5Dq96FxjEzGF7tTw2fZ/6ksAqDCM8GY=" crossorigin="anonymous" rel="stylesheet" type="text/css">
 	<link href="css/main.css" rel="stylesheet" type="text/css">
     <style>
     
@@ -45,14 +47,14 @@
 </li>
 <!-- End Normal Item 1 -->
 
-<!-- Start Normal Item 1 -->
+<!-- Start Normal Item 2 -->
 <li class="nav-item "><a class="nav-link" style="white-space:nowrap;" href="instructions.html">Instructions</a>
 </li>
-<!-- End Normal Item 1 -->
+<!-- End Normal Item 2 -->
 
-<!-- Start Loop Item 1 -->
+<!-- Start Loop Item 3 -->
 <li class="nav-item dropdown ">
-<div class="btn-group"><a href="JSON.html" class="nav-link" title="Click to open the &ldquo;JSON&rdquo; page">
+<div class="btn-group"><a href="JSON.html" class="nav-link" style="white-space:nowrap;" title="Click to open the &ldquo;JSON&rdquo; page">
   JSON</a><button type="button" class="btn nav-link dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false"  title="Click to open the &ldquo;JSON&rdquo; menu">
     <span class="visually-hidden">Toggle Dropdown</span>
   </button>
@@ -60,11 +62,11 @@
 	</ul>
 </div>
 </li>
-<!-- End Loop Item 1 -->
+<!-- End Loop Item 3 -->
 
-<!-- Start Loop Item 1 -->
+<!-- Start Loop Item 4 -->
 <li class="nav-item dropdown ">
-<div class="btn-group"><a href="extensions.html" class="nav-link" title="Click to open the &ldquo;Extensions&rdquo; page">
+<div class="btn-group"><a href="extensions.html" class="nav-link" style="white-space:nowrap;" title="Click to open the &ldquo;Extensions&rdquo; page">
   Extensions</a><button type="button" class="btn nav-link dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false"  title="Click to open the &ldquo;Extensions&rdquo; menu">
     <span class="visually-hidden">Toggle Dropdown</span>
   </button>
@@ -72,46 +74,42 @@
 	</ul>
 </div>
 </li>
-<!-- End Loop Item 1 -->
+<!-- End Loop Item 4 -->
 
-<!-- Start Loop Item 1 -->
+<!-- Start Loop Item 5 -->
 <li class="nav-item dropdown active">
-<div class="btn-group"><a href="example.html" class="nav-link" title="Click to open the &ldquo;Example&rdquo; page">
+<div class="btn-group"><a href="example.html" class="nav-link" style="white-space:nowrap;" title="Click to open the &ldquo;Example&rdquo; page">
   Example<span class="sr-only">(current)</span></a><button type="button" class="btn nav-link dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false"  title="Click to open the &ldquo;Example&rdquo; menu">
     <span class="visually-hidden">Toggle Dropdown</span>
   </button>
-	<ul class="dropdown-menu"><!-- Dropdown Loop 2 --><li class="dropdown-submenu">
-		<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the &ldquo;Nice display pagename&rdquo; menu">Nice display pagename
+	<ul class="dropdown-menu"><!-- Dropdown Loop 5-1 --><li class="dropdown-submenu">
+		<a id="dropdownMenu5-1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the &ldquo;Nice display pagename&rdquo; menu">Nice display pagename
 		&nbsp;&nbsp;<i class="fas fa-caret-right"></i></a>
 		
-		<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
+		<ul aria-labelledby="dropdownMenu5-1" class="dropdown-menu border-0 shadow">
 			<li><a href="example-subpage-01.html" class="dropdown-item  top-item" title="Click to open the &ldquo;Nice display pagename&rdquo; page">
 				Nice display pagename</a></li>
-		<li class="dropdown-divider"></li><!-- Dropdown Loop 3 --><li class="dropdown-submenu">
-		<a id="dropdownMenu3" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the &ldquo;Example-sub-subpage-01&rdquo; menu">Example-sub-subpage-01
+		<li class="dropdown-divider"></li><!-- Dropdown Loop 5-1-1 --><li class="dropdown-submenu">
+		<a id="dropdownMenu5-1-1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the &ldquo;Example-sub-subpage-01&rdquo; menu">Example-sub-subpage-01
 		&nbsp;&nbsp;<i class="fas fa-caret-right"></i></a>
 		
-		<ul aria-labelledby="dropdownMenu3" class="dropdown-menu border-0 shadow">
+		<ul aria-labelledby="dropdownMenu5-1-1" class="dropdown-menu border-0 shadow">
 			<li><a href="example-sub-subpage-01.html" class="dropdown-item  top-item" title="Click to open the &ldquo;Example-sub-subpage-01&rdquo; page">
 				Example-sub-subpage-01</a></li>
-		<li class="dropdown-divider"></li><li><a href="example-sub-sub-subpage-01.html" class="dropdown-item">Great webpage</a></li></ul></li><!-- End Loop 3 --></ul></li><!-- End Loop 2 --><li><a href="example-subpage-02.html" class="dropdown-item">Example-subpage-02</a></li>
+		<li class="dropdown-divider"></li><li><a href="example-sub-sub-subpage-01.html" class="dropdown-item">Great webpage</a></li></ul></li><!-- End Loop 5-1-1 --></ul></li><!-- End Loop 5-1 --><li><a href="example-subpage-02.html" class="dropdown-item">Example-subpage-02</a></li>
 	</ul>
 </div>
 </li>
-<!-- End Loop Item 1 -->
+<!-- End Loop Item 5 -->
 
-<!-- Start Normal Item 1 -->
+<!-- Start Normal Item 6 -->
 <li class="nav-item "><a class="nav-link" style="white-space:nowrap;" href="about.html">About</a>
 </li>
-<!-- End Normal Item 1 -->
-</ul></div>
-			
-    <span class="navbar-text">
-      			<a href="https://github.com/jpadfield/simple-site/">
+<!-- End Normal Item 6 -->
+</ul><span class="navbar-text w-100">			<a href="https://github.com/jpadfield/simple-site/" class="float-end">
 				<img id="ex-logo1" class="logo" title="github" src="graphics/github logo white.png" 
 				style="" alt="GitHub Jpadfield Simple-site"/>
-		  </a>
-    </span>
+		  </a></span></div>
 </div>
     </nav>
 		
@@ -122,11 +120,11 @@
 					
 <!-- Start SimpleBDGrid -->
 <div class="p-2 bg-light border rounded-3 jumbotron">
-      <div class="container-fluid py-4"><h3>Probably not needed - more nesting</h3></div></div><div class="container-fluid "><div class="row h-100"><div class="col-12">							
+      <div class="container-fluid py-2"><h3 style="margin-bottom:0px;">Probably not needed - more nesting</h3></div></div><div class="container-fluid "><div class="row h-100"><div class="col-12">							
 								<div class="h-100 d-flex flex-column">
-									<div class="alert alert-light" role="alert" style="padding-bottom: 0px;border-color:#dee2e6;">
+									<div class="alert alert-light" role="alert" style="padding:0.5rem 0.5rem 0px 0.5rem;border-color:#dee2e6;">
 		<nav  style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-			<ol class="breadcrumb">
+			<ol class="breadcrumb" style="margin-bottom:0.5rem;">
 				<li class="breadcrumb-item"><a href="example.html">Example</a></li><li class="breadcrumb-item"><a href="example-subpage-01.html">Nice display pagename</a></li><li class="breadcrumb-item active" aria-current="page">Example-sub-subpage-01</li>
 			</ol>
 		</nav>
@@ -166,11 +164,41 @@
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/tether@2.0.0/dist/js/tether.min.js" integrity="sha256-cExSEm1VrovuDNOSgLk0xLue2IXxIvbKV1gXuCqKPLE=" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha256-d+FygkWgwt59CFkWPuCB4RE6p1/WiUYCy16w1+c5vKk=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/jquery.json-viewer@1.4.0/json-viewer/jquery.json-viewer.js" integrity="sha256-klSHtWPkZv4zG4darvDEpAQ9hJFDqNbQrM+xDChm8Fo=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.2.0/build/highlight.min.js"></script>
 	<script>
 		
 		
 		function onLoad() {
-			$(function() {
+			hljs.highlightAll();			
+	$('pre.json-renderer').each(function(index, value) {			
+			var vtext = $(value).text()
+			var jsonResult;
+			
+			try {jsonResult = JSON.parse(vtext);}
+			catch (e) {console.log("\""+vtext+"\" " + "is not valid JSON: "+e);};
+		
+			if (jsonResult) {$(value).jsonViewer(jsonResult);}
+			else
+				{let vurl = new URL(vtext);
+				 if (vurl.origin != "null") {
+				 $.getJSON({
+						url: vtext
+						}).done(function (result, status, xhr) {
+								$(value).jsonViewer(result)
+								}).fail(function (xhr, status, error) {									
+									$(value).jsonViewer(JSON.parse('{"string":"'+vtext+
+										'","error":"The supplied text does not seems to be' +
+										' valid JSON or a valid URL"}'));
+									});
+							}
+				else
+					{$(value).jsonViewer(JSON.parse('{"string":"'+vtext+
+					 '","error":"The supplied text does not seems to be valid '+
+					 'JSON or a valid URL"}'));}
+				}		
+		});
+		$(function() {
   // ------------------------------------------------------- //
   // Multi Level dropdowns
   // ------------------------------------------------------ //
