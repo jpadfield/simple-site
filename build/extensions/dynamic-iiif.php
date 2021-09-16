@@ -95,8 +95,10 @@ function extensionDynamicIIIF ($d, $pd)
 	$returnsBlocked = false;
 	$sterm = false;
 	$stermForm = false;
-		
-	if (isset($d["file"]) and file_exists($d["file"]))
+	
+	if (is_array($d["file"]))
+		{$config = $d["file"];}
+	else if (isset($d["file"]) and file_exists($d["file"]))
 		{$config = getRemoteJsonDetails($d["file"], false, true);
 		 if (isset($config["limit"]) and $config["limit"])
 			{$limit = intval($config["limit"]);}}
@@ -143,87 +145,95 @@ function extensionDynamicIIIF ($d, $pd)
 		if (!is_array($config["search-uri"])) {
 			$config["search-uri"] = array($config["search-uri"]);}
 		
-		$epts = count($config["search-uri"]);
+		}
+	else
+		{$config["search-uri"] = array();
+		$extraTerms = "";
+		$pageURI = "$rootDisplayURL";
+		$sterm =	"?search=&what=$what";
+		$stermForm =	false;}
 		
-		$dets = array(		
-			"limit" => $limit * $epts,
-			"from" => 0, 
-			"limited" => false,
-			"total" => false,
-			"search" => $sterm,
-			"what" => $what,
-			"results" => array(),
-			"comment" => array(),
-			"missed" => 0, // used for debugging, when end-points return objects with no IIIF resources
-			"objects" => 0, // things searched for, limited by the $limit value
-			"resources" => 0 // IIIF resources related to the things returned
-			);
+	$epts = count($config["search-uri"]);
+		
+	$dets = array(		
+		"limit" => $limit * $epts,
+		"from" => 0, 
+		"limited" => false,
+		"total" => false,
+		"search" => $sterm,
+		"what" => $what,
+		"results" => array(),
+		"comment" => array(),
+		"missed" => 0, // used for debugging, when end-points return objects with no IIIF resources
+		"objects" => 0, // things searched for, limited by the $limit value
+		"resources" => 0 // IIIF resources related to the things returned
+		);
 			
-		if ($epts > 1)
-			{$dets["comment"][] = "Images drawn from a combination of sites.";}
+	if ($epts > 1)
+		{$dets["comment"][] = "Images drawn from a combination of sites.";}
 		
-		$maxPages = 1;
-		$maxTotal = 0;
+	$maxPages = 1;
+	$maxTotal = 0;
 		
-		$debug = "";
+	$debug = "";
 		
-		$range = array(0,0);
+	$range = array(0,0);
 			
-		foreach ($config["search-uri"] as $k => $uri)
+	foreach ($config["search-uri"] as $k => $uri)
+		{
+		$trange = array(0,0);
+		// need a temp $dets and combine the results
+		$tdets = getExternalDetails($sterm, $uri, $extraTerms);
+		if ($tdets["limited"]) {$dets["limited"] = true;}
+			
+		$dets["resources"] +=	count($tdets["results"]);
+		if ($tdets["total"] > $maxTotal) {$maxTotal = $tdets["total"];}
+		$dets["total"] += $tdets["total"];
+		$dets["results"] = array_merge($dets["results"], $tdets["results"]);
+				
+		if (($tdets["total"] - $tdets["from"]) > $tdets["limit"])
 			{
-			$trange = array(0,0);
-			// need a temp $dets and combine the results
-			$tdets = getExternalDetails($sterm, $uri, $extraTerms);
-			if ($tdets["limited"]) {$dets["limited"] = true;}
-			
-			$dets["resources"] +=	count($tdets["results"]);
-			if ($tdets["total"] > $maxTotal) {$maxTotal = $tdets["total"];}
-			$dets["total"] += $tdets["total"];
-			$dets["results"] = array_merge($dets["results"], $tdets["results"]);
-				
-			if (($tdets["total"] - $tdets["from"]) > $tdets["limit"])
-				{
-				// Full return
-				$trange[0] = $tdets["from"];
-				$trange[1] = $tdets["from"] + $tdets["limit"];
-				$tnote = " <span style=\"color: #0d6efd;\"> Displaying resources from ". implode(" - ", $trange) ." of ".$tdets["total"]. " objects.</span>";
-				$range[0] += $trange[0];
-				$range[1] += $trange[1];
-				$dets["objects"] += $tdets["limit"];				
-				}
-			else if (($tdets["total"] - $tdets["from"]) > 0)
-				{
-				// A few left
-				$trange[0] = $tdets["from"];
-				$trange[1] = $tdets["total"];
-				$tnote = " <span style=\"color: #0d6efd;\"> Displaying resources from ". implode(" - ", $trange) ." of ".$tdets["total"]. " objects.</span>";
-				$range[0] += $trange[0];
-				$range[1] += $trange[1];
-				$dets["objects"] += $tdets["total"] - $tdets["from"];}
-			else
-				{
-				// All finished - can occur in combination presentations
-				$range[0] += $tdets["total"];
-				$range[1] += $tdets["total"];
-				if ($tdets["total"] > 0)
-					{$tnote = " <span style=\"color: red;\"> Displaying no resources from ".$tdets["total"]. " objects, all objects already returned.</span>";}
-				else
-					{$tnote = " <span style=\"color: red;\"> No objects returned for this search.</span>";}
-				}
-				
-			$dets["comment"][] = $tdets["comment"] .$tnote;
+			// Full return
+			$trange[0] = $tdets["from"];
+			$trange[1] = $tdets["from"] + $tdets["limit"];
+			$tnote = " <span style=\"color: #0d6efd;\"> Displaying resources from ". implode(" - ", $trange) ." of ".$tdets["total"]. " objects.</span>";
+			$range[0] += $trange[0];
+			$range[1] += $trange[1];
+			$dets["objects"] += $tdets["limit"];				
 			}
+		else if (($tdets["total"] - $tdets["from"]) > 0)
+			{
+			// A few left
+			$trange[0] = $tdets["from"];
+			$trange[1] = $tdets["total"];
+			$tnote = " <span style=\"color: #0d6efd;\"> Displaying resources from ". implode(" - ", $trange) ." of ".$tdets["total"]. " objects.</span>";
+			$range[0] += $trange[0];
+			$range[1] += $trange[1];
+			$dets["objects"] += $tdets["total"] - $tdets["from"];}
+		else
+			{
+			// All finished - can occur in combination presentations
+			$range[0] += $tdets["total"];
+			$range[1] += $tdets["total"];
+			if ($tdets["total"] > 0)
+				{$tnote = " <span style=\"color: red;\"> Displaying no resources from ".$tdets["total"]. " objects, all objects already returned.</span>";}
+			else
+				{$tnote = " <span style=\"color: red;\"> No objects returned for this search.</span>";}
+			}
+			
+		$dets["comment"][] = $tdets["comment"] .$tnote;
+		}
 
-		$maxPages = ceil($maxTotal/$limit);
+	$maxPages = ceil($maxTotal/$limit);
 		
-		if ($config["viewer"] == "mirador")
-			{			
-			$cats = MD_buildCatalog ($dets["results"]);
-			$list = false;
-			$pd["extra_js_scripts"][] = "https://cdn.jsdelivr.net/npm/mirador@3.2.0/dist/mirador.min.js\" integrity=\"sha256-e11UQD1U7ifc8OK9X0rVMshTXSKl7MafRxi3PTwXDHs=\" crossorigin=\"anonymous";			
-			 
-			ob_start();			
-			echo <<<END
+	if ($config["viewer"] == "mirador")
+		{			
+		$cats = MD_buildCatalog ($dets["results"]);
+		$list = false;
+		$pd["extra_js_scripts"][] = "https://cdn.jsdelivr.net/npm/mirador@3.2.0/dist/mirador.min.js\" integrity=\"sha256-e11UQD1U7ifc8OK9X0rVMshTXSKl7MafRxi3PTwXDHs=\" crossorigin=\"anonymous";			
+		 
+		ob_start();			
+		echo <<<END
 				$(function() {
 var myMiradorInstance = Mirador.viewer({
        id: "mirador",
@@ -233,39 +243,39 @@ var myMiradorInstance = Mirador.viewer({
        });     
      });
 END;
-			$morejs = ob_get_contents();
-			ob_end_clean(); // Don't send output to client			 
-			}
-		else			
-			{			
-			$imagelist = OSD_formatImageList($dets["results"]);
-			$tileSources = "[ 
+		$morejs = ob_get_contents();
+		ob_end_clean(); // Don't send output to client			 
+		}
+	else			
+		{			
+		$imagelist = OSD_formatImageList($dets["results"]);
+		$tileSources = "[ 
 \t\t\t\"".implode("\",\n\t\t\t\"", $dets["results"])."\"
 ]";		
-			$list = true;
-			$pd["extra_js_scripts"][] = "https://cdn.jsdelivr.net/npm/openseadragon@2.4.2/build/openseadragon/openseadragon.min.js\" integrity=\"sha256-NMxPj6Qf1CWCzNQfKoFU8Jx18ToY4OWgnUO1cJWTWuw=\" crossorigin=\"anonymous";
+		$list = true;
+		$pd["extra_js_scripts"][] = "https://cdn.jsdelivr.net/npm/openseadragon@2.4.2/build/openseadragon/openseadragon.min.js\" integrity=\"sha256-NMxPj6Qf1CWCzNQfKoFU8Jx18ToY4OWgnUO1cJWTWuw=\" crossorigin=\"anonymous";
 			
-			$extramorejs = "";
+		$extramorejs = "";
 			
-			if (isset($config["layout"]) and $config["layout"] == "simplegrid")
-				{
-				$rows = floor(sqrt($dets["resources"]));
-				if ($rows > 4) {$rows = $rows - 1;}		
-				$osdMode = "	
-					collectionMode:       true,
-					collectionRows:       $rows, 
-					collectionTileSize:   1024,
-					collectionTileMargin: 256,
-					";
-				}
-			else if (isset($config["layout"]) and $config["layout"] == "grid")
-				{
-				$pd["extra_js_scripts"][] = "https://cdn.rawgit.com/Pin0/openseadragon-justified-collection/1.0.2/dist/openseadragon-justified-collection.min.js";
-				$osdMode = "	
-					collectionMode:       true,
-					collectionRows:       1, 
-					";
-				$extramorejs = '
+		if (isset($config["layout"]) and $config["layout"] == "simplegrid")
+			{
+			$rows = floor(sqrt($dets["resources"]));
+			if ($rows > 4) {$rows = $rows - 1;}		
+			$osdMode = "	
+				collectionMode:       true,
+				collectionRows:       $rows, 
+				collectionTileSize:   1024,
+				collectionTileMargin: 256,
+				";
+			}
+		else if (isset($config["layout"]) and $config["layout"] == "grid")
+			{
+			$pd["extra_js_scripts"][] = "https://cdn.rawgit.com/Pin0/openseadragon-justified-collection/1.0.2/dist/openseadragon-justified-collection.min.js";
+			$osdMode = "	
+				collectionMode:       true,
+				collectionRows:       1, 
+				";
+			$extramorejs = '
 	var total = '.intval($dets["resources"]).';
 	
 	var osdw = $(openseadragonviewerdiv).width();
@@ -282,15 +292,15 @@ END;
 		myOSDInstance.viewport.goHome(true);
 		});
 				';
-				}
-			else
-				{$osdMode = "
-				 sequenceMode: true,
-				 showReferenceStrip: true,";}
+			}
+		else
+			{$osdMode = "
+			 sequenceMode: true,
+			 showReferenceStrip: true,";}
 		
-				 
-			ob_start();			
-			echo <<<END
+			 
+		ob_start();			
+		echo <<<END
 			var myOSDInstance = OpenSeadragon({
 				id: "openseadragonviewerdiv",
 				prefixUrl:     "https://openseadragon.github.io/openseadragon/images/",
@@ -300,37 +310,36 @@ END;
 				}); 
 			$extramorejs 
 END;
-			$morejs = ob_get_contents();
-			ob_end_clean(); // Don't send output to client			 
-			}
-			
-		if ($dets["resources"] > 50)
-			{$exnote = "<span style=\"color: #0d6efd;\"> Also it can take some time for larger sets of images to appear in the viewer.</span>";}
-		else
-			{$exnote = "";}
-			
-		if ($returnsBlocked) 
-			{$blockStr = "<span style=\"color: red;\"> (Access limited)</span>";
-			 $exnote .= "<span style=\"color: red;\"> Additionally access has been limited to first 10000 records per end-point.</span>";}
-		else {$blockStr = "";}
-
-		$exnote .= "<br/><br/><b>These results include:</b><br/><ul><li>".implode("</li><li>", $dets["comment"])."</li></ul>";
-		$opts = buildPagination ($pageURI, $page, $maxPages, $returnsBlocked);
-
-		$sstr = "<span style=\"color: green;\"> Search for: <b>".$getExtra[0]."</b></span>";
-		$dstr = "Displaying resources from objects <b>". implode(" - ", $range) ."</b> of <b>".$dets["total"]."</b>";
-
-		if ($dets["limited"])
-			{$note .= "".buildModalButton("$sstr. $dstr.$blockStr", true, $list, $opts);
-			 $d["info"] .= "Please note your search has been limited, attempting to display <b>$dets[resources]</b> resources relating to <b>$dets[objects]</b> objects (<b>". implode(" - ", $range) ."</b> of <b>$dets[total]</b> results).$exnote";
-				}
-		else if (!$dets["total"])
-			{$note .= "".buildModalButton (" Sorry, no results have been found for your search for <b>".$getExtra[0]."</b>, please try again.", true, false);}
-		else
-			{$note .= "".buildModalButton("$sstr. $dstr.", true, $list);}
+		$morejs = ob_get_contents();
+		ob_end_clean(); // Don't send output to client			 
 		}
+			
+	if ($dets["resources"] > 50)
+		{$exnote = "<span style=\"color: #0d6efd;\"> Also it can take some time for larger sets of images to appear in the viewer.</span>";}
 	else
-		{$note .= "".buildModalButton ($defaultStr, true, false);}	
+		{$exnote = "";}
+		
+	if ($returnsBlocked) 
+		{$blockStr = "<span style=\"color: red;\"> (Access limited)</span>";
+		 $exnote .= "<span style=\"color: red;\"> Additionally access has been limited to first 10000 records per end-point.</span>";}
+	else {$blockStr = "";}
+
+	$exnote .= "<br/><br/><b>These results include:</b><br/><ul><li>".implode("</li><li>", $dets["comment"])."</li></ul>";
+	$opts = buildPagination ($pageURI, $page, $maxPages, $returnsBlocked);
+
+	$sstr = "<span style=\"color: green;\"> Search for: <b>".$getExtra[0]."</b></span>";
+	$dstr = "Displaying resources from objects <b>". implode(" - ", $range) ."</b> of <b>".$dets["total"]."</b>";
+
+	if (!$epts)
+		{$note .= "".buildModalButton ($defaultStr, true, false);}
+	else if ($dets["limited"])
+		{$note .= "".buildModalButton("$sstr. $dstr.$blockStr", true, $list, $opts);
+		 $d["info"] .= "Please note your search has been limited, attempting to display <b>$dets[resources]</b> resources relating to <b>$dets[objects]</b> objects (<b>". implode(" - ", $range) ."</b> of <b>$dets[total]</b> results).$exnote";
+			}
+	else if (!$dets["total"])
+		{$note .= "".buildModalButton (" Sorry, no results have been found for your search for <b>".$getExtra[0]."</b>, please try again.", true, false);}
+	else
+		{$note .= "".buildModalButton("$sstr. $dstr.", true, $list);}
 
 	ob_start();			
 	echo <<<END
@@ -498,7 +507,7 @@ function buildModalButton ($comment=false, $info=false, $list=false, $nav=false)
 		
 	if ($nav) {
 		$nav = "<div class=\"row\"><div class=\"col d-flex justify-content-center\">".
-			"<tr><td colspan=\"4\" style=\"\">$nav</td></tr></div></div>";
+			"$nav</div></div>";
 		}
 		
 	$searchButton = $buttons["search"];
@@ -565,7 +574,7 @@ END;
 		if (preg_match ("/^(.+[\/])([^\/]+)[\/]info.json$/", $url, $m))
 			{$file = $m[2];
 			 $search = "<a target=”_blank” href=\"$rootDisplayURL/$m[2]\" title=\"Open specific image in a new tab\">
-				<img src=\"$m[1]/$m[2]/full/32,/0/native.jpg\" style=\"margin-left:auto;margin-right:auto;display:block;\">
+				<img alt=\"$m[2]\" src=\"$m[1]/$m[2]/full/64,/0/native.jpg\" style=\"margin-left:auto;margin-right:auto;display:block;\">
 			 </a>";}
 		else
 			{$file = "Name not Found";

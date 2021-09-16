@@ -496,7 +496,7 @@ function makeFlatMenuList ($arr=false)
 	global $menuList, $menuFlatList;
 			
 	if (!$arr) {$arr=$menuList;}
-		
+
 	foreach ($arr as $k => $v)
 		{
 		if (is_array($v) and $v)
@@ -509,27 +509,45 @@ function makeFlatMenuList ($arr=false)
 	
 function buildExamplePages ()
 	{
-	global $pages, $subpages, $html_path, $menuList, $echoPage;
+	global $pages, $subpages, $html_path, $menuList, $echoPage, $rootURL;
 	
 	$files = glob($html_path."*.html");
 	
 	foreach ($files as $file)
 		{unlink ($file);}
 	
-	foreach ($pages as $k => $a) {
+	reset($pages);
+	while ($a = current($pages)) {
+		$k = key($pages);
+		// The optional autochildren check allows extensions to automatically 
+		// add additional pages as required for an example see discovery-example.php
+		if (isset($a["autochildren"]))
+			{$xpages = pagesCheck(checkExtensionContent ($a, $k));
+			 $pages = $pages + $xpages;}
 		if (isset($a["parent"]) and $a["parent"]) {
 			$a["name"] = $k;	
 			$a["bcs"] = array_reverse(loopBreadcrumbs ($k));
 			$tml = implode ("']['", $a["bcs"]);
-			$tml = "\$menuList['".$tml."'] = array();";
-			eval($tml);	 
+			if (!$a["copy"]) {
+				$tml = "\$menuList['".$tml."'] = array();";
+				eval($tml);	}
 			$pages[$k] = $a;
-			$subpages[$a["parent"]][]= $a;}}
-	
+			$subpages[$a["parent"]][]= $a;}
+		next($pages);	
+		}
+		
 	makeFlatMenuList();
 
-	if ($echoPage and isset($pages[$echoPage]))
-		{echo writePage ($echoPage, $pages[$echoPage]);}
+	if ($echoPage)
+		{
+		$check = preg_replace('/[.]html/', "", $echoPage);
+		if (isset($pages[$echoPage]))
+			{echo writePage ($echoPage, $pages[$echoPage]);}
+		else if (isset($pages[$check]))
+			{echo writePage ($check, $pages[$check]);}
+		else
+			{header($_SERVER["SERVER_PROTOCOL"] . " 404 Not Found");} 
+		}
 	else
 		{
 		// add a timestamp page to mark most recent update and to force github
@@ -602,7 +620,6 @@ function buildChildLinks ($arr)
 	$html = false;
 			
 	if ($arr) {
-		
 		$list = "";
 		foreach ($arr as $k => $v)
 			{
@@ -1276,9 +1293,17 @@ function buildExtensionContent ($d, $pd)
   global $extensionList;
   $fn = $extensionList[$d["class"]];
 	$out = call_user_func_array($fn, array($d, $pd));
-  //$content = parseLinks ($out["d"]["content"], 1);
 		
 	return (array($out["d"], $out["pd"]));
+	}
+	
+function checkExtensionContent ($d, $n)
+	{
+  global $extensionList;
+  $fn = $extensionList[$d["class"]];
+	$out = call_user_func_array($fn, array($d, $n, true));
+		
+	return ($out);
 	}
 	
 function OLDbuildExtensionContent ($d, $pd)
@@ -1296,11 +1321,13 @@ function displayCodeSection ($array, $title=false, $format="json", $caption=fals
 	if ($format == "json")
 		{$json = json_encode($array, JSON_PRETTY_PRINT);
 		 $json = htmlspecialchars ($json);
-		 $code = preg_replace('/[\\\\][\/]/', "/", $json);}
+		 $code = preg_replace('/[\\\\][\/]/', "/", $json);
+		 $preClass = "json-renderer";}
 	else
 		{$code = "";
 		 foreach($array as $value){
-     $code .= trim($value) . "<br>";}}
+     $code .= trim($value) . "\n";}
+		 $preClass = "";}
 
   if ($title)
 		{$title = "<h3>$title</h3>";}
@@ -1312,7 +1339,7 @@ function displayCodeSection ($array, $title=false, $format="json", $caption=fals
 	echo <<<END
 	$title
 	<figure>
-		<pre class="json-renderer" style="overflow-y: auto;overflow-x: auto; border: 2px solid black;padding: 10px;max-height:400px;"><code>${code}</code></pre>
+		<pre class="$preClass" style="overflow-y: auto;overflow-x: auto; border: 2px solid black;padding: 10px;max-height:400px;"><code>${code}</code></pre>
 		<figcaption class=\"figure-caption\">$caption</figcaption>
 	</figure>	
 END;
@@ -1411,5 +1438,10 @@ function displayJSON ($str, $mh=400)
 	{return ("<pre class=\"json-renderer\" style=\"overflow-y: auto;".
 		"overflow-x: auto; border: 2px solid black;padding: 10px;".
 		"max-height:{$mh}px;\">$str</pre>");}
+
+function isJson($string) {
+   json_decode($string);
+   return json_last_error() === JSON_ERROR_NONE;
+}
 
 ?>

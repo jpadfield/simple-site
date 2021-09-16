@@ -14,15 +14,28 @@ function extensionopenseadragon ($d, $pd)
 	$list = array();
 	$tileSources = "[]";
 	
-	if (isset($d["file"]) and file_exists($d["file"]))
+	if (isset($d["file"]))
 		{
-		$dets = getRemoteJsonDetails($d["file"], false, true);
-			
-		if (!$dets) // was file not a json manifest
+		if (is_array($d["file"]))
+			{$dets["list"] = $d["file"];
+			 $dets["viewer"] = $d["osd-viewer"];
+			 $dets["background"] = $d["osd-background"];}
+		else if (file_exists($d["file"])) 
+			{$dets = getRemoteJsonDetails($d["file"], false, true);}		
+		else if (filter_var($d["file"], FILTER_VALIDATE_URL)) 
+			{$dets = getRemoteJsonDetails($d["file"], false, true);
+			 if (isset($dets["sequences"]))
+				{$dets["list"] = manifestToList ($d["file"], array());}
+			 else if (isset($dets["protocol"]))
+				{$dets["list"] = array($d["file"]);}}		
+		else
+			{$dets = array();}
+	
+		if (!$dets) // file did not return valid json
 			{
 			$dets = getRemoteJsonDetails($d["file"], false, false);
 			$dets = explode(PHP_EOL, trim($dets));
-			
+	
 			foreach ($dets as $k => $v)
 				{
 				if (preg_match('/^.+info[.]json$/', $v))
@@ -31,28 +44,77 @@ function extensionopenseadragon ($d, $pd)
 					{$list = manifestToList ($v, $list);}
 				}
 			}
+		else
+			{			
+			if (isset($dets["list"]))
+				{
+				foreach ($dets["list"] as $k => $v)
+					{
+					if (preg_match('/^.+info[.]json$/', $v))
+						{$list[] = $v;}
+					else
+						{$list = manifestToList ($v, $list);}
+					}
+				}
+			}
     }
    else
 		{$list = manifestToList ($d["file"]);}
-				
+
+	$imTotal = count($list);			
 	$tileSources = listToTiles ($list);
     
   $pd["extra_js_scripts"][] = "https://cdn.jsdelivr.net/npm/openseadragon@2.4.2/build/openseadragon/openseadragon.min.js\" integrity=\"sha256-NMxPj6Qf1CWCzNQfKoFU8Jx18ToY4OWgnUO1cJWTWuw=\" crossorigin=\"anonymous";
+  
+  if (isset($dets["viewer"]) and $dets["viewer"] == "grid")
+		{$pd["extra_js_scripts"][] = "https://cdn.rawgit.com/Pin0/openseadragon-justified-collection/1.0.2/dist/openseadragon-justified-collection.min.js";
+		 $osdMode = "	
+		collectionMode:       true,
+		collectionRows:       1, 
+		";
+		 $morejs = '
+	var total = '.$imTotal.';
 	
+	var osdw = $(openseadragonviewerdiv).width();
+	var osdh = $(openseadragonviewerdiv).height();
+	var cls = Math.round(Math.sqrt((osdw/osdh) * total));
+  
+  if (osdw > osdh)
+		{myOSDInstance.collectionColumns = cls;}
+	else
+		{myOSDInstance.collectionColumns = cls - 1;}
+		
+	myOSDInstance.addHandler(\'open\', function() {
+		myOSDInstance.world.arrange();
+		myOSDInstance.viewport.goHome(true);
+		});
+		';}
+	else
+		{$morejs = "";
+		 $osdMode = "
+		sequenceMode: true,
+		showReferenceStrip: true,";}
+		
+	$pd["extra_js_scripts"][] = "https://cdn.rawgit.com/Pin0/openseadragon-justified-collection/1.0.2/dist/openseadragon-justified-collection.min.js";
 		ob_start();			
 	echo <<<END
-	$(function() {
-
-var myOSDInstance = OpenSeadragon({
-					id:            "openseadragonviewerdiv",
-          prefixUrl:     "https://openseadragon.github.io/openseadragon/images/",
-          sequenceMode:  true,
-          tileSources:   $tileSources
-          });  
-     });
+	
+	var myOSDInstance = OpenSeadragon({
+		id:            "openseadragonviewerdiv",
+		prefixUrl:     "https://openseadragon.github.io/openseadragon/images/",
+		$osdMode
+		tileSources:   $tileSources
+		});  
+   
+	$morejs
 END;
 	$pd["extra_js"] .= ob_get_contents();
 	ob_end_clean(); // Don't send output to client
+	
+	if(isset($dets["background"]))
+		{$bgc = $dets["background"];}
+	else
+		{$bgc = "black";}
 	
 	$pd["extra_css"] .= ".openseadragon
 {
@@ -60,7 +122,7 @@ END;
     height:     500px;
     border:     1px solid black;
     color:      #333; /* text color for messages */
-    background-color: black;
+    background-color: $bgc;
 }";
 	
 	$d = positionExtraContent ($d, '<div class="row" style="padding-left:16px;padding-right:16px;"><div class="col-12 col-lg-12"><div id="openseadragonviewerdiv" class="openseadragon"></div></div></div>');
