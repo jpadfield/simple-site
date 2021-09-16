@@ -171,17 +171,20 @@
 	<script src="https://cdn.jsdelivr.net/npm/jquery.json-viewer@1.4.0/json-viewer/jquery.json-viewer.js" integrity="sha256-klSHtWPkZv4zG4darvDEpAQ9hJFDqNbQrM+xDChm8Fo=" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.2.0/build/highlight.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/openseadragon@2.4.2/build/openseadragon/openseadragon.min.js" integrity="sha256-NMxPj6Qf1CWCzNQfKoFU8Jx18ToY4OWgnUO1cJWTWuw=" crossorigin="anonymous"></script>
+	<script src="https://cdn.rawgit.com/Pin0/openseadragon-justified-collection/1.0.2/dist/openseadragon-justified-collection.min.js"></script>
 	<script>
-			$(function() {
-
-var myOSDInstance = OpenSeadragon({
-					id:            "openseadragonviewerdiv",
-          prefixUrl:     "https://openseadragon.github.io/openseadragon/images/",
-          sequenceMode:  true,
-          tileSources:   ["https://data.ng-london.org.uk/iiif/image/0UUJ-0008-0000-0000/info.json",
+			
+	var myOSDInstance = OpenSeadragon({
+		id:            "openseadragonviewerdiv",
+		prefixUrl:     "https://openseadragon.github.io/openseadragon/images/",
+		
+		sequenceMode: true,
+		showReferenceStrip: true,
+		tileSources:   ["https://data.ng-london.org.uk/iiif/image/0UUJ-0008-0000-0000/info.json",
 ]
-          });  
-     });
+		});  
+   
+	
 		
 		function onLoad() {
 			hljs.highlightAll();			

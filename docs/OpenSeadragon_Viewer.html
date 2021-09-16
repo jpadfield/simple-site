@@ -190,7 +190,11 @@ details[open] summary {
 		<figcaption class=\"figure-caption\">The complete JSON object used to define this content and layout of this page.</figcaption>
 	</figure>		<h3>Extra extension file</h3>
 	<figure>
-		<pre class="json-renderer" style="overflow-y: auto;overflow-x: auto; border: 2px solid black;padding: 10px;max-height:400px;"><code>https://ids.lib.harvard.edu/ids/iiif/47174896/info.json<br>https://data.ng-london.org.uk/0F6J-0001-0000-0000.iiif<br>https://media.nga.gov/public/manifests/nga_highlights.json<br>https://images.britishart.yale.edu/iiif/2e789b5b-3172-4540-bd73-0d3c7c845389/info.json<br></code></pre>
+		<pre class="" style="overflow-y: auto;overflow-x: auto; border: 2px solid black;padding: 10px;max-height:400px;"><code>https://ids.lib.harvard.edu/ids/iiif/47174896/info.json
+https://data.ng-london.org.uk/0F6J-0001-0000-0000.iiif
+https://media.nga.gov/public/manifests/nga_highlights.json
+https://images.britishart.yale.edu/iiif/2e789b5b-3172-4540-bd73-0d3c7c845389/info.json
+</code></pre>
 		<figcaption class=\"figure-caption\">The complete extension file used to define extra content included in this page.</figcaption>
 	</figure>	
 	</details>
@@ -221,14 +225,16 @@ details[open] summary {
 	<script src="https://cdn.jsdelivr.net/npm/jquery.json-viewer@1.4.0/json-viewer/jquery.json-viewer.js" integrity="sha256-klSHtWPkZv4zG4darvDEpAQ9hJFDqNbQrM+xDChm8Fo=" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.2.0/build/highlight.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/openseadragon@2.4.2/build/openseadragon/openseadragon.min.js" integrity="sha256-NMxPj6Qf1CWCzNQfKoFU8Jx18ToY4OWgnUO1cJWTWuw=" crossorigin="anonymous"></script>
+	<script src="https://cdn.rawgit.com/Pin0/openseadragon-justified-collection/1.0.2/dist/openseadragon-justified-collection.min.js"></script>
 	<script>
-			$(function() {
-
-var myOSDInstance = OpenSeadragon({
-					id:            "openseadragonviewerdiv",
-          prefixUrl:     "https://openseadragon.github.io/openseadragon/images/",
-          sequenceMode:  true,
-          tileSources:   ["https://ids.lib.harvard.edu/ids/iiif/47174896/info.json",
+			
+	var myOSDInstance = OpenSeadragon({
+		id:            "openseadragonviewerdiv",
+		prefixUrl:     "https://openseadragon.github.io/openseadragon/images/",
+		
+		sequenceMode: true,
+		showReferenceStrip: true,
+		tileSources:   ["https://ids.lib.harvard.edu/ids/iiif/47174896/info.json",
 "https://data.ng-london.org.uk/iiif/image/0VJF-0008-0000-0000/info.json",
 "https://media.nga.gov/iiif/public/objects/1/0/6/3/8/2/106382-primary-0-nativeres.ptif/info.json",
 "https://media.nga.gov/iiif/public/objects/6/1/3/7/1/61371-primary-0-nativeres.ptif/info.json",
@@ -258,8 +264,9 @@ var myOSDInstance = OpenSeadragon({
 "https://media.nga.gov/iiif/public/objects/1/6/4/9/2/3/164923-primary-0-nativeres.ptif/info.json",
 "https://images.britishart.yale.edu/iiif/2e789b5b-3172-4540-bd73-0d3c7c845389/info.json",
 ]
-          });  
-     });
+		});  
+   
+	
 		
 		function onLoad() {
 			hljs.highlightAll();			
