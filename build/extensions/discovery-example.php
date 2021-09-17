@@ -70,8 +70,8 @@ function extensionDiscoveryExample ($d, $pd, $addPages=false)
 	if (is_array($config["logo"]))
 		{
 		$p = "(s)";
-		$x1 = "<center>";
-		$x2 = "</div></center></br>";
+		$x1 = "style=\"text-align:center;\"";
+		$x2 = "</div><br/>";
 		$x3 = "";
 		$ims = "";
 		foreach ($config["logo"] as $lk => $lim)
@@ -110,7 +110,7 @@ function extensionDiscoveryExample ($d, $pd, $addPages=false)
 		
 	ob_start();			
 		echo <<<END
-		$x1<div class="clearfix">
+		<div class="clearfix" $x1>
 			$ims
 			$x2
 			<p>$d[content]</p>
@@ -122,10 +122,10 @@ function extensionDiscoveryExample ($d, $pd, $addPages=false)
 				<img class="float-start" src="./graphics/osd_logo.png" style="margin:0px 10px 0px 10px !important; width: 64px;" alt="OpenSeadragon Example">
 			</a>
 			<a style="color: #3b5998;" href="./viewer-$config[tag]-m" role="button"  title="Mirdaor">
-				<img class="float-start" src="./graphics/Mirador Logo Black.png" style="margin:0px 10px 0px 10px !important; width: 64px;" alt="Project Mirador Example">
+				<img class="float-start" src="./graphics/Mirador%20Logo%20Black.png" style="margin:0px 10px 0px 10px !important; width: 64px;" alt="Project Mirador Example">
 			</a>
 		</div>
-		</br>
+		<br/>
 		<h4>Simple IIIF Discovery End-Point$p</h4>
 		$epbuttons
 		$epexample
