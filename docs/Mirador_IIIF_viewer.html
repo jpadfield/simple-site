@@ -222,14 +222,14 @@ https://media.nga.gov/public/manifests/nga_highlights.json
 	</figure>		<h3>Extra extension file</h3>
 	<figure>
 		<pre class="json-renderer" style="overflow-y: auto;overflow-x: auto; border: 2px solid black;padding: 10px;max-height:400px;"><code>{
-    &quot;manifests&quot;: {
-        &quot;https://iiif.harvardartmuseums.org/manifests/object/299843&quot;: {
-            &quot;provider&quot;: &quot;Harvard University&quot;
+    &quot;catalog&quot;: [
+        {
+            &quot;manifestID&quot;: &quot;https://iiif.harvardartmuseums.org/manifests/object/299843&quot;
         },
-        &quot;https://media.nga.gov/public/manifests/nga_highlights.json&quot;: {
-            &quot;provider&quot;: &quot;National Gallery of Art&quot;
+        {
+            &quot;manifestID&quot;: &quot;https://media.nga.gov/public/manifests/nga_highlights.json&quot;
         }
-    },
+    ],
     &quot;windows&quot;: [
         {
             &quot;manifestId&quot;: &quot;https://media.nga.gov/public/manifests/nga_highlights.json&quot;,
@@ -277,7 +277,7 @@ https://media.nga.gov/public/manifests/nga_highlights.json
 var myMiradorInstance = Mirador.viewer({
        id: "mirador",
        windows: [{"manifestId":"https:\/\/media.nga.gov\/public\/manifests\/nga_highlights.json","canvasIndex":0},{"manifestId":"https:\/\/iiif.harvardartmuseums.org\/manifests\/object\/299843","canvasIndex":3}],
-       manifests: {"https:\/\/iiif.harvardartmuseums.org\/manifests\/object\/299843":{"provider":"Harvard University"},"https:\/\/media.nga.gov\/public\/manifests\/nga_highlights.json":{"provider":"National Gallery of Art"}},
+       manifests: null,
        
        
        });     
