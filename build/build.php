@@ -675,7 +675,8 @@ function writePage ($name, $d)
 
 	$extraHTML = "";
 	$footnotes = array();	
-	$pd = $gdp;	
+	$pd = $gdp;
+	$dRaw = $d;
 
 	if (isset($d["fluid"]) and $d["fluid"])
 		{$pd["fluid"] = true;
@@ -776,10 +777,10 @@ END;
 						"content" => $childrenHTML)));}
 		
 	// Used to display the JSON used to create a given page for demos
-	if (isset($d["displaycode"]) and $d["displaycode"])
-		{unset($d["bcs"]);			
-		 unset($d["name"]);			
-		 $codeHTML = displayCodeSection ($d, "Page JSON Object");		 
+	if (isset($dRaw["displaycode"]) and $dRaw["displaycode"])
+		{unset($dRaw["bcs"]);			
+		 unset($dRaw["name"]);			
+		 $codeHTML = displayCodeSection ($dRaw, "Page JSON Object");		 
 		 if (isset($d["file"]) and $d["file"])
 			{$fcont = getRemoteJsonDetails($d["file"], false, true);
 			 $format = "json";

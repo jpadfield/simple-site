@@ -117,9 +117,8 @@ END;
 		{$bgc = "black";}
 	
 	$pd["extra_css"] .= ".openseadragon
-{
-    
-    height:     500px;
+{    
+    height:     400px;
     border:     1px solid black;
     color:      #333; /* text color for messages */
     background-color: $bgc;
