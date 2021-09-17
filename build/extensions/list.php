@@ -235,7 +235,7 @@ function buildPresentationCard ($la)
 		{
 		if (preg_match("/^http[s]*[:][\/]+www[.]youtube[.]com[\/].+$/", $la["video"], $m))
 			{$prev = '<div class="pcontainer"><iframe class="preview" src="'.$la["video"].
-				'" title="YouTube video player" frameborder="0" allow='.
+				'" title="YouTube video player" allow='.
 				'"accelerometer; autoplay; clipboard-write; encrypted-media; '.
 				'gyroscope; picture-in-picture" allowfullscreen></iframe></div>';}
 		else
@@ -313,7 +313,7 @@ function buildSimpleCard ($la) {
   ob_start();      
   echo <<<END
       
-  <div class="$cc col-md-6 col-sm-12  col-xs-12 mb-4 $hclass";>
+  <div class="$cc col-md-6 col-sm-12  col-xs-12 mb-4 $hclass">
     <div class="card" title="$la[ptitle]">
       $ltop
       <img class="card-img-top" src="$la[image]" alt="$la[ptitle]">

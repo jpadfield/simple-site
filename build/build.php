@@ -292,8 +292,9 @@ function parseLinks ($text, $sno=1)
 	//Extract the footnotes for this section of the text
 	$use = array_slice($footnotes, ($sno-1), ($fcount-1));
 	
-	$text = $text . "<div class=\"foonote\"><ul>";
-	if ($use) {$text = $text . "<hr/>";}
+	$text = $text . "<div class=\"foonote\">";
+	if ($use) {$text = $text . "<hr/><ul>";}
+	else {$text = $text . "<ul>";}
 	foreach ($use as $j => $str)
 		{$k = $j + $sno;
 		 $str = preg_replace_callback('/http[^\s]+/', 'addLinks', $str);
@@ -1341,7 +1342,7 @@ function displayCodeSection ($array, $title=false, $format="json", $caption=fals
 	$title
 	<figure>
 		<pre class="$preClass" style="overflow-y: auto;overflow-x: auto; border: 2px solid black;padding: 10px;max-height:400px;"><code>${code}</code></pre>
-		<figcaption class=\"figure-caption\">$caption</figcaption>
+		<figcaption class="figure-caption">$caption</figcaption>
 	</figure>	
 END;
 		$codeHTML = ob_get_contents();
@@ -1355,28 +1356,6 @@ function displayCode ($str)
 	ob_start();			
 	echo <<<END
 	<hr/>
-	<style>
-	details {
-    border: 1px solid #aaa;
-    border-radius: 4px;
-    padding: .5em .5em 0;
-}
-
-summary {
-    font-weight: bold;
-    margin: -.5em -.5em 0;
-    padding: .5em;
-}
-
-details[open] {
-    padding: .5em;
-}
-
-details[open] summary {
-    border-bottom: 1px solid #aaa;
-    margin-bottom: .5em;
-}
-	</style>
 	<details>
 	<summary>Display the full code used to define this page.</summary>
 	<br/>
