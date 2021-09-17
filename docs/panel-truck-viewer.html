@@ -8,7 +8,7 @@
     <meta name="author" content="Joseph Padfield| joseph.padfield@ng-london.org.uk |National Gallery | London UK | website@ng-london.org.uk |www.nationalgallery.org.uk" />
     <meta name="image" content="" />
     <link rel="icon" href="graphics/favicon.ico">
-    <title>NG Simple Site - Panel_Truck_viewer</title>
+    <title>NG Simple Site - panel-truck-viewer</title>
     
 	<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous" rel="stylesheet" type="text/css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.css" integrity="sha256-BNdodQbWHpU3HT8xGhkEusT4ch4HEjvwzcbDcVuHR+E=" crossorigin="anonymous" rel="stylesheet" type="text/css">
@@ -182,8 +182,9 @@ details[open] summary {
     &quot;title&quot;: &quot;Simple Site - The &lt;b&gt;Panel-Truck (IIIF) Extension&lt;/b&gt;&quot;,
     &quot;content&quot;: &quot;&lt;p&gt;This extension makes use of [IIIF|https://iiif.io] and the [panel-truck (v0.1)|https://geoservices.leventhalmap.org/cartinal/documentation/panel-truck.html] viewer, created by the &lt;a href=\&quot;https://leventhalmap.org\&quot;&gt;Leventhal Map and Education Center&lt;/a&gt; at the Boston Public Library. The panel-truck viewer is a web UI tool which allows users to present interactive storylines using images and maps. It is an example of a special page that can be added to the [pages.json|pages.json.html] file.&lt;/p&gt;\r\n\r\n&lt;h3&gt;The Example&lt;/h3&gt;\r\n[##]\r\n&lt;br/&gt;\r\n&lt;h3&gt;Summary&lt;/h3&gt;\r\n&lt;div class=\&quot;alert alert-info\&quot; role=\&quot;alert\&quot;&gt;&lt;h4 class=\&quot;alert-heading\&quot;&gt;Extension Variables&lt;/h4&gt;&lt;p&gt;For this extension to work the &lt;b&gt;class&lt;/b&gt; variable needs to be set to &lt;b&gt;paneltruck&lt;/b&gt; and the &lt;b&gt;file&lt;/b&gt; variable needs to give the name of the additional json file including the panel-truck script details as shown below.&lt;/p&gt;&lt;/div&gt;\r\n\r\n&lt;p&gt;The details included in the &lt;b&gt;content&lt;/b&gt; and &lt;b&gt;content right&lt;/b&gt; variable will be presented as [previously described|pages.json.html], however the data included in the named file, in this case &lt;b&gt;test-screenplay.json&lt;/b&gt; will be processed and displayed in the panel-truck viewer.&lt;/p&gt;\r\n\r\n&lt;h3&gt;Panel Truck  JSON file&lt;/h3&gt;\r\n\r\n&lt;p&gt;As with the other JSON files the panel-truck data needs to be organised in a series of JSON objects, an example of which is provided below, for a live presentation of the example of code please see the [test-screenplay.json|https://gist.githubusercontent.com/garrettdashnelson/73b32f40cccbe30239838dd3bd63988a/raw/7d4f7efc52ee0bb0929110a4438c37d8c98f0aa5/test-screenplay.json] file.&lt;/p&gt;\r\n\r\n&lt;p&gt;The required and optional json variables have all been described as part of the standard [panel-truck documentation|https://geoservices.leventhalmap.org/cartinal/documentation/panel-truck.html#creating-a-screenplay], but for any more information please [get in touch|https://www.leventhalmap.org/about/people/garrett-nelson/] with the original project.&lt;/p&gt;&quot;,
     &quot;content right&quot;: &quot;&quot;,
-    &quot;copy&quot;: true,
+    &quot;copy&quot;: false,
     &quot;displayName&quot;: &quot;Panel Truck Viewer&quot;,
+    &quot;aliases&quot;: &quot;Panel Truck viewer&quot;,
     &quot;displaycode&quot;: true
 }</code></pre>
 		<figcaption class=\"figure-caption\">The complete JSON object used to define this content and layout of this page.</figcaption>

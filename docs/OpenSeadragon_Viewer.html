@@ -17,9 +17,8 @@
 	<link href="css/main.css" rel="stylesheet" type="text/css">
     <style>
     .openseadragon
-{
-    
-    height:     500px;
+{    
+    height:     400px;
     border:     1px solid black;
     color:      #333; /* text color for messages */
     background-color: black;
@@ -55,64 +54,61 @@
 <!-- End Normal Item 1 -->
 
 <!-- Start Normal Item 2 -->
-<li class="nav-item "><a class="nav-link" style="white-space:nowrap;" href="instructions.html">Instructions</a>
+<li class="nav-item "><a class="nav-link" style="white-space:nowrap;" href="howto.html">How To</a>
 </li>
 <!-- End Normal Item 2 -->
 
 <!-- Start Loop Item 3 -->
-<li class="nav-item dropdown ">
-<div class="btn-group"><a href="JSON.html" class="nav-link" style="white-space:nowrap;" title="Click to open the &ldquo;JSON&rdquo; page">
-  JSON</a><button type="button" class="btn nav-link dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false"  title="Click to open the &ldquo;JSON&rdquo; menu">
+<li class="nav-item dropdown active">
+<div class="btn-group"><a href="documentation.html" class="nav-link" style="white-space:nowrap;" title="Click to open the &ldquo;Documentation&rdquo; page">
+  Documentation<span class="sr-only">(current)</span></a><button type="button" class="btn nav-link dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false"  title="Click to open the &ldquo;Documentation&rdquo; menu">
     <span class="visually-hidden">Toggle Dropdown</span>
   </button>
-	<ul class="dropdown-menu"><li><a href="site.json.html" class="dropdown-item">Site.json</a></li><li><a href="pages.json.html" class="dropdown-item">Pages.json</a></li>
+	<ul class="dropdown-menu"><!-- Dropdown Loop 3-1 --><li class="dropdown-submenu">
+		<a id="dropdownMenu3-1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the &ldquo;JSON Files&rdquo; menu">JSON Files
+		&nbsp;&nbsp;<i class="fas fa-caret-right"></i></a>
+		
+		<ul aria-labelledby="dropdownMenu3-1" class="dropdown-menu border-0 shadow">
+			<li><a href="json.html" class="dropdown-item  top-item" title="Click to open the &ldquo;JSON Files&rdquo; page">
+				JSON Files</a></li>
+		<li class="dropdown-divider"></li><li><a href="site.json.html" class="dropdown-item">Site.json</a></li><li><a href="pages.json.html" class="dropdown-item">Pages.json</a></li></ul></li><!-- End Loop 3-1 --><!-- Dropdown Loop 3-2 --><li class="dropdown-submenu">
+		<a id="dropdownMenu3-2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the &ldquo;Extensions&rdquo; menu">Extensions
+		&nbsp;&nbsp;<i class="fas fa-caret-right"></i></a>
+		
+		<ul aria-labelledby="dropdownMenu3-2" class="dropdown-menu border-0 shadow">
+			<li><a href="extensions.html" class="dropdown-item  top-item" title="Click to open the &ldquo;Extensions&rdquo; page">
+				Extensions</a></li>
+		<li class="dropdown-divider"></li><li><a href="timeline.html" class="dropdown-item">Timeline</a></li><li><a href="lists.html" class="dropdown-item">Galleries and Lists</a></li><li><a href="mirador-viewer.html" class="dropdown-item">Mirador IIIF viewer</a></li><li><a href="panel-truck-viewer.html" class="dropdown-item">Panel Truck Viewer</a></li><li><a href="curtain-viewer.html" class="dropdown-item">Curtain Viewer</a></li><li><a href="openseadragon-viewer.html" class="dropdown-item">OpenSeadragon Viewer</a></li></ul></li><!-- End Loop 3-2 --><!-- Dropdown Loop 3-3 --><li class="dropdown-submenu">
+		<a id="dropdownMenu3-3" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the &ldquo;Template&rdquo; menu">Template
+		&nbsp;&nbsp;<i class="fas fa-caret-right"></i></a>
+		
+		<ul aria-labelledby="dropdownMenu3-3" class="dropdown-menu border-0 shadow">
+			<li><a href="template.html" class="dropdown-item  top-item" title="Click to open the &ldquo;Template&rdquo; page">
+				Template</a></li>
+		<li class="dropdown-divider"></li><!-- Dropdown Loop 3-3-1 --><li class="dropdown-submenu">
+		<a id="dropdownMenu3-3-1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the &ldquo;Example Home&rdquo; menu">Example Home
+		&nbsp;&nbsp;<i class="fas fa-caret-right"></i></a>
+		
+		<ul aria-labelledby="dropdownMenu3-3-1" class="dropdown-menu border-0 shadow">
+			<li><a href="template-home.html" class="dropdown-item  top-item" title="Click to open the &ldquo;Example Home&rdquo; page">
+				Example Home</a></li>
+		<li class="dropdown-divider"></li><!-- Dropdown Loop 3-3-1-1 --><li class="dropdown-submenu">
+		<a id="dropdownMenu3-3-1-1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the &ldquo;Nice display pagename&rdquo; menu">Nice display pagename
+		&nbsp;&nbsp;<i class="fas fa-caret-right"></i></a>
+		
+		<ul aria-labelledby="dropdownMenu3-3-1-1" class="dropdown-menu border-0 shadow">
+			<li><a href="example-subpage-01.html" class="dropdown-item  top-item" title="Click to open the &ldquo;Nice display pagename&rdquo; page">
+				Nice display pagename</a></li>
+		<li class="dropdown-divider"></li><li><a href="example-sub-subpage-01.html" class="dropdown-item">Great webpage name</a></li></ul></li><!-- End Loop 3-3-1-1 --><li><a href="mirador-example.html" class="dropdown-item">A Mirador Viewer</a></li><li><a href="example-subpage-02.html" class="dropdown-item">An Example List</a></li></ul></li><!-- End Loop 3-3-1 --></ul></li><!-- End Loop 3-3 -->
 	</ul>
 </div>
 </li>
 <!-- End Loop Item 3 -->
 
-<!-- Start Loop Item 4 -->
-<li class="nav-item dropdown active">
-<div class="btn-group"><a href="extensions.html" class="nav-link" style="white-space:nowrap;" title="Click to open the &ldquo;Extensions&rdquo; page">
-  Extensions<span class="sr-only">(current)</span></a><button type="button" class="btn nav-link dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false"  title="Click to open the &ldquo;Extensions&rdquo; menu">
-    <span class="visually-hidden">Toggle Dropdown</span>
-  </button>
-	<ul class="dropdown-menu"><li><a href="timeline.html" class="dropdown-item">Timeline</a></li><li><a href="Galleries_and_Lists.html" class="dropdown-item">Galleries and Lists</a></li><li><a href="Mirador_IIIF_viewer.html" class="dropdown-item">Mirador IIIF viewer</a></li><li><a href="Panel_Truck_viewer.html" class="dropdown-item">Panel Truck viewer</a></li><li><a href="Curtain_Viewer.html" class="dropdown-item">Curtain Viewer</a></li><li><a href="OpenSeadragon_Viewer.html" class="dropdown-item">OpenSeadragon Viewer</a></li>
-	</ul>
-</div>
-</li>
-<!-- End Loop Item 4 -->
-
-<!-- Start Loop Item 5 -->
-<li class="nav-item dropdown ">
-<div class="btn-group"><a href="example.html" class="nav-link" style="white-space:nowrap;" title="Click to open the &ldquo;Example&rdquo; page">
-  Example</a><button type="button" class="btn nav-link dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false"  title="Click to open the &ldquo;Example&rdquo; menu">
-    <span class="visually-hidden">Toggle Dropdown</span>
-  </button>
-	<ul class="dropdown-menu"><!-- Dropdown Loop 5-1 --><li class="dropdown-submenu">
-		<a id="dropdownMenu5-1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the &ldquo;Nice display pagename&rdquo; menu">Nice display pagename
-		&nbsp;&nbsp;<i class="fas fa-caret-right"></i></a>
-		
-		<ul aria-labelledby="dropdownMenu5-1" class="dropdown-menu border-0 shadow">
-			<li><a href="example-subpage-01.html" class="dropdown-item  top-item" title="Click to open the &ldquo;Nice display pagename&rdquo; page">
-				Nice display pagename</a></li>
-		<li class="dropdown-divider"></li><!-- Dropdown Loop 5-1-1 --><li class="dropdown-submenu">
-		<a id="dropdownMenu5-1-1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle" title="Click to open the &ldquo;Example-sub-subpage-01&rdquo; menu">Example-sub-subpage-01
-		&nbsp;&nbsp;<i class="fas fa-caret-right"></i></a>
-		
-		<ul aria-labelledby="dropdownMenu5-1-1" class="dropdown-menu border-0 shadow">
-			<li><a href="example-sub-subpage-01.html" class="dropdown-item  top-item" title="Click to open the &ldquo;Example-sub-subpage-01&rdquo; page">
-				Example-sub-subpage-01</a></li>
-		<li class="dropdown-divider"></li><li><a href="example-sub-sub-subpage-01.html" class="dropdown-item">Great webpage</a></li></ul></li><!-- End Loop 5-1-1 --></ul></li><!-- End Loop 5-1 --><li><a href="example-subpage-02.html" class="dropdown-item">Example-subpage-02</a></li>
-	</ul>
-</div>
-</li>
-<!-- End Loop Item 5 -->
-
-<!-- Start Normal Item 6 -->
+<!-- Start Normal Item 4 -->
 <li class="nav-item "><a class="nav-link" style="white-space:nowrap;" href="about.html">About</a>
 </li>
-<!-- End Normal Item 6 -->
+<!-- End Normal Item 4 -->
 </ul><span class="navbar-text w-100">			<a href="https://github.com/jpadfield/simple-site/" class="float-end">
 				<img id="ex-logo1" class="logo" title="github" src="graphics/github logo white.png" 
 				style="" alt="GitHub Jpadfield Simple-site"/>
@@ -132,7 +128,7 @@
 									<div class="alert alert-light" role="alert" style="padding:0.5rem 0.5rem 0px 0.5rem;border-color:#dee2e6;">
 		<nav  style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
 			<ol class="breadcrumb" style="margin-bottom:0.5rem;">
-				<li class="breadcrumb-item"><a href="extensions.html">Extensions</a></li><li class="breadcrumb-item active" aria-current="page">OpenSeadragon Viewer</li>
+				<li class="breadcrumb-item"><a href="documentation.html">Documentation</a></li><li class="breadcrumb-item"><a href="extensions.html">Extensions</a></li><li class="breadcrumb-item active" aria-current="page">OpenSeadragon Viewer</li>
 			</ol>
 		</nav>
 		</div>
@@ -181,10 +177,11 @@ details[open] summary {
     &quot;parent&quot;: &quot;extensions&quot;,
     &quot;class&quot;: &quot;openseadragon&quot;,
     &quot;file&quot;: &quot;openseadragon_list.txt&quot;,
-    &quot;title&quot;: &quot;&lt;h3 style=\&quot;margin-bottom:0px;\&quot;&gt;Simple Site - The &lt;b&gt;OpenSeadragonViewer (IIIF) Extension&lt;/b&gt;&lt;i&gt;&lt;/i&gt;&lt;/h3&gt;&quot;,
-    &quot;content&quot;: &quot;&lt;p&gt;This extension creates an [OpenSeaDragon|https://openseadragon.github.io/] viewer based on [IIIF|https://iiif.io] resources, either images[@@For more information about how direct image URLs are constructed see:https://iiif.io/api/image/3.0/#51-image-information-request] or manifests[@@IIIF manifests are simply a structured list of web based images resources that can be viewed in a IIIF compliant viewer, for more details see https://iiif.io/api/presentation/3.0/#52-manifest]. It is an example of a special page that can be added to the [pages.json|pages.json.html] file.&lt;/p&gt;\r\n\r\n&lt;h3&gt;The Example&lt;/h3&gt;\r\n&lt;div class=\&quot;row\&quot; style=\&quot;padding-left:16px;padding-right:16px;\&quot;&gt;&lt;div class=\&quot;col-12 col-lg-12\&quot;&gt;&lt;div id=\&quot;openseadragonviewerdiv\&quot; class=\&quot;openseadragon\&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;\r\n&lt;br/&gt;\r\n&lt;h3&gt;Summary&lt;/h3&gt;\r\n&lt;div class=\&quot;alert alert-info\&quot; role=\&quot;alert\&quot;&gt;&lt;h4 class=\&quot;alert-heading\&quot;&gt;Extension Variables&lt;/h4&gt;&lt;p&gt;For this extension to work the &lt;b&gt;class&lt;/b&gt; variable needs to be set to &lt;b&gt;openseadragon&lt;/b&gt; and the &lt;b&gt;file&lt;/b&gt; variable needs to be a URL to a live IIIF mainifest or the path to a simple text list of either IIIF manifests or individual &lt;b&gt;info.json&lt;/b&gt; URLs for IIIF images, as shown below.&lt;/p&gt;&lt;/div&gt;\r\n\r\n&lt;p&gt;The details included in the &lt;b&gt;content&lt;/b&gt; and &lt;b&gt;content right&lt;/b&gt; variable will be presented as [previously described|pages.json.html], however the data included in the named file, in this case &lt;b&gt;openseadragon_list.txt&lt;/b&gt; will be processed and displayed in the openseadragon viewer. &lt;b&gt;Please note that a full resolvable URL is required when a single IIIF manifest is used, but a simple filename can be used to reference a local file&lt;/b&gt;.&lt;/p&gt;&quot;,
+    &quot;title&quot;: &quot;Simple Site - The &lt;b&gt;OpenSeadragonViewer (IIIF) Extension&lt;/b&gt;&lt;i&gt;&lt;/i&gt;&quot;,
+    &quot;content&quot;: &quot;&lt;p&gt;This extension creates an [OpenSeaDragon|https://openseadragon.github.io/] viewer based on [IIIF|https://iiif.io] resources, either images[@@For more information about how direct image URLs are constructed see:https://iiif.io/api/image/3.0/#51-image-information-request] or manifests[@@IIIF manifests are simply a structured list of web based images resources that can be viewed in a IIIF compliant viewer, for more details see https://iiif.io/api/presentation/3.0/#52-manifest]. It is an example of a special page that can be added to the [pages.json|pages.json.html] file.&lt;/p&gt;\r\n\r\n&lt;h3&gt;The Example&lt;/h3&gt;\r\n[##]\r\n&lt;br/&gt;\r\n&lt;h3&gt;Summary&lt;/h3&gt;\r\n&lt;div class=\&quot;alert alert-info\&quot; role=\&quot;alert\&quot;&gt;&lt;h4 class=\&quot;alert-heading\&quot;&gt;Extension Variables&lt;/h4&gt;&lt;p&gt;For this extension to work the &lt;b&gt;class&lt;/b&gt; variable needs to be set to &lt;b&gt;openseadragon&lt;/b&gt; and the &lt;b&gt;file&lt;/b&gt; variable needs to be a URL to a live IIIF mainifest or the path to a simple text list of either IIIF manifests or individual &lt;b&gt;info.json&lt;/b&gt; URLs for IIIF images, as shown below.&lt;/p&gt;&lt;/div&gt;\r\n\r\n&lt;p&gt;The details included in the &lt;b&gt;content&lt;/b&gt; and &lt;b&gt;content right&lt;/b&gt; variable will be presented as [previously described|pages.json.html], however the data included in the named file, in this case &lt;b&gt;openseadragon_list.txt&lt;/b&gt; will be processed and displayed in the openseadragon viewer. &lt;b&gt;Please note that a full resolvable URL is required when a single IIIF manifest is used, but a simple filename can be used to reference a local file&lt;/b&gt;.&lt;/p&gt;&quot;,
     &quot;content right&quot;: &quot;&quot;,
-    &quot;copy&quot;: false,
+    &quot;copy&quot;: true,
+    &quot;displayName&quot;: &quot;OpenSeadragon Viewer&quot;,
     &quot;displaycode&quot;: true
 }</code></pre>
 		<figcaption class=\"figure-caption\">The complete JSON object used to define this content and layout of this page.</figcaption>

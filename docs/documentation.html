@@ -8,7 +8,7 @@
     <meta name="author" content="Joseph Padfield| joseph.padfield@ng-london.org.uk |National Gallery | London UK | website@ng-london.org.uk |www.nationalgallery.org.uk" />
     <meta name="image" content="" />
     <link rel="icon" href="graphics/favicon.ico">
-    <title>NG Simple Site - example-subpage-01</title>
+    <title>NG Simple Site - documentation</title>
     
 	<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous" rel="stylesheet" type="text/css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.css" integrity="sha256-BNdodQbWHpU3HT8xGhkEusT4ch4HEjvwzcbDcVuHR+E=" crossorigin="anonymous" rel="stylesheet" type="text/css">
@@ -117,27 +117,18 @@
 					
 <!-- Start SimpleBDGrid -->
 <div class="p-2 bg-light border rounded-3 jumbotron">
-      <div class="container-fluid py-2"><h3 style="margin-bottom:0px;">More detail might be needed in some areas</h3></div></div><div class="container-fluid "><div class="row h-100"><div class="col-12">							
+      <div class="container-fluid py-2"><h3 style="margin-bottom:0px;">Simple Site - Technical Details and Documentation</h3></div></div><div class="container-fluid "><div class="row h-100"><div class="col-12">							
 								<div class="h-100 d-flex flex-column">
-									<div class="alert alert-light" role="alert" style="padding:0.5rem 0.5rem 0px 0.5rem;border-color:#dee2e6;">
-		<nav  style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-			<ol class="breadcrumb" style="margin-bottom:0.5rem;">
-				<li class="breadcrumb-item"><a href="documentation.html">Documentation</a></li><li class="breadcrumb-item"><a href="template.html">Template</a></li><li class="breadcrumb-item"><a href="template-home.html">Example Home</a></li><li class="breadcrumb-item active" aria-current="page">Nice display pagename</li>
-			</ol>
-		</nav>
-		</div>
-						</div></div><!--/span--></div></div><!--/row-->    <div class="container-fluid "><div class="row h-100"><div class="col-lg-6 col-md-6 col-sm-12  col-xs-12">							
+							
+						</div></div><!--/span--></div></div><!--/row-->    <div class="container-fluid "><div class="row h-100"><div class="col-12 flex-grow-1">							
 								<div class="h-100 d-flex flex-column">
-							<p>Sub pages can be set up to provide additional content without adding to the list of tabs at the top of the page. These are nested using a simple parent child relationship.</p><div class="alert alert-warning" role="alert"><p><b>NB:</b> The display name of a page, which appears in the menus and navigation options can be different to the actual name used for the page. For example the display name of this page is <b>Nice display pagename</b>, whereas the actual page name in the URL is <b>example-subpage-01</b>. This can be useful as it is good practice to avoid long page names that include spaces.</p><p>Display names can be set in the <a href='pages.json.html'>pages.json</a> file, using the variable <b>"displayName"</b>.</p></div><div class="foonote"><ul></ul></div>
-						</div></div><!--/span--><div class="col-lg-6 col-md-6 col-sm-12  col-xs-12">							
-								<div class="h-100 d-flex flex-column">
-							<img style="position:relative;width:100%;" src="graphics/example_knowledge_graph.png"/><div class="foonote"><ul></ul></div>
+							<div class="alert alert-warning" role="alert"><p>The pages included below this one contain further technical details of how the Simple Site system works. The two key files <a href='pages.json.html'>pages.json</a> and <a href='site.json.html'>site.json</a>, used to control and define the new webpages, are described in detail, along with the various <a href='extensions.html'>extensions</a> to Simple Site, that have been created to add more complex functionality, like adding IIIF viewers.</p><p>The other set of template pages have been included to provide some more simple examples of how "pages" can be defined. A copy of these page have also been included as the <b>pages-template.json</b> file found in the <b>build</b> folder in your Github Repository.</p></div><div class="foonote"><ul></ul></div>
 						</div></div><!--/span--></div></div><!--/row-->    <div class="container-fluid "><div class="row h-100"><div class="col-12 col-lg-12">							
 								<div class="h-100 d-flex flex-column">
 									<div class="alert alert-light" role="alert">
 			<h3>Included Pages</h3>
 			<div class="list-group">			
-				<a class="list-group-item list-group-item-action" href="example-sub-subpage-01.html">Great webpage name</a>
+				<a class="list-group-item list-group-item-action" href="json.html">JSON Files</a><a class="list-group-item list-group-item-action" href="extensions.html">Extensions</a><a class="list-group-item list-group-item-action" href="template.html">Template</a>
 			</div>
 		</div>
 						</div></div><!--/span--></div></div><!--/row-->    <div class="container-fluid "><div class="row h-100"><div class="col-12 col-lg-12">							
@@ -171,14 +162,14 @@ details[open] summary {
 		<h3>Page JSON Object</h3>
 	<figure>
 		<pre class="json-renderer" style="overflow-y: auto;overflow-x: auto; border: 2px solid black;padding: 10px;max-height:400px;"><code>{
-    &quot;parent&quot;: &quot;template-home&quot;,
+    &quot;parent&quot;: &quot;&quot;,
     &quot;class&quot;: &quot;&quot;,
     &quot;file&quot;: &quot;&quot;,
-    &quot;title&quot;: &quot;More detail might be needed in some areas&quot;,
-    &quot;content&quot;: &quot;&lt;p&gt;Sub pages can be set up to provide additional content without adding to the list of tabs at the top of the page. These are nested using a simple parent child relationship.&lt;/p&gt;&lt;div class=\&quot;alert alert-warning\&quot; role=\&quot;alert\&quot;&gt;&lt;p&gt;&lt;b&gt;NB:&lt;/b&gt; The display name of a page, which appears in the menus and navigation options can be different to the actual name used for the page. For example the display name of this page is &lt;b&gt;Nice display pagename&lt;/b&gt;, whereas the actual page name in the URL is &lt;b&gt;example-subpage-01&lt;/b&gt;. This can be useful as it is good practice to avoid long page names that include spaces.&lt;/p&gt;&lt;p&gt;Display names can be set in the [pages.json|pages.json.html] file, using the variable &lt;b&gt;\&quot;displayName\&quot;&lt;/b&gt;.&lt;/p&gt;&lt;/div&gt;&quot;,
-    &quot;content right&quot;: &quot;&lt;img style=\&quot;position:relative;width:100%;\&quot; src=\&quot;graphics/example_knowledge_graph.png\&quot;/&gt;&quot;,
+    &quot;title&quot;: &quot;Simple Site - Technical Details and Documentation&quot;,
+    &quot;content&quot;: &quot;&lt;div class=\&quot;alert alert-warning\&quot; role=\&quot;alert\&quot;&gt;&lt;p&gt;The pages included below this one contain further technical details of how the Simple Site system works. The two key files [pages.json|pages.json.html] and [site.json|site.json.html], used to control and define the new webpages, are described in detail, along with the various [extensions|extensions.html] to Simple Site, that have been created to add more complex functionality, like adding IIIF viewers.&lt;/p&gt;&lt;p&gt;The other set of template pages have been included to provide some more simple examples of how \&quot;pages\&quot; can be defined. A copy of these page have also been included as the &lt;b&gt;pages-template.json&lt;/b&gt; file found in the &lt;b&gt;build&lt;/b&gt; folder in your Github Repository.&lt;/p&gt;&lt;/div&gt;&quot;,
+    &quot;content right&quot;: &quot;&quot;,
     &quot;copy&quot;: false,
-    &quot;displayName&quot;: &quot;Nice display pagename&quot;,
+    &quot;aliases&quot;: &quot;instructions&quot;,
     &quot;displaycode&quot;: true
 }</code></pre>
 		<figcaption class=\"figure-caption\">The complete JSON object used to define this content and layout of this page.</figcaption>
