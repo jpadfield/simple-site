@@ -1,12 +1,8 @@
 {
-	"manifests": {
-		"https://iiif.harvardartmuseums.org/manifests/object/299843": {
-			"provider": "Harvard University"
-		},
-		"https://media.nga.gov/public/manifests/nga_highlights.json": {
-			"provider": "National Gallery of Art"
-		}
-	},
+	"catalog": [
+		{ "manifestID": "https://iiif.harvardartmuseums.org/manifests/object/299843" }, 
+		{ "manifestID": "https://media.nga.gov/public/manifests/nga_highlights.json" }		
+	],
 	"windows": [{
 			"manifestId": "https://media.nga.gov/public/manifests/nga_highlights.json",
 			"canvasIndex": 0
