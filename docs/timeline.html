@@ -119,7 +119,7 @@ g a {
 </li>
 <!-- End Normal Item 4 -->
 </ul><span class="navbar-text w-100">			<a href="https://github.com/jpadfield/simple-site/" class="float-end">
-				<img id="ex-logo1" class="logo" title="github" src="graphics/github logo white.png" 
+				<img id="ex-logo1" class="logo" title="github" src="graphics/github%20logo%20white.png" 
 				style="" alt="GitHub Jpadfield Simple-site"/>
 		  </a></span></div>
 </div>
@@ -194,7 +194,7 @@ gantt
     "<b>content right</b>": ""		
 	}
 ...
-</code></pre><figcaption class=\"figure-caption\">Simplified version of the JSON object used to describe this page.</figcaption>
+</code></pre><figcaption class="figure-caption">Simplified version of the JSON object used to describe this page.</figcaption>
 </figure>
 
 <p>The details included in the <b>content</b> and <b>content right</b> variable will be presented as <a href='pages.json.html'>previously described</a>, however the data included in the named file, in this case <b>timeline.json</b> will be processed to add a formatted timeline to the page.</p>
@@ -210,12 +210,12 @@ gantt
   "<b>start date</b>": "Start date of your project in the 2020-12-31 format",
   "<b>margin</b>": -3, /* negative number of months - adds a margin to the left of your timeline to leave room for the group titles.*/
 ...
-</code></pre><figcaption class=\"figure-caption\">The top three variable required in the timeline JSON file.</figcaption>
+</code></pre><figcaption class="figure-caption">The top three variable required in the timeline JSON file.</figcaption>
 </figure>
 
 <p>The rest of the data within the JSON file relates to a series of event organised in <b>groups</b>, it is ok just to have a single group, but the system automatically applies different background colours to each group, which allows an easy method of breaking up or organising a longer list of events. Each is identified with a unique short tag, and then within each individual group you have a group title and list of events called <b>stages</b>.</p>
 
-<p>Each stage is made up of four unnamed variables which equate to:
+<p>Each stage is made up of four unnamed variables which equate to:</p>
 <ul>
 <li>The display text that describes the particular stage or event</li>
 <li>An optional styling class - at this time only three options are used in the example below;
@@ -226,7 +226,7 @@ gantt
 </ul></li>
 <li>The start of the event: given in a number of months from the start date, or a number of months and days if formatted as "3,3" - three months and three days.</li>
 <li>The end of the event: given in a number of months from the start date, or a number of months and days if formatted as "3,3" - three months and three days.</li>
-</ul></p>
+</ul>
 <figure>
 		<pre style="overflow: hidden;border: 2px solid black;padding: 10px;">
 <code>
@@ -241,7 +241,7 @@ gantt
       ]}
     }
 ...
-</code></pre><figcaption class=\"figure-caption\">The first few objects in the <a href='https://github.com/jpadfield/simple-site/blob/master/build/timeline.json'>JSON file</a> used to describe the example timeline are shown below.</figcaption>
+</code></pre><figcaption class="figure-caption">The first few objects in the <a href='https://github.com/jpadfield/simple-site/blob/master/build/timeline.json'>JSON file</a> used to describe the example timeline are shown below.</figcaption>
 </figure>
 
 <figure>
@@ -274,33 +274,11 @@ gantt
 
     }
   }
-</code></pre><figcaption class=\"figure-caption\">The first few objects in the <a href='https://github.com/jpadfield/simple-site/blob/master/build/timeline.json'>JSON file</a> used to describe the example timeline.</figcaption>
+</code></pre><figcaption class="figure-caption">The first few objects in the <a href='https://github.com/jpadfield/simple-site/blob/master/build/timeline.json'>JSON file</a> used to describe the example timeline.</figcaption>
 </figure><div class="foonote"><ul></ul></div>
 						</div></div><!--/span--></div></div><!--/row-->    <div class="container-fluid "><div class="row h-100"><div class="col-12 col-lg-12">							
 								<div class="h-100 d-flex flex-column">
 								<hr/>
-	<style>
-	details {
-    border: 1px solid #aaa;
-    border-radius: 4px;
-    padding: .5em .5em 0;
-}
-
-summary {
-    font-weight: bold;
-    margin: -.5em -.5em 0;
-    padding: .5em;
-}
-
-details[open] {
-    padding: .5em;
-}
-
-details[open] summary {
-    border-bottom: 1px solid #aaa;
-    margin-bottom: .5em;
-}
-	</style>
 	<details>
 	<summary>Display the full code used to define this page.</summary>
 	<br/>
@@ -311,12 +289,12 @@ details[open] summary {
     &quot;class&quot;: &quot;timeline&quot;,
     &quot;file&quot;: &quot;timeline.json&quot;,
     &quot;title&quot;: &quot;Simple Site - The &lt;b&gt;Timeline Extension&lt;/b&gt;&quot;,
-    &quot;content&quot;: &quot;&lt;p&gt;This extension uses the [Mermaid|https://mermaid-js.github.io/mermaid/#/] library to produce a customised timeline gantt chart. It is an example of a special page that can be added to the [pages.json|pages.json.html] file.&lt;/p&gt;\r\n\r\n&lt;h3&gt;The Example&lt;/h3&gt;\r\n[##]\r\n\r\n&lt;h3&gt;Summary&lt;/h3&gt;\r\n&lt;div class=\&quot;alert alert-info\&quot; role=\&quot;alert\&quot;&gt;&lt;h4 class=\&quot;alert-heading\&quot;&gt;Extension Variables&lt;/h4&gt;&lt;p&gt;For this extension to work the &lt;b&gt;class&lt;/b&gt; variable needs to be set to &lt;b&gt;timeline&lt;/b&gt; and the &lt;b&gt;file&lt;/b&gt; variable needs to give the name of the additional json file including the timeline data as shown below.&lt;/p&gt;&lt;/div&gt;\r\n\r\n&lt;figure&gt;\r\n\t\t&lt;pre style=\&quot;overflow: hidden;border: 2px solid black;padding: 10px;\&quot;&gt;\r\n&lt;code&gt;...  \r\n  \&quot;&lt;b&gt;timeline&lt;/b&gt;\&quot;: {\r\n    \&quot;&lt;b&gt;parent&lt;/b&gt;\&quot;: \&quot;extensions\&quot;,\r\n    \&quot;&lt;b&gt;class&lt;/b&gt;\&quot;: \&quot;timeline\&quot;,\r\n    \&quot;&lt;b&gt;file&lt;/b&gt;\&quot;: \&quot;timeline.json\&quot;,\r\n    \&quot;&lt;b&gt;title&lt;/b&gt;\&quot;: \&quot;Simple Site - The &amp;lt;b&amp;gt;Timeline Extension&amp;lt;/b&amp;gt;\&quot;,\r\n    \&quot;&lt;b&gt;content&lt;/b&gt;\&quot;: \&quot;&amp;lt;p&amp;gt;This extension uses the &amp;#91;Mermaid|https://mermaid-js.github.io/mermaid/#/&amp;#93; library to produce a customised timeline gantt chart. It is an example of a special page that can be added to the ... \&quot;,\r\n    \&quot;&lt;b&gt;content right&lt;/b&gt;\&quot;: \&quot;\&quot;\t\t\r\n\t}\r\n...\r\n&lt;/code&gt;&lt;/pre&gt;&lt;figcaption class=\\\&quot;figure-caption\\\&quot;&gt;Simplified version of the JSON object used to describe this page.&lt;/figcaption&gt;\r\n&lt;/figure&gt;\r\n\r\n&lt;p&gt;The details included in the &lt;b&gt;content&lt;/b&gt; and &lt;b&gt;content right&lt;/b&gt; variable will be presented as [previously described|pages.json.html], however the data included in the named file, in this case &lt;b&gt;timeline.json&lt;/b&gt; will be processed to add a formatted timeline to the page.&lt;/p&gt;\r\n\r\n&lt;h3&gt;Timeline JSON file&lt;/h3&gt;\r\n\r\n&lt;p&gt;As with the other JSON files the timeline data needs to be organised in a series of JSON objects, an example of which is provided below, for an example of real code please see the [timeline.json|https://github.com/jpadfield/simple-site/blob/master/build/timeline.json] file.&lt;/p&gt;\r\n\r\n&lt;figure&gt;\r\n\t\t&lt;pre style=\&quot;overflow: hidden;border: 2px solid black;padding: 10px;\&quot;&gt;\r\n&lt;code&gt;{\r\n  \&quot;&lt;b&gt;project&lt;/b&gt;\&quot;: \&quot;Simple title for time line\&quot;,\r\n  \&quot;&lt;b&gt;start date&lt;/b&gt;\&quot;: \&quot;Start date of your project in the 2020-12-31 format\&quot;,\r\n  \&quot;&lt;b&gt;margin&lt;/b&gt;\&quot;: -3, /* negative number of months - adds a margin to the left of your timeline to leave room for the group titles.*/\r\n...\r\n&lt;/code&gt;&lt;/pre&gt;&lt;figcaption class=\\\&quot;figure-caption\\\&quot;&gt;The top three variable required in the timeline JSON file.&lt;/figcaption&gt;\r\n&lt;/figure&gt;\r\n\r\n&lt;p&gt;The rest of the data within the JSON file relates to a series of event organised in &lt;b&gt;groups&lt;/b&gt;, it is ok just to have a single group, but the system automatically applies different background colours to each group, which allows an easy method of breaking up or organising a longer list of events. Each is identified with a unique short tag, and then within each individual group you have a group title and list of events called &lt;b&gt;stages&lt;/b&gt;.&lt;/p&gt;\r\n\r\n&lt;p&gt;Each stage is made up of four unnamed variables which equate to:\r\n&lt;ul&gt;\r\n&lt;li&gt;The display text that describes the particular stage or event&lt;/li&gt;\r\n&lt;li&gt;An optional styling class - at this time only three options are used in the example below;\r\n&lt;ul&gt;\r\n&lt;li&gt;&lt;b&gt;\&quot;\&quot;&lt;/b&gt;: (basically empty) a mid blue with a dark blue outline&lt;/li&gt;\r\n&lt;li&gt;&lt;b&gt;\&quot;crit\&quot;&lt;/b&gt;: a red with a lighter read outline&lt;/li&gt;\r\n&lt;li&gt;&lt;b&gt;\&quot;crit, active\&quot;&lt;/b&gt;: a lighter blue with a red outline.&lt;/li&gt;\r\n&lt;/ul&gt;&lt;/li&gt;\r\n&lt;li&gt;The start of the event: given in a number of months from the start date, or a number of months and days if formatted as \&quot;3,3\&quot; - three months and three days.&lt;/li&gt;\r\n&lt;li&gt;The end of the event: given in a number of months from the start date, or a number of months and days if formatted as \&quot;3,3\&quot; - three months and three days.&lt;/li&gt;\r\n&lt;/ul&gt;&lt;/p&gt;\r\n&lt;figure&gt;\r\n\t\t&lt;pre style=\&quot;overflow: hidden;border: 2px solid black;padding: 10px;\&quot;&gt;\r\n&lt;code&gt;\r\n... \r\n  \&quot;&lt;b&gt;groups&lt;/b&gt;\&quot;: { \r\n    \&quot;&lt;b&gt;tag1&lt;/b&gt;\&quot;: {\r\n      \&quot;&lt;b&gt;title&lt;/b&gt;\&quot;: \&quot;Tag1 Title\&quot;,\r\n      \&quot;&lt;b&gt;stages&lt;/b&gt;\&quot; : [\r\n        [\&quot;Text string describing the stage\&quot;, \&quot;\&quot;, 1, 2],\r\n        [\&quot;Text string describing a critical stage\&quot;, \&quot;crit\&quot;, 2, 4],\r\n        [\&quot;Text string describing an active stage\&quot;, \&quot;crit, active\&quot;, 3, 8]\r\n      ]}\r\n    }\r\n...\r\n&lt;/code&gt;&lt;/pre&gt;&lt;figcaption class=\\\&quot;figure-caption\\\&quot;&gt;The first few objects in the [JSON file|https://github.com/jpadfield/simple-site/blob/master/build/timeline.json] used to describe the example timeline are shown below.&lt;/figcaption&gt;\r\n&lt;/figure&gt;\r\n\r\n&lt;figure&gt;\r\n\t\t&lt;pre style=\&quot;overflow: hidden;border: 2px solid black;padding: 10px;\&quot;&gt;\r\n&lt;code&gt;{\r\n  \&quot;&lt;b&gt;project&lt;/b&gt;\&quot;: \&quot;Simple Site Time Line Example\&quot;,\r\n  \&quot;&lt;b&gt;start date&lt;/b&gt;\&quot;: \&quot;2020-02-01\&quot;,\r\n  \&quot;&lt;b&gt;margin&lt;/b&gt;\&quot;: -3,\r\n  \&quot;&lt;b&gt;groups&lt;/b&gt;\&quot;: {\r\n    \&quot;&lt;b&gt;int&lt;/b&gt;\&quot;: {\r\n      \&quot;&lt;b&gt;title&lt;/b&gt;\&quot;: \&quot;Initial discussion and planning\&quot;,\r\n      \&quot;&lt;b&gt;stages&lt;/b&gt;\&quot; : [\r\n        [\&quot;Literature/website/software review\&quot;, \&quot;\&quot;, 2, 8],\r\n        [\&quot;Establish communications, collaborative environments and links with related interest groups\&quot;,\t\&quot;\&quot;, 0, 4],\t\t\t\t\r\n        [\&quot;Recruit Project Researcher\&quot;, \&quot;crit\&quot;, \&quot;3,3\&quot;, 6],\r\n        [\&quot;Project Researcher In Post\&quot;, \&quot;crit\&quot;, 6, 21]\r\n      ]},\r\n    \&quot;&lt;b&gt;ws&lt;/b&gt;\&quot;: {\r\n      \&quot;&lt;b&gt;title&lt;/b&gt;\&quot;: \&quot;Workshops\&quot;,\r\n       \&quot;&lt;b&gt;stages&lt;/b&gt;\&quot;: [\r\n        [\&quot;Organise Workshop 1\&quot;, \&quot;\&quot;, 2, \&quot;5,20\&quot;],\r\n        [\&quot;Workshop 1 - The Beginning\&quot;, \&quot;crit\&quot;, \&quot;5,20\&quot;, \&quot;5,21\&quot;],\r\n        [\&quot;Organise Workshop 2\&quot;,\t\&quot;\&quot;, 6, 9],\r\n        [\&quot;Workshop 2 - The Middle\&quot;, \&quot;crit, active\&quot;, 9, 10],\r\n        [\&quot;Organise Workshop 3 \u2013 Document available resources and development ideas\&quot;, \&quot;\&quot;, 10, 18],\r\n        [\&quot;Workshop 3 - The End\&quot;, \&quot;crit, active\&quot;, 18, 19]\r\n      ]},\r\n\t\t\t\r\n...\r\n\r\n    }\r\n  }\r\n&lt;/code&gt;&lt;/pre&gt;&lt;figcaption class=\\\&quot;figure-caption\\\&quot;&gt;The first few objects in the [JSON file|https://github.com/jpadfield/simple-site/blob/master/build/timeline.json] used to describe the example timeline.&lt;/figcaption&gt;\r\n&lt;/figure&gt;&quot;,
+    &quot;content&quot;: &quot;&lt;p&gt;This extension uses the [Mermaid|https://mermaid-js.github.io/mermaid/#/] library to produce a customised timeline gantt chart. It is an example of a special page that can be added to the [pages.json|pages.json.html] file.&lt;/p&gt;\r\n\r\n&lt;h3&gt;The Example&lt;/h3&gt;\r\n[##]\r\n\r\n&lt;h3&gt;Summary&lt;/h3&gt;\r\n&lt;div class=\&quot;alert alert-info\&quot; role=\&quot;alert\&quot;&gt;&lt;h4 class=\&quot;alert-heading\&quot;&gt;Extension Variables&lt;/h4&gt;&lt;p&gt;For this extension to work the &lt;b&gt;class&lt;/b&gt; variable needs to be set to &lt;b&gt;timeline&lt;/b&gt; and the &lt;b&gt;file&lt;/b&gt; variable needs to give the name of the additional json file including the timeline data as shown below.&lt;/p&gt;&lt;/div&gt;\r\n\r\n&lt;figure&gt;\r\n\t\t&lt;pre style=\&quot;overflow: hidden;border: 2px solid black;padding: 10px;\&quot;&gt;\r\n&lt;code&gt;...  \r\n  \&quot;&lt;b&gt;timeline&lt;/b&gt;\&quot;: {\r\n    \&quot;&lt;b&gt;parent&lt;/b&gt;\&quot;: \&quot;extensions\&quot;,\r\n    \&quot;&lt;b&gt;class&lt;/b&gt;\&quot;: \&quot;timeline\&quot;,\r\n    \&quot;&lt;b&gt;file&lt;/b&gt;\&quot;: \&quot;timeline.json\&quot;,\r\n    \&quot;&lt;b&gt;title&lt;/b&gt;\&quot;: \&quot;Simple Site - The &amp;lt;b&amp;gt;Timeline Extension&amp;lt;/b&amp;gt;\&quot;,\r\n    \&quot;&lt;b&gt;content&lt;/b&gt;\&quot;: \&quot;&amp;lt;p&amp;gt;This extension uses the &amp;#91;Mermaid|https://mermaid-js.github.io/mermaid/#/&amp;#93; library to produce a customised timeline gantt chart. It is an example of a special page that can be added to the ... \&quot;,\r\n    \&quot;&lt;b&gt;content right&lt;/b&gt;\&quot;: \&quot;\&quot;\t\t\r\n\t}\r\n...\r\n&lt;/code&gt;&lt;/pre&gt;&lt;figcaption class=\&quot;figure-caption\&quot;&gt;Simplified version of the JSON object used to describe this page.&lt;/figcaption&gt;\r\n&lt;/figure&gt;\r\n\r\n&lt;p&gt;The details included in the &lt;b&gt;content&lt;/b&gt; and &lt;b&gt;content right&lt;/b&gt; variable will be presented as [previously described|pages.json.html], however the data included in the named file, in this case &lt;b&gt;timeline.json&lt;/b&gt; will be processed to add a formatted timeline to the page.&lt;/p&gt;\r\n\r\n&lt;h3&gt;Timeline JSON file&lt;/h3&gt;\r\n\r\n&lt;p&gt;As with the other JSON files the timeline data needs to be organised in a series of JSON objects, an example of which is provided below, for an example of real code please see the [timeline.json|https://github.com/jpadfield/simple-site/blob/master/build/timeline.json] file.&lt;/p&gt;\r\n\r\n&lt;figure&gt;\r\n\t\t&lt;pre style=\&quot;overflow: hidden;border: 2px solid black;padding: 10px;\&quot;&gt;\r\n&lt;code&gt;{\r\n  \&quot;&lt;b&gt;project&lt;/b&gt;\&quot;: \&quot;Simple title for time line\&quot;,\r\n  \&quot;&lt;b&gt;start date&lt;/b&gt;\&quot;: \&quot;Start date of your project in the 2020-12-31 format\&quot;,\r\n  \&quot;&lt;b&gt;margin&lt;/b&gt;\&quot;: -3, /* negative number of months - adds a margin to the left of your timeline to leave room for the group titles.*/\r\n...\r\n&lt;/code&gt;&lt;/pre&gt;&lt;figcaption class=\&quot;figure-caption\&quot;&gt;The top three variable required in the timeline JSON file.&lt;/figcaption&gt;\r\n&lt;/figure&gt;\r\n\r\n&lt;p&gt;The rest of the data within the JSON file relates to a series of event organised in &lt;b&gt;groups&lt;/b&gt;, it is ok just to have a single group, but the system automatically applies different background colours to each group, which allows an easy method of breaking up or organising a longer list of events. Each is identified with a unique short tag, and then within each individual group you have a group title and list of events called &lt;b&gt;stages&lt;/b&gt;.&lt;/p&gt;\r\n\r\n&lt;p&gt;Each stage is made up of four unnamed variables which equate to:&lt;/p&gt;\r\n&lt;ul&gt;\r\n&lt;li&gt;The display text that describes the particular stage or event&lt;/li&gt;\r\n&lt;li&gt;An optional styling class - at this time only three options are used in the example below;\r\n&lt;ul&gt;\r\n&lt;li&gt;&lt;b&gt;\&quot;\&quot;&lt;/b&gt;: (basically empty) a mid blue with a dark blue outline&lt;/li&gt;\r\n&lt;li&gt;&lt;b&gt;\&quot;crit\&quot;&lt;/b&gt;: a red with a lighter read outline&lt;/li&gt;\r\n&lt;li&gt;&lt;b&gt;\&quot;crit, active\&quot;&lt;/b&gt;: a lighter blue with a red outline.&lt;/li&gt;\r\n&lt;/ul&gt;&lt;/li&gt;\r\n&lt;li&gt;The start of the event: given in a number of months from the start date, or a number of months and days if formatted as \&quot;3,3\&quot; - three months and three days.&lt;/li&gt;\r\n&lt;li&gt;The end of the event: given in a number of months from the start date, or a number of months and days if formatted as \&quot;3,3\&quot; - three months and three days.&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;figure&gt;\r\n\t\t&lt;pre style=\&quot;overflow: hidden;border: 2px solid black;padding: 10px;\&quot;&gt;\r\n&lt;code&gt;\r\n... \r\n  \&quot;&lt;b&gt;groups&lt;/b&gt;\&quot;: { \r\n    \&quot;&lt;b&gt;tag1&lt;/b&gt;\&quot;: {\r\n      \&quot;&lt;b&gt;title&lt;/b&gt;\&quot;: \&quot;Tag1 Title\&quot;,\r\n      \&quot;&lt;b&gt;stages&lt;/b&gt;\&quot; : [\r\n        [\&quot;Text string describing the stage\&quot;, \&quot;\&quot;, 1, 2],\r\n        [\&quot;Text string describing a critical stage\&quot;, \&quot;crit\&quot;, 2, 4],\r\n        [\&quot;Text string describing an active stage\&quot;, \&quot;crit, active\&quot;, 3, 8]\r\n      ]}\r\n    }\r\n...\r\n&lt;/code&gt;&lt;/pre&gt;&lt;figcaption class=\&quot;figure-caption\&quot;&gt;The first few objects in the [JSON file|https://github.com/jpadfield/simple-site/blob/master/build/timeline.json] used to describe the example timeline are shown below.&lt;/figcaption&gt;\r\n&lt;/figure&gt;\r\n\r\n&lt;figure&gt;\r\n\t\t&lt;pre style=\&quot;overflow: hidden;border: 2px solid black;padding: 10px;\&quot;&gt;\r\n&lt;code&gt;{\r\n  \&quot;&lt;b&gt;project&lt;/b&gt;\&quot;: \&quot;Simple Site Time Line Example\&quot;,\r\n  \&quot;&lt;b&gt;start date&lt;/b&gt;\&quot;: \&quot;2020-02-01\&quot;,\r\n  \&quot;&lt;b&gt;margin&lt;/b&gt;\&quot;: -3,\r\n  \&quot;&lt;b&gt;groups&lt;/b&gt;\&quot;: {\r\n    \&quot;&lt;b&gt;int&lt;/b&gt;\&quot;: {\r\n      \&quot;&lt;b&gt;title&lt;/b&gt;\&quot;: \&quot;Initial discussion and planning\&quot;,\r\n      \&quot;&lt;b&gt;stages&lt;/b&gt;\&quot; : [\r\n        [\&quot;Literature/website/software review\&quot;, \&quot;\&quot;, 2, 8],\r\n        [\&quot;Establish communications, collaborative environments and links with related interest groups\&quot;,\t\&quot;\&quot;, 0, 4],\t\t\t\t\r\n        [\&quot;Recruit Project Researcher\&quot;, \&quot;crit\&quot;, \&quot;3,3\&quot;, 6],\r\n        [\&quot;Project Researcher In Post\&quot;, \&quot;crit\&quot;, 6, 21]\r\n      ]},\r\n    \&quot;&lt;b&gt;ws&lt;/b&gt;\&quot;: {\r\n      \&quot;&lt;b&gt;title&lt;/b&gt;\&quot;: \&quot;Workshops\&quot;,\r\n       \&quot;&lt;b&gt;stages&lt;/b&gt;\&quot;: [\r\n        [\&quot;Organise Workshop 1\&quot;, \&quot;\&quot;, 2, \&quot;5,20\&quot;],\r\n        [\&quot;Workshop 1 - The Beginning\&quot;, \&quot;crit\&quot;, \&quot;5,20\&quot;, \&quot;5,21\&quot;],\r\n        [\&quot;Organise Workshop 2\&quot;,\t\&quot;\&quot;, 6, 9],\r\n        [\&quot;Workshop 2 - The Middle\&quot;, \&quot;crit, active\&quot;, 9, 10],\r\n        [\&quot;Organise Workshop 3 \u2013 Document available resources and development ideas\&quot;, \&quot;\&quot;, 10, 18],\r\n        [\&quot;Workshop 3 - The End\&quot;, \&quot;crit, active\&quot;, 18, 19]\r\n      ]},\r\n\t\t\t\r\n...\r\n\r\n    }\r\n  }\r\n&lt;/code&gt;&lt;/pre&gt;&lt;figcaption class=\&quot;figure-caption\&quot;&gt;The first few objects in the [JSON file|https://github.com/jpadfield/simple-site/blob/master/build/timeline.json] used to describe the example timeline.&lt;/figcaption&gt;\r\n&lt;/figure&gt;&quot;,
     &quot;content right&quot;: &quot;&quot;,
     &quot;copy&quot;: false,
     &quot;displaycode&quot;: true
 }</code></pre>
-		<figcaption class=\"figure-caption\">The complete JSON object used to define this content and layout of this page.</figcaption>
+		<figcaption class="figure-caption">The complete JSON object used to define this content and layout of this page.</figcaption>
 	</figure>		<h3>Extra extension file</h3>
 	<figure>
 		<pre class="json-renderer" style="overflow-y: auto;overflow-x: auto; border: 2px solid black;padding: 10px;max-height:400px;"><code>{
@@ -470,7 +448,7 @@ details[open] summary {
         }
     }
 }</code></pre>
-		<figcaption class=\"figure-caption\">The complete extension file used to define extra content included in this page.</figcaption>
+		<figcaption class="figure-caption">The complete extension file used to define extra content included in this page.</figcaption>
 	</figure>	
 	</details>
 						</div></div><!--/span--></div></div><!--/row-->    
