@@ -573,7 +573,9 @@ observer.observe(targetNode, config);
 			var jsonResult;
 			
 			try {jsonResult = JSON.parse(vtext);}
-			catch (e) {console.log("\""+vtext+"\" " + "is not valid JSON: "+e);};
+			catch (e) {
+				//console.log("\""+vtext+"\" " + "is not valid JSON: "+e);
+				};
 		
 			if (jsonResult) {$(value).jsonViewer(jsonResult);}
 			else
