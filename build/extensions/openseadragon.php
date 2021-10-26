@@ -30,6 +30,11 @@ function extensionopenseadragon ($d, $pd)
 				{$dets["list"] = array($d["file"]);}}		
 		else
 			{$dets = array();}
+			
+		if(isset($d["vheight"]) and  $d["vheight"])
+			{$vheight = intval($d["vheight"]);}
+		else
+			{$vheight = 400;}
 	
 		if (!$dets) // file did not return valid json
 			{
@@ -118,7 +123,7 @@ END;
 	
 	$pd["extra_css"] .= ".openseadragon
 {    
-    height:     400px;
+    height:     ${vheight}px;
     border:     1px solid black;
     color:      #333; /* text color for messages */
     background-color: $bgc;

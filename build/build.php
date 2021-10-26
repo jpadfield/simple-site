@@ -147,7 +147,9 @@ ob_start();
 			var jsonResult;
 			
 			try {jsonResult = JSON.parse(vtext);}
-			catch (e) {console.log("\""+vtext+"\" " + "is not valid JSON: "+e);};
+			catch (e) {
+				//console.log("\""+vtext+"\" " + "is not valid JSON: "+e);
+				};
 		
 			if (jsonResult) {\$(value).jsonViewer(jsonResult);}
 			else
@@ -220,7 +222,6 @@ function pagesCheck($pages)
 		 if (isset($a["displayName"]))
 			{$dpnames[$k] = trim($a["displayName"]);}}
 
-	//prg(1, array_keys($pages));
 	return($pages);
   }
 
@@ -481,8 +482,6 @@ $no++;
 function loopBreadcrumbs ($name, $arr=array())
 	{
 	global $pages;
-	
-	//prg(0, array ($name, $arr));
 	
 	$arr[] = $name;
 	
@@ -767,7 +766,7 @@ END;
 					"class" => "col-lg-6 col-md-6 col-sm-12  col-xs-12",
 					"content" => $d["content right"]);}
 
-	if (isset($menuFlatList[$name]) and $menuFlatList[$name])
+	if (isset($menuFlatList[$name]) and $menuFlatList[$name] and !isset($d["hideIncluded"]))
 		{$childrenHTML = buildChildLinks ($menuFlatList[$name]);
 		 $pd["grid"]["rows"][] = 
 			array(
@@ -1366,52 +1365,6 @@ END;
 	ob_end_clean(); // Don't send output to client
 
   return ($codeHTML);
-	}
-	
-function buildPagination ($link, $current, $max, $block=false)
-	{	
-	if ($current <= 1)
-		{$current = 1;
-		 $db = "disabled";
-		 $db2 = " aria-disabled=\"true\"";
-		 $previous = "";}
-	else
-		{$db = "";
-		 $db2 = "";
-		 $previous = "href=\"$link".($current - 1)."\"";}
-		
-	if ($block)
-		{$dn = "disabled";
-		 $dn2 = " aria-disabled=\"true\"";
-		 $next = "";}
-	else if ($current >= $max)
-		{$current = $max;
-		 $dn = "disabled";
-		 $dn2 = " aria-disabled=\"true\"";
-		 $next = "";}
-	else
-		{$dn = "";
-		 $dn2 = "";
-		 $next = "href=\"$link".($current + 1)."\"";}	
-	
-	ob_start();			
-	echo <<<END
-<nav aria-label="Navigate search pages">
-  <ul class="pagination pagination-sm" style="margin:5px 0px 0px 0px;">
-    <li class="page-item $db">
-      <a class="page-link" $previous tabindex="-1" $db2><i class="fas fa-angle-left"></i></a>
-    </li>
-    <li class="page-item disabled"><a class="page-link" aria-disabled="true"> $current/$max </a></li>
-    <li class="page-item $dn">
-      <a class="page-link" $next $dn2><i class="fas fa-angle-right"></i></a>
-    </li>
-  </ul>
-</nav>
-END;
-	$html = ob_get_contents();
-	ob_end_clean(); // Don't send output to client
-	
-	return($html);
 	}
 	
 function displayJSON ($str, $mh=400)

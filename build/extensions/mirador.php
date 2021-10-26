@@ -54,7 +54,8 @@ function extensionMirador ($d, $pd)
 
 	$pd["extra_css"] .= ".fixed-top {z-index:1111;}";
 	
-	$pd["extra_js_scripts"][] = "https://cdn.jsdelivr.net/npm/mirador@3.1.1/dist/mirador.min.js\" integrity=\"sha256-kgsl88ooIyFxWsB8GWBeWDt+qbAklTRuCD0rT7w14p0=\" crossorigin=\"anonymous";
+	$pd["extra_js_scripts"][] = "https://cdn.jsdelivr.net/npm/mirador@3.2.0/dist/mirador.min.js\" integrity=\"sha256-e11UQD1U7ifc8OK9X0rVMshTXSKl7MafRxi3PTwXDHs=\" crossorigin=\"anonymous";
+	
 
 	ob_start();			
 	echo <<<END
@@ -72,7 +73,7 @@ END;
 	$pd["extra_js"] .= ob_get_contents();
 	ob_end_clean(); // Don't send output to client
 
-	$d = positionExtraContent ($d, '<div class="row" style="padding-left:16px;padding-right:16px;"><div class="col-12 col-lg-12"><div style="height:500px;position:relative" id="mirador"></div></div></div>'.$codeHTML);
+	$d = positionExtraContent ($d, '<div class="row" style="padding-left:16px;padding-right:16px;"><div class="col-12 col-lg-12"><div style="height:500px;position:relative;min-width:324px;" id="mirador"></div></div></div>'.$codeHTML);
 
   return (array("d" => $d, "pd" => $pd));
   }
