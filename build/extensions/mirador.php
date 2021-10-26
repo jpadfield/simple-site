@@ -35,7 +35,12 @@ function extensionMirador ($d, $pd)
 					{$cats = "";}
       }
     else {				
-			$mans = json_encode($dets["manifests"]);			 
+			
+			if (isset($dets["manifests"]))
+			 {$mans = json_encode($dets["manifests"]);}
+			 
+			if (isset($dets["catalog"]))
+			 {$cats = '"catalog": '.json_encode($dets["catalog"]);}
 			 
 			if (isset($dets["workspace"]))
 			 {$workspace = "workspace: ".json_encode($dets["workspace"]);}			 
