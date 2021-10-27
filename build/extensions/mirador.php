@@ -40,7 +40,7 @@ function extensionMirador ($d, $pd)
 			 {$mans = json_encode($dets["manifests"]);}
 			 
 			if (isset($dets["catalog"]))
-			 {$cats = '"catalog": '.json_encode($dets["catalog"]);}
+			 {$cats = '"catalog": '.json_encode($dets["catalog"]).',';}
 			 
 			if (isset($dets["workspace"]))
 			 {$workspace = "workspace: ".json_encode($dets["workspace"]);}			 
@@ -48,8 +48,15 @@ function extensionMirador ($d, $pd)
 			if (isset($dets["windows"]))
 			 {$wo = json_encode($dets["windows"]);}
 			else
-			 {$manifestIds = array_keys($dets["manifests"]);
-				$manifestId = $manifestIds[0];				
+			 {
+				if (isset($dets["catalog"]) and $dets["catalog"])
+					{$fc = current($dets["catalog"]);
+					 $manifestId = $fc["manifestId"];}
+				else if (isset($dets["manifests"]) and $dets["manifests"])
+					{$manifestIds = array_keys($dets["manifests"]);
+					 $manifestId = $manifestIds[0];}
+				else
+					{$manifestId = false;}
 
 			  $wo = '[{
 					"manifestId": "'.$manifestId.'"
