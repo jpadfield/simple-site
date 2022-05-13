@@ -652,7 +652,7 @@ function writeTSPage ()
 	{
 	global $html_path;
 	
-	$ds = date("Y-m-d H:i:s");
+	$ds = date("Y-m-d H-i-s");
 	$myfile = fopen($html_path."${ds}.html", "w");
 	$html = "<h2>Last updated on: $ds</h2>";
 	fwrite($myfile, $html);
